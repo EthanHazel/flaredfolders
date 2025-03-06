@@ -22,19 +22,19 @@
         <label for="upload-icon">
           <input type="radio" name="icon" id="upload-icon">
           Upload Icon (SVG, PNG, etc.)
-          <input type="file" name="icon" id="file-icon" />
+          <input type="file" name="icon" id="file-icon" class="hidden" />
         </label>
         <label for="lucide-icon">
           <input type="radio" name="icon" id="lucide-icon" />
           Lucide Icon (General Icons)
-          <input type="text" name="lucide-slug" id="lucide-slug" placeholder="Icon slug" />
-          <a href="https://lucide.dev/icons/" target="_blank">Browse</a>
+          <input type="text" name="lucide-slug" id="lucide-slug" placeholder="Icon slug" class="hidden" />
+          <a href="https://lucide.dev/icons/" target="_blank" id="lucide-link" class="hidden">Browse</a>
         </label>
         <label for="simple-icon">
           <input type="radio" name="icon" id="simple-icon">
           Simple Icon (Brand Icons)
-          <input type="text" name="simple-slug" id="simple-slug" placeholder="Icon slug" />
-          <a href="https://simpleicons.org/" target="_blank">Browse</a>
+          <input type="text" name="simple-slug" id="simple-slug" placeholder="Icon slug" class="hidden" />
+          <a href="https://simpleicons.org/" target="_blank" id="simple-link" class="hidden">Browse</a>
         </label>
         <div class="icon-modal-buttons">
           <button onclick="cancelModal()">Cancel</button>
@@ -132,5 +132,5 @@
     </div>
   </body>
   <script src="js/icon-modal.js"></script>
-  <script src="js/master.js"></script>
+  <script src="js/draw.js"></script>
 </html>
