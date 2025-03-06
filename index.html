@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Flaired Folders</title>
+  </head>
+  <body>
+    <div class="icon-modal-container hidden">
+      <div class="icon-modal">
+        <div class="icon-modal-header">
+          <p>Icon</p>
+        </div>
+        <label for="no-icon">
+          <input type="radio" name="icon" id="no-icon" checked />
+          No Icon
+        </label>
+        <label for="upload-icon">
+          <input type="radio" name="icon" id="upload-icon">
+          Upload Icon (SVG, PNG, etc.)
+          <input type="file" name="icon" id="file-icon" />
+        </label>
+        <label for="lucide-icon">
+          <input type="radio" name="icon" id="lucide-icon" />
+          Lucide Icon (General Icons)
+          <input type="text" name="lucide-slug" id="lucide-slug" placeholder="Icon slug" />
+          <a href="https://lucide.dev/icons/" target="_blank">Browse</a>
+        </label>
+        <label for="simple-icon">
+          <input type="radio" name="icon" id="simple-icon">
+          Simple Icon (Brand Icons)
+          <input type="text" name="simple-slug" id="simple-slug" placeholder="Icon slug" />
+          <a href="https://simpleicons.org/" target="_blank">Browse</a>
+        </label>
+        <div class="icon-modal-buttons">
+          <button onclick="cancelModal()">Cancel</button>
+          <button onclick="saveModal()">Save</button>
+        </div>
+      </div>
+    </div>
+    <input type="file" name="icon" class="hidden" id="real-icon" />
+    <div class="controls">
+      <label
+        >Gradient
+        <input
+          type="color"
+          name="color-1"
+          id="folder-color-1"
+          value="#f3523a"
+        />
+        <input
+          type="color"
+          name="color-2"
+          id="folder-color-2"
+          value="#ff0000"
+        />
+      </label>
+      <label for="icon-open">
+      <input type="button" value="Set Icon" id="icon-open" onclick="openModal()" />
+      </label>
+      <label for="size"
+        >Icon Size
+        <input
+          type="range"
+          name="size"
+          id="icon-size"
+          min="1"
+          max="50"
+          value="50"
+        />
+      </label>
+      <label
+        >Icon Offset
+        <input type="number" name="x-offset" id="icon-x-offset" value="0" />
+        <input type="number" name="y-offset" id="icon-y-offset" value="0" />
+      </label>
+      <label for="icon-color">
+        Icon Color
+        <input
+          type="color"
+          name="icon-color"
+          id="icon-color"
+          value="#ffffff"
+        />
+      </label>
+      <label for="icon-opacity">Icon Opacity <input type="range" name="icon-opacity" id="icon-opacity" min="0" max="100" value="100"></label>
+    </div>
+    <div class="options">
+      <label for="icon-mask"
+        >
+        <input type="checkbox" name="icon-mask" id="icon-mask" checked />
+        Mask icon within folder
+      </label>
+      <label for="icon-shadow"
+        >
+        <input type="checkbox" name="icon-shadow" id="icon-shadow" checked />
+        Give icon dropshadow
+      </label>
+      <label for="icon-small">
+        <input
+          type="checkbox"
+          name="icon-small"
+          id="icon-small"
+        />
+        Display icon on small sizes
+      </label>
+    </div>
+    <div class="main">
+      <div class="folders">
+        <canvas id="16" width="16" height="16"></canvas>
+        <canvas id="24" width="24" height="24"></canvas>
+        <canvas id="32" width="32" height="32"></canvas>
+        <canvas id="64" width="64" height="64"></canvas>
+        <canvas id="72" width="72" height="72"></canvas>
+        <canvas id="96" width="96" height="96"></canvas>
+        <canvas id="128" width="128" height="128"></canvas>
+        <canvas id="256" width="256" height="256"></canvas>
+        <canvas id="512" width="512" height="512"></canvas>
+    </div>
+    <div class="buttons">
+      <div class="credits">
+        <p>Created by Ethan Hazel</p>
+      </div>
+      <div class="downloads">
+        <button id="download-ico">Download ICO</button>
+        <button id="download-png">Download PNG Files</button>
+      </div>
+    </div>
+  </body>
+  <script src="js/icon-modal.js"></script>
+  <script src="js/master.js"></script>
+</html>
