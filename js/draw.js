@@ -21,20 +21,30 @@ const ICON_SMALL = document.getElementById("icon-small");
 const ICON_COLOR = document.getElementById("icon-color");
 const ICON_OPACITY = document.getElementById("icon-opacity");
 
+const DOWNLOAD_NAME = document.getElementById("download-name");
 const DOWNLOAD_PNG = document.getElementById("download-png");
 const DOWNLOAD_ICO = document.getElementById("download-ico");
 
 // Helper function to load images with Promises
-function loadImage(src) {
+function loadImage(src, signal) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.crossOrigin = "anonymous"; // Add CORS attribute
     img.onload = () => resolve(img);
     img.onerror = reject;
     img.src = src;
+
     // Add cache busting for external URLs
     if (!src.startsWith("blob:")) {
       img.src = src + (src.includes("?") ? "&" : "?") + "cache=" + Date.now();
+    }
+
+    // Abort handling
+    if (signal) {
+      signal.addEventListener("abort", () => {
+        img.src = ""; // Cancel the image load
+        reject(new DOMException("Aborted", "AbortError"));
+      });
     }
   });
 }
@@ -50,9 +60,9 @@ const disabledHandler = () => {
   ICON_SMALL.disabled = currentMode == NO_ICON;
 };
 
-const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset) => {
+const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset, signal) => {
   try {
-    const icon = await loadImage(iconUrl).catch((error) => {
+    const icon = await loadImage(iconUrl, signal).catch((error) => {
       throw new Error(`Failed to load icon: ${error.message}`);
     });
 
@@ -61,11 +71,23 @@ const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset) => {
     tempCanvas.width = 512;
     tempCanvas.height = 512;
     const tempCtx = tempCanvas.getContext("2d");
+    const iconAspectRatio = icon.width / icon.height;
+
+    // Determine the correct dimensions for the icon
+    let width;
+    let height;
+    if (currentMode === UPLOAD_ICON && iconAspectRatio > 1) {
+      width = iconSize;
+      height = iconSize / iconAspectRatio;
+    } else {
+      width = iconSize;
+      height = iconSize;
+    }
 
     // Draw original icon onto temp canvas
-    const centerX = tempCanvas.width / 2 - iconSize / 2 + xOffset;
-    const centerY = tempCanvas.height / 2 - iconSize / 2 + yOffset;
-    tempCtx.drawImage(icon, centerX, centerY, iconSize, iconSize);
+    const centerX = tempCanvas.width / 2 - width / 2 + xOffset;
+    const centerY = tempCanvas.height / 2 - height / 2 + yOffset;
+    tempCtx.drawImage(icon, centerX, centerY, width, height);
 
     // Apply color if needed
     if (
@@ -112,23 +134,41 @@ const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset) => {
       ctx.globalAlpha = 1;
     }
   } catch (error) {
-    console.error("Icon drawing failed:", error);
-    // Fallback to default icon
-    const fallbackIcon = await loadImage("default-icon.png");
-    ctx.drawImage(fallbackIcon, 0, 0, size, size);
+    if (
+      error.name !== "AbortError" &&
+      error.message !== "Aborted" &&
+      error.message !== "Failed to load icon: Aborted"
+    ) {
+      console.error("Icon drawing failed:", error);
+      // Fallback to default icon
+      const fallbackIcon = await loadImage("default-icon.png", signal);
+      ctx.drawImage(fallbackIcon, 0, 0, size, size);
+    }
   }
 };
 
-const drawHighlight = async (ctx, size) => {
-  // Draw highlight image
-  const highlightImage = await loadImage(`png/${size}/highlight.png`);
-  ctx.globalCompositeOperation = "lighten";
-  ctx.globalAlpha = 0.3;
-  ctx.drawImage(highlightImage, 0, 0, size, size);
-  ctx.globalAlpha = 1;
+const drawHighlight = async (ctx, size, signal) => {
+  try {
+    // Draw highlight image
+    const highlightImage = await loadImage(`png/${size}/highlight.png`, signal);
+    ctx.globalCompositeOperation = "lighten";
+    ctx.globalAlpha = 0.3;
+    ctx.drawImage(highlightImage, 0, 0, size, size);
+    ctx.globalAlpha = 1;
+  } catch (error) {
+    if (error.name !== "AbortError") {
+      console.error("Highlight drawing failed:", error);
+    }
+  }
 };
 
+let abortController = new AbortController();
+
 const generateFolders = async () => {
+  // Abort any ongoing execution
+  abortController.abort();
+  abortController = new AbortController(); // Create a new AbortController for the current execution
+
   const color = [COLOR_1.value, COLOR_2.value];
 
   const drawImageOnCanvas = async (canvas, size) => {
@@ -145,13 +185,19 @@ const generateFolders = async () => {
     ctx.fillRect(0, 0, size, size);
 
     // Apply mask
-    const mask = await loadImage(`png/${size}/mask.png`);
+    const mask = await loadImage(
+      `png/${size}/mask.png`,
+      abortController.signal
+    );
     ctx.globalCompositeOperation = "destination-in";
     ctx.drawImage(mask, 0, 0, size, size);
     ctx.globalCompositeOperation = "source-over";
 
     // Draw base image
-    const baseImage = await loadImage(`png/${size}/base.png`);
+    const baseImage = await loadImage(
+      `png/${size}/base.png`,
+      abortController.signal
+    );
     ctx.globalCompositeOperation = "multiply";
     ctx.drawImage(baseImage, 0, 0, size, size);
 
@@ -175,39 +221,65 @@ const generateFolders = async () => {
         iconUrl,
         size,
         parseInt(ICON_X_OFFSET.value),
-        parseInt(ICON_Y_OFFSET.value)
+        parseInt(ICON_Y_OFFSET.value),
+        abortController.signal
       );
     }
     if (ICON_MASK.checked) {
-      const mask = await loadImage(`png/${size}/mask.png`);
+      const mask = await loadImage(
+        `png/${size}/mask.png`,
+        abortController.signal
+      );
       ctx.globalCompositeOperation = "destination-in";
       ctx.drawImage(mask, 0, 0, size, size);
     }
     // Draw highlight image
-    await drawHighlight(ctx, size);
+    await drawHighlight(ctx, size, abortController.signal);
   };
-  // Draw all canvases in parallel
-  await Promise.all([
-    drawImageOnCanvas(C512, 512),
-    drawImageOnCanvas(C256, 256),
-    drawImageOnCanvas(C128, 128),
-    drawImageOnCanvas(C96, 96),
-    drawImageOnCanvas(C72, 72),
-    drawImageOnCanvas(C64, 64),
-    drawImageOnCanvas(C32, 32),
-    drawImageOnCanvas(C24, 24),
-    drawImageOnCanvas(C16, 16),
-  ]);
+
+  try {
+    // Draw all canvases in parallel
+    await Promise.all([
+      drawImageOnCanvas(C512, 512),
+      drawImageOnCanvas(C256, 256),
+      drawImageOnCanvas(C128, 128),
+      drawImageOnCanvas(C96, 96),
+      drawImageOnCanvas(C72, 72),
+      drawImageOnCanvas(C64, 64),
+      drawImageOnCanvas(C32, 32),
+      drawImageOnCanvas(C24, 24),
+      drawImageOnCanvas(C16, 16),
+    ]);
+  } catch (error) {
+    if (error.name === "AbortError" && error.message === "Aborted") {
+      console.log("Folder generation was aborted.");
+    } else {
+      console.error("Error generating folders:", error);
+    }
+  }
 };
 
-const downloadPng = () => {
+const downloadPng = async () => {
   const pngs = [C512, C256, C128, C96, C72, C64, C32, C24, C16];
+  const zip = new JSZip();
+  const zipFilename = `${DOWNLOAD_NAME.value}.zip`;
+
+  // Add all PNGs to the ZIP
   pngs.forEach((canvas) => {
-    const link = document.createElement("a");
-    link.download = `${canvas.id}.png`;
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+    const dataURL = canvas.toDataURL("image/png");
+    const base64Data = dataURL.split(",")[1];
+    zip.file(`${DOWNLOAD_NAME.value}-${canvas.id}.png`, base64Data, {
+      base64: true,
+    });
   });
+
+  // Generate ZIP and trigger download
+  const content = await zip.generateAsync({ type: "blob" });
+  const link = document.createElement("a");
+  link.download = zipFilename;
+  link.href = URL.createObjectURL(content);
+  link.click();
+  URL.revokeObjectURL(link.href); // Clean up
 };
 
 const downloadIco = async () => {
@@ -282,7 +354,7 @@ const downloadIco = async () => {
     // Create and cleanup download link
     const blob = new Blob([finalBuffer], { type: "image/x-icon" });
     const link = document.createElement("a");
-    link.download = "folders.ico";
+    link.download = DOWNLOAD_NAME.value + ".ico";
     link.href = URL.createObjectURL(blob);
 
     // Use hidden link and proper cleanup
