@@ -28,9 +28,14 @@ const DOWNLOAD_ICO = document.getElementById("download-ico");
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
+    img.crossOrigin = "anonymous"; // Add CORS attribute
     img.onload = () => resolve(img);
     img.onerror = reject;
     img.src = src;
+    // Add cache busting for external URLs
+    if (!src.startsWith("blob:")) {
+      img.src = src + (src.includes("?") ? "&" : "?") + "cache=" + Date.now();
+    }
   });
 }
 
@@ -46,62 +51,71 @@ const disabledHandler = () => {
 };
 
 const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset) => {
-  const icon = await loadImage(iconUrl);
+  try {
+    const icon = await loadImage(iconUrl).catch((error) => {
+      throw new Error(`Failed to load icon: ${error.message}`);
+    });
 
-  const iconSize = Math.ceil(512 * (ICON_SIZE.value / 50));
-  const tempCanvas = document.createElement("canvas");
-  tempCanvas.width = 512;
-  tempCanvas.height = 512;
-  const tempCtx = tempCanvas.getContext("2d");
+    const iconSize = Math.ceil(512 * (ICON_SIZE.value / 50));
+    const tempCanvas = document.createElement("canvas");
+    tempCanvas.width = 512;
+    tempCanvas.height = 512;
+    const tempCtx = tempCanvas.getContext("2d");
 
-  // Draw original icon onto temp canvas
-  const centerX = tempCanvas.width / 2 - iconSize / 2 + xOffset;
-  const centerY = tempCanvas.height / 2 - iconSize / 2 + yOffset;
-  tempCtx.drawImage(icon, centerX, centerY, iconSize, iconSize);
+    // Draw original icon onto temp canvas
+    const centerX = tempCanvas.width / 2 - iconSize / 2 + xOffset;
+    const centerY = tempCanvas.height / 2 - iconSize / 2 + yOffset;
+    tempCtx.drawImage(icon, centerX, centerY, iconSize, iconSize);
 
-  // Apply color if needed
-  if (
-    (currentMode === SIMPLE_ICON || currentMode === LUCIDE_ICON) &&
-    ICON_COLOR.value
-  ) {
-    tempCtx.globalCompositeOperation = "source-in";
-    tempCtx.fillStyle = `${ICON_COLOR.value}`;
-    tempCtx.fillRect(0, 0, 512, 512);
-    tempCtx.globalCompositeOperation = "source-over";
-  }
+    // Apply color if needed
+    if (
+      (currentMode === SIMPLE_ICON || currentMode === LUCIDE_ICON) &&
+      ICON_COLOR.value
+    ) {
+      tempCtx.globalCompositeOperation = "source-in";
+      tempCtx.fillStyle = `${ICON_COLOR.value}`;
+      tempCtx.fillRect(0, 0, 512, 512);
+      tempCtx.globalCompositeOperation = "source-over";
+    }
 
-  // Apply icon opacity
-  if (ICON_OPACITY.value !== "100") {
-    ctx.globalAlpha = parseInt(ICON_OPACITY.value, 10) / 100;
-  }
+    // Apply icon opacity
+    if (ICON_OPACITY.value !== "100") {
+      ctx.globalAlpha = parseInt(ICON_OPACITY.value, 10) / 100;
+    }
 
-  ctx.globalCompositeOperation = "source-over";
-  ctx.drawImage(tempCanvas, 0, 0, size, size);
-
-  // Draw shadow as separate layer if enabled
-  if (ICON_SHADOW.checked) {
-    // Save current context state
-    const prevShadowColor = ctx.shadowColor;
-    const prevShadowBlur = ctx.shadowBlur;
-
-    // Apply shadow settings
-    ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-    ctx.shadowBlur = 3 * (size / 100);
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-
-    // Draw shadow layer
     ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(tempCanvas, 0, 0, size, size);
 
-    // Restore original context state
-    ctx.shadowColor = prevShadowColor;
-    ctx.shadowBlur = prevShadowBlur;
-  }
+    // Draw shadow as separate layer if enabled
+    if (ICON_SHADOW.checked) {
+      // Save current context state
+      const prevShadowColor = ctx.shadowColor;
+      const prevShadowBlur = ctx.shadowBlur;
 
-  // Restore original alpha value
-  if (ICON_OPACITY.value !== "100") {
-    ctx.globalAlpha = 1;
+      // Apply shadow settings
+      ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+      ctx.shadowBlur = 3 * (size / 100);
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+
+      // Draw shadow layer
+      ctx.globalCompositeOperation = "source-over";
+      ctx.drawImage(tempCanvas, 0, 0, size, size);
+
+      // Restore original context state
+      ctx.shadowColor = prevShadowColor;
+      ctx.shadowBlur = prevShadowBlur;
+    }
+
+    // Restore original alpha value
+    if (ICON_OPACITY.value !== "100") {
+      ctx.globalAlpha = 1;
+    }
+  } catch (error) {
+    console.error("Icon drawing failed:", error);
+    // Fallback to default icon
+    const fallbackIcon = await loadImage("default-icon.png");
+    ctx.drawImage(fallbackIcon, 0, 0, size, size);
   }
 };
 
@@ -163,11 +177,6 @@ const generateFolders = async () => {
         parseInt(ICON_X_OFFSET.value),
         parseInt(ICON_Y_OFFSET.value)
       );
-
-      // Cleanup uploaded icons
-      if (currentMode === UPLOAD_ICON) {
-        URL.revokeObjectURL(iconUrl);
-      }
     }
     if (ICON_MASK.checked) {
       const mask = await loadImage(`png/${size}/mask.png`);
@@ -177,7 +186,6 @@ const generateFolders = async () => {
     // Draw highlight image
     await drawHighlight(ctx, size);
   };
-
   // Draw all canvases in parallel
   await Promise.all([
     drawImageOnCanvas(C512, 512),
@@ -206,7 +214,7 @@ const downloadIco = async () => {
   try {
     const canvases = [C512, C256, C128, C96, C72, C64, C32, C24, C16];
 
-    // Convert all canvases to PNG buffers with dimensions
+    // Convert all canvases to PNG buffers
     const images = await Promise.all(
       canvases.map(async (canvas) => {
         const blob = await new Promise((resolve) =>
@@ -221,54 +229,71 @@ const downloadIco = async () => {
       })
     );
 
-    // Create ICO header structure
-    const header = new ArrayBuffer(6);
-    const headerView = new DataView(header);
-    headerView.setUint16(0, 0, true); // Reserved
-    headerView.setUint16(2, 1, true); // ICO type
-    headerView.setUint16(4, images.length, true); // Number of images
-
-    // Create directory entries
-    let offset = 6 + images.length * 16;
-    const directories = images.map((img) => {
-      const entry = new ArrayBuffer(16);
-      const view = new DataView(entry);
-      view.setUint8(0, img.width); // Width
-      view.setUint8(1, img.height); // Height
-      view.setUint8(2, 0); // Color palette
-      view.setUint8(3, 0); // Reserved
-      view.setUint16(4, 1, true); // Color planes
-      view.setUint16(6, 32, true); // Bits per pixel
-      view.setUint32(8, img.data.length, true); // PNG data size
-      view.setUint32(12, offset, true); // Data offset
-      offset += img.data.length;
-      return new Uint8Array(entry);
-    });
-
-    // Combine all parts into single buffer
-    const parts = [
-      new Uint8Array(header),
-      ...directories,
-      ...images.map((img) => img.data),
-    ];
-
-    const finalBuffer = new Uint8Array(
-      parts.reduce((acc, part) => acc + part.length, 0)
+    // Calculate buffer sizes
+    const headerSize = 6;
+    const directoryEntrySize = 16;
+    const directoriesSize = images.length * directoryEntrySize;
+    const totalImageSize = images.reduce(
+      (sum, img) => sum + img.data.length,
+      0
     );
+    const totalSize = headerSize + directoriesSize + totalImageSize;
 
-    let position = 0;
-    parts.forEach((part) => {
-      finalBuffer.set(part, position);
-      position += part.length;
+    // Create final buffer
+    const finalBuffer = new Uint8Array(totalSize);
+
+    // Write ICO header
+    const header = new DataView(new ArrayBuffer(headerSize));
+    header.setUint16(0, 0, true); // Reserved
+    header.setUint16(2, 1, true); // Image type (ICO)
+    header.setUint16(4, images.length, true); // Number of images
+    finalBuffer.set(new Uint8Array(header.buffer), 0);
+
+    // Write directory entries and calculate offsets
+    let dataOffset = headerSize + directoriesSize;
+    const dataOffsets = [];
+    images.forEach((img, index) => {
+      const entry = new DataView(new ArrayBuffer(directoryEntrySize));
+      entry.setUint8(0, img.width); // Width
+      entry.setUint8(1, img.height); // Height
+      entry.setUint8(2, 0); // Color palette
+      entry.setUint8(3, 0); // Reserved
+      entry.setUint16(4, 1, true); // Color planes
+      entry.setUint16(6, 32, true); // Bits per pixel
+      entry.setUint32(8, img.data.length, true); // Data size
+      entry.setUint32(12, dataOffset, true); // Data offset
+
+      // Write directory entry to final buffer
+      finalBuffer.set(
+        new Uint8Array(entry.buffer),
+        headerSize + index * directoryEntrySize
+      );
+
+      dataOffsets.push(dataOffset);
+      dataOffset += img.data.length;
     });
 
-    // Create download
+    // Write image data and clear references
+    images.forEach((img, index) => {
+      finalBuffer.set(img.data, dataOffsets[index]);
+      img.data = null; // Release reference to image data
+    });
+
+    // Create and cleanup download link
     const blob = new Blob([finalBuffer], { type: "image/x-icon" });
     const link = document.createElement("a");
     link.download = "folders.ico";
     link.href = URL.createObjectURL(blob);
+
+    // Use hidden link and proper cleanup
+    link.style.display = "none";
+    document.body.appendChild(link);
     link.click();
-    URL.revokeObjectURL(link.href);
+
+    setTimeout(() => {
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    }, 100);
   } catch (error) {
     console.error("ICO creation failed:", error);
     alert("Error generating ICO file - check console for details");
