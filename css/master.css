@@ -140,6 +140,7 @@ canvas {
   background-color: #2c353880;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .icon-modal {
@@ -185,6 +186,15 @@ canvas {
   width: calc(100% - 32px);
   padding: 16px;
   border-top: 1px solid var(--accent);
+}
+
+#icon-modal-loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--middle);
+  margin-right: 16px;
 }
 
 .color-input {

@@ -1,5 +1,6 @@
 const MODAL_CONTAINER = document.querySelector(".icon-modal-container");
 const MODAL = document.querySelector(".icon-modal");
+const MODAL_LOADING = document.getElementById("icon-modal-loading");
 const ICON_UPLOAD = document.getElementById("file-icon");
 const REAL_ICON = document.getElementById("real-icon");
 
@@ -119,7 +120,10 @@ const openModal = () => {
   return;
 };
 
-const closeModal = () => MODAL_CONTAINER.classList.add("hidden");
+const closeModal = () => {
+  MODAL_CONTAINER.classList.add("hidden");
+  MODAL_LOADING.classList.add("hidden");
+};
 
 const cancelModal = () => {
   currentMode = prevMode;
@@ -130,6 +134,7 @@ const cancelModal = () => {
 };
 
 const saveModal = async () => {
+  MODAL_LOADING.classList.remove("hidden");
   currentMode = Array.from(ICON_RADIOS).findIndex((radio) => radio.checked);
   if (currentMode == UPLOAD_ICON) {
     REAL_ICON.files = ICON_UPLOAD.files;
@@ -139,6 +144,7 @@ const saveModal = async () => {
     if (slugCheck == false) {
       alert("Invalid Simple slug!");
       SIMPLE_SLUG.value = prevSimpleSlug;
+      MODAL_LOADING.classList.add("hidden");
       return;
     }
     currentSimpleSlug = SIMPLE_SLUG.value;
@@ -149,6 +155,7 @@ const saveModal = async () => {
     if (slugCheck == false) {
       alert("Invalid Lucide slug!");
       LUCIDE_SLUG.value = prevLucideSlug;
+      MODAL_LOADING.classList.add("hidden");
       return;
     }
     currentLucideSlug = LUCIDE_SLUG.value;
