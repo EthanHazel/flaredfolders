@@ -46,14 +46,16 @@ function loadImage(src, signal) {
 
 const disabledHandler = () => {
   ICON_COLOR.disabled = currentMode == UPLOAD_ICON || currentMode == NO_ICON;
-  ICON_OPACITY.disabled = currentMode == NO_ICON;
-  ICON_SIZE.disabled = currentMode == NO_ICON;
-  ICON_X_OFFSET.disabled = currentMode == NO_ICON;
-  ICON_Y_OFFSET.disabled = currentMode == NO_ICON;
-  ICON_MASK.disabled = currentMode == NO_ICON;
-  ICON_SHADOW.disabled = currentMode == NO_ICON;
-  ICON_SMALL.disabled = currentMode == NO_ICON;
-  document.getElementById("settings").disabled = currentMode == NO_ICON;
+  [
+    ICON_OPACITY,
+    ICON_SIZE,
+    ICON_X_OFFSET,
+    ICON_Y_OFFSET,
+    ICON_MASK,
+    ICON_SHADOW,
+    ICON_SMALL,
+    document.getElementById("settings"),
+  ].forEach((el) => (el.disabled = currentMode == NO_ICON));
 };
 
 const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset, signal) => {

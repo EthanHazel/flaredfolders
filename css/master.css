@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #f3f3f3;
-  --secondary-color: #dfdae5;
-  --accent-color: #a7a1b2;
-  --tertiary-color: #312c38;
-  --brand-color: #766fd8;
+  --background: #f3f3f3;
+  --accent: #dfdae5;
+  --middle: #a7a1b2;
+  --primary: #312c38;
+  --special: #766fd8;
 }
 
 * {
@@ -71,7 +71,7 @@ canvas {
   gap: 16px;
   width: calc(100% - 64px);
   padding: 32px;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--accent);
 }
 
 .controls input {
@@ -85,7 +85,7 @@ canvas {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--secondary-color);
+  border-top: 1px solid var(--accent);
   width: calc(100% - 64px);
   padding: 32px;
 }
@@ -106,7 +106,7 @@ canvas {
   gap: 16px;
   width: fit-content;
   padding: 32px;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--accent);
   background-color: white;
   border-radius: 8px;
   position: fixed;
@@ -126,7 +126,7 @@ canvas {
 .label {
   font-size: 12px;
   font-weight: 500;
-  color: var(--accent-color);
+  color: var(--middle);
   margin-top: 16px;
 }
 
@@ -166,7 +166,7 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--accent);
   width: calc(100% - 32px);
   padding: 16px;
 }
@@ -184,7 +184,7 @@ canvas {
   gap: 8px;
   width: calc(100% - 32px);
   padding: 16px;
-  border-top: 1px solid var(--secondary-color);
+  border-top: 1px solid var(--accent);
 }
 
 .color-input {
@@ -193,8 +193,8 @@ canvas {
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid var(--primary-color);
-  outline: 2px solid var(--secondary-color);
+  border: 2px solid var(--background);
+  outline: 2px solid var(--accent);
   margin: 0 8px;
 }
 
@@ -206,7 +206,7 @@ input[type="text"],
 input[type="number"] {
   padding: 12px 16px;
   border-radius: 8px;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--accent);
   font-weight: 500;
   transition: border 0.05s ease-in-out, outline 0.05s ease-in-out,
     box-shadow 0.05s ease-in-out;
@@ -219,14 +219,14 @@ input[type="number"] {
 
 input[type="text"]:hover,
 input[type="number"]:hover {
-  border: 1px solid var(--brand-color);
+  border: 1px solid var(--special);
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
-  border: 1px solid var(--secondary-color);
-  outline: 3px solid var(--brand-color);
-  box-shadow: 0 0 10px 3px var(--brand-color);
+  border: 1px solid var(--accent);
+  outline: 3px solid var(--special);
+  box-shadow: 0 0 10px 3px var(--special);
 }
 
 input[type="button"]:not(#settings, #icon-open),
@@ -236,7 +236,7 @@ input::file-selector-button {
   padding: 12px 16px;
   border-radius: 8px;
   border: 0;
-  background-color: var(--tertiary-color);
+  background-color: var(--primary);
   color: #fff;
   font-weight: 500;
   cursor: pointer;
@@ -246,27 +246,27 @@ input::file-selector-button {
 input[type="button"]:not(#settings, #icon-open):disabled,
 button:not(#settings, #icon-open):disabled,
 input::file-selector-button {
-  background-color: var(--secondary-color);
+  background-color: var(--accent);
   cursor: not-allowed;
 }
 
 input[type="button"]:not(#settings, #icon-open).secondary-button,
 button:not(#settings, #icon-open).secondary-button,
 input::file-selector-button {
-  background-color: var(--secondary-color);
-  color: var(--tertiary-color);
+  background-color: var(--accent);
+  color: var(--primary);
 }
 
 input[type="button"]:not(#settings, #icon-open):hover,
 button:not(#settings, #icon-open):hover,
 input::file-selector-button:hover {
-  background-color: var(--accent-color);
+  background-color: var(--middle);
 }
 
 input[type="button"]:not(#settings, #icon-open):active,
 button:not(#settings, #icon-open):active,
 input::file-selector-button:active {
-  background-color: var(--secondary-color);
+  background-color: var(--accent);
 }
 
 #settings,
@@ -286,12 +286,12 @@ input::file-selector-button:active {
 #settings:hover,
 #icon-open:hover {
   cursor: pointer;
-  background-color: var(--secondary-color);
+  background-color: var(--accent);
 }
 
 #settings:active,
 #icon-open:active {
-  background-color: var(--accent-color);
+  background-color: var(--middle);
 }
 
 #settings:disabled {
@@ -305,7 +305,7 @@ input::file-selector-button:active {
   gap: 16px;
   align-items: center;
   width: fit-content;
-  outline: 1px solid var(--secondary-color);
+  outline: 1px solid var(--accent);
   border-radius: 8px;
   padding: 8px 16px 8px 8px;
   background-color: white;
@@ -344,7 +344,7 @@ input::file-selector-button:active {
 }
 
 #firefox-warning {
-  color: var(--accent-color);
+  color: var(--middle);
   padding: 12px 0;
 }
 

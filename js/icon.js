@@ -55,33 +55,23 @@ const fetchCache = async (url) => {
   image.src = URL.createObjectURL(blob);
   return promise;
 };
-
 const updateInputs = () => {
-  // TODO: Please make this not look like a mess in the future
+  const hidden = (el) => el.classList.add("hidden");
+  const show = (el) => el.classList.remove("hidden");
+
   if (ICON_RADIOS[UPLOAD_ICON].checked) {
-    LUCIDE_SLUG.classList.add("hidden");
-    SIMPLE_SLUG.classList.add("hidden");
-    LUCIDE_LINK.classList.add("hidden");
-    SIMPLE_LINK.classList.add("hidden");
-    ICON_UPLOAD.classList.remove("hidden");
+    [LUCIDE_SLUG, SIMPLE_SLUG, LUCIDE_LINK, SIMPLE_LINK].forEach(hidden);
+    show(ICON_UPLOAD);
   } else if (ICON_RADIOS[LUCIDE_ICON].checked) {
-    LUCIDE_SLUG.classList.remove("hidden");
-    SIMPLE_SLUG.classList.add("hidden");
-    LUCIDE_LINK.classList.remove("hidden");
-    SIMPLE_LINK.classList.add("hidden");
-    ICON_UPLOAD.classList.add("hidden");
+    [SIMPLE_SLUG, SIMPLE_LINK, ICON_UPLOAD].forEach(hidden);
+    [LUCIDE_SLUG, LUCIDE_LINK].forEach(show);
   } else if (ICON_RADIOS[SIMPLE_ICON].checked) {
-    LUCIDE_SLUG.classList.add("hidden");
-    SIMPLE_SLUG.classList.remove("hidden");
-    LUCIDE_LINK.classList.add("hidden");
-    SIMPLE_LINK.classList.remove("hidden");
-    ICON_UPLOAD.classList.add("hidden");
+    [LUCIDE_SLUG, LUCIDE_LINK, ICON_UPLOAD].forEach(hidden);
+    [SIMPLE_SLUG, SIMPLE_LINK].forEach(show);
   } else {
-    LUCIDE_SLUG.classList.add("hidden");
-    SIMPLE_SLUG.classList.add("hidden");
-    LUCIDE_LINK.classList.add("hidden");
-    SIMPLE_LINK.classList.add("hidden");
-    ICON_UPLOAD.classList.add("hidden");
+    [LUCIDE_SLUG, SIMPLE_SLUG, LUCIDE_LINK, SIMPLE_LINK, ICON_UPLOAD].forEach(
+      hidden
+    );
   }
 };
 
