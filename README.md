@@ -18,4 +18,4 @@ Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to
 
 This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
 
-Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.app)
+**Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.app)**
