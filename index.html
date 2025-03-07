@@ -17,6 +17,7 @@
   </head>
   <body>
     <div id="low-aspect">
+      <img src="/assets/favicon/favicon-96x96.png" alt="logo">
       <h1>Flaired Folders</h1>
       <p>An open source Windows 11 style folder generator</p>
       <p>Created by <a href="https://github.com/EthanHazel" target="_blank">Ethan Hazel</a> and can be found on <a href="https://github.com/EthanHazel/FlairedFolders" target="_blank">GitHub</p></a>
@@ -162,6 +163,9 @@
           <canvas id="256" width="256" height="256"></canvas>
           <canvas id="512" width="512" height="512"></canvas>
       </div>
+      <marquee id="firefox-warning" class="hidden">
+        Hey Firefox user! This tool currently has a bug on Firefox where shrunk folders will have bad scaling, consider using any Chrome based browser for best results (sorry for the inconvenience, I like Firefox more than Chrome too, but it currently doesn't support the canvas scaling feature needed as of now).
+      </marquee>
       <div class="buttons">
         <a class="credits" href="https://github.com/ethanhazel" target="_blank">
           <img src="assets/personal-logo.svg" alt="logo">
@@ -177,4 +181,10 @@
   <script src="js/icon.js"></script>
   <script src="js/draw.js"></script>
   <script src="js/inputs.js"></script>
+  <script>
+    // detect if it's on Firefox using user agent
+    const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+
+    if (isFirefox) document.getElementById("firefox-warning").classList.remove("hidden");
+  </script>
 </html>

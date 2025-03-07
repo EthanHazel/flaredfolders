@@ -343,6 +343,11 @@ input::file-selector-button:active {
   opacity: 0 !important;
 }
 
+#firefox-warning {
+  color: var(--accent-color);
+  padding: 12px 0;
+}
+
 @media screen and (max-width: 1000px) {
   #main {
     display: none;
