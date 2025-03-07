@@ -53,6 +53,7 @@ const disabledHandler = () => {
   ICON_MASK.disabled = currentMode == NO_ICON;
   ICON_SHADOW.disabled = currentMode == NO_ICON;
   ICON_SMALL.disabled = currentMode == NO_ICON;
+  document.getElementById("settings").disabled = currentMode == NO_ICON;
 };
 
 const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset, signal) => {

@@ -11,6 +11,8 @@ const SIMPLE_LINK = document.getElementById("simple-link");
 
 const ICON_RADIOS = document.querySelectorAll('input[name="icon"]');
 
+const ICON_BUTTON = document.getElementById("icon-open");
+
 const NO_ICON = 0;
 const UPLOAD_ICON = 1;
 const LUCIDE_ICON = 3;
@@ -81,6 +83,11 @@ const updateInputs = () => {
     SIMPLE_LINK.classList.add("hidden");
     ICON_UPLOAD.classList.add("hidden");
   }
+};
+
+const updateIconButton = () => {
+  ICON_BUTTON.firstChild.src = currentIcon;
+  ICON_BUTTON.classList.remove("no-icon");
 };
 
 const fetchSimpleIcon = async (slug) => {
@@ -157,6 +164,7 @@ const saveModal = async () => {
     currentLucideSlug = LUCIDE_SLUG.value;
     currentLucideImage = fetchLucideIcon(currentLucideSlug);
   }
+  updateIconButton();
   closeModal();
   generateFolders();
   disabledHandler();
