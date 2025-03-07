@@ -148,7 +148,10 @@ const drawIcon = async (ctx, iconUrl, size, xOffset, yOffset, signal) => {
 const drawHighlight = async (ctx, size, signal) => {
   try {
     // Draw highlight image
-    const highlightImage = await loadImage(`png/${size}/highlight.png`, signal);
+    const highlightImage = await loadImage(
+      `folders/${size}/highlight.png`,
+      signal
+    );
     ctx.globalCompositeOperation = "lighten";
     ctx.globalAlpha = 0.3;
     ctx.drawImage(highlightImage, 0, 0, size, size);
@@ -186,7 +189,7 @@ const generateFolders = async () => {
 
     // Apply mask
     const mask = await loadImage(
-      `png/${size}/mask.png`,
+      `folders/${size}/mask.png`,
       abortController.signal
     );
     ctx.globalCompositeOperation = "destination-in";
@@ -195,7 +198,7 @@ const generateFolders = async () => {
 
     // Draw base image
     const baseImage = await loadImage(
-      `png/${size}/base.png`,
+      `folders/${size}/base.png`,
       abortController.signal
     );
     ctx.globalCompositeOperation = "multiply";
@@ -227,7 +230,7 @@ const generateFolders = async () => {
     }
     if (ICON_MASK.checked) {
       const mask = await loadImage(
-        `png/${size}/mask.png`,
+        `folders/${size}/mask.png`,
         abortController.signal
       );
       ctx.globalCompositeOperation = "destination-in";
