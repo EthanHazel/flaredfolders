@@ -1,6 +1,6 @@
 # Flaired Folders
 
-> <img src="https://flaired-folders.vercel.app/assets/favicon/favicon-96x96.png" align="right" />
+> <img src="https://flaired-folders.vercel.app/assets/favicon/96x.png" align="right" />
 > Easy-to-use Windows 11 Custom Folder Maker
 
 Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to minimize bloat.

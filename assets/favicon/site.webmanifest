@@ -3,13 +3,13 @@
   "short_name": "Flaired Folders",
   "icons": [
     {
-      "src": "/assets/favicon/web-app-manifest-192x192.png",
+      "src": "/assets/favicon/192x.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/favicon/web-app-manifest-512x512.png",
+      "src": "/assets/favicon/512x.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
