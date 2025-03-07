@@ -1,4 +1,4 @@
-![Logo](https://flaired-folders.vercel.app/assets/favicon/favicon-96x96.png)
+![Logo](https://flaired-folders.vercel.app/assets/favicon/favicon-96x96.png){: style="float:right"}
 
 # Flaired Folders
 
