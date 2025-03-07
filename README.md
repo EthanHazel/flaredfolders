@@ -2,12 +2,6 @@
 
 This project is currently WIP
 
-## Current Bugs
-
-| Action                      | Causes                                                           | Desired Output    |
-| --------------------------- | ---------------------------------------------------------------- | ----------------- |
-| Generating folders too fast | Bugged folders rendered with differing colors and multiple icons | Normal generation |
-
 ## Todo
 
 - Add firefox alert about the bad scaling

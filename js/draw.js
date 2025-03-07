@@ -172,6 +172,8 @@ const generateFolders = async () => {
   const color = [COLOR_1.value, COLOR_2.value];
 
   const drawImageOnCanvas = async (canvas, size) => {
+    canvas.classList.remove("fade-in");
+    canvas.classList.add("no-opacity");
     const ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
@@ -235,6 +237,10 @@ const generateFolders = async () => {
     }
     // Draw highlight image
     await drawHighlight(ctx, size, abortController.signal);
+
+    // Give fade in animation to the canvas
+    canvas.classList.add("fade-in");
+    canvas.classList.remove("no-opacity");
   };
 
   try {

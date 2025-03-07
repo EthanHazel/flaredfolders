@@ -29,6 +29,7 @@ let currentSimpleImage = null;
 let currentLucideImage = null;
 
 const updateInputs = () => {
+  // TODO: Please make this not look like a mess in the future
   if (ICON_RADIOS[UPLOAD_ICON].checked) {
     LUCIDE_SLUG.classList.add("hidden");
     SIMPLE_SLUG.classList.add("hidden");
