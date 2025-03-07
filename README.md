@@ -1,8 +1,8 @@
-# Flaired Folders [
+> <img src="https://flaired-folders.vercel.app/assets/favicon/favicon-96x96.png" align="right" />
+
+# Flaired Folders
 
 > Easy-to-use Windows 11 Custom Folder Maker
-> <img src="https://flaired-folders.vercel.app/assets/favicon/favicon-96x96.png" align="right" />
-> ]
 
 ### Live at: [flaired-folders.vercel.app](https://flaired-folders.vercel.app)
 
