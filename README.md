@@ -10,7 +10,7 @@ Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![GPL-3.0](https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Netscan](https://madsenworld.dk/anigif/browsers/netscani.gif)
+![Netscan](https://flaired-folders.vercel.app/assets/netscani.gif)
 
 ## Features
 
