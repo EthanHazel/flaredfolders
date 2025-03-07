@@ -5,8 +5,6 @@
 
 Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to minimize bloat.
 
-Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.app)
-
 ## Features
 
 - Give custom gradient background
@@ -17,3 +15,5 @@ Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.ap
 - Support 16x16 to 512x512 to match native folder scaling
 
 This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
+
+Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.app)
