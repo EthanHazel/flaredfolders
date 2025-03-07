@@ -34,11 +34,6 @@ function loadImage(src, signal) {
     img.onerror = reject;
     img.src = src;
 
-    // Add cache busting for external URLs
-    if (!src.startsWith("blob:")) {
-      img.src = src + (src.includes("?") ? "&" : "?") + "cache=" + Date.now();
-    }
-
     // Abort handling
     if (signal) {
       signal.addEventListener("abort", () => {
@@ -246,15 +241,9 @@ const generateFolders = async () => {
   try {
     // Draw all canvases in parallel
     await Promise.all([
-      drawImageOnCanvas(C512, 512),
-      drawImageOnCanvas(C256, 256),
-      drawImageOnCanvas(C128, 128),
-      drawImageOnCanvas(C96, 96),
-      drawImageOnCanvas(C72, 72),
-      drawImageOnCanvas(C64, 64),
-      drawImageOnCanvas(C32, 32),
-      drawImageOnCanvas(C24, 24),
-      drawImageOnCanvas(C16, 16),
+      [512, 256, 128, 96, 72, 64, 32, 24, 16].map((size) =>
+        drawImageOnCanvas(eval(`C${size}`), size)
+      ),
     ]);
   } catch (error) {
     if (error.name === "AbortError" && error.message === "Aborted") {

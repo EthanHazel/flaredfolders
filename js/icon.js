@@ -16,6 +16,9 @@ const UPLOAD_ICON = 1;
 const LUCIDE_ICON = 3;
 const SIMPLE_ICON = 4;
 
+let currentIcon = null;
+let currentUrl = null;
+
 let currentMode = NO_ICON;
 let prevMode = NO_ICON;
 
@@ -27,6 +30,29 @@ let currentSimpleSlug = null;
 
 let currentSimpleImage = null;
 let currentLucideImage = null;
+
+const fetchCache = async (url) => {
+  if (url === currentUrl) {
+    return currentIcon;
+  }
+
+  const response = await fetch(url);
+  const blob = await response.blob();
+  const image = new Image();
+  const promise = new Promise((resolve) => {
+    image.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(image, 0, 0, 512, 512);
+      const dataURL = canvas.toDataURL("image/svg+xml");
+      resolve(dataURL);
+    };
+  });
+  image.src = URL.createObjectURL(blob);
+  return promise;
+};
 
 const updateInputs = () => {
   // TODO: Please make this not look like a mess in the future
@@ -58,7 +84,7 @@ const updateInputs = () => {
 };
 
 const fetchSimpleIcon = async (slug) => {
-  return `https://simpleicons.org/icons/${slug}.svg`;
+  return fetchCache(`https://simpleicons.org/icons/${slug}.svg`);
 };
 
 const checkValidSimpleSlug = async (slug) => {
@@ -72,7 +98,7 @@ const checkValidSimpleSlug = async (slug) => {
 };
 
 const fetchLucideIcon = async (slug) => {
-  return `https://unpkg.com/lucide-static@latest/icons/${slug}.svg`;
+  return fetchCache(`https://unpkg.com/lucide-static@latest/icons/${slug}.svg`);
 };
 
 const checkValidLucideSlug = async (slug) => {
