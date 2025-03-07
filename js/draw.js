@@ -386,8 +386,12 @@ const inputs = [
   COLOR_1,
   COLOR_2,
 ];
-inputs.forEach((input) => input.addEventListener("change", generateFolders));
-inputs.forEach((input) => input.addEventListener("change", disabledHandler));
+inputs.forEach((input) =>
+  input.addEventListener("change", () => {
+    generateFolders();
+    disabledHandler();
+  })
+);
 
 // Initial generation
 generateFolders();
