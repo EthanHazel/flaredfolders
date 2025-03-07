@@ -12,7 +12,7 @@ Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to
 - Use generic icons via [Lucide](https://lucide.dev)
 - Use brand icons via [SimpleIcons](https://simpleicons.org/)
 - Export as ICO or PNG
-- Support 16x16 to 512x512 to match native folder scaling
+- Support `16 x 16` to `512 x 512` to match native folder scaling
 
 <img src="https://flaired-folders.vercel.app/assets/example.png" align="center" />
 
