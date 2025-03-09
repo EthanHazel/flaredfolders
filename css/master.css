@@ -110,7 +110,9 @@ canvas {
   background-color: white;
   border-radius: 8px;
   position: fixed;
-  top: calc(131px + 16px);
+  top: calc(
+    131px + 16px + 2px + 16px
+  ); /* Header height + padding + border + margin */
   right: 16px;
 }
 
@@ -206,6 +208,21 @@ canvas {
   border: 2px solid var(--background);
   outline: 2px solid var(--accent);
   margin: 0 8px;
+  transition: outline 0.05s ease-in-out;
+}
+
+.color-input:hover {
+  outline: 2px solid var(--special);
+}
+
+.color-input.disabled {
+  cursor: not-allowed;
+  opacity: 0.25;
+}
+
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.25;
 }
 
 input[type="color"] {

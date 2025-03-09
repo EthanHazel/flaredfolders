@@ -46,6 +46,12 @@ function loadImage(src, signal) {
 
 const disabledHandler = () => {
   ICON_COLOR.disabled = currentMode == UPLOAD_ICON || currentMode == NO_ICON;
+  const ICON_COLOR_INPUT = document.getElementById("icon-color-input");
+  if (currentMode == UPLOAD_ICON || currentMode == NO_ICON) {
+    ICON_COLOR_INPUT.classList.add("disabled");
+  } else {
+    ICON_COLOR_INPUT.classList.remove("disabled");
+  }
   [
     ICON_OPACITY,
     ICON_SIZE,
