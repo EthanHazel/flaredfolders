@@ -14,6 +14,7 @@ body {
   background-color: #f3f3f3;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
 #main {
@@ -22,7 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 #low-aspect {
@@ -393,5 +394,14 @@ input::file-selector-button:active {
     justify-content: center;
     width: 100vw;
     height: 100vh;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  #C512 {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: calc(-512px - 32px);
   }
 }
