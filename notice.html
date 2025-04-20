@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/notice.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/96x.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <meta name="apple-mobile-web-app-title" content="Flaired Folders" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <meta
+      name="description"
+      content="Easy-to-use Windows 11 Custom Folder Maker, allows custom gradient backgrounds, importing custom images, and exporting as ICO or PNG with support for 16 x 16 to 512 x 512 scaling to match native folder size."
+    />
+    <meta name="author" content="Ethan Hazel" />
+    <meta name="application-name" content="Flaired Folders" />
+    <meta name="msapplication-TileColor" content="#766fd8" />
+    <meta name="theme-color" content="#766fd8" />
+    <meta
+      property="og:image"
+      content="https://flaired-folders.vercel.app/assets/meta.png"
+    />
+    <meta
+      name="twitter:image"
+      content="https://flaired-folders.vercel.app/assets/meta.png"
+    />
+    <meta
+      property="og:url"
+      content="https://flaired-folders.vercel.app/notice.html"
+    />
+    <meta
+      name="twitter:url"
+      content="https://flaired-folders.vercel.app/notice.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="Flaired Folders" />
+    <meta
+      property="og:description"
+      content="Easy-to-use Windows 11 Custom Folder Maker, allows custom gradient backgrounds, importing custom images, and exporting as ICO or PNG with support for 16 x 16 to 512 x 512 scaling to match native folder size."
+    />
+    <title>Flaired Folders | Notice</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="left">
+        <div id="english">
+          <p>
+            I'm planning to do a rework of this website soon to make it faster
+            and easier to use.
+          </p>
+          <p>
+            It will remain completely free and open source, and I don't ever
+            plan on changing that. I also don't plan on removing any features
+            that are currently available.
+          </p>
+          <p>
+            I plan on adding Windows 10 folder support, along with possibly
+            adding MacOS folder support aswell with the .icns format. Lastly I'm
+            looking into having language support for German, along with other
+            languages possibly.
+          </p>
+          <p>
+            I'm wondering if there's anything in specific that you would like to
+            see implemented, if so then let me know in the form below! If you
+            include your name and the feature is added, I'll add you to the
+            credits of the website.
+          </p>
+          <p>
+            Lastly I'm going to look into renaming the website to Flared
+            Folders, as the original name had a spelling mistake lol.
+          </p>
+        </div>
+        <div id="german" class="hidden">
+          <p>
+            Der folgende Text wurde mit Google Translate übersetzt und klingt
+            daher möglicherweise unsinnig.
+          </p>
+
+          <p>
+            Ich plane, diese Website bald zu überarbeiten, um sie schneller und
+            benutzerfreundlicher zu machen.
+          </p>
+
+          <p>
+            Sie bleibt komplett kostenlos und Open Source, und ich habe nicht
+            vor, das zu ändern. Ich habe auch nicht vor, die aktuell verfügbaren
+            Funktionen zu entfernen.
+          </p>
+
+          <p>
+            Ich plane, Windows-10-Ordnerunterstützung hinzuzufügen und
+            möglicherweise auch macOS-Ordnerunterstützung im ICNS-Format.
+            Außerdem prüfe ich die Sprachunterstützung für Deutsch und
+            möglicherweise auch für andere Sprachen.
+          </p>
+
+          <p>
+            Ich frage mich, ob Sie sich etwas Bestimmtes wünschen. Wenn ja,
+            lassen Sie es mich im Formular unten wissen! Wenn Sie Ihren Namen
+            angeben und die Funktion hinzugefügt wird, werde ich Sie in die
+            Credits der Website aufnehmen.
+          </p>
+
+          <p>
+            Zuletzt werde ich die Website in „Flared Folders“ umbenennen, da der
+            ursprüngliche Name einen Rechtschreibfehler enthielt, lol.
+          </p>
+        </div>
+        <div id="selection">
+          <input
+            type="radio"
+            name="lang"
+            id="english-radio"
+            value="english"
+            checked
+          />
+          <label for="english-radio">English</label>
+          <input type="radio" name="lang" id="german-radio" value="german" />
+          <label for="german-radio">Deutsch</label>
+        </div>
+      </div>
+      <div id="form-container">
+        <form action="https://formspree.io/f/xgvaglqn" method="POST" id="form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name (Optional)"
+            id="name"
+            autocomplete="off"
+          />
+          <textarea
+            name="message"
+            placeholder="Message"
+            id="message"
+            required
+            autocomplete="off"
+          ></textarea>
+        </form>
+        <button type="submit" form="form" id="send">Send</button>
+      </div>
+    </div>
+  </body>
+  <script src="js/notice.js"></script>
+</html>
