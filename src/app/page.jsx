@@ -1,8 +1,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-import Modal from "@/components/modal";
-
 import FolderColor from "@/components/control-panels/folder-color";
 import FolderStyle from "@/components/control-panels/folder-style";
 import FolderIcon from "@/components/control-panels/folder-icon";
@@ -20,6 +18,7 @@ export default function Home() {
       <div id="right-container">
         <FolderRender folderSize={512} key={512} />
         <div className="hidden">
+          <FolderRender folderSize={1024} key={1024} />
           {[256, 128, 96, 72].map((size) => (
             <FolderRender folderSize={size} key={size} />
           ))}

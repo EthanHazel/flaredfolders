@@ -95,9 +95,10 @@ const downloadIcns = async (name = "folder") => {
       128: "ic07", // 128x128
       256: "ic08", // 256x256
       512: "ic09", // 512x512
+      1024: "ic10", // 1024x1024
     };
 
-    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
+    const canvasIds = [1024, 512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
     const canvases = canvasIds
       .map((id) => document.getElementById(`folder-${id}`))
       .filter((canvas) => !!canvas && sizeToType[canvas.width]);

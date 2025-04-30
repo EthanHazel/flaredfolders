@@ -6,6 +6,7 @@ import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
 
 import { folderConfigStore } from "@/stores/folder-config";
+import { folder } from "jszip";
 
 export default function FolderSmall() {
   const folderSmallType = folderConfigStore((state) => state.folderSmallType);
@@ -20,6 +21,11 @@ export default function FolderSmall() {
     document.getElementById("lod-hide").checked = true;
   }
 
+  if (folderSmallType === "squareAndIcon" && folderType === "bigsur") {
+    setFolderSmallType("folderOnly");
+    document.getElementById("lod-hide").checked = true;
+  }
+
   useEffect(() => {
     // Hacky fix to a bug that I'm unsure the cause of. I'm pretty sure it's a race condition
     setFolderSmallType("squareAndIcon");
@@ -28,14 +34,16 @@ export default function FolderSmall() {
   return (
     <Dropdown name="Small Folder Config">
       <div id="lod-config" className="radio-list">
-        <Radio
-          name="lod-config"
-          id="lod-square"
-          onChange={() => setFolderSmallType("squareAndIcon")}
-          label="Show icon with box background"
-          defaultChecked
-        />
-        {folderType === "win11" && (
+        {folderType !== "bigsur" && (
+          <Radio
+            name="lod-config"
+            id="lod-square"
+            onChange={() => setFolderSmallType("squareAndIcon")}
+            label="Show icon with box background"
+            defaultChecked
+          />
+        )}
+        {folderType !== "win10" && (
           <Radio
             name="lod-config"
             id="lod-show"

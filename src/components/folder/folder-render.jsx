@@ -71,6 +71,19 @@ export default function FolderRender({ folderSize }) {
   };
 
   useEffect(() => {
+    if (
+      folderType === "bigsur" &&
+      (folderSize === 24 ||
+        folderSize === 48 ||
+        folderSize === 72 ||
+        folderSize === 96)
+    )
+      return;
+    if (
+      (folderType === "win11" || folderType === "win10") &&
+      folderSize === 1024
+    )
+      return;
     const loadImages = async () => {
       try {
         const [baseImg, icon, highlightImg, maskImg, defaultImg] =
@@ -208,6 +221,17 @@ export default function FolderRender({ folderSize }) {
       }
     }
   };
+
+  if (
+    folderType === "bigsur" &&
+    (folderSize === 24 ||
+      folderSize === 48 ||
+      folderSize === 72 ||
+      folderSize === 96)
+  )
+    return null;
+  if ((folderType === "win11" || folderType === "win10") && folderSize === 1024)
+    return null;
 
   return (
     <div

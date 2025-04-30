@@ -100,6 +100,23 @@ export function getIconAnchor(folderType, folderSize) {
       default:
         return [0, 0];
     }
+  } else if (folderType == "bigsur") {
+    switch (folderSize) {
+      case 1024:
+        return [0, 64];
+      case 512:
+        return [0, 32];
+      case 256:
+        return [0, 16];
+      case 128:
+        return [0, 8];
+      case 64:
+        return [0, 4];
+      case 32:
+        return [0, 2];
+      case 16:
+        return [0, 1];
+    }
   } else {
     return [0, 0];
   }
