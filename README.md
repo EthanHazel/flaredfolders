@@ -1,11 +1,11 @@
-# Flaired Folders
+# Flared Folders
 
-> <img src="https://flaired-folders.vercel.app/assets/favicon/96x.png" align="right" />
+> <img src="https://flared-folders.vercel.app/assets/favicon/96x.png" align="right" />
 > Easy-to-use Windows 11 Custom Folder Maker
 
-Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to minimize bloat.
+Flared Folders is built using basic JavaScript and HTML, with no frameworks, to minimize bloat.
 
-![Netscan](https://flaired-folders.vercel.app/assets/netscani.gif)
+![Netscan](https://flared-folders.vercel.app/assets/netscani.gif)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -21,8 +21,8 @@ Flaired Folders is built using basic JavaScript and HTML, with no frameworks, to
 - Export as ICO or PNG
 - Support `16 x 16` to `512 x 512` to match native folder scaling
 
-<img src="https://flaired-folders.vercel.app/assets/example.png" align="center" />
+<img src="https://flared-folders.vercel.app/assets/example.png" align="center" />
 
 This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
 
-**Currently live at [flaired-folders.vercel.app](https://flaired-folders.vercel.app)**
+**Currently live at [flared-folders.vercel.app](https://flared-folders.vercel.app)**
