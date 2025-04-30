@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  width: calc(100% - 4rem);
+  width: calc(100% - 3rem);
   background-color: var(--bg);
-  padding: 1rem 2rem;
+  padding: 1rem 1rem 1rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   border-bottom: 1px solid var(--accent);
   position: fixed;
@@ -109,14 +109,11 @@
 .firefox-warning {
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
-  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
   border-radius: 0.5rem;
   background-color: var(--bg-accent);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   border: 1px solid var(--secondary);
-  margin: 1rem;
   font-size: 0.75rem;
   align-items: center;
 }

@@ -33,8 +33,6 @@ export default function HeaderButtons() {
         <p>Ko-Fi Donators</p>
       </Modal>
       <div id="header-buttons">
-        <Firefox />
-        <div className="header-button-divider"></div>
         <a className="header-button" onClick={switchTheme}>
           <Sun className="header-button-svg" id="sun" />
           <Moon className="header-button-svg" id="moon" />
@@ -67,6 +65,8 @@ export default function HeaderButtons() {
           <option value="es">Español</option>
           <option value="du">Deutsch</option>
         </select>
+        <div className="header-button-divider"></div>
+        <Firefox />
       </div>
     </>
   );

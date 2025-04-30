@@ -161,7 +161,6 @@ select {
   transition: background-color 0.1s, color 0.1s, border 0.1s;
   cursor: pointer;
   user-select: none;
-  -webkit-appearance: none;
 }
 
 a {
