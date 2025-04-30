@@ -1,0 +1,17 @@
+.folder-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: var(--bg-accent);
+}
+
+.folder-size {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--tertiary);
+}

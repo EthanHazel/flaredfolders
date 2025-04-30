@@ -1,0 +1,60 @@
+.radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.5rem;
+}
+
+.radio:hover {
+  background-color: var(--accent);
+}
+
+.radio-label {
+  cursor: pointer;
+}
+
+.radio-input {
+  display: none;
+}
+
+.radio-fake-input {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--secondary);
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  position: relative;
+  margin-right: 0.5rem;
+  transition: background-color 0.05s ease-in-out, border-color 0.05s ease-in-out;
+}
+
+.radio-fake-input-inner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.1s ease-in-out, width 0.1s ease-in-out,
+    height 0.1s ease-in-out;
+}
+
+.radio-input:checked + .radio-fake-input .radio-fake-input-inner {
+  background-color: var(--bg);
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.radio-input:checked + .radio-fake-input {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
