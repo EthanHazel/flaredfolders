@@ -163,18 +163,14 @@ export default function FolderRender({ folderSize }) {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
       }
-
-      // Apply mask (using alpha channel)
-      ctx.globalCompositeOperation = "destination-in";
-      ctx.drawImage(maskImg, 0, 0, width, height);
-
-      // Draw highlight on top
-      ctx.globalCompositeOperation = "source-over";
-      ctx.drawImage(highlightImg, 0, 0, width, height);
     } else {
       // Draw default image
       ctx.drawImage(defaultImg, 0, 0, width, height);
     }
+
+    // Apply mask (using alpha channel)
+    ctx.globalCompositeOperation = "destination-in";
+    ctx.drawImage(maskImg, 0, 0, width, height);
 
     if (
       iconType !== "none" &&
@@ -220,6 +216,10 @@ export default function FolderRender({ folderSize }) {
         ctx.globalCompositeOperation = "source-over";
       }
     }
+
+    // Draw highlight on top
+    ctx.globalCompositeOperation = "source-over";
+    ctx.drawImage(highlightImg, 0, 0, width, height);
   };
 
   if (

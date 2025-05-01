@@ -41,6 +41,12 @@ export default function FolderStyle() {
           label="MacOS Catalina"
           onChange={changeType("catalina")}
         />
+        <Radio
+          name="style-input"
+          id="mint-l-style"
+          label="Linux Mint L"
+          onChange={changeType("mint-l")}
+        />
       </div>
       <FolderSmall />
     </Dropdown>
