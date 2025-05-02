@@ -1,6 +1,7 @@
 import Dropdown from "./dropdown";
 
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 
 export default function OffsetInput() {
   const setOffset = folderConfigStore((state) => state.setIconOffset);
@@ -12,8 +13,10 @@ export default function OffsetInput() {
     setOffset([offsetX, offsetY]);
   };
 
+  const t = useTranslations("panelTitles");
+
   return (
-    <Dropdown name="Icon Offset">
+    <Dropdown name={t("offset")}>
       <input
         type="range"
         name="offset-x"

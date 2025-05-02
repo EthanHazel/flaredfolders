@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { siFirefoxbrowser } from "simple-icons";
 import Modal from "./modal";
@@ -5,27 +6,18 @@ import Modal from "./modal";
 export default function Firefox() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const t = useTranslations("firefox");
+
   return (
     <>
       <Modal
-        title="Firefox Warning"
+        title={t("title")}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <span>
-          Icon scaling in Firefox is currently bugged, and scaled down icons
-          will be rendered with a more pixelated look to them. This is an issue
-          with Firefox not currently supporting the imageSmoothing property on
-          Canvas.
-        </span>
-        <span>
-          Until Firefox implements this, or there's a workaround found, I
-          recommend using a Chromium based browser.
-        </span>
-        <span>
-          I'm sorry for the inconvenience, I like Firefox more too, but it is
-          out of my hands for right now.
-        </span>
+        <span>{t("content1")}</span>
+        <span>{t("content2")}</span>
+        <span>{t("content3")}</span>
       </Modal>
       <div
         className="firefox-warning"
@@ -37,7 +29,7 @@ export default function Firefox() {
             <path d={siFirefoxbrowser.path} />
           </svg>
         </span>
-        <span>Attention Firefox user!</span>
+        <span>{t("title")}</span>
       </div>
     </>
   );

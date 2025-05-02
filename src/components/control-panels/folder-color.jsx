@@ -4,6 +4,7 @@ import Dropdown from "@/components/inputs/dropdown";
 import Radio from "@/components/inputs/radio";
 import FolderColorInput from "@/components/inputs/folder-color-input";
 
+import { useTranslations } from "next-intl";
 import { folderConfigStore } from "@/stores/folder-config";
 import { setPrimary } from "@/functions/set-primary";
 
@@ -27,26 +28,29 @@ export default function FolderColor() {
     }
   };
 
+  const t = useTranslations("panelTitles");
+  const tc = useTranslations("folderConfig");
+
   return (
-    <Dropdown name="Folder Color">
+    <Dropdown name={t("color")}>
       <div id="color-type" className="radio-list">
         <Radio
           name="color-type"
           id="color-type-gradient"
-          label="Gradient"
+          label={tc("gradient")}
           onChange={changeType("linear-gradient")}
           defaultChecked
         />
         <Radio
           name="color-type"
           id="color-type-solid"
-          label="Solid"
+          label={tc("solid")}
           onChange={changeType("solid")}
         />
         <Radio
           name="color-type"
           id="color-type-original"
-          label="Original"
+          label={tc("original")}
           onChange={changeType("original")}
         />
       </div>

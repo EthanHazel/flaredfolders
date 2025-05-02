@@ -1,4 +1,7 @@
 "use client";
+
+import { useTranslations } from "next-intl";
+
 import "@/styles/modal.css";
 
 export default function Modal({
@@ -11,6 +14,8 @@ export default function Modal({
     return null;
   }
 
+  const t = useTranslations("modal");
+
   return (
     <div className="modal-container">
       <div className="modal">
@@ -20,7 +25,7 @@ export default function Modal({
         <div className="modal-content">{children}</div>
         <div className="modal-footer">
           <button className="modal-button" onClick={onClose}>
-            Close
+            {t("close")}
           </button>
         </div>
       </div>

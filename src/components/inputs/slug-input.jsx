@@ -2,6 +2,7 @@ import { createRef } from "react";
 
 import FolderIconPreview from "@/components/folder/folder-icon-preview";
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 import { setLucideSlug } from "@/functions/fetch-lucide";
 import { setSimpleSlug } from "@/functions/fetch-simple";
 
@@ -14,6 +15,8 @@ export default function SlugInput() {
   const simpleSlug = folderConfigStore((state) => state.simpleSlug);
 
   const inputRef = createRef();
+
+  const t = useTranslations("iconConfig");
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -48,7 +51,7 @@ export default function SlugInput() {
         />
         <span className="slug-input-right">
           <span id="slug-input-label">
-            Current Icon: {iconType === "lucide" ? lucideSlug : simpleSlug}
+            {t("current")} {iconType === "lucide" ? lucideSlug : simpleSlug}
             <a
               href={
                 iconType === "lucide"
@@ -57,7 +60,7 @@ export default function SlugInput() {
               }
               target="_blank"
             >
-              Browse
+              {t("browse")}
             </a>
           </span>
           <span id="slug-input-right-container">
@@ -70,7 +73,7 @@ export default function SlugInput() {
               onKeyUp={handleKeyPress}
             />
             <button type="button" onClick={handleClick}>
-              Set Icon
+              {t("set")}
             </button>
           </span>
         </span>

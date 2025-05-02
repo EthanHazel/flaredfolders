@@ -1,0 +1,71 @@
+{
+  "panelTitles": {
+    "style": "Folder Style",
+    "color": "Folder Color",
+    "icon": "Folder Icon",
+    "smallConfig": "Small Folder Config",
+    "image": "Icon Image",
+    "offset": "Icon Offset",
+    "config": "Icon Config"
+  },
+  "folderTypes": {
+    "win10": "Windows 10",
+    "win11": "Windows 11",
+    "bigsur": "macOS Big Sur",
+    "mint": "Linux Mint L"
+  },
+  "smallFolderConfig": {
+    "squareAndIcon": "Show icon with box background",
+    "folderOnly": "Show folder only",
+    "folderAndIcon": "Show folder with icon"
+  },
+  "folderConfig": {
+    "gradient": "Gradient",
+    "solid": "Solid",
+    "original": "Original",
+    "gradientStart": "Gradient start color",
+    "gradientEnd": "Gradient end color",
+    "solidColor": "Solid color"
+  },
+  "iconTypes": {
+    "lucide": "Lucide (General Icons)",
+    "simple": "SimpleIcons (Brand Logos)",
+    "custom": "Upload (PNG, SVG or JPEG)",
+    "none": "None"
+  },
+  "iconConfig": {
+    "shadow": "Give icon shadow",
+    "mask": "Mask icon to fit folder",
+    "color": "Icon color",
+    "current": "Current icon:",
+    "browse": "Browse",
+    "set": "Set icon"
+  },
+  "credits": {
+    "title": "Credits",
+    "created": "Created by:",
+    "icons": "Icons from:",
+    "translations": "Translations by:",
+    "special": "Special thanks:",
+    "donators": "Donators:",
+    "constributors": "Contributors:",
+    "help": "Want to help translate? %Help us out!%"
+  },
+  "download": {
+    "download": "Download",
+    "allSizes": "All Sizes (Packaged ZIP)"
+  },
+  "donation": {
+    "front": "Presented by Ko-Fi donators like ",
+    "back": ". Thank you!"
+  },
+  "firefox": {
+    "title": "Attention Firefox user!",
+    "content1": "Icon scaling in Firefox is currently bugged, and scaled down icons will be rendered with a more pixelated look to them. This is an issue with Firefox not currently supporting the imageSmoothing property on Canvas.",
+    "content2": "Until Firefox implements this, or there's a work around found, I recommend using a Chromium based browser.",
+    "content3": "Sorry for the inconvenience :("
+  },
+  "modal": {
+    "close": "Close"
+  }
+}

@@ -4,6 +4,7 @@ import Color from "./color";
 
 import { setPrimary } from "@/functions/set-primary";
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function FolderColorInput({ colorId = 0 }) {
@@ -13,11 +14,9 @@ export default function FolderColorInput({ colorId = 0 }) {
     folderConfigStore((state) => state.solidColor),
   ];
 
-  const colorNames = [
-    "Gradient Start Color",
-    "Gradient End Color",
-    "Solid Color",
-  ];
+  const t = useTranslations("folderConfig");
+
+  const colorNames = [t("gradientStart"), t("gradientEnd"), t("solidColor")];
 
   const [color, setColor] = useState(colors[colorId]);
 

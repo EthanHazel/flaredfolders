@@ -7,6 +7,7 @@ import { Info, Moon, Sun } from "lucide-react";
 import { swapTheme } from "@/functions/theme-swap";
 import Firefox from "./firefox";
 import Modal from "./modal";
+import LocaleSwitcher from "./inputs/locale-switcher";
 
 export default function HeaderButtons() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,11 +73,7 @@ export default function HeaderButtons() {
           </svg>
         </a>
         <div className="header-button-divider"></div>
-        <select name="language" id="language">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="du">Deutsch</option>
-        </select>
+        <LocaleSwitcher />
         <div className="header-button-divider"></div>
         <Firefox />
       </div>

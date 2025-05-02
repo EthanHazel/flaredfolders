@@ -8,6 +8,7 @@ import SlugInput from "../inputs/slug-input";
 import OffsetInput from "../inputs/offset-input";
 
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 import { loadCustom } from "@/functions/fetch-custom";
 
 export default function FolderIcon() {
@@ -24,15 +25,13 @@ export default function FolderIcon() {
     (state) => state.setLucideStrokeWidth
   );
   const types = ["lucide", "simple", "custom", "none"];
-  const typeNames = [
-    "Lucide (General Icons)",
-    "SimpleIcons (Brand Logos)",
-    "Upload (PNG, SVG, or JPEG)",
-    "None",
-  ];
+
+  const t = useTranslations("panelTitles");
+  const tc = useTranslations("iconTypes");
+  const tcc = useTranslations("iconConfig");
 
   return (
-    <Dropdown name="Folder Icon">
+    <Dropdown name={t("icon")}>
       <div id="icon-type" className="radio-list">
         {types.map((type) => (
           <Radio
@@ -42,12 +41,12 @@ export default function FolderIcon() {
             onChange={() => setIconType(type)}
             defaultChecked={type === iconType}
             key={type}
-            label={typeNames[types.indexOf(type)]}
+            label={tc(type)}
           />
         ))}
       </div>
       {iconType !== "none" && (
-        <Dropdown name="Icon Image">
+        <Dropdown name={t("image")}>
           {iconType !== "custom" && <SlugInput />}
           <div className={iconType !== "custom" ? "hidden" : ""}>
             <input
@@ -86,7 +85,7 @@ export default function FolderIcon() {
             <Color
               defaultColor={iconColor}
               onChange={(e) => setIconColor(e.target.value)}
-              label="Icon Color"
+              label={tcc("color")}
             />
           )}
         </Dropdown>
@@ -94,17 +93,17 @@ export default function FolderIcon() {
       {iconType !== "none" && (
         <>
           <OffsetInput />
-          <Dropdown name="Icon Config">
+          <Dropdown name={t("config")}>
             <Checkbox
               name="icon-shadow"
-              label="Give icon shadow"
+              label={tcc("shadow")}
               id="icon-shadow"
               onChange={() => setIconShadow(!iconShadow)}
               defaultChecked={iconShadow}
             />
             <Checkbox
               name="icon-mask"
-              label="Mask icon within folder"
+              label={tcc("mask")}
               id="icon-mask"
               onChange={() => setIconMasked(!iconMasked)}
               defaultChecked={iconMasked}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 import { FolderGenerate } from "@/components/folder/folder-generate";
 
 export default function Download() {
@@ -13,6 +14,8 @@ export default function Download() {
   const lucideSlug = folderConfigStore((state) => state.lucideSlug);
   const simpleSlug = folderConfigStore((state) => state.simpleSlug);
   const customFileName = folderConfigStore((state) => state.customFileName);
+
+  const t = useTranslations("download");
 
   const getName = () => {
     let name = "";
@@ -46,7 +49,7 @@ export default function Download() {
           value={iconSize}
           onChange={(e) => setIconSize(e.target.value)}
         >
-          <option value="all">All Sizes (Packaged ZIP)</option>
+          <option value="all">{t("allSizes")}</option>
           <option value="512">512x512</option>
           <option value="256">256x256</option>
           <option value="128">128x128</option>
@@ -61,7 +64,7 @@ export default function Download() {
       )}
       <input
         type="button"
-        value="Download"
+        value={t("download")}
         id="download-button"
         onClick={() => FolderGenerate(fileType, iconSize, getName())}
       />

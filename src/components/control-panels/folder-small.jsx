@@ -6,6 +6,7 @@ import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
 
 import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
 
 export default function FolderSmall() {
   const folderSmallType = folderConfigStore((state) => state.folderSmallType);
@@ -34,16 +35,19 @@ export default function FolderSmall() {
     setFolderSmallType("squareAndIcon");
   }, []);
 
+  const t = useTranslations("panelTitles");
+  const tc = useTranslations("smallFolderConfig");
+
   if (folderType !== "win10")
     return (
-      <Dropdown name="Small Folder Config">
+      <Dropdown name={t("smallConfig")}>
         <div id="lod-config" className="radio-list">
           {folderType === "win11" && (
             <Radio
               name="lod-config"
               id="lod-square"
               onChange={() => setFolderSmallType("squareAndIcon")}
-              label="Show icon with box background"
+              label={tc("squareAndIcon")}
               defaultChecked
             />
           )}
@@ -51,13 +55,13 @@ export default function FolderSmall() {
             name="lod-config"
             id="lod-show"
             onChange={() => setFolderSmallType("folderAndIcon")}
-            label="Show icon with folder"
+            label={tc("folderAndIcon")}
           />
           <Radio
             name="lod-config"
             id="lod-hide"
             onChange={() => setFolderSmallType("folderOnly")}
-            label="Show folder only"
+            label={tc("folderOnly")}
           />
         </div>
       </Dropdown>
