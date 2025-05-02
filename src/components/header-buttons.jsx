@@ -29,7 +29,7 @@ export default function HeaderButtons() {
         <p>Apple macOS folder icons from Apple</p>
         <p>German translation done by an anonymous translator</p>
         <p>Spanish translation done by AsRenCL</p>
-        <p>Special thanks to Von Caschy</p>
+        <p>Special thanks to Von Caschy and MigPro</p>
         <p>Ko-Fi Donators</p>
       </Modal>
       <div id="header-buttons">

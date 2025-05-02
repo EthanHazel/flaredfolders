@@ -6,7 +6,6 @@ import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
 
 import { folderConfigStore } from "@/stores/folder-config";
-import { folder } from "jszip";
 
 export default function FolderSmall() {
   const folderSmallType = folderConfigStore((state) => state.folderSmallType);
@@ -16,9 +15,13 @@ export default function FolderSmall() {
 
   const folderType = folderConfigStore((state) => state.folderType);
 
-  if (folderSmallType === "folderAndIcon" && folderType === "win10") {
-    setFolderSmallType("folderOnly");
-    document.getElementById("lod-hide").checked = true;
+  if (folderType === "win10") {
+    setFolderSmallType("folderAndIcon");
+  }
+
+  if (folderSmallType === "squareAndIcon" && folderType !== "win11") {
+    setFolderSmallType("folderAndIcon");
+    document.getElementById("lod-show").checked = true;
   }
 
   if (folderSmallType === "squareAndIcon" && folderType === "bigsur") {
@@ -31,33 +34,32 @@ export default function FolderSmall() {
     setFolderSmallType("squareAndIcon");
   }, []);
 
-  return (
-    <Dropdown name="Small Folder Config">
-      <div id="lod-config" className="radio-list">
-        {folderType !== "bigsur" && (
-          <Radio
-            name="lod-config"
-            id="lod-square"
-            onChange={() => setFolderSmallType("squareAndIcon")}
-            label="Show icon with box background"
-            defaultChecked
-          />
-        )}
-        {folderType !== "win10" && (
+  if (folderType !== "win10")
+    return (
+      <Dropdown name="Small Folder Config">
+        <div id="lod-config" className="radio-list">
+          {folderType === "win11" && (
+            <Radio
+              name="lod-config"
+              id="lod-square"
+              onChange={() => setFolderSmallType("squareAndIcon")}
+              label="Show icon with box background"
+              defaultChecked
+            />
+          )}
           <Radio
             name="lod-config"
             id="lod-show"
             onChange={() => setFolderSmallType("folderAndIcon")}
             label="Show icon with folder"
           />
-        )}
-        <Radio
-          name="lod-config"
-          id="lod-hide"
-          onChange={() => setFolderSmallType("folderOnly")}
-          label="Show folder only"
-        />
-      </div>
-    </Dropdown>
-  );
+          <Radio
+            name="lod-config"
+            id="lod-hide"
+            onChange={() => setFolderSmallType("folderOnly")}
+            label="Show folder only"
+          />
+        </div>
+      </Dropdown>
+    );
 }

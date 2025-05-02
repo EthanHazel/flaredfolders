@@ -78,23 +78,23 @@ export function getIconAnchor(folderType, folderSize) {
   } else if (folderType == "win10") {
     switch (folderSize) {
       case 512:
-        return [0, 0];
+        return [96, 72];
       case 256:
-        return [0, 0];
+        return [48, 36];
       case 128:
-        return [0, 0];
+        return [24, 18];
       case 96:
-        return [0, 0];
+        return [18, 12];
       case 72:
-        return [0, 0];
+        return [14, 12];
       case 64:
-        return [0, 0];
+        return [12, 9];
       case 48:
-        return [0, 0];
+        return [9, 6];
       case 32:
-        return [0, 0];
+        return [6, 6];
       case 24:
-        return [0, 0];
+        return [5, 4];
       case 16:
         return [0, 0];
       default:
@@ -117,43 +117,30 @@ export function getIconAnchor(folderType, folderSize) {
       case 16:
         return [0, 1];
     }
+  } else if (folderType == "mint-l") {
+    switch (folderSize) {
+      case 512:
+        return [0, 32];
+      case 256:
+        return [0, 16];
+      case 128:
+        return [0, 8];
+      case 96:
+        return [0, 6];
+      case 64:
+        return [0, 4];
+      case 48:
+        return [0, 3];
+      case 32:
+        return [0, 2];
+      case 24:
+        return [0, 2];
+      case 16:
+        return [0, 1];
+      default:
+        return [0, 0];
+    }
   } else {
     return [0, 0];
   }
 }
-
-export const getStyleSizes = (style) => {
-  switch (style) {
-    case "bigsur":
-      return {
-        1024: "main",
-        512: "hidden",
-        256: "hidden",
-        64: "small",
-        32: "small",
-      };
-    case "catalina":
-      return {
-        1024: "main",
-        512: "hidden",
-        256: "hidden",
-        128: "hidden",
-        64: "small",
-        32: "small",
-        16: "small",
-      };
-    default:
-      return {
-        512: "main",
-        256: "hidden",
-        128: "hidden",
-        96: "hidden",
-        72: "hidden",
-        64: "small",
-        48: "small",
-        32: "small",
-        24: "small",
-        16: "small",
-      };
-  }
-};
