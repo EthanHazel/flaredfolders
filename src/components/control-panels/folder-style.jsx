@@ -37,12 +37,6 @@ export default function FolderStyle() {
         />
         <Radio
           name="style-input"
-          id="catalina-style"
-          label="MacOS Catalina"
-          onChange={changeType("catalina")}
-        />
-        <Radio
-          name="style-input"
           id="mint-l-style"
           label="Linux Mint L"
           onChange={changeType("mint-l")}
