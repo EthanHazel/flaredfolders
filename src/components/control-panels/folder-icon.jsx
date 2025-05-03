@@ -4,6 +4,7 @@ import Dropdown from "../inputs/dropdown";
 import Checkbox from "../inputs/checkbox";
 import Radio from "../inputs/radio";
 import Color from "../inputs/color";
+import Range from "../inputs/range";
 import SlugInput from "../inputs/slug-input";
 import OffsetInput from "../inputs/offset-input";
 
@@ -58,8 +59,8 @@ export default function FolderIcon() {
             />
           </div>
           {iconType === "lucide" && (
-            <input
-              type="range"
+            <Range
+              label={tcc("stroke")}
               name="icon-stroke"
               id="icon-stroke"
               onChange={(e) => setLucideStrokeWidth(e.target.value)}
@@ -70,8 +71,8 @@ export default function FolderIcon() {
             />
           )}
           {iconType !== "none" && (
-            <input
-              type="range"
+            <Range
+              label={tcc("opacity")}
               name="icon-opacity"
               id="icon-opacity"
               onChange={(e) => setIconOpacity(e.target.value)}

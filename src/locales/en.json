@@ -39,7 +39,12 @@
     "color": "Icon color",
     "current": "Current icon:",
     "browse": "Browse",
-    "set": "Set icon"
+    "set": "Set icon",
+    "x": "X",
+    "y": "Y",
+    "scale": "Scale",
+    "stroke": "Icon stroke width",
+    "opacity": "Icon opacity"
   },
   "credits": {
     "title": "Credits",

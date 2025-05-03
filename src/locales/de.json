@@ -39,7 +39,12 @@
     "color": "Symbol-Farbe",
     "current": "Aktuelles Symbol:",
     "browse": "Suchen",
-    "set": "Symbol auswählen"
+    "set": "Symbol auswählen",
+    "x": "X",
+    "y": "Y",
+    "scale": "Skala",
+    "stroke": "Symbol-Linienbreite",
+    "opacity": "Symbol-Opazität"
   },
   "credits": {
     "title": "Impressum",
