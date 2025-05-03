@@ -34,9 +34,19 @@
   width: 1rem;
   height: 100%;
   border-radius: 0;
-  background: var(--primary);
+  background-color: var(--primary);
   border: none;
   cursor: pointer;
+}
+
+.range-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: calc(2rem + 4px);
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
 }
 
 .range-background {
