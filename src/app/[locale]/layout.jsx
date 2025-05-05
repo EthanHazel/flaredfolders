@@ -8,6 +8,14 @@ export const metadata = {
   title: "Flared Folders",
   description:
     "Generate custom folders for Windows 11 and Windows 10. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.",
+  links: [
+    { rel: "icon", type: "image/png", href: "/favicon/96.png", sizes: "96x96" },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
+    { rel: "shortcut icon", href: "/favicon/favicon.ico" },
+    { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple.png" },
+    { rel: "manifest", href: "/favicon/site.webmanifest" },
+  ],
+  appleMobileWebAppTitle: "Flared Folders",
 };
 
 export default async function RootLayout({ children, params }) {
