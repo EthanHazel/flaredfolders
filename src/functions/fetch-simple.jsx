@@ -4,6 +4,17 @@ import * as icons from "simple-icons";
 
 import { folderConfigStore } from "../stores/folder-config";
 
+export const convertSimpleSlug = (slug) => {
+  return slug
+    .replace(/-/g, "")
+    .replace(/^\S|\S$/g, function (s) {
+      return s.toUpperCase();
+    })
+    .replace(/\B\w/g, function (s) {
+      return s.toLowerCase();
+    });
+};
+
 export const checkSimple = (slug) => {
   const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
   return icons[iconKey] ? true : false;

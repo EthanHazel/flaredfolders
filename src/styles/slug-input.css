@@ -9,6 +9,7 @@
 
 .slug {
   width: 100%;
+  text-transform: lowercase;
 }
 
 .slug-input-right {

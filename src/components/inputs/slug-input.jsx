@@ -3,8 +3,16 @@ import { createRef } from "react";
 import FolderIconPreview from "@/components/folder/folder-icon-preview";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { setLucideSlug, checkLucide } from "@/functions/fetch-lucide";
-import { setSimpleSlug, checkSimple } from "@/functions/fetch-simple";
+import {
+  setLucideSlug,
+  checkLucide,
+  convertLucideSlug,
+} from "@/functions/fetch-lucide";
+import {
+  setSimpleSlug,
+  checkSimple,
+  convertSimpleSlug,
+} from "@/functions/fetch-simple";
 
 import { Download } from "lucide-react";
 
@@ -24,18 +32,18 @@ export default function SlugInput() {
     ) {
       const slugValue = inputRef.current.value;
       if (iconType === "simple") {
-        if (checkSimple(slugValue) === false) {
+        if (checkSimple(convertSimpleSlug(slugValue)) === false) {
           inputRef.current.style.animation = "invalid 0.5s ease-out";
           setTimeout(() => {
             inputRef.current.style.animation = "";
           }, 1000);
           return;
         } else {
-          setSimpleSlug(slugValue);
+          setSimpleSlug(convertSimpleSlug(slugValue));
           inputRef.current.value = "";
         }
       } else {
-        const slugCheck = await checkLucide(slugValue);
+        const slugCheck = await checkLucide(convertLucideSlug(slugValue));
         if (slugCheck === false) {
           inputRef.current.style.animation = "invalid 0.5s ease-out";
           setTimeout(() => {
@@ -43,7 +51,7 @@ export default function SlugInput() {
           }, 1000);
           return;
         } else {
-          setLucideSlug(slugValue);
+          setLucideSlug(convertLucideSlug(slugValue));
           inputRef.current.value = "";
           return;
         }

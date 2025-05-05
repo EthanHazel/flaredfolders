@@ -3,6 +3,19 @@ import ReactDOMServer from "react-dom/server";
 
 import { folderConfigStore } from "../stores/folder-config";
 
+export const convertLucideSlug = (slug) => {
+  if (slug.includes("-")) {
+    // Convert kebab-case to PascalCase
+    return slug
+      .toLowerCase()
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("");
+  } else {
+    return slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase();
+  }
+};
+
 export const checkLucide = async (slug) => {
   try {
     const module = await import("lucide-react");
