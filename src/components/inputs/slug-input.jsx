@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import { setLucideSlug } from "@/functions/fetch-lucide";
 import { setSimpleSlug } from "@/functions/fetch-simple";
 
+import { Download } from "lucide-react";
+
 import "@/styles/slug-input.css";
 
 export default function SlugInput() {
@@ -72,8 +74,8 @@ export default function SlugInput() {
               className="slug"
               onKeyUp={handleKeyPress}
             />
-            <button type="button" onClick={handleClick}>
-              {t("set")}
+            <button type="button" onClick={handleClick} className="slug-button">
+              <Download />
             </button>
           </span>
         </span>

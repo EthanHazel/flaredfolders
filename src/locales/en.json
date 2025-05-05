@@ -30,7 +30,7 @@
   "iconTypes": {
     "lucide": "Lucide (General Icons)",
     "simple": "SimpleIcons (Brand Logos)",
-    "custom": "Upload (PNG, SVG or JPEG)",
+    "custom": "Upload (PNG, SVG, or JPEG)",
     "none": "None"
   },
   "iconConfig": {
@@ -39,7 +39,6 @@
     "color": "Icon color",
     "current": "Current icon:",
     "browse": "Browse",
-    "set": "Set icon",
     "x": "X",
     "y": "Y",
     "scale": "Scale",

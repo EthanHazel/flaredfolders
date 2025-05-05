@@ -1,0 +1,75 @@
+{
+  "panelTitles": {
+    "style": "Estilo de carpeta",
+    "color": "Color de carpeta",
+    "icon": "Ícono de carpeta",
+    "smallConfig": "Posicionamiento de carpeta",
+    "image": "Imagen de ícono",
+    "offset": "Posición de ícono",
+    "config": "Ajustes de ícono"
+  },
+  "folderTypes": {
+    "win10": "Windows 10",
+    "win11": "Windows 11",
+    "bigsur": "macOS Big Sur",
+    "mint": "Linux Mint L"
+  },
+  "smallFolderConfig": {
+    "squareAndIcon": "Mostrar ícono con fondo",
+    "folderOnly": "Mostrar solo carpeta",
+    "folderAndIcon": "Mostrar carpeta con ícono"
+  },
+  "folderConfig": {
+    "gradient": "Degradado",
+    "solid": "Sólido",
+    "original": "Original",
+    "gradientStart": "Color inicial degradado",
+    "gradientEnd": "Color final degradado",
+    "solidColor": "Color sólido"
+  },
+  "iconTypes": {
+    "lucide": "Lucide (Íconos en general)",
+    "simple": "SimpleIcons (Logotipos de marca)",
+    "custom": "Subir (PNG, SVG o JPEG)",
+    "none": "Ninguno"
+  },
+  "iconConfig": {
+    "shadow": "Agregar sombreado",
+    "mask": "Ajustar ícono a carpeta",
+    "color": "Color del ícono",
+    "current": "Ícono seleccionado:",
+    "browse": "Navegar",
+    "x": "X",
+    "y": "Y",
+    "scale": "Escala",
+    "stroke": "Ancho de línea del ícono",
+    "opacity": "Opacidad del ícono"
+  },
+  "credits": {
+    "title": "Créditos",
+    "created": "Hecho por:",
+    "icons": "Íconos de:",
+    "translations": "Traducciones por:",
+    "special": "Agradecimientos especiales:",
+    "donators": "Donadores:",
+    "constributors": "Contribuidores:",
+    "help": "¿Quieres ayudar a traducir? %¡Échanos una mano!%"
+  },
+  "download": {
+    "download": "Descargar",
+    "allSizes": "Todos los tamaños (ZIP compreso)"
+  },
+  "donation": {
+    "front": "Presentado a usted por donadores de Ko-Fi como ",
+    "back": ". ¡Muchas gracias!"
+  },
+  "firefox": {
+    "title": "¡Atención usuario de Firefox!",
+    "content1": "La escala de íconos en Firefox tiene varios errores y los íconos reducidos serán renderizados con un aspecto más pixeleado. Este es un problema debido a que Firefox no tiene soporte con la propiedad de imageSmoothing en canvas.",
+    "content2": "Hasta que Firefox implemente esto, o haya una alternativa, recomiendo utilizar un navegador basado en Chromium.",
+    "content3": "Lamento las inconveniencias :("
+  },
+  "modal": {
+    "close": "Cerrar"
+  }
+}

@@ -3,12 +3,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(100%);
+  width: calc(100% - 0.5rem);
   gap: 1rem;
 }
 
 .slug {
-  width: calc(100% - 2px - 8.5rem);
+  width: 100%;
 }
 
 .slug-input-right {
@@ -16,6 +16,15 @@
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+}
+
+.slug-button {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
 }
 
 #slug-input-label {
