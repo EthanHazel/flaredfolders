@@ -3,8 +3,8 @@ import { createRef } from "react";
 import FolderIconPreview from "@/components/folder/folder-icon-preview";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { setLucideSlug } from "@/functions/fetch-lucide";
-import { setSimpleSlug } from "@/functions/fetch-simple";
+import { setLucideSlug, checkLucide } from "@/functions/fetch-lucide";
+import { setSimpleSlug, checkSimple } from "@/functions/fetch-simple";
 
 import { Download } from "lucide-react";
 
@@ -12,31 +12,42 @@ import "@/styles/slug-input.css";
 
 export default function SlugInput() {
   const iconType = folderConfigStore((state) => state.iconType);
-
   const lucideSlug = folderConfigStore((state) => state.lucideSlug);
   const simpleSlug = folderConfigStore((state) => state.simpleSlug);
-
   const inputRef = createRef();
-
   const t = useTranslations("iconConfig");
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
+  const handleInput = async (event) => {
+    if (
+      event.type === "click" ||
+      (event.type === "keyup" && event.key === "Enter")
+    ) {
       const slugValue = inputRef.current.value;
       if (iconType === "simple") {
-        setSimpleSlug(slugValue);
+        if (checkSimple(slugValue) === false) {
+          inputRef.current.style.animation = "invalid 0.5s ease-out";
+          setTimeout(() => {
+            inputRef.current.style.animation = "";
+          }, 1000);
+          return;
+        } else {
+          setSimpleSlug(slugValue);
+          inputRef.current.value = "";
+        }
       } else {
-        setLucideSlug(slugValue);
+        const slugCheck = await checkLucide(slugValue);
+        if (slugCheck === false) {
+          inputRef.current.style.animation = "invalid 0.5s ease-out";
+          setTimeout(() => {
+            inputRef.current.style.animation = "";
+          }, 1000);
+          return;
+        } else {
+          setLucideSlug(slugValue);
+          inputRef.current.value = "";
+          return;
+        }
       }
-    }
-  };
-
-  const handleClick = () => {
-    const slugValue = inputRef.current.value;
-    if (iconType === "simple") {
-      setSimpleSlug(slugValue);
-    } else {
-      setLucideSlug(slugValue);
     }
   };
 
@@ -72,9 +83,9 @@ export default function SlugInput() {
               placeholder="Slug"
               ref={inputRef}
               className="slug"
-              onKeyUp={handleKeyPress}
+              onKeyUp={handleInput}
             />
-            <button type="button" onClick={handleClick} className="slug-button">
+            <button type="button" onClick={handleInput} className="slug-button">
               <Download />
             </button>
           </span>

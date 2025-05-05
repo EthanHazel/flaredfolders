@@ -10,9 +10,9 @@ export const checkSimple = (slug) => {
 };
 
 export const setSimpleSlug = (slug) => {
-  const setSimpleSlug = folderConfigStore.getState().setSimpleSlug;
+  const setSimpleSlugStore = folderConfigStore.getState().setSimpleSlug;
   if (checkSimple(slug)) {
-    setSimpleSlug(slug);
+    setSimpleSlugStore(slug);
     return true;
   } else {
     return false;

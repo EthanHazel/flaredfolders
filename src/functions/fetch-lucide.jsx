@@ -3,12 +3,11 @@ import ReactDOMServer from "react-dom/server";
 
 import { folderConfigStore } from "../stores/folder-config";
 
-export const checkLucide = (slug) => {
+export const checkLucide = async (slug) => {
   try {
-    // Dynamically import the Lucide icon component
-    const module = import(`lucide-react`);
-    const IconComponent = module[slug];
-    return true;
+    const module = await import("lucide-react");
+    const IconComponent = module.default?.[slug] ?? module[slug];
+    return !!IconComponent;
   } catch (error) {
     return false;
   }
