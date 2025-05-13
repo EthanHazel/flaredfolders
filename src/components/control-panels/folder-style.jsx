@@ -3,6 +3,7 @@
 import FolderSmall from "./folder-small";
 import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
+import ImgRadio from "../inputs/img-radio";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
@@ -20,29 +21,29 @@ export default function FolderStyle() {
   return (
     <Dropdown name={t("style")} open>
       <div id="style-input" className="radio-list">
-        <Radio
+        <ImgRadio
           name="style-input"
           id="win11-style"
           defaultChecked
-          label={tc("win11")}
+          img="win11"
           onChange={changeType("win11")}
         />
-        <Radio
+        <ImgRadio
           name="style-input"
           id="win10-style"
-          label={tc("win10")}
+          img="win10"
           onChange={changeType("win10")}
         />
-        <Radio
+        <ImgRadio
           name="style-input"
           id="bigsur-style"
-          label={tc("bigsur")}
+          img="bigsur"
           onChange={changeType("bigsur")}
         />
-        <Radio
+        <ImgRadio
           name="style-input"
           id="mint-l-style"
-          label={tc("mint")}
+          img="mint-l"
           onChange={changeType("mint-l")}
         />
       </div>

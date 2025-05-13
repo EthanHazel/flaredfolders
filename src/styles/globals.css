@@ -195,3 +195,10 @@ a:visited:hover {
 a:active {
   color: var(--quarternary);
 }
+
+#style-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
