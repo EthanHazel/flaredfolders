@@ -1,4 +1,5 @@
 {
+  "language": "Español",
   "panelTitles": {
     "style": "Estilo de carpeta",
     "color": "Color de carpeta",
@@ -57,7 +58,21 @@
   },
   "download": {
     "download": "Descargar",
-    "allSizes": "Todos los tamaños (ZIP compreso)"
+    "allSizes": "Todos los tamaños (ZIP compreso)",
+    "ico": ".ICO (Windows y Linux)",
+    "icns": ".ICNS (macOS)",
+    "png": ".PNG",
+    "1024": "1024x1024",
+    "512": "512x512",
+    "256": "256x256",
+    "128": "128x128",
+    "96": "96x96",
+    "72": "72x72",
+    "64": "64x64",
+    "48": "48x48",
+    "32": "32x32",
+    "24": "24x24",
+    "16": "16x16"
   },
   "donation": {
     "front": "Presentado a usted por donadores de Ko-Fi como ",

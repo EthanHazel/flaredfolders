@@ -1,4 +1,5 @@
 {
+  "language": "English",
   "panelTitles": {
     "style": "Folder Style",
     "color": "Folder Color",
@@ -57,7 +58,21 @@
   },
   "download": {
     "download": "Download",
-    "allSizes": "All Sizes (Packaged ZIP)"
+    "allSizes": "All Sizes (Packaged ZIP)",
+    "ico": ".ICO (Windows & Linux)",
+    "icns": ".ICNS (macOS)",
+    "png": ".PNG",
+    "1024": "1024x1024",
+    "512": "512x512",
+    "256": "256x256",
+    "128": "128x128",
+    "96": "96x96",
+    "72": "72x72",
+    "64": "64x64",
+    "48": "48x48",
+    "32": "32x32",
+    "24": "24x24",
+    "16": "16x16"
   },
   "donation": {
     "front": "Presented by Ko-Fi donators like ",
