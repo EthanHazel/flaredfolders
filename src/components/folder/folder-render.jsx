@@ -211,11 +211,18 @@ export default function FolderRender({ folderSize }) {
         folderSmallType === "squareAndIcon" ||
         folderSize > 32)
     ) {
-      const iconOffsetX = (iconOffset[0] / 100) * width;
-      const iconOffsetY = (iconOffset[1] / 100) * height;
+      const aspectRatio = icon.width / icon.height || 1; // Default to 1 if aspect ratio is undefined, to avoid NaN on Firefox
+      console.log(aspectRatio);
+      const scaledWidth = width;
+      const scaledHeight = scaledWidth / aspectRatio;
+
+      const iconOffsetX = (iconOffset[0] / 100) * scaledWidth;
+      const iconOffsetY =
+        (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4;
 
       const iconX = (width - width * iconScale * getIconMultiplier()) / 2;
       const iconY = (height - height * iconScale * getIconMultiplier()) / 2;
+
       const iconAnchor =
         folderSmallType === "squareAndIcon" && folderSize <= 32
           ? [0, 0]
@@ -236,12 +243,13 @@ export default function FolderRender({ folderSize }) {
           tempCtx.shadowOffsetX = 0;
           tempCtx.shadowOffsetY = 0;
         }
+
         tempCtx.drawImage(
           icon,
           iconX + iconAnchor[0] + iconOffsetX,
           iconY + iconAnchor[1] + iconOffsetY,
-          width * iconScale * getIconMultiplier(),
-          height * iconScale * getIconMultiplier()
+          scaledWidth * iconScale * getIconMultiplier(),
+          scaledHeight * iconScale * getIconMultiplier()
         );
         tempCtx.globalAlpha = 1;
         tempCtx.shadowColor = "transparent";
