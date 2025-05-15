@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { siGithub, siKofi } from "simple-icons";
 import { Info, Moon, Sun } from "lucide-react";
 
@@ -9,8 +9,17 @@ import Firefox from "./firefox";
 import Modal from "./modal";
 import LocaleSwitcher from "./inputs/locale-switcher";
 
+import { isFirefox } from "@/functions/fetch-browser-type";
+
 export default function HeaderButtons() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFirefoxOpen, setIsFirefoxOpen] = useState(false);
+
+  useEffect(() => {
+    if (isFirefox()) {
+      setIsFirefoxOpen(true);
+    }
+  }, []);
 
   const switchTheme = () => {
     swapTheme();
@@ -74,8 +83,12 @@ export default function HeaderButtons() {
         </a>
         <div className="header-button-divider"></div>
         <LocaleSwitcher />
-        <div className="header-button-divider"></div>
-        <Firefox />
+        {isFirefoxOpen && (
+          <>
+            <div className="header-button-divider"></div>
+            <Firefox />
+          </>
+        )}
       </div>
     </>
   );
