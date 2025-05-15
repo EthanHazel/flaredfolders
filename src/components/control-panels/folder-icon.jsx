@@ -83,11 +83,14 @@ export default function FolderIcon() {
             />
           )}
           {iconType !== "none" && (
-            <Color
-              defaultColor={iconColor}
-              onChange={(e) => setIconColor(e.target.value)}
-              label={tcc("color")}
-            />
+            <>
+              <div className="dropdown-break"></div>
+              <Color
+                defaultColor={iconColor}
+                onChange={(e) => setIconColor(e.target.value)}
+                label={tcc("color")}
+              />
+            </>
           )}
         </Dropdown>
       )}

@@ -11,6 +11,7 @@ import { loadCustom } from "@/functions/fetch-custom";
 import { folderConfigStore } from "@/stores/folder-config";
 
 import "@/styles/folder.css";
+import FolderStyle from "../control-panels/folder-style";
 
 export default function FolderRender({ folderSize }) {
   const colorType = folderConfigStore((state) => state.colorType);
@@ -207,6 +208,7 @@ export default function FolderRender({ folderSize }) {
 
     if (
       iconType !== "none" &&
+      !(folderType === "win10" && folderSize === 16) &&
       (folderSmallType === "folderAndIcon" ||
         folderSmallType === "squareAndIcon" ||
         folderSize > 32)

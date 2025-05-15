@@ -14,6 +14,7 @@ export const folderConfigStore = create((set) => ({
   // "sqaureAndIcon", "folderAndIcon", "folderOnly"
   folderSmallType: "sqaureAndIcon",
   setFolderSmallType: (folderSmallType) => set({ folderSmallType }),
+
   // "win10", "win11"
   folderType: "win11",
   setFolderType: (folderType) => set({ folderType }),
@@ -50,96 +51,58 @@ export const folderConfigStore = create((set) => ({
 }));
 
 export function getIconAnchor(folderType, folderSize) {
-  if (folderType == "win11") {
-    switch (folderSize) {
-      case 512:
-        return [0, 26];
-      case 256:
-        return [0, 13];
-      case 128:
-        return [0, 6.5];
-      case 96:
-        return [0, 4];
-      case 72:
-        return [0, 3];
-      case 64:
-        return [0, 3];
-      case 48:
-        return [0, 1.5];
-      case 32:
-        return [0, 1];
-      case 24:
-        return [0, 1];
-      case 16:
-        return [0, 1];
-      default:
-        return [0, 0];
-    }
-  } else if (folderType == "win10") {
-    switch (folderSize) {
-      case 512:
-        return [96, 72];
-      case 256:
-        return [48, 36];
-      case 128:
-        return [24, 18];
-      case 96:
-        return [18, 12];
-      case 72:
-        return [14, 12];
-      case 64:
-        return [12, 9];
-      case 48:
-        return [9, 6];
-      case 32:
-        return [6, 6];
-      case 24:
-        return [5, 4];
-      case 16:
-        return [0, 0];
-      default:
-        return [0, 0];
-    }
+  if (folderType === "win11") {
+    const offsets = {
+      512: [0, 26],
+      256: [0, 13],
+      128: [0, 6.5],
+      96: [0, 4],
+      72: [0, 3],
+      64: [0, 3],
+      48: [0, 1.5],
+      32: [0, 1],
+      24: [0, 1],
+      16: [0, 1],
+    };
+    return offsets[folderSize] || [0, 0];
+  } else if (folderType === "win10") {
+    const offsets = {
+      512: [96, 72],
+      256: [48, 36],
+      128: [24, 18],
+      96: [18, 12],
+      72: [14, 12],
+      64: [12, 9],
+      48: [9, 6],
+      32: [6, 6],
+      24: [5, 4],
+      16: [0, 0],
+    };
+    return offsets[folderSize] || [0, 0];
   } else if (folderType == "bigsur") {
-    switch (folderSize) {
-      case 1024:
-        return [0, 64];
-      case 512:
-        return [0, 32];
-      case 256:
-        return [0, 16];
-      case 128:
-        return [0, 8];
-      case 64:
-        return [0, 4];
-      case 32:
-        return [0, 2];
-      case 16:
-        return [0, 1];
-    }
+    const offsets = {
+      1024: [0, 64],
+      512: [0, 32],
+      256: [0, 16],
+      128: [0, 8],
+      64: [0, 4],
+      32: [0, 2],
+      16: [0, 1],
+    };
+    return offsets[folderSize] || [0, 0];
   } else if (folderType == "mint-l") {
-    switch (folderSize) {
-      case 512:
-        return [0, 32];
-      case 256:
-        return [0, 16];
-      case 128:
-        return [0, 8];
-      case 96:
-        return [0, 6];
-      case 64:
-        return [0, 4];
-      case 48:
-        return [0, 3];
-      case 32:
-        return [0, 2];
-      case 24:
-        return [0, 2];
-      case 16:
-        return [0, 1];
-      default:
-        return [0, 0];
-    }
+    const offsets = {
+      512: [0, 32],
+      256: [0, 16],
+      128: [0, 8],
+      96: [0, 6],
+      64: [0, 4],
+      48: [0, 3],
+      32: [0, 2],
+      24: [0, 2],
+      16: [0, 1],
+    };
+    return offsets[folderSize] || [0, 0];
   } else {
     return [0, 0];
   }

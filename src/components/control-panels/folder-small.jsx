@@ -1,38 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
-
 import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
-
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 
 export default function FolderSmall() {
+  const folderType = folderConfigStore((state) => state.folderType);
+
   const folderSmallType = folderConfigStore((state) => state.folderSmallType);
   const setFolderSmallType = folderConfigStore(
     (state) => state.setFolderSmallType
   );
 
-  const folderType = folderConfigStore((state) => state.folderType);
-
-  if (folderType === "win10") {
-    setFolderSmallType("folderAndIcon");
-  }
-
-  if (folderSmallType === "squareAndIcon" && folderType !== "win11") {
-    setFolderSmallType("folderAndIcon");
-    document.getElementById("lod-show").checked = true;
-  }
-
-  if (folderSmallType === "squareAndIcon" && folderType === "bigsur") {
-    setFolderSmallType("folderOnly");
-    document.getElementById("lod-hide").checked = true;
-  }
-
   useEffect(() => {
-    // Hacky fix to a bug that I'm unsure the cause of. I'm pretty sure it's a race condition
-    setFolderSmallType("squareAndIcon");
+    if (!folderSmallType) {
+      setFolderSmallType("squareAndIcon");
+    }
   }, []);
 
   const t = useTranslations("panelTitles");
@@ -56,12 +41,14 @@ export default function FolderSmall() {
             id="lod-show"
             onChange={() => setFolderSmallType("folderAndIcon")}
             label={tc("folderAndIcon")}
+            checked={folderSmallType === "folderAndIcon"}
           />
           <Radio
             name="lod-config"
             id="lod-hide"
             onChange={() => setFolderSmallType("folderOnly")}
             label={tc("folderOnly")}
+            checked={folderSmallType === "folderOnly"}
           />
         </div>
       </Dropdown>

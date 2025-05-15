@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  width: calc(100% - 1.5rem);
+  width: calc(100% - 1rem - 2px);
   border: 1px solid var(--secondary);
   border-radius: 0.5rem;
   padding: 0 0.5rem;

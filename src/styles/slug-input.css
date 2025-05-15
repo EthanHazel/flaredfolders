@@ -1,9 +1,13 @@
+#slug-input {
+  margin-bottom: 1rem;
+}
+
 #slug-input-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 0.5rem);
+  width: 100%;
   gap: 1rem;
 }
 
