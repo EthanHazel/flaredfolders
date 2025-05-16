@@ -21,7 +21,7 @@ Flared Folders is built using basic JavaScript and HTML, with no frameworks, to 
 - Export as ICO or PNG
 - Support `16 x 16` to `512 x 512` to match native folder scaling
 
-<img src="https://flared-folders.vercel.app/assets/example.png" align="center" />
+<img src="https://flaredfolders.vercel.app/assets/example.png" align="center" />
 
 This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
 
