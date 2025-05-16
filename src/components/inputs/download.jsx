@@ -1,22 +1,31 @@
 "use client";
 
-import { useState } from "react";
-
+import { useState, useEffect } from "react"; // Added useEffect
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { FolderGenerate } from "@/components/folder/folder-generate";
 
 export default function Download() {
-  const [fileType, setFileType] = useState("ico");
+  const folderType = folderConfigStore((state) => state.folderType);
+  const [fileType, setFileType] = useState(
+    folderType === "bigsur" ? "icns" : "ico"
+  );
   const [iconSize, setIconSize] = useState("all");
 
   const iconType = folderConfigStore((state) => state.iconType);
   const lucideSlug = folderConfigStore((state) => state.lucideSlug);
   const simpleSlug = folderConfigStore((state) => state.simpleSlug);
   const customFileName = folderConfigStore((state) => state.customFileName);
-  const folderType = folderConfigStore((state) => state.folderType);
 
   const t = useTranslations("download");
+
+  useEffect(() => {
+    if (folderType === "bigsur") {
+      setFileType("icns");
+    } else {
+      setFileType("ico");
+    }
+  }, [folderType]);
 
   const getName = () => {
     let name = "";
@@ -39,10 +48,11 @@ export default function Download() {
         value={fileType}
         onChange={(e) => setFileType(e.target.value)}
       >
-        <option value="ico">{t("ico")}</option>
+        {folderType !== "bigsur" && <option value="ico">{t("ico")}</option>}
         <option value="icns">{t("icns")}</option>
         <option value="png">{t("png")}</option>
       </select>
+
       {fileType === "png" && (
         <select
           name="icon-size"
@@ -66,6 +76,7 @@ export default function Download() {
           <option value="16">{t("16")}</option>
         </select>
       )}
+
       <input
         type="button"
         value={t("download")}
