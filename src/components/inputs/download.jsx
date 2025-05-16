@@ -5,7 +5,6 @@ import { useState } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { FolderGenerate } from "@/components/folder/folder-generate";
-import { folder } from "jszip";
 
 export default function Download() {
   const [fileType, setFileType] = useState("ico");

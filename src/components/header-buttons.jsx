@@ -73,7 +73,7 @@ export default function HeaderButtons() {
           </svg>
         </a>
         <a
-          href="https://github.com/EthanHazel/flared-folders"
+          href="https://github.com/EthanHazel/flaredfolders"
           target="_blank"
           className="header-button"
         >

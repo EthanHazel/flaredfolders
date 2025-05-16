@@ -91,14 +91,14 @@ const downloadIcns = async (name = "folder") => {
     const sizeToType = {
       16: "icp3", // 16x16
       32: "icp4", // 32x32
-      48: "icp5", // 48x48
+      64: "icp6", // 64x64
       128: "ic07", // 128x128
       256: "ic08", // 256x256
       512: "ic09", // 512x512
       1024: "ic10", // 1024x1024
     };
 
-    const canvasIds = [1024, 512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
+    const canvasIds = [1024, 512, 256, 128, 64, 32, 16];
     const canvases = canvasIds
       .map((id) => document.getElementById(`folder-${id}`))
       .filter((canvas) => !!canvas && sizeToType[canvas.width]);
@@ -120,7 +120,7 @@ const downloadIcns = async (name = "folder") => {
     const chunks = images.map((img) => {
       const typeBytes = new TextEncoder().encode(img.type);
       const dataLength = img.data.byteLength;
-      const chunkLength = dataLength + 8; // Type (4) + Length (4) + Data
+      const chunkLength = dataLength + 8;
 
       const chunk = new Uint8Array(chunkLength);
       const lengthView = new DataView(chunk.buffer, 4, 4);
