@@ -3,12 +3,13 @@
 > <img src="/.github/images/logo.png" align="right" />
 > Easy-to-use Custom Folder Maker
 
-Flared Folders is built using Next.JS
+Built using Next.JS
 
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![GPL-3.0](https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+[![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)](#)
+[![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white)](#)
+[![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Features
 
@@ -16,9 +17,7 @@ Flared Folders is built using Next.JS
 - Import custom images
 - Use generic icons via [Lucide](https://lucide.dev)
 - Use brand icons via [SimpleIcons](https://simpleicons.org/)
-- Export as ICO or PNG
-- Support `16 x 16` to `512 x 512` to match native folder scaling
+- Export as ICO, ICNS, or PNG
+- Support `16 x 16` to `1024 x 1024` to match native folder scaling on both Windows and macOS
 
 <img src="/.github/images/showcase.png" align="center" />
-
-This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
