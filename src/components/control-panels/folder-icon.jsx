@@ -82,7 +82,7 @@ export default function FolderIcon() {
               step="0.01"
             />
           )}
-          {iconType !== "none" && (
+          {iconType !== "none" && iconType !== "custom" && (
             <>
               <div className="dropdown-break"></div>
               <Color
