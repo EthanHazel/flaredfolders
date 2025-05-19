@@ -7,7 +7,10 @@ const getLocales = () => {
     .map((key) => key.replace("./", "").replace(".json", ""));
 };
 
+export const locales = getLocales();
+const defaultLocale = "en";
+
 export const routing = defineRouting({
-  locales: getLocales(),
-  defaultLocale: "en",
+  locales,
+  defaultLocale,
 });
