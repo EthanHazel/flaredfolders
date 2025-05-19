@@ -3,9 +3,9 @@
 <h3 align="center">An easy-to-use custom folder maker built using Next.JS</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white" />
   <img src="/.github/images/sep.png" />
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
@@ -30,6 +30,10 @@
 If you're interested in contributing translations, consider reading our guide on how to [here!](https://github.com/EthanHazel/flaredfolders)
 
 In short, we use JSON files inside of the `locales` directory in the `src` folder to handle translations. That means that all you need to do is create a new JSON file with the same structure as the existing ones, and fill it in with the translated text. Everything else is handled automatically from there.
+
+## 📜 License
+
+Flared Folders is licensed under the GPLv3 license. You can read more about it here.
 
 ---
 
