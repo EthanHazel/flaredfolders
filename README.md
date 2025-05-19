@@ -11,6 +11,8 @@
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
   <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
+  <br />
+  Currently live at <b><a href="https://flaredfolders.vercel.app/">flaredfolders.vercel.app</b></a>
 </p>
 
 <img src="/.github/images/showcase.png" align="center" />
