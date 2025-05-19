@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { siGithub, siKofi } from "simple-icons";
+import { siGithub, siKofi, siDiscord } from "simple-icons";
 import { Info, Moon, Sun } from "lucide-react";
 
 import { swapTheme } from "@/functions/theme-swap";
@@ -55,6 +55,15 @@ export default function HeaderButtons() {
         >
           <svg viewBox="0 0 24 24" className="header-button-svg">
             <path d={siKofi.path} />
+          </svg>
+        </a>
+        <a
+          href="https://discord.gg/BkxtVZsf4E"
+          target="_blank"
+          className="header-button"
+        >
+          <svg viewBox="0 0 24 24" className="header-button-svg">
+            <path d={siDiscord.path} />
           </svg>
         </a>
         <a
