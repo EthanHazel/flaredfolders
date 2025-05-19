@@ -24,14 +24,16 @@
 - Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
 - Support `16 x 16` to `1024 x 1024` to match native folder scaling
 
-# Community translations
+## Community translations
 
-## Current translations include
+We currently have translations from the following languages:
 
 - English
-- Deutsch
-- Español
+- Deutsch (German)
+- Español (Spanish)
 
-If you are interested in contributing translations, consider reading our guide on how to here!
+If you're interested in contributing translations, consider reading our guide on how to [here!](https://github.com/EthanHazel/flaredfolders)
+
+---
 
 <img src="/.github/images/showcase.png" align="center" />
