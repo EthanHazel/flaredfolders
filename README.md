@@ -1,6 +1,6 @@
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-<h3 align="center">An easy-to-use custom folder maker built using Next.JS</h3>
+<h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
@@ -17,26 +17,94 @@
 
 ---
 
-## ⭐ Features
+<br />
 
-- Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
-- Give custom background (gradient, solid color, or original)
-- Import custom images
-  - Use generic icons via [Lucide](https://lucide.dev)
-  - Use brand icons via [SimpleIcons](https://simpleicons.org/)
-- Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
-- Support `16 x 16` to `1024 x 1024` to match native folder scaling
+## ✨ Features
+
+### 🌍 Supported Platforms
+
+- Windows 11/10
+- macOS Big Sur
+- Linux Mint L
+
+### 🎚️ Customization Options
+
+- **Backgrounds**:
+  - Gradient blends
+  - Solid colors
+  - Original folder color
+- **Icon Libraries**:
+  - Generic icons via [Lucide](https://lucide.dev)
+  - Brand icons via [Simple Icons](https://simpleicons.org/)
+  - Custom icon upload
+- **Resolution Support**:
+  `16x16 → 1024x1024` (Native scaling for all platforms)
+
+### 📤 Export Formats
+
+| Format  | Platform Support |
+| ------- | ---------------- |
+| `.ico`  | Windows & Linux  |
+| `.icns` | macOS            |
+| `.png`  | Cross-platform   |
+
+## 🚀 Quick Start
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EthanHazel/flaredfolders.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start development server:
+
+```bash
+npm run dev
+```
+
+## 🌐 Community Translations
+
+Help us make Flared Folders more accessible! Here's how to contribute translations:
+
+1. Navigate to `src/locales`
+2. Duplicate `en.json`
+3. Rename to your [locale code](https://www.localeplanet.com/icu/)
+4. Translate all string values
+5. Submit a PR!
+
+[View Detailed Translation Guide →](https://github.com/EthanHazel/flaredfolders/wiki/Translation-Guide)
+
+## 🤝 Contributing
+
+We welcome all contributions! Please:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html) file for details.
+
+## 🙏 Acknowledgments
+
+- Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
+- Built with [Next.js](https://nextjs.org/)
+- Community-driven translations
 
 <br />
 
-## 🗨️ Community translations
-
-If you're interested in contributing translations, consider reading our guide on how to [here!](https://github.com/EthanHazel/flaredfolders)
-
-In short, we use JSON files inside of the `locales` directory in the `src` folder to handle translations. That means that all you need to do is create a new JSON file with the same structure as the existing ones, and fill it in with the translated text. Everything else is handled automatically from there.
-
-<br />
-
-## 📜 License
-
-Flared Folders is licensed under the GPLv3 license. You can read more about it here.
+<p align="center">
+  <a href="#top">
+    <img src="/.github/images/back-to-top.svg" align="center" width="30" />
+    Back to top
+  </a>
+</p>
