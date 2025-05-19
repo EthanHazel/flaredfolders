@@ -45,6 +45,8 @@
 | `.icns` | macOS            |
 | `.png`  | Cross-platform   |
 
+<br />
+
 ## 🚀 Quick Start
 
 1. Clone the repository:
@@ -65,6 +67,8 @@ npm install
 npm run dev
 ```
 
+<br />
+
 ## 🌐 Community Translations
 
 Help us make Flared Folders more accessible! Here's how to contribute translations:
@@ -76,6 +80,8 @@ Help us make Flared Folders more accessible! Here's how to contribute translatio
 5. Submit a PR!
 
 [View Detailed Translation Guide →](https://github.com/EthanHazel/flaredfolders/wiki/Translation-Guide)
+
+<br />
 
 ## 🤝 Contributing
 
@@ -96,9 +102,13 @@ We welcome all contributions! Please:
 
 5. Open a Pull Request
 
+<br />
+
 ## 📄 License
 
 This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html) file for details.
+
+<br />
 
 ## 🙏 Acknowledgments
 
