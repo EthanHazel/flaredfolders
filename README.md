@@ -79,8 +79,6 @@ Help us make Flared Folders more accessible! Here's how to contribute translatio
 4. Translate all string values
 5. Submit a PR!
 
-[View Detailed Translation Guide →](https://github.com/EthanHazel/flaredfolders/wiki/Translation-Guide)
-
 <br />
 
 ## 🤝 Contributing
