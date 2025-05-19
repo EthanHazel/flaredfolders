@@ -1,6 +1,6 @@
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-<p align="center"><b>An easy-to-use custom folder maker built using Next.JS</b></p>
+<h3 align="center">An easy-to-use custom folder maker built using Next.JS</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
@@ -11,8 +11,6 @@
   <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
-
-<img src="/.github/images/showcase.png" align="center" />
 
 ---
 
@@ -35,3 +33,5 @@
 - Español
 
 If you are interested in contributing translations, consider reading our guide on how to here!
+
+<img src="/.github/images/showcase.png" align="center" />
