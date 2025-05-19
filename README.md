@@ -13,9 +13,7 @@
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
 
----
-
-<br />
+## <br />
 
 ## ⭐ Features
 
