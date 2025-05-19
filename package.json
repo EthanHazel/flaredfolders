@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "fs": "^0.0.1-security",
     "jszip": "^3.10.1",
     "lucide-react": "^0.501.0",
