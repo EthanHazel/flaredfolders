@@ -1,4 +1,4 @@
-# Flared Folders
+<p align="center"><h1>Flared Folders</h1></p>
 
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
