@@ -10,6 +10,7 @@ import { setPrimary } from "@/functions/set-primary";
 
 export default function FolderColor() {
   const colorType = folderConfigStore((state) => state.colorType);
+  const folderType = folderConfigStore((state) => state.folderType);
 
   const changeType = (newType) => () => {
     folderConfigStore.getState().setColorType(newType);
@@ -24,7 +25,10 @@ export default function FolderColor() {
         folderConfigStore.getState().solidColor,
       ]);
     } else {
-      setPrimary(["#fee394", "#dfa52e"]);
+      if (folderType === "win11" || folderType === "win10")
+        setPrimary(["#fee394", "#dfa52e"]);
+      else if (folderType === "bigsur") setPrimary(["#82d0f8", "#0089cf"]);
+      else setPrimary(["#8bb158", "#8bb158"]);
     }
   };
 

@@ -11,6 +11,7 @@ export default function Logo() {
   );
   const gradientEndColor = folderConfigStore((state) => state.gradientEndColor);
   const solidColor = folderConfigStore((state) => state.solidColor);
+  const folderType = folderConfigStore((state) => state.folderType);
 
   const getFill = () => {
     if (colorType === "linear-gradient") {
@@ -18,7 +19,10 @@ export default function Logo() {
     } else if (colorType === "solid") {
       return [solidColor, solidColor];
     } else {
-      return ["#fee394", "#dfa52e"];
+      if (folderType === "win11" || folderType === "win10")
+        return ["#fee394", "#dfa52e"];
+      else if (folderType === "bigsur") return ["#82d0f8", "#0089cf"];
+      else return ["#8bb158", "#8bb158"];
     }
   };
 

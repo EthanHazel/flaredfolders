@@ -5,15 +5,25 @@ import Dropdown from "../inputs/dropdown";
 import ImgRadio from "../inputs/img-radio";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
+import { setPrimary } from "@/functions/set-primary";
 
 export default function FolderStyle() {
   const folderType = folderConfigStore((state) => state.folderType);
-  const folderSmallType = folderConfigStore((state) => state.folderSmallType);
+  const colorType = folderConfigStore((state) => state.colorType);
   const setFolderSmallType = folderConfigStore(
     (state) => state.setFolderSmallType
   );
 
   const changeType = (newType) => () => {
+    if (colorType === "original") {
+      if (folderType === "win11" || folderType === "win10") {
+        setPrimary(["#fee394", "#dfa52e"]);
+      } else if (folderType === "bigsur") {
+        setPrimary(["#82d0f8", "#0089cf"]);
+      } else {
+        setPrimary(["#8bb158", "#8bb158"]);
+      }
+    }
     if (folderType === newType) return;
     folderConfigStore.getState().setFolderType(newType);
     // Immediate update instead of setTimeout
