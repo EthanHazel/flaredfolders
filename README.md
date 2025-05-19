@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
   <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white" />
+
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
   <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
@@ -14,7 +15,7 @@
 
 ---
 
-# ⭐ Features
+## ⭐ Features
 
 - Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
 - Give custom background (gradient, solid color, or original)
@@ -24,15 +25,11 @@
 - Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
 - Support `16 x 16` to `1024 x 1024` to match native folder scaling
 
-# 🗨️ Community translations
-
-We currently have translations from the following languages:
-
-- English
-- Deutsch
-- Español
+## 🗨️ Community translations
 
 If you're interested in contributing translations, consider reading our guide on how to [here!](https://github.com/EthanHazel/flaredfolders)
+
+In short, we use JSON files inside of the `locales` directory in the `src` folder to handle translations. That means that all you need to do is create a new JSON file with the same structure as the existing ones, and fill it in with the translated text. Everything else is handled automatically from there.
 
 ---
 
