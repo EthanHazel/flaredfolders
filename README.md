@@ -15,7 +15,7 @@
 
 <img src="/.github/images/showcase.png" align="center" />
 
-## <br />
+---
 
 ## ⭐ Features
 
