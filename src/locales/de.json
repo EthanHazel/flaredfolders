@@ -1,5 +1,6 @@
 {
   "language": "Deutsch",
+  "translator": "Anonymous translator",
   "panelTitles": {
     "style": "Ordnerstil",
     "color": "Ordnerfarbe",
@@ -53,6 +54,7 @@
     "translations": "Übersetzungen von:",
     "special": "Danksagungen:",
     "donators": "Spender:",
+    "fonts": "Verwendete Schriftarten:",
     "constributors": "Mitwirkende:",
     "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%"
   },

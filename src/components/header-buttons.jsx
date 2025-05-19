@@ -5,13 +5,17 @@ import { siGithub, siKofi } from "simple-icons";
 import { Info, Moon, Sun } from "lucide-react";
 
 import { swapTheme } from "@/functions/theme-swap";
+import { useTranslations } from "next-intl";
 import Firefox from "./firefox";
 import Modal from "./modal";
 import LocaleSwitcher from "./inputs/locale-switcher";
+import Credits from "./credits";
 
 import { isFirefox } from "@/functions/fetch-browser-type";
 
 export default function HeaderButtons() {
+  const t = useTranslations("credits");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFirefoxOpen, setIsFirefoxOpen] = useState(false);
 
@@ -28,32 +32,13 @@ export default function HeaderButtons() {
   return (
     <>
       <Modal
-        title="Credits"
+        title={t("title")}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <p>Remember to make this not look like shit before launch</p>
-        <p>Created by Ethan Hazel</p>
-        <p>Icons from Lucide and Simple Icons</p>
-        <p>All Windows folder icons from Microsoft</p>
-        <p>Apple macOS folder icons from Apple</p>
-        <p>
-          Linux Mint L folder icons from the Linux Mint project, and more
-          specifically from{" "}
-          <a href="https://github.com/linuxmint/mint-l-icons" target="_blank">
-            this repository
-          </a>
-        </p>
-        <p>German translation done by an anonymous translator</p>
-        <p>Spanish translation done by AsRenCL</p>
-        <p>
-          Want to help translate?{" "}
-          <a href="https://github.com/EthanHazel/flaredfolders">Help us out!</a>
-        </p>
-        <p>Special thanks to Von Caschy and MigPro</p>
-        <p>Ko-Fi Donators:</p>
-        <p>Contributors:</p>
+        <Credits />
       </Modal>
+
       <div id="header-buttons">
         <a className="header-button" onClick={switchTheme}>
           <Sun className="header-button-svg" id="sun" />

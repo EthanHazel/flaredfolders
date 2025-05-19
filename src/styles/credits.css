@@ -1,0 +1,23 @@
+.credit {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  gap: 1rem;
+  width: 100%;
+}
+
+.credit-header {
+  margin: 0;
+  width: 100%;
+  text-align: right;
+  color: var(--tertiary);
+}
+
+.credit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}

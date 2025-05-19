@@ -1,5 +1,6 @@
 {
   "language": "Español",
+  "translator": "AsRenCL",
   "panelTitles": {
     "style": "Estilo de carpeta",
     "color": "Color de carpeta",
@@ -53,6 +54,7 @@
     "translations": "Traducciones por:",
     "special": "Agradecimientos especiales:",
     "donators": "Donadores:",
+    "fonts": "Tipografías utilizadas:",
     "constributors": "Contribuidores:",
     "help": "¿Quieres ayudar a traducir? %¡Échanos una mano!%"
   },

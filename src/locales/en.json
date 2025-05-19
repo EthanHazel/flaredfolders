@@ -1,5 +1,6 @@
 {
   "language": "English",
+  "translator": "Ethan Hazel",
   "panelTitles": {
     "style": "Folder Style",
     "color": "Folder Color",
@@ -53,6 +54,7 @@
     "translations": "Translations by:",
     "special": "Special thanks:",
     "donators": "Donators:",
+    "fonts": "Fonts used:",
     "constributors": "Contributors:",
     "help": "Want to help translate? %Help us out!%"
   },
