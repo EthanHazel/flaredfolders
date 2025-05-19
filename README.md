@@ -14,7 +14,7 @@
 
 ---
 
-# Features
+# ⭐ Features
 
 - Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
 - Give custom background (gradient, solid color, or original)
@@ -24,13 +24,13 @@
 - Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
 - Support `16 x 16` to `1024 x 1024` to match native folder scaling
 
-## Community translations
+# 🗨️ Community translations
 
 We currently have translations from the following languages:
 
 - English
-- Deutsch (German)
-- Español (Spanish)
+- Deutsch
+- Español
 
 If you're interested in contributing translations, consider reading our guide on how to [here!](https://github.com/EthanHazel/flaredfolders)
 
