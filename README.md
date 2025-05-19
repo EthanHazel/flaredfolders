@@ -99,7 +99,7 @@ This project is licensed under the **GNU General Public License v3.0** - see the
 ---
 
 <p align="center">
-  <a href="#top">
+  <a href="#">
     <img src="/.github/images/back-to-top.svg" align="center" width="30" />
   </a>
 </p>
