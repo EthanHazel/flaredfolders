@@ -11,8 +11,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub User's stars](https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders)
 
-<img src="/.github/images/showcase.png" align="center" />
-
 ## Features
 
 - Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
@@ -22,3 +20,5 @@
   - Use brand icons via [SimpleIcons](https://simpleicons.org/)
 - Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
 - Support `16 x 16` to `1024 x 1024` to match native folder scaling
+
+<img src="/.github/images/showcase.png" align="center" />
