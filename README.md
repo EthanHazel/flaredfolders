@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
   <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white" />
-  <img src="https://img.shields.io/badge/----Separator-----d6d6d6?style=flat" />
+  <img src="/.github/images/sep.png" />
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
   <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
