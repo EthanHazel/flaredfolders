@@ -17,8 +17,6 @@
 
 ---
 
-<br />
-
 ## ✨ Features
 
 ### 🌍 Supported Platforms
@@ -100,11 +98,8 @@ This project is licensed under the **GNU General Public License v3.0** - see the
 - Built with [Next.js](https://nextjs.org/)
 - Community-driven translations
 
-<br />
-
 <p align="center">
   <a href="#top">
     <img src="/.github/images/back-to-top.svg" align="center" width="30" />
-    Back to top
   </a>
 </p>
