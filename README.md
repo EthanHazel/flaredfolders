@@ -1,6 +1,5 @@
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-<h1 align="center">Flared Folders</h1>
 <p align="center"><b>An easy-to-use custom folder maker built using Next.JS</b></p>
 
 <p align="center">
