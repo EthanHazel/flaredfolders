@@ -3,7 +3,7 @@ import Link from "next/link";
 import "@/styles/globals.css";
 import "@/styles/not-found.css";
 
-export default function NotFoundCatchAll() {
+export default function RootLayout() {
   return (
     <html lang="en">
       <body className="dark">
