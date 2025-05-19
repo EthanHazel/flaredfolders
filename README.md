@@ -13,6 +13,10 @@
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
 
+<img src="/.github/images/showcase.png" align="center" />
+
+---
+
 ## Features
 
 - Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
@@ -32,5 +36,3 @@
 - Español
 
 If you are interested in contributing translations, consider reading our guide on how to here!
-
-<img src="/.github/images/showcase.png" align="center" />
