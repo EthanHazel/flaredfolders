@@ -17,7 +17,7 @@
 
 ---
 
-## Features
+# Features
 
 - Create folders for Windows 11, Windows 10, MacOS BigSur, and Linux Mint L
 - Give custom background (gradient, solid color, or original)
@@ -27,9 +27,9 @@
 - Export as ICO, ICNS, or PNG for use on Windows, Mac, and Linux
 - Support `16 x 16` to `1024 x 1024` to match native folder scaling
 
-## Community translations
+# Community translations
 
-### Current translations include
+## Current translations include
 
 - English
 - Deutsch
