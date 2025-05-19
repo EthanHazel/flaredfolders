@@ -18,9 +18,10 @@
 
 ## ✨ Features
 
-### 🌍 Supported Platforms
+### 🌍 Supported Styles
 
-- Windows 11/10
+- Windows 11
+- Windows 10
 - macOS Big Sur
 - Linux Mint L
 
