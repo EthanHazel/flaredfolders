@@ -1,17 +1,18 @@
 # Flared Folders
 
-<img src="/.github/images/logo.png" align="center" />
+<p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-<p align="center" ><b>An easy-to-use custom folder maker built using Next.JS</b></p>
+<p align="center"><b>An easy-to-use custom folder maker built using Next.JS</b></p>
 
-![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)
-![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders)
-![GitHub User's stars](https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders)
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
+  <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
+  <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
+  <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
+</p>
 
 ## Features
 
