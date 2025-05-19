@@ -11,6 +11,13 @@ const description =
 const title = "Flared Folders";
 const url = "https://flaredfolders.vercel.app/";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: "no",
+};
+
 export const metadata = {
   title,
   description,
