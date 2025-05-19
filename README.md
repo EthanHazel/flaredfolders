@@ -15,8 +15,6 @@
 
 <img src="/.github/images/showcase.png" align="center" />
 
----
-
 ## ✨ Features
 
 ### 🌍 Supported Platforms
@@ -97,6 +95,8 @@ This project is licensed under the **GNU General Public License v3.0** - see the
 - Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
 - Built with [Next.js](https://nextjs.org/)
 - Community-driven translations
+
+---
 
 <p align="center">
   <a href="#top">
