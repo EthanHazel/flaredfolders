@@ -13,6 +13,8 @@
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
 
+<img src="/.github/images/showcase.png" align="center" />
+
 ## <br />
 
 ## ⭐ Features
@@ -38,7 +40,3 @@ In short, we use JSON files inside of the `locales` directory in the `src` folde
 ## 📜 License
 
 Flared Folders is licensed under the GPLv3 license. You can read more about it here.
-
-## <br />
-
-<img src="/.github/images/showcase.png" align="center" />
