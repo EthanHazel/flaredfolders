@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
+import { Analytics } from "@vercel/analytics/next";
 
 const description =
   "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
@@ -72,6 +73,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={locale}>
       <body className={theme === "dark" ? "dark" : ""}>
+        <Analytics />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
