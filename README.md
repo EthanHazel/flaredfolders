@@ -1,8 +1,7 @@
-<p align="center"><h1>Flared Folders</h1></p>
-
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-<p align="center"><b>An easy-to-use custom folder maker built using Next.JS</b></p>
+<h1 align="center"><b>Flared Folders</b></h1>
+<p align="center">An easy-to-use custom folder maker built using Next.JS</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
