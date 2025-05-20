@@ -8,7 +8,7 @@ const description =
   "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
 
 const title = "Flared Folders";
-const url = "https://flaredfolders.vercel.app/";
+const url = "https://www.flaredfolders.com/";
 
 export const viewport = {
   width: "device-width",
@@ -28,7 +28,7 @@ export const metadata = {
     { rel: "manifest", href: "/favicon/site.webmanifest" },
   ],
   openGraph: {
-    metadataBase: new URL("https://flaredfolders.vercel.app/"),
+    metadataBase: new URL(url),
     title,
     description,
     images: [

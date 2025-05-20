@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://flaredfolders.vercel.app/",
+      url: "https://www.flaredfolders.com/",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,

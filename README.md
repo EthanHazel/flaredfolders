@@ -1,7 +1,7 @@
 <p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
-<p align="center">Currently live at <b><a href="https://flaredfolders.vercel.app/">flaredfolders.vercel.app</b></a></p>
+<p align="center">Currently live at <b><a href="https://www.flaredfolders.com/">www.flaredfolders.com</b></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
