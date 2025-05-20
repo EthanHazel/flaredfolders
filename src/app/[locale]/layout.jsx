@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -29,6 +28,7 @@ export const metadata = {
     { rel: "manifest", href: "/favicon/site.webmanifest" },
   ],
   openGraph: {
+    metadataBase: new URL("https://flaredfolders.vercel.app/"),
     title,
     description,
     images: [
@@ -72,7 +72,7 @@ export const metadata = {
 export default async function RootLayout({ children, params }) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    return redirect(`/en`);
   }
   const cookiesInstance = await cookies();
   const theme = cookiesInstance.get("theme")?.value || "light";
