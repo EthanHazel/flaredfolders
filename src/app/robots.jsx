@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://flaredfolders.vercel.app/sitemap.xml",
+    sitemap: "https://www.flaredfolders.com/sitemap.xml",
   };
 }
