@@ -1,0 +1,209 @@
+:root {
+  --lm-bg: #fff;
+  --lm-bg-accent: #f9fafc;
+  --lm-text: #1f2937;
+  --lm-accent: #e5e7eb;
+  --lm-secondary: #ccc;
+  --lm-tertiary: #888;
+  --lm-quaternary: #666;
+
+  --dm-bg: #000000;
+  --dm-bg-accent: #060606;
+  --dm-text: #d2d2d2;
+  --dm-accent: #111111;
+  --dm-secondary: #3a3a3a;
+  --dm-tertiary: #6d6d6d;
+  --dm-quaternary: #9d9d9d;
+
+  --bg: var(--lm-bg);
+  --bg-accent: var(--lm-bg-accent);
+  --text: var(--lm-text);
+  --accent: var(--lm-accent);
+  --secondary: var(--lm-secondary);
+  --tertiary: var(--lm-tertiary);
+  --quarternary: var(--lm-quaternary);
+
+  --primary: #3d78f7;
+
+  --header-font: "Syne", sans-serif;
+  --body-font: "Inter", "Noto Sans", sans-serif;
+}
+
+body.dark {
+  --bg: var(--dm-bg);
+  --bg-accent: var(--dm-bg-accent);
+  --text: var(--dm-text);
+  --accent: var(--dm-accent);
+  --secondary: var(--dm-secondary);
+  --tertiary: var(--dm-tertiary);
+  --quarternary: var(--dm-quaternary);
+}
+
+* {
+  transition: background-color 0.1s, color 0.1s, border 0.1s;
+}
+
+@font-face {
+  font-family: "Syne";
+  font-weight: 100 900;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/syne.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/inter.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-weight: 100 900;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/noto.woff2") format("woff2-variations");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#left-container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: calc(100vh - 4rem - 4.5rem - 4.5rem - 1px);
+  padding: 2rem;
+  gap: 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-accent);
+  border-right: 1px solid var(--accent);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  position: fixed;
+  top: 4.5rem;
+}
+
+#right-container {
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 600px - 4rem);
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  gap: 1rem;
+}
+
+.radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#small-folders {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+button,
+input[type="file"]::file-selector-button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  font-family: var(--body-font);
+  transition: background-color 0.1s, color 0.1s, border 0.1s;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  background-color: var(--accent);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  font-family: var(--body-font);
+  transition: background-color 0.1s, color 0.1s, border 0.1s;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  border: 1px solid var(--primary);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border: 1px solid var(--primary);
+  outline: 2px solid var(--primary);
+}
+
+select {
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  background-color: var(--accent);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  font-family: var(--body-font);
+  transition: background-color 0.1s, color 0.1s, border 0.1s;
+  cursor: pointer;
+  user-select: none;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--primary);
+}
+
+a:visited:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--quarternary);
+}
+
+#style-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#lod-config {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

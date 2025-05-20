@@ -1,0 +1,92 @@
+{
+  "language": "Deutsch",
+  "translator": "Anonymous translator",
+  "panelTitles": {
+    "style": "Ordnerstil",
+    "color": "Ordnerfarbe",
+    "icon": "Ordnersymbol",
+    "smallConfig": "Konfiguration für kleine Ordner",
+    "image": "Symbol-Bild",
+    "offset": "Symbol-Versatz",
+    "config": "Symbol-Konfiguration"
+  },
+  "folderTypes": {
+    "win10": "Windows 10",
+    "win11": "Windows 11",
+    "bigsur": "macOS Big Sur",
+    "mint": "Linux Mint L"
+  },
+  "smallFolderConfig": {
+    "squareAndIcon": "Symbol mit Box-Hintergrund anzeigen",
+    "folderOnly": "Nur Ordner anzeigen",
+    "folderAndIcon": "Ordner mit Symbol anzeigen"
+  },
+  "folderConfig": {
+    "gradient": "Farbverlauf",
+    "solid": "Einfarbig",
+    "original": "Original",
+    "gradientStart": "Erstfarbe Farbverlauf",
+    "gradientEnd": "Zweitfarbe Farbverlauf",
+    "solidColor": "Einfarbig"
+  },
+  "iconTypes": {
+    "lucide": "Lucide (gewöhnliche Symbole)",
+    "simple": "SimpleIcons (Logos)",
+    "custom": "Hochladen (PNG, SVG oder JPEG)",
+    "none": "Keins"
+  },
+  "iconConfig": {
+    "shadow": "Symbol-Schatten",
+    "mask": "Symbol der Ordnergröße anpassen",
+    "color": "Symbol-Farbe",
+    "current": "Aktuelles Symbol:",
+    "browse": "Suchen",
+    "x": "X",
+    "y": "Y",
+    "scale": "Skala",
+    "stroke": "Symbol-Linienbreite",
+    "opacity": "Symbol-Opazität"
+  },
+  "credits": {
+    "title": "Impressum",
+    "created": "Erstellt von:",
+    "icons": "Symbole von:",
+    "translations": "Übersetzungen von:",
+    "special": "Danksagungen:",
+    "donators": "Spender:",
+    "fonts": "Verwendete Schriftarten:",
+    "constributors": "Mitwirkende:",
+    "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%"
+  },
+  "download": {
+    "download": "Herunterladen",
+    "allSizes": "Alle Größen (ZIP-Datei)",
+    "ico": ".ICO (Windows & Linux)",
+    "icns": ".ICNS (macOS)",
+    "png": ".PNG",
+    "1024": "1024x1024",
+    "512": "512x512",
+    "256": "256x256",
+    "128": "128x128",
+    "96": "96x96",
+    "72": "72x72",
+    "64": "64x64",
+    "48": "48x48",
+    "32": "32x32",
+    "24": "24x24",
+    "16": "16x16"
+  },
+  "donation": {
+    "front": "Präsentiert von Ko-Fi-Spendern wie ",
+    "back": ". Danke!"
+  },
+  "firefox": {
+    "title": "Firefox-Nutzer aufgepasst!",
+    "content1": "Symbol-Skalierung in Firefox ist zurzeit fehlerhaft, und kleiner skalierte Symbole werden mit einer pixeligen Auflösung gerendert. Das ist ein Fehler seitens FIrefox, da die imageSmoothing-Eigenschaft in canvas aktuell nicht unterstützt wird.",
+    "content2": "Bis der Fehler von Firefox behoben oder ein Umweg gefunden wird, empfehle ich Chromium-basierte Browser.",
+    "content3": "Sorry für die Mühen :("
+  },
+  "modal": {
+    "close": "Schließen"
+  }
+}

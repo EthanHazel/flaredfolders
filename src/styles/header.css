@@ -1,0 +1,125 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: calc(100% - 3rem);
+  background-color: var(--bg);
+  padding: 1rem 1rem 1rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  border-bottom: 1px solid var(--accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 2.5rem;
+  background-color: var(--bg-accent);
+}
+
+.header-logo {
+  display: flex;
+  width: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.header-logo svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.header-title {
+  font-family: var(--header-font);
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  color: var(--quaternary);
+  margin-left: 0.25rem;
+}
+
+.header-version {
+  font-family: var(--header-font);
+  font-size: 0.75rem;
+  color: var(--secondary);
+  margin-left: 0.25rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+#header-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--tertiary);
+  color: var(--tertiary);
+}
+
+#sun {
+  display: none;
+}
+
+.dark #moon {
+  display: none;
+}
+
+.dark #sun {
+  display: block;
+}
+
+.header-button:hover {
+  cursor: pointer;
+  color: var(--secondary);
+  fill: var(--secondary);
+}
+
+.header-button:active {
+  color: var(--accent);
+  fill: var(--accent);
+}
+
+.header-button-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.header-button-divider {
+  display: block;
+  width: 2px;
+  height: 0.5rem;
+  background-color: var(--accent);
+  margin: 0 1rem;
+}
+
+.firefox-warning {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-accent);
+  border: 1px solid var(--secondary);
+  font-size: 0.75rem;
+  align-items: center;
+}
+
+.firefox-warning-icon {
+  fill: var(--secondary);
+  width: 1.25rem;
+  height: 1.25rem;
+}

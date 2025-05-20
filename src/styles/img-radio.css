@@ -1,0 +1,32 @@
+.img-radio-input {
+  display: none;
+}
+
+.img-radio-input:checked + .img-radio-img {
+  background-color: var(--secondary) !important;
+}
+
+.img-radio {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.5rem;
+  width: fit-content;
+  height: fit-content;
+}
+
+.img-radio:hover > .img-radio-img {
+  background-color: var(--accent);
+}
+
+.img-radio-img {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

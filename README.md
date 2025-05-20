@@ -1,28 +1,124 @@
-# Flared Folders
+<p align="center"><img src="/.github/images/logo.png" align="center" /></p>
 
-> <img src="https://flaredfolders.vercel.app/assets/favicon/96x.png" align="right" />
-> Easy-to-use Windows 11 Custom Folder Maker
+<h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
+<p align="center">Currently live at <b><a href="https://flaredfolders.vercel.app/">flaredfolders.vercel.app</b></a></p>
 
-Flared Folders is built using basic JavaScript and HTML, with no frameworks, to minimize bloat.
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white" />
+  <img src="/.github/images/sep.png" />
+  <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
+  <img src="https://img.shields.io/github/languages/code-size/EthanHazel/flaredfolders" />
+  <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
+</p>
 
-![Netscan](https://flaredfolders.vercel.app/assets/netscani.gif)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![GPL-3.0](https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+<img src="/.github/images/showcase.png" align="center" />
 
-## Features
+## ✨ Features
 
-- Give custom gradient background
-- Import custom images
-- Use generic icons via [Lucide](https://lucide.dev)
-- Use brand icons via [SimpleIcons](https://simpleicons.org/)
-- Export as ICO or PNG
-- Support `16 x 16` to `512 x 512` to match native folder scaling
+### 🌍 Supported Styles
 
-<img src="https://flaredfolders.vercel.app/assets/example.png" align="center" />
+- Windows 11
+- Windows 10
+- macOS Big Sur
+- Linux Mint L
 
-This project was developed in just a few days as a side project. The code might not be fully optimized, so contributions are welcome!
+### 🎚️ Customization Options
 
-**Currently live at [flaredfolders.vercel.app](https://flaredfolders.vercel.app)**
+- **Backgrounds**:
+  - Gradient blends
+  - Solid colors
+  - Original folder color
+- **Icon Libraries**:
+  - Generic icons via [Lucide](https://lucide.dev)
+  - Brand icons via [Simple Icons](https://simpleicons.org/)
+  - Custom icon upload
+- **Resolution Support**:
+  `16x16 → 1024x1024` (Native scaling for all platforms)
+
+### 📤 Export Formats
+
+| Format  | Platform Support |
+| ------- | ---------------- |
+| `.ico`  | Windows & Linux  |
+| `.icns` | macOS            |
+| `.png`  | Cross-platform   |
+
+<br />
+
+## 🚀 Quick Start
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EthanHazel/flaredfolders.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start development server:
+
+```bash
+npm run dev
+```
+
+<br />
+
+## 🌐 Community Translations
+
+Help us make Flared Folders more accessible! Here's how to contribute translations:
+
+1. Navigate to `src/locales`
+2. Duplicate `en.json`
+3. Rename to your [locale code](https://www.localeplanet.com/icu/)
+4. Translate all string values
+5. Submit a PR!
+
+<br />
+
+## 🤝 Contributing
+
+We welcome all contributions! Please:
+
+1. Fork the repository
+2. Create your feature branch
+
+- `git checkout -b feature/amazing-feature`
+
+3. Commit your changes
+
+- `git commit -m 'Add some amazing feature'`
+
+4. Push to the branch
+
+- `git push origin feature/amazing-feature`
+
+5. Open a Pull Request
+
+<br />
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html) file for details.
+
+<br />
+
+## 🙏 Acknowledgments
+
+- Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
+- Built with [Next.js](https://nextjs.org/)
+- Community-driven translations
+
+---
+
+<p align="center">
+  <a href="#">
+    <img src="/.github/images/back-to-top.svg" align="center" width="30" />
+  </a>
+</p>
