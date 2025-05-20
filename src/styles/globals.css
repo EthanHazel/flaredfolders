@@ -69,6 +69,8 @@ body.dark {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--tertiary) var(--bg-accent);
+  scrollbar-width: none;
 }
 
 body {
