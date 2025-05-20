@@ -38,12 +38,6 @@ export const metadata = {
         width: 1200,
         height: 628,
       },
-      {
-        url: "/favicon/96.png",
-        width: 96,
-        height: 96,
-        alt: "Flared Folders",
-      },
     ],
   },
   twitter: {
@@ -57,13 +51,8 @@ export const metadata = {
         width: 1200,
         height: 628,
       },
-      {
-        url: "/favicon/96.png",
-        width: 96,
-        height: 96,
-        alt: "Flared Folders",
-      },
     ],
+    themeColor: "#000000",
   },
   appleMobileWebAppTitle: title,
   url,
