@@ -15,10 +15,10 @@ export default function FolderSmall() {
   );
 
   useEffect(() => {
-    if (!folderSmallType) {
+    if (folderType === "win11") {
       setFolderSmallType("squareAndIcon");
     }
-  }, []);
+  }, []); // Ducktape hack to fix a bug I'm not sure how to fix cause I can't find the origin.
 
   const t = useTranslations("panelTitles");
   const tc = useTranslations("smallFolderConfig");
