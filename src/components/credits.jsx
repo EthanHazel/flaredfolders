@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Credit from "@/credits.json";
-
 import "@/styles/credits.css";
+
+const getLocales = () => {
+  const context = require.context("../locales", false, /\.json$/);
+  return context
+    .keys()
+    .map((key) => key.replace("./", "").replace(".json", ""));
+};
 
 export default function Credits() {
   const t = useTranslations("credits");
   const [contributors, setContributors] = useState([]);
+  const [translations, setTranslations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [translationsLoading, setTranslationsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [translationsError, setTranslationsError] = useState(null);
 
   useEffect(() => {
     const fetchContributors = async () => {
@@ -46,6 +55,36 @@ export default function Credits() {
     };
 
     fetchContributors();
+
+    const fetchTranslations = async () => {
+      try {
+        const locales = getLocales();
+        const translationsData = await Promise.all(
+          locales.map((lang) => {
+            try {
+              const data = require(`../locales/${lang}.json`);
+              return {
+                code: lang,
+                language: data.language,
+                author: data.translator,
+              };
+            } catch (err) {
+              console.error(`Error loading ${lang} locale:`, err);
+              return null;
+            }
+          })
+        );
+
+        const validTranslations = translationsData.filter(Boolean);
+        setTranslations(validTranslations);
+      } catch (err) {
+        setTranslationsError(err.message);
+      } finally {
+        setTranslationsLoading(false);
+      }
+    };
+
+    fetchTranslations();
   }, []);
 
   return (
@@ -119,6 +158,29 @@ export default function Credits() {
                 </div>
               ))
             : !loading && !error && <div>No contributors found</div>}
+        </div>
+      </div>
+      <div className="credit">
+        <div className="credit-header">{t("translations")}</div>
+        <div className="credit-content">
+          {translationsLoading && <div>Loading translators...</div>}
+          {translationsError && (
+            <div>
+              {t("error")}: {translationsError}
+            </div>
+          )}
+          {!translationsLoading &&
+            !translationsError &&
+            translations.map((translation) => (
+              <div className="credit-translation" key={translation.code}>
+                <span className="credit-translation-name">
+                  {translation.language} ({translation.code.toUpperCase()})
+                </span>
+                <span className="credit-translation-author">
+                  {translation.author}
+                </span>
+              </div>
+            ))}
         </div>
       </div>
       <div className="credit">

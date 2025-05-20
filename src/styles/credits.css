@@ -10,7 +10,7 @@
 
 .credit-header {
   margin: 0;
-  width: 100%;
+  width: 50%;
   text-align: right;
   color: var(--tertiary);
 }
@@ -20,4 +20,16 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+}
+
+.credit-translation {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.credit-translation-name {
+  font-weight: 600;
+  color: var(--tertiary);
 }
