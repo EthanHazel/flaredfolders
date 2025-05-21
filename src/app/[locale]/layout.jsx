@@ -64,7 +64,7 @@ export const metadata = {
     authors: ["Ethan Hazel"],
   },
   twitter: {
-    card: "app",
+    card: "summary_large_image",
     title,
     creator: "@EthanHazelGD",
     description,
