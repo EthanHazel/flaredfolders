@@ -11,19 +11,23 @@ const description =
 const title = "Flared Folders";
 const url = "https://www.flaredfolders.com/";
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: "no",
-};
-
 const getLocales = () => {
   const context = require.context("../../locales", false, /\.json$/);
   const locales = context
     .keys()
     .map((key) => key.replace("./", "").replace(".json", ""));
   return locales;
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: "no",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export const metadata = {
@@ -71,7 +75,6 @@ export const metadata = {
         height: 628,
       },
     ],
-    themeColor: "#000000",
   },
   appleMobileWebAppTitle: title,
   url,
