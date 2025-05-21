@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { setTheme } from "@/functions/set-theme";
+import { setTheme } from "@/functions/theme-set";
 
 export default function ThemeInitializer({ serverTheme }) {
   useEffect(() => {
