@@ -1,3 +1,4 @@
+import ThemeInitializer from "@/components/theme-init";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -111,24 +112,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={locale}>
       <body className={theme === "dark" ? "dark" : ""}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = ${theme ? `'${theme}'` : "null"};
-                  if (!theme) {
-                    var userPref = window.matchMedia('(prefers-color-scheme: dark)').matches 
-                      ? 'dark' 
-                      : 'light';
-                    document.cookie = 'theme=' + userPref + '; max-age=2147483647; path=/';
-                    document.body.classList.add(userPref);
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
+        <ThemeInitializer serverTheme={theme} />
         <Analytics />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
