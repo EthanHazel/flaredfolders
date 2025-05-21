@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { Analytics } from "@vercel/analytics/next";
+import { redirect } from "next/navigation";
 
 const description =
   "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
@@ -17,7 +18,25 @@ export const viewport = {
   userScalable: "no",
 };
 
+const getLocales = () => {
+  const context = require.context("../../locales", false, /\.json$/);
+  const locales = context
+    .keys()
+    .map((key) => key.replace("./", "").replace(".json", ""));
+  return locales;
+};
+
 export const metadata = {
+  metadataBase: new URL(url),
+  alternates: {
+    canonical: "/",
+    languages: {
+      ...getLocales().reduce((obj, locale) => {
+        obj[locale] = `/${locale}`;
+        return obj;
+      }, {}),
+    },
+  },
   title,
   description,
   links: [
@@ -33,7 +52,6 @@ export const metadata = {
     { rel: "manifest", href: "../favicon/site.webmanifest" },
   ],
   openGraph: {
-    metadataBase: new URL(url),
     title,
     description,
     images: [
