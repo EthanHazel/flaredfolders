@@ -87,6 +87,9 @@ export default function Credits() {
     fetchTranslations();
   }, []);
 
+  const translationStart = t("help").split("%")[0];
+  const translationEnd = t("help").split("%")[1];
+
   return (
     <>
       <div className="credit">
@@ -140,7 +143,7 @@ export default function Credits() {
         </div>
       </div>
       <div className="credit">
-        <div className="credit-header">{t("constributors")}</div>
+        <div className="credit-header">{t("contributors")}</div>
         <div className="credit-content">
           {loading && <div>Loading contributors...</div>}
           {error && <div>Error loading contributors: {error}</div>}
@@ -181,6 +184,15 @@ export default function Credits() {
                 </span>
               </div>
             ))}
+          <span style={{ fontSize: "0.8em", marginTop: "1em" }}>
+            {translationStart}
+            <a
+              href="https://github.com/EthanHazel/flaredfolders?tab=readme-ov-file#-community-translations"
+              target="_blank"
+            >
+              {translationEnd}
+            </a>
+          </span>
         </div>
       </div>
       <div className="credit">
