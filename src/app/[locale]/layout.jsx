@@ -21,11 +21,16 @@ export const metadata = {
   title,
   description,
   links: [
-    { rel: "icon", type: "image/png", href: "/favicon/96.png", sizes: "96x96" },
-    { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
-    { rel: "shortcut icon", href: "/favicon/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple.png" },
-    { rel: "manifest", href: "/favicon/site.webmanifest" },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "../favicon/96.png",
+      sizes: "96x96",
+    },
+    { rel: "icon", type: "image/svg+xml", href: "../favicon/favicon.svg" },
+    { rel: "shortcut icon", href: "../favicon/favicon.ico" },
+    { rel: "apple-touch-icon", sizes: "180x180", href: "../favicon/apple.png" },
+    { rel: "manifest", href: "../favicon/site.webmanifest" },
   ],
   openGraph: {
     metadataBase: new URL(url),
