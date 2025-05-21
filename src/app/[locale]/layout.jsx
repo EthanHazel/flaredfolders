@@ -64,8 +64,9 @@ export const metadata = {
     authors: ["Ethan Hazel"],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "app",
     title,
+    creator: "@EthanHazelGD",
     description,
     images: [
       {
@@ -75,9 +76,14 @@ export const metadata = {
         height: 628,
       },
     ],
+    app: {
+      name: "flared_folders",
+      url,
+    },
   },
   appleMobileWebAppTitle: title,
   url,
+  category: "technology",
   robots: {
     index: true,
     follow: true,
