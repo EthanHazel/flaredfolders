@@ -39,18 +39,12 @@ export const metadata = {
   },
   title,
   description,
-  links: [
-    {
-      rel: "icon",
-      type: "image/png",
-      href: "../favicon/96.png",
-      sizes: "96x96",
-    },
-    { rel: "icon", type: "image/svg+xml", href: "../favicon/favicon.svg" },
-    { rel: "shortcut icon", href: "../favicon/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "../favicon/apple.png" },
-    { rel: "manifest", href: "../favicon/site.webmanifest" },
-  ],
+  links: [{ rel: "manifest", href: "../favicon/site.webmanifest" }],
+  icons: {
+    icon: "/favicon/favicon.svg",
+    apple: "/favicon/apple.png",
+    shortcut: "/favicon/favicon.ico",
+  },
   openGraph: {
     title,
     description,
@@ -62,6 +56,8 @@ export const metadata = {
         height: 628,
       },
     ],
+    type: "website",
+    authors: ["Ethan Hazel"],
   },
   twitter: {
     card: "summary_large_image",
@@ -79,6 +75,18 @@ export const metadata = {
   },
   appleMobileWebAppTitle: title,
   url,
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({ children, params }) {
