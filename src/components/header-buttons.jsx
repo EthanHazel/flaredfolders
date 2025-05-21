@@ -25,10 +25,6 @@ export default function HeaderButtons() {
     }
   }, []);
 
-  const switchTheme = () => {
-    swapTheme();
-  };
-
   return (
     <>
       <Modal
@@ -40,7 +36,10 @@ export default function HeaderButtons() {
       </Modal>
 
       <div id="header-buttons">
-        <a className="header-button" onClick={switchTheme}>
+        <a
+          className="header-button"
+          onClick={() => swapTheme(document.body.classList.value)}
+        >
           <Sun className="header-button-svg" id="sun" />
           <Moon className="header-button-svg" id="moon" />
         </a>

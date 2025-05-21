@@ -1,8 +1,10 @@
+import ThemeInitializer from "@/components/theme-init";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
+import { redirect } from "next/navigation";
 
 const description =
   "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
@@ -10,25 +12,45 @@ const description =
 const title = "Flared Folders";
 const url = "https://www.flaredfolders.com/";
 
+const getLocales = () => {
+  const context = require.context("../../locales", false, /\.json$/);
+  const locales = context
+    .keys()
+    .map((key) => key.replace("./", "").replace(".json", ""));
+  return locales;
+};
+
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: "no",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export const metadata = {
+  metadataBase: new URL(url),
+  alternates: {
+    canonical: "/",
+    languages: {
+      ...getLocales().reduce((obj, locale) => {
+        obj[locale] = `/${locale}`;
+        return obj;
+      }, {}),
+    },
+  },
   title,
   description,
-  links: [
-    { rel: "icon", type: "image/png", href: "/favicon/96.png", sizes: "96x96" },
-    { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
-    { rel: "shortcut icon", href: "/favicon/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple.png" },
-    { rel: "manifest", href: "/favicon/site.webmanifest" },
-  ],
+  links: [{ rel: "manifest", href: "../favicon/site.webmanifest" }],
+  icons: {
+    icon: "/favicon/favicon.svg",
+    apple: "/favicon/apple.png",
+    shortcut: "/favicon/favicon.ico",
+  },
   openGraph: {
-    metadataBase: new URL(url),
     title,
     description,
     images: [
@@ -39,10 +61,13 @@ export const metadata = {
         height: 628,
       },
     ],
+    type: "website",
+    authors: ["Ethan Hazel"],
   },
   twitter: {
     card: "summary_large_image",
     title,
+    creator: "@EthanHazelGD",
     description,
     images: [
       {
@@ -52,10 +77,26 @@ export const metadata = {
         height: 628,
       },
     ],
-    themeColor: "#000000",
+    app: {
+      name: "flared_folders",
+      url,
+    },
   },
   appleMobileWebAppTitle: title,
   url,
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({ children, params }) {
@@ -63,12 +104,15 @@ export default async function RootLayout({ children, params }) {
   if (!hasLocale(routing.locales, locale)) {
     return redirect(`/en`);
   }
-  const cookiesInstance = await cookies();
-  const theme = cookiesInstance.get("theme")?.value || "light";
+
+  const cookiesInstance = cookies();
+  const themeCookie = cookiesInstance.get("theme");
+  const theme = themeCookie?.value;
 
   return (
     <html lang={locale}>
       <body className={theme === "dark" ? "dark" : ""}>
+        <ThemeInitializer serverTheme={theme} />
         <Analytics />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

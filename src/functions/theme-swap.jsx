@@ -1,8 +1,8 @@
 "use client";
 
-import { setTheme } from "./set-theme";
+import { setTheme } from "@/functions/theme-set";
 
-export function swapTheme() {
-  const newTheme = document.body.classList.toggle("dark") ? "dark" : "light";
+export function swapTheme(theme) {
+  const newTheme = theme === "dark" ? "light" : "dark";
   setTheme(newTheme);
 }
