@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import { redirect } from "next/navigation";
 
 const description =
@@ -103,12 +103,32 @@ export default async function RootLayout({ children, params }) {
   if (!hasLocale(routing.locales, locale)) {
     return redirect(`/en`);
   }
-  const cookiesInstance = await cookies();
-  const theme = cookiesInstance.get("theme")?.value || "light";
+
+  const cookiesInstance = cookies();
+  const themeCookie = cookiesInstance.get("theme");
+  const theme = themeCookie?.value;
 
   return (
     <html lang={locale}>
       <body className={theme === "dark" ? "dark" : ""}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = ${theme ? `'${theme}'` : "null"};
+                  if (!theme) {
+                    var userPref = window.matchMedia('(prefers-color-scheme: dark)').matches 
+                      ? 'dark' 
+                      : 'light';
+                    document.cookie = 'theme=' + userPref + '; max-age=2147483647; path=/';
+                    document.body.classList.add(userPref);
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         <Analytics />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
