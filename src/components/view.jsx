@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import "@/styles/mobile.css";
+import "@/styles/view.css";
 
-export default function MobileLayout() {
+export default function ViewLayout() {
   return (
     <div id="mobile">
       <Image
