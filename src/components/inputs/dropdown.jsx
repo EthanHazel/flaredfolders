@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 
-import "@/styles/dropdown.css";
+import "@/styles/inputs/dropdown.css";
 
 export default function Dropdown({ children, open = false, name }) {
   const [isOpen, setOpen] = useState(open);

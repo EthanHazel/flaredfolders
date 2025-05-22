@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 
-import "@/styles/color.css";
+import "@/styles/inputs/color.css";
 
 export default function Color({ defaultColor, onChange, id, name, label }) {
   const colorInput = useRef(null);

@@ -16,7 +16,7 @@ import {
 
 import { Download } from "lucide-react";
 
-import "@/styles/slug-input.css";
+import "@/styles/inputs/slug-input.css";
 
 export default function SlugInput() {
   const iconType = folderConfigStore((state) => state.iconType);

@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 
-import "@/styles/checkbox.css";
+import "@/styles/inputs/checkbox.css";
 
 export default function Checkbox({
   onChange,
