@@ -1,0 +1,92 @@
+{
+  "language": "Polski",
+  "translator": "FadeMind",
+  "panelTitles": {
+    "style": "Styl folderu",
+    "color": "Kolor folderu",
+    "icon": "Ikona folderu",
+    "smallConfig": "Konfiguracja małego folderu",
+    "image": "Obraz ikony",
+    "offset": "Przesunięcie ikony",
+    "config": "Konfiguracja ikony"
+  },
+  "folderTypes": {
+    "win10": "Windows 10",
+    "win11": "Windows 11",
+    "bigsur": "macOS Big Sur",
+    "mint": "Linux Mint L"
+  },
+  "smallFolderConfig": {
+    "squareAndIcon": "Pokaż kwadratową ikonę",
+    "folderOnly": "Pokaż tylko folder",
+    "folderAndIcon": "Pokaż folder z ikoną"
+  },
+  "folderConfig": {
+    "gradient": "Gradient",
+    "solid": "Jednolity",
+    "original": "Oryginalny",
+    "gradientStart": "Początkowy kolor gradientu",
+    "gradientEnd": "Końcowy kolor gradientu",
+    "solidColor": "Jednolity kolor"
+  },
+  "iconTypes": {
+    "lucide": "Lucide (Ogólne ikony)",
+    "simple": "SimpleIcons (Logotypy marek)",
+    "custom": "Prześlij (PNG, SVG lub JPEG)",
+    "none": "Brak"
+  },
+  "iconConfig": {
+    "shadow": "Dodaj cień do ikony",
+    "mask": "Dopasuj ikonę do folderu",
+    "color": "Kolor ikony",
+    "current": "Aktualna ikona:",
+    "browse": "Przeglądaj",
+    "x": "X",
+    "y": "Y",
+    "scale": "Skala",
+    "stroke": "Grubość obrysu ikony",
+    "opacity": "Przezroczystość ikony"
+  },
+  "credits": {
+    "title": "Podziękowania",
+    "created": "Stworzone przez:",
+    "icons": "Ikony od:",
+    "translations": "Tłumaczenie:",
+    "special": "Szczególne podziękowania:",
+    "donators": "Wspierający:",
+    "fonts": "Użyte czcionki:",
+    "contributors": "Współtwórcy:",
+    "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%"
+  },
+  "download": {
+    "download": "Pobierz",
+    "allSizes": "Wszystkie rozmiary (ZIP)",
+    "ico": ".ICO (Windows i Linux)",
+    "icns": ".ICNS (macOS)",
+    "png": ".PNG",
+    "1024": "1024x1024",
+    "512": "512x512",
+    "256": "256x256",
+    "128": "128x128",
+    "96": "96x96",
+    "72": "72x72",
+    "64": "64x64",
+    "48": "48x48",
+    "32": "32x32",
+    "24": "24x24",
+    "16": "16x16"
+  },
+  "donation": {
+    "front": "Prezentowane dzięki darczyńcom Ko-Fi, takim jak ",
+    "back": ". Dziękujemy!"
+  },
+  "firefox": {
+    "title": "Uwaga użytkowniku Firefoxa!",
+    "content1": "Skalowanie ikon w Firefoxie jest obecnie błędne, a pomniejszone ikony wyglądają bardziej pikselowo. Jest to problem z brakiem obsługi właściwości imageSmoothing na Canvas przez Firefox.",
+    "content2": "Dopóki Firefox tego nie naprawi lub nie znajdzie się obejście, zalecam korzystanie z przeglądarki opartej na Chromium.",
+    "content3": "Przepraszamy za niedogodności :("
+  },
+  "modal": {
+    "close": "Zamknij"
+  }
+}
