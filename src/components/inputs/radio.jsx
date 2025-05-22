@@ -1,4 +1,4 @@
-import "@/styles/radio.css";
+import "@/styles/inputs/radio.css";
 
 export default function Radio({
   onChange,

@@ -11,6 +11,7 @@ out/
 
 # macOS
 .DS_Store
+__MACOSX/
 
 # Windows
 desktop.ini

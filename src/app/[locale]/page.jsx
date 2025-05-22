@@ -1,6 +1,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import MobileLayout from "@/components/mobile";
+import ViewLayout from "@/components/view";
 
 import FolderColor from "@/components/control-panels/folder-color";
 import FolderStyle from "@/components/control-panels/folder-style";
@@ -36,7 +36,7 @@ export default function Home() {
           <Footer />
         </div>
       </div>
-      <MobileLayout />
+      <ViewLayout />
     </>
   );
 }

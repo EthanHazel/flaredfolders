@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "@/styles/img-radio.css";
+import "@/styles/inputs/img-radio.css";
 
 export default function ImgRadio({
   onChange,
