@@ -192,18 +192,21 @@ export default function FolderRender({ folderSize, key, id }) {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
       }
+      // Apply mask (using alpha channel)
+      ctx.globalCompositeOperation = "destination-in";
+      ctx.drawImage(maskImg, 0, 0, width, height);
+
+      // Draw highlight
+      ctx.globalCompositeOperation = "lighter";
+      ctx.drawImage(highlightImg, 0, 0, width, height);
     } else {
       // Draw default image
       ctx.drawImage(defaultImg, 0, 0, width, height);
+
+      // Apply mask (using alpha channel)
+      ctx.globalCompositeOperation = "destination-in";
+      ctx.drawImage(maskImg, 0, 0, width, height);
     }
-
-    // Apply mask (using alpha channel)
-    ctx.globalCompositeOperation = "destination-in";
-    ctx.drawImage(maskImg, 0, 0, width, height);
-
-    // Draw highlight
-    ctx.globalCompositeOperation = "source-over";
-    ctx.drawImage(highlightImg, 0, 0, width, height);
 
     if (
       iconType !== "none" &&

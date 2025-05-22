@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"; // Added useEffect
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { FolderGenerate } from "@/components/folder/folder-generate";
+import { FolderGenerate } from "@/functions/folder-generate";
 
 export default function Download() {
   const folderType = folderConfigStore((state) => state.folderType);
