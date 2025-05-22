@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { supabaseClient } from "@/lib/supabase";
+import { useTranslations } from "next-intl";
 
 export default function DownloadCounter() {
   const [count, setCount] = useState(null);
   const [loading, setLoading] = useState(true);
+  const t = useTranslations("download");
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -32,7 +34,7 @@ export default function DownloadCounter() {
 
   return (
     <div className="download-counter">
-      {count?.toLocaleString() || "0"} folders downloaded wordwide!
+      {count?.toLocaleString() || "0"} {t("counter")}
     </div>
   );
 }

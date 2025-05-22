@@ -59,6 +59,7 @@
     "help": "Want to help translate? %Help us out!%"
   },
   "download": {
+    "counter": "folders downloaded wordwide!",
     "download": "Download",
     "allSizes": "All Sizes (Packaged ZIP)",
     "ico": ".ICO (Windows & Linux)",

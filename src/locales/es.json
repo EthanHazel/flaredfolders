@@ -59,6 +59,7 @@
     "help": "¿Quieres ayudar a traducir? %¡Échanos una mano!%"
   },
   "download": {
+    "counter": "carpetas descargadas en todo el mundo!",
     "download": "Descargar",
     "allSizes": "Todos los tamaños (ZIP compreso)",
     "ico": ".ICO (Windows y Linux)",

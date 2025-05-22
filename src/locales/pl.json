@@ -59,6 +59,7 @@
     "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%"
   },
   "download": {
+    "counter": "pobranych folderów na całym świecie!",
     "download": "Pobierz",
     "allSizes": "Wszystkie rozmiary (ZIP)",
     "ico": ".ICO (Windows i Linux)",
