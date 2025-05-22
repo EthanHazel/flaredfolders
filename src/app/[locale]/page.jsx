@@ -18,15 +18,18 @@ export default function Home() {
           <FolderIcon />
         </div>
         <div id="right-container">
-          <FolderRender folderSize={512} key={512} />
+          <FolderRender folderSize={512} key={512} id="big-folder-512" />
+          <FolderRender folderSize={256} key={256} id="small-folder-256" />
           <div className="hidden">
             <FolderRender folderSize={1024} key={1024} />
-            {[256, 128, 96, 72].map((size) => (
+            {[128, 96, 72].map((size) => (
               <FolderRender folderSize={size} key={size} />
             ))}
           </div>
           <div id="small-folders">
-            {[64, 48, 32, 24, 16].map((size) => (
+            <FolderRender folderSize={64} key={64} id="small-folder-64" />
+            <FolderRender folderSize={48} key={48} id="small-folder-48" />
+            {[32, 24, 16].map((size) => (
               <FolderRender folderSize={size} key={size} />
             ))}
           </div>
