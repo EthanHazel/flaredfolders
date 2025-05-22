@@ -11,9 +11,8 @@ import { loadCustom } from "@/functions/fetch-custom";
 import { folderConfigStore } from "@/stores/folder-config";
 
 import "@/styles/folder.css";
-import FolderStyle from "../control-panels/folder-style";
 
-export default function FolderRender({ folderSize }) {
+export default function FolderRender({ folderSize, key, id }) {
   const colorType = folderConfigStore((state) => state.colorType);
 
   const colors = [
@@ -300,7 +299,8 @@ export default function FolderRender({ folderSize }) {
   return (
     <div
       className="folder-icon-container"
-      key={folderSize}
+      key={key}
+      id={id}
       style={{
         width: "calc(" + folderSize + "px + 2rem)",
         height: "calc(" + folderSize + "px + 2rem)",
