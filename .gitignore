@@ -24,3 +24,7 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Env variables
+.env
+.env.local
