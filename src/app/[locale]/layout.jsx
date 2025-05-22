@@ -105,7 +105,7 @@ export default async function RootLayout({ children, params }) {
     return redirect(`/en`);
   }
 
-  const cookiesInstance = cookies();
+  const cookiesInstance = await cookies();
   const themeCookie = cookiesInstance.get("theme");
   const theme = themeCookie?.value;
 

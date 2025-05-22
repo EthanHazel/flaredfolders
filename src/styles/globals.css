@@ -209,3 +209,8 @@ a:active {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.download-counter {
+  font-size: 0.8rem;
+  color: var(--tertiary);
+}

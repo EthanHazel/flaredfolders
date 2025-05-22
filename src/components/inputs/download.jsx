@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react"; // Added useEffect
+import DownloadCounter from "../download-count";
+
+import { useState, useEffect } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { FolderGenerate } from "@/functions/folder-generate";
@@ -40,8 +42,28 @@ export default function Download() {
     return name;
   };
 
+  const handleDownload = async () => {
+    FolderGenerate(fileType, iconSize, getName());
+
+    try {
+      const response = await fetch("/api/downloads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to increment download count", response.status);
+      }
+    } catch (error) {
+      console.error("Download count error:", error);
+    }
+  };
+
   return (
     <div id="download-container">
+      <DownloadCounter />
       <select
         name="file-type"
         id="file-type"
@@ -81,7 +103,7 @@ export default function Download() {
         type="button"
         value={t("download")}
         id="download-button"
-        onClick={() => FolderGenerate(fileType, iconSize, getName())}
+        onClick={handleDownload}
       />
     </div>
   );

@@ -18,6 +18,7 @@ export default function Footer() {
         <span id="donator">{user}</span>
         {t("back")}
       </span>
+
       <Download />
     </div>
   );
