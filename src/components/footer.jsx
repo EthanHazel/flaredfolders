@@ -12,12 +12,12 @@ export default function Footer() {
 
   return (
     <div id="footer">
-      <span id="donators">
+      <a id="donators" href="https://ko-fi.com/ethanhazel/tip" target="_blank">
         <Heart size={16} />
         {t("front")}
         <span id="donator">{user}</span>
         {t("back")}
-      </span>
+      </a>
 
       <Download />
     </div>
