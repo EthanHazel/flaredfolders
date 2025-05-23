@@ -10,12 +10,6 @@
     "offset": "Posición de ícono",
     "config": "Ajustes de ícono"
   },
-  "folderTypes": {
-    "win10": "Windows 10",
-    "win11": "Windows 11",
-    "bigsur": "macOS Big Sur",
-    "mint": "Linux Mint L"
-  },
   "smallFolderConfig": {
     "squareAndIcon": "Mostrar ícono con fondo",
     "folderOnly": "Mostrar solo carpeta",

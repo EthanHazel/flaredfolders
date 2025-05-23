@@ -42,6 +42,9 @@ export default function Credits() {
 
           const data = await response.json();
           allContributors = [...allContributors, ...data];
+          allContributors = allContributors.filter(
+            (contributor) => contributor.login !== "EthanHazelSchool"
+          );
           hasMore = data.length === 100;
           page++;
         }

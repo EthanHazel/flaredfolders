@@ -10,12 +10,6 @@
     "offset": "Przesunięcie ikony",
     "config": "Konfiguracja ikony"
   },
-  "folderTypes": {
-    "win10": "Windows 10",
-    "win11": "Windows 11",
-    "bigsur": "macOS Big Sur",
-    "mint": "Linux Mint L"
-  },
   "smallFolderConfig": {
     "squareAndIcon": "Pokaż kwadratową ikonę",
     "folderOnly": "Pokaż tylko folder",

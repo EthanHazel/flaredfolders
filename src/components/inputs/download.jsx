@@ -13,6 +13,7 @@ export default function Download() {
     folderType === "bigsur" ? "icns" : "ico"
   );
   const [iconSize, setIconSize] = useState("all");
+  const [sessionDownload, setSessionDownload] = useState(false);
 
   const iconType = folderConfigStore((state) => state.iconType);
   const lucideSlug = folderConfigStore((state) => state.lucideSlug);
@@ -45,6 +46,7 @@ export default function Download() {
   const handleDownload = async () => {
     FolderGenerate(fileType, iconSize, getName());
 
+    if (sessionDownload) return;
     try {
       const response = await fetch("/api/downloads", {
         method: "POST",
@@ -54,7 +56,16 @@ export default function Download() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to increment download count", response.status);
+        if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+          throw new Error(
+            "Failed to increment download count",
+            response.status
+          );
+        } else {
+          console.log("Download increment triggered");
+        }
+      } else {
+        setSessionDownload(true);
       }
     } catch (error) {
       console.error("Download count error:", error);

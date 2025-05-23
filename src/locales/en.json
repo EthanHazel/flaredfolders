@@ -10,12 +10,6 @@
     "offset": "Icon Offset",
     "config": "Icon Config"
   },
-  "folderTypes": {
-    "win10": "Windows 10",
-    "win11": "Windows 11",
-    "bigsur": "macOS Big Sur",
-    "mint": "Linux Mint L"
-  },
   "smallFolderConfig": {
     "squareAndIcon": "Show icon with box background",
     "folderOnly": "Show folder only",
