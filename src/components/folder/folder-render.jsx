@@ -82,6 +82,14 @@ export default function FolderRender({ folderSize, key, id }) {
     }
   };
 
+  const getIconShadow = () => {
+    if ((folderType === "win10") & (folderSize > 24)) {
+      return `shadow`;
+    } else {
+      return `base`;
+    }
+  };
+
   useEffect(() => {
     if (
       folderType === "bigsur" &&
@@ -103,19 +111,27 @@ export default function FolderRender({ folderSize, key, id }) {
 
     const loadImages = async () => {
       try {
-        const [baseImg, icon, highlightImg, iconMaskImg, maskImg, defaultImg] =
-          await Promise.all([
-            loadImage(`/folder-assets/${getType()}/${folderSize}/base.png`),
-            loadIcon(),
-            loadImage(
-              `/folder-assets/${getType()}/${folderSize}/highlight.png`
-            ),
-            loadImage(
-              `/folder-assets/${getType()}/${folderSize}/${getIconMask()}.png`
-            ),
-            loadImage(`/folder-assets/${getType()}/${folderSize}/mask.png`),
-            loadImage(`/folder-assets/${getType()}/${folderSize}/default.png`),
-          ]);
+        const [
+          baseImg,
+          icon,
+          highlightImg,
+          iconMaskImg,
+          maskImg,
+          defaultImg,
+          shadowImg,
+        ] = await Promise.all([
+          loadImage(`/folder-assets/${getType()}/${folderSize}/base.png`),
+          loadIcon(),
+          loadImage(`/folder-assets/${getType()}/${folderSize}/highlight.png`),
+          loadImage(
+            `/folder-assets/${getType()}/${folderSize}/${getIconMask()}.png`
+          ),
+          loadImage(`/folder-assets/${getType()}/${folderSize}/mask.png`),
+          loadImage(`/folder-assets/${getType()}/${folderSize}/default.png`),
+          loadImage(
+            `/folder-assets/${getType()}/${folderSize}/${getIconShadow()}.png`
+          ),
+        ]);
 
         drawCanvas(
           baseImg,
@@ -124,6 +140,7 @@ export default function FolderRender({ folderSize, key, id }) {
           highlightImg,
           iconMaskImg,
           maskImg,
+          shadowImg,
           colors
         );
         setIsLoading(false);
@@ -152,6 +169,7 @@ export default function FolderRender({ folderSize, key, id }) {
     highlightImg,
     iconMaskImg,
     maskImg,
+    shadowImg,
     colors
   ) => {
     const canvas = canvasRef.current;
@@ -199,6 +217,12 @@ export default function FolderRender({ folderSize, key, id }) {
       // Draw highlight
       ctx.globalCompositeOperation = "lighter";
       ctx.drawImage(highlightImg, 0, 0, width, height);
+
+      // Draw shadow
+      if (folderType === "win10" && folderSize > 24) {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.drawImage(shadowImg, 0, 0, width, height);
+      }
     } else {
       // Draw default image
       ctx.drawImage(defaultImg, 0, 0, width, height);
