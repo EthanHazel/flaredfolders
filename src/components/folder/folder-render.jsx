@@ -226,16 +226,12 @@ export default function FolderRender({ folderSize, key, id }) {
         (folderType === "win10" && folderSize > 24) ||
         folderType === "bigsur"
       ) {
-        ctx.globalCompositeOperation = "source-over";
+        ctx.globalCompositeOperation = "darken";
         ctx.drawImage(shadowImg, 0, 0, width, height);
       }
     } else {
       // Draw default image
       ctx.drawImage(defaultImg, 0, 0, width, height);
-
-      // Apply mask (using alpha channel)
-      ctx.globalCompositeOperation = "destination-in";
-      ctx.drawImage(maskImg, 0, 0, width, height);
     }
 
     if (
