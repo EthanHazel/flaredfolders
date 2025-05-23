@@ -83,7 +83,10 @@ export default function FolderRender({ folderSize, key, id }) {
   };
 
   const getIconShadow = () => {
-    if ((folderType === "win10") & (folderSize > 24)) {
+    if (
+      (folderType === "win10") & (folderSize > 24) ||
+      folderType === "bigsur"
+    ) {
       return `shadow`;
     } else {
       return `base`;
@@ -219,7 +222,10 @@ export default function FolderRender({ folderSize, key, id }) {
       ctx.drawImage(highlightImg, 0, 0, width, height);
 
       // Draw shadow
-      if (folderType === "win10" && folderSize > 24) {
+      if (
+        (folderType === "win10" && folderSize > 24) ||
+        folderType === "bigsur"
+      ) {
         ctx.globalCompositeOperation = "source-over";
         ctx.drawImage(shadowImg, 0, 0, width, height);
       }
