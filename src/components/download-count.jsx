@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabaseClient } from "@/lib/supabase";
 import { useTranslations } from "next-intl";
 
 export default function DownloadCounter() {
@@ -12,14 +11,17 @@ export default function DownloadCounter() {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const { data, error } = await supabaseClient
-          .from("downloads")
-          .select("count")
-          .single();
+        const response = await fetch("/api/downloads");
 
-        if (error) throw error;
+        if (!response.ok) {
+          throw new Error(
+            `Failed to retrieve download count: ${response.status}`
+          );
+        }
 
-        setCount(data.count);
+        const { count } = await response.json();
+
+        setCount(count);
         setLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);
@@ -27,14 +29,18 @@ export default function DownloadCounter() {
       }
     };
 
-    fetchCount();
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      fetchCount();
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   if (loading) return null;
 
   return (
     <div className="download-counter">
-      {count?.toLocaleString() || "0"} {t("counter")}
+      {count?.toLocaleString() || "∞"} {t("counter")}
     </div>
   );
 }

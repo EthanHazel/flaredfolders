@@ -54,7 +54,14 @@ export default function Download() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to increment download count", response.status);
+        if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+          throw new Error(
+            "Failed to increment download count",
+            response.status
+          );
+        } else {
+          console.log("Download increment triggered");
+        }
       }
     } catch (error) {
       console.error("Download count error:", error);
