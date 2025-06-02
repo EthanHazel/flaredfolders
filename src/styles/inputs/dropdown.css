@@ -32,12 +32,17 @@
   width: 100%;
 }
 
-.dropdown-icon {
+.dropdown-icon,
+.dropdown-symbol {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
+}
+
+.dropdown-symbol svg {
+  color: var(--tertiary);
 }
 
 .dropdown-icon svg {

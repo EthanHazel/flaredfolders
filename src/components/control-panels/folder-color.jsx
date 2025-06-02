@@ -35,27 +35,30 @@ export default function FolderColor() {
   const t = useTranslations("panelTitles");
   const tc = useTranslations("folderConfig");
 
+  if (folderType === "icon-only") return null;
   return (
-    <Dropdown name={t("color")}>
+    <Dropdown name={t("color")} icon="Palette">
       <div id="color-type" className="radio-list">
         <Radio
           name="color-type"
           id="color-type-gradient"
           label={tc("gradient")}
           onChange={changeType("linear-gradient")}
-          defaultChecked
+          checked={colorType === "linear-gradient"}
         />
         <Radio
           name="color-type"
           id="color-type-solid"
           label={tc("solid")}
           onChange={changeType("solid")}
+          checked={colorType === "solid"}
         />
         <Radio
           name="color-type"
           id="color-type-original"
           label={tc("original")}
           onChange={changeType("original")}
+          checked={colorType === "original"}
         />
       </div>
       {colorType === "linear-gradient" && (

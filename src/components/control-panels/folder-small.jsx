@@ -23,9 +23,9 @@ export default function FolderSmall() {
   const t = useTranslations("panelTitles");
   const tc = useTranslations("smallFolderConfig");
 
-  if (folderType !== "win10")
+  if (folderType !== "icon-only")
     return (
-      <Dropdown name={t("smallConfig")}>
+      <Dropdown name={t("smallConfig")} icon="FolderTree">
         <div id="lod-config" className="radio-list">
           {folderType === "win11" && (
             <Radio
@@ -42,6 +42,13 @@ export default function FolderSmall() {
             onChange={() => setFolderSmallType("folderAndIcon")}
             label={tc("folderAndIcon")}
             checked={folderSmallType === "folderAndIcon"}
+          />
+          <Radio
+            name="lod-config"
+            id="lod-icon"
+            onChange={() => setFolderSmallType("iconOnly")}
+            label={tc("iconOnly")}
+            checked={folderSmallType === "iconOnly"}
           />
           <Radio
             name="lod-config"

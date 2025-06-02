@@ -33,7 +33,7 @@ export default function FolderStyle() {
   const t = useTranslations("panelTitles");
 
   return (
-    <Dropdown name={t("style")} open>
+    <Dropdown name={t("style")} icon="Folder" open>
       <div id="style-input" className="radio-list">
         <ImgRadio
           name="style-input"
@@ -63,6 +63,13 @@ export default function FolderStyle() {
           checked={folderType === "mint-l"}
           img="mint-l"
           onChange={changeType("mint-l")}
+        />
+        <ImgRadio
+          name="style-input"
+          id="icon-only-style"
+          checked={folderType === "icon-only"}
+          img="icon-only"
+          onChange={changeType("icon-only")}
         />
       </div>
       <FolderSmall />

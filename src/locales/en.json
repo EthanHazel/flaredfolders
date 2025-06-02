@@ -12,6 +12,7 @@
   },
   "smallFolderConfig": {
     "squareAndIcon": "Show icon with box background",
+    "iconOnly": "Show icon only",
     "folderOnly": "Show folder only",
     "folderAndIcon": "Show folder with icon"
   },
@@ -72,7 +73,7 @@
     "16": "16x16"
   },
   "donation": {
-    "front": "Presented by Ko-Fi donators like ",
+    "front": "Presented by Ko-fi donators like ",
     "back": ". Thank you!"
   },
   "firefox": {

@@ -12,6 +12,7 @@
   },
   "smallFolderConfig": {
     "squareAndIcon": "Mostrar ícono con fondo",
+    "iconOnly": "Mostrar solo el ícono",
     "folderOnly": "Mostrar solo carpeta",
     "folderAndIcon": "Mostrar carpeta con ícono"
   },
@@ -72,7 +73,7 @@
     "16": "16x16"
   },
   "donation": {
-    "front": "Presentado a usted por donadores de Ko-Fi como ",
+    "front": "Presentado a usted por donadores de Ko-fi como ",
     "back": ". ¡Muchas gracias!"
   },
   "firefox": {
