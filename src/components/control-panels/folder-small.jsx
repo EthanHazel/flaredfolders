@@ -45,6 +45,13 @@ export default function FolderSmall() {
           />
           <Radio
             name="lod-config"
+            id="lod-icon"
+            onChange={() => setFolderSmallType("iconOnly")}
+            label={tc("iconOnly")}
+            checked={folderSmallType === "iconOnly"}
+          />
+          <Radio
+            name="lod-config"
             id="lod-hide"
             onChange={() => setFolderSmallType("folderOnly")}
             label={tc("folderOnly")}

@@ -13,167 +13,203 @@ import { folderConfigStore } from "@/stores/folder-config";
 import "@/styles/folder.css";
 
 export default function FolderRender({ folderSize, key, id }) {
-  const colorType = folderConfigStore((state) => state.colorType);
+  // Configuration state from store
+  const {
+    colorType,
+    gradientStartColor,
+    gradientEndColor,
+    solidColor,
+    folderType,
+    folderSmallType,
+    iconType,
+    iconScale,
+    iconColor,
+    iconOffset,
+    iconOpacity,
+    iconShadow,
+    iconMasked,
+    lucideSlug,
+    lucideStrokeWidth,
+    simpleSlug,
+    customFileName,
+  } = useFolderConfigState();
 
-  const colors = [
-    folderConfigStore((state) => state.gradientStartColor),
-    folderConfigStore((state) => state.gradientEndColor),
-    folderConfigStore((state) => state.solidColor),
-  ];
-
-  const folderType = folderConfigStore((state) => state.folderType);
-  const folderSmallType = folderConfigStore((state) => state.folderSmallType);
-
-  const iconType = folderConfigStore((state) => state.iconType);
-  const iconScale = folderConfigStore((state) => state.iconScale);
-  const iconColor = folderConfigStore((state) => state.iconColor);
-  const iconOffset = folderConfigStore((state) => state.iconOffset);
-  const iconOpacity = folderConfigStore((state) => state.iconOpacity);
-  const iconShadow = folderConfigStore((state) => state.iconShadow);
-  const iconMasked = folderConfigStore((state) => state.iconMasked);
-
-  const lucideSlug = folderConfigStore((state) => state.lucideSlug);
-  const lucideStrokeWidth = folderConfigStore(
-    (state) => state.lucideStrokeWidth
-  );
-
-  const simpleSlug = folderConfigStore((state) => state.simpleSlug);
-
-  const customFileName = folderConfigStore((state) => state.customFileName);
-
+  const colors = [gradientStartColor, gradientEndColor, solidColor];
   const canvasRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const loadIcon = async () => {
-    if (iconType === "simple") {
-      return await loadSimple(simpleSlug, iconColor);
-    } else if (iconType === "lucide") {
-      return await loadLucide(lucideSlug, iconColor, lucideStrokeWidth);
-    } else if (iconType === "custom") {
-      return await loadCustom(customFileName);
-    }
-  };
+  // Precomputed values
+  const isIconOnly =
+    folderType === "icon-only" ||
+    (folderSmallType === "iconOnly" && folderSize <= 32);
+  const type = getFolderType(folderType, folderSmallType, folderSize);
+  const iconMultiplier = getIconMultiplier(
+    folderType,
+    folderSmallType,
+    folderSize
+  );
+  const iconMask = getIconMaskType(folderType, folderSize);
+  const iconShadowType = getIconShadowType(folderType, folderSize);
+  const iconAnchor =
+    (folderSmallType === "squareAndIcon" || folderSmallType === "iconOnly") &&
+    folderSize <= 32
+      ? [0, 0]
+      : getIconAnchor(folderType, folderSize);
 
-  const getType = () => {
-    if (
-      folderSmallType === "squareAndIcon" &&
-      folderSize <= 32 &&
-      folderType === "win11"
-    ) {
-      return folderType + "-box";
-    } else {
-      return folderType;
-    }
-  };
-
-  const getIconMultiplier = () => {
-    if (folderSmallType === "squareAndIcon" && folderSize <= 32) {
-      return 1.5;
-    } else if (folderType == "icon-only") {
-      return 1.75;
-    } else {
-      return 1;
-    }
-  };
-
-  const getIconMask = () => {
-    if ((folderType === "win10") & (folderSize !== 16)) {
-      return `icon-mask`;
-    } else {
-      return `mask`;
-    }
-  };
-
-  const getIconShadow = () => {
-    if (
-      (folderType === "win10") & (folderSize > 24) ||
-      folderType === "bigsur"
-    ) {
-      return `shadow`;
-    } else {
-      return `base`;
-    }
-  };
-
+  // Main effect for loading and drawing
   useEffect(() => {
-    if (
-      folderType === "bigsur" &&
-      (folderSize === 24 ||
-        folderSize === 48 ||
-        folderSize === 72 ||
-        folderSize === 96)
-    )
-      return;
-    if (
-      (folderType === "win11" ||
-        folderType === "win10" ||
-        folderType === "mint-l") &&
-      folderSize === 1024
-    )
-      return;
+    if (shouldSkipRender(folderType, folderSize)) return;
 
-    if (folderType === "mint-l" && folderSize === 72) return;
-
-    const loadImages = async () => {
+    const loadAndDraw = async () => {
       try {
-        let [
-          baseImg,
-          icon,
-          highlightImg,
-          iconMaskImg,
-          maskImg,
-          defaultImg,
-          shadowImg,
-        ] = await Promise.all([
-          folderType === "icon-only"
-            ? null
-            : loadImage(`/folder-assets/${getType()}/${folderSize}/base.png`),
-          loadIcon(),
-          folderType === "icon-only"
-            ? null
-            : loadImage(
-                `/folder-assets/${getType()}/${folderSize}/highlight.png`
-              ),
-          folderType === "icon-only"
-            ? null
-            : loadImage(
-                `/folder-assets/${getType()}/${folderSize}/${getIconMask()}.png`
-              ),
-          folderType === "icon-only"
-            ? null
-            : loadImage(`/folder-assets/${getType()}/${folderSize}/mask.png`),
-          folderType === "icon-only"
-            ? null
-            : loadImage(
-                `/folder-assets/${getType()}/${folderSize}/default.png`
-              ),
-          folderType === "icon-only"
-            ? null
-            : loadImage(
-                `/folder-assets/${getType()}/${folderSize}/${getIconShadow()}.png`
-              ),
-        ]);
-
-        drawCanvas(
-          baseImg,
-          icon,
-          defaultImg,
-          highlightImg,
-          iconMaskImg,
-          maskImg,
-          shadowImg,
-          colors
-        );
+        const images = await loadRequiredImages();
+        drawCanvas(images, colors);
         setIsLoading(false);
       } catch (error) {
         console.error("Error loading images:", error);
       }
     };
 
-    loadImages();
+    loadAndDraw();
   }, [colors]);
 
-  const loadImage = (src) => {
+  // Helper function to get all configuration state
+  function useFolderConfigState() {
+    return {
+      colorType: folderConfigStore((state) => state.colorType),
+      gradientStartColor: folderConfigStore(
+        (state) => state.gradientStartColor
+      ),
+      gradientEndColor: folderConfigStore((state) => state.gradientEndColor),
+      solidColor: folderConfigStore((state) => state.solidColor),
+      folderType: folderConfigStore((state) => state.folderType),
+      folderSmallType: folderConfigStore((state) => state.folderSmallType),
+      iconType: folderConfigStore((state) => state.iconType),
+      iconScale: folderConfigStore((state) => state.iconScale),
+      iconColor: folderConfigStore((state) => state.iconColor),
+      iconOffset: folderConfigStore((state) => state.iconOffset),
+      iconOpacity: folderConfigStore((state) => state.iconOpacity),
+      iconShadow: folderConfigStore((state) => state.iconShadow),
+      iconMasked: folderConfigStore((state) => state.iconMasked),
+      lucideSlug: folderConfigStore((state) => state.lucideSlug),
+      lucideStrokeWidth: folderConfigStore((state) => state.lucideStrokeWidth),
+      simpleSlug: folderConfigStore((state) => state.simpleSlug),
+      customFileName: folderConfigStore((state) => state.customFileName),
+    };
+  }
+
+  // Determine folder type based on size and settings
+  function getFolderType(folderType, folderSmallType, folderSize) {
+    if (
+      folderSmallType === "squareAndIcon" &&
+      folderSize <= 32 &&
+      folderType === "win11"
+    ) {
+      return folderType + "-box";
+    }
+    return folderType;
+  }
+
+  // Calculate icon multiplier based on folder settings
+  function getIconMultiplier(folderType, folderSmallType, folderSize) {
+    if (folderSmallType === "squareAndIcon" && folderSize <= 32) {
+      return 1.5;
+    }
+    if (
+      folderType === "icon-only" ||
+      (folderSmallType === "iconOnly" && folderSize <= 32)
+    ) {
+      return 1.75;
+    }
+    return 1;
+  }
+
+  // Determine icon mask type
+  function getIconMaskType(folderType, folderSize) {
+    if (folderType === "win10" && folderSize !== 16) {
+      return "icon-mask";
+    }
+    return "mask";
+  }
+
+  // Determine icon shadow type
+  function getIconShadowType(folderType, folderSize) {
+    if (
+      (folderType === "win10" && folderSize > 24) ||
+      folderType === "bigsur"
+    ) {
+      return "shadow";
+    }
+    return "base";
+  }
+
+  // Check if we should skip rendering for this size
+  function shouldSkipRender(folderType, folderSize) {
+    const bigsurSizes = [24, 48, 72, 96];
+    const otherSizes = [1024, 72];
+
+    return (
+      (folderType === "bigsur" && bigsurSizes.includes(folderSize)) ||
+      ((folderType === "win11" ||
+        folderType === "win10" ||
+        folderType === "mint-l") &&
+        otherSizes.includes(folderSize))
+    );
+  }
+
+  // Load required images based on configuration
+  async function loadRequiredImages() {
+    const imagePaths = {
+      base: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/base.png`,
+      highlight: isIconOnly
+        ? null
+        : `/folder-assets/${type}/${folderSize}/highlight.png`,
+      iconMask: isIconOnly
+        ? null
+        : `/folder-assets/${type}/${folderSize}/${iconMask}.png`,
+      mask: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/mask.png`,
+      default: isIconOnly
+        ? null
+        : `/folder-assets/${type}/${folderSize}/default.png`,
+      shadow: isIconOnly
+        ? null
+        : `/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
+      icon: await loadIcon(),
+    };
+
+    return {
+      baseImg: imagePaths.base ? await loadImage(imagePaths.base) : null,
+      icon: imagePaths.icon,
+      highlightImg: imagePaths.highlight
+        ? await loadImage(imagePaths.highlight)
+        : null,
+      iconMaskImg: imagePaths.iconMask
+        ? await loadImage(imagePaths.iconMask)
+        : null,
+      maskImg: imagePaths.mask ? await loadImage(imagePaths.mask) : null,
+      defaultImg: imagePaths.default
+        ? await loadImage(imagePaths.default)
+        : null,
+      shadowImg: imagePaths.shadow ? await loadImage(imagePaths.shadow) : null,
+    };
+  }
+
+  // Load icon based on type
+  async function loadIcon() {
+    if (iconType === "simple") {
+      return await loadSimple(simpleSlug, iconColor);
+    }
+    if (iconType === "lucide") {
+      return await loadLucide(lucideSlug, iconColor, lucideStrokeWidth);
+    }
+    if (iconType === "custom") {
+      return await loadCustom(customFileName);
+    }
+    return null;
+  }
+
+  // Generic image loader
+  async function loadImage(src) {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.crossOrigin = "anonymous";
@@ -181,170 +217,291 @@ export default function FolderRender({ folderSize, key, id }) {
       img.onload = () => resolve(img);
       img.onerror = reject;
     });
-  };
+  }
 
-  const drawCanvas = (
-    baseImg,
-    icon,
-    defaultImg,
-    highlightImg,
-    iconMaskImg,
-    maskImg,
-    shadowImg,
-    colors
-  ) => {
+  // Main canvas drawing function
+  function drawCanvas(images, colors) {
+    const {
+      baseImg,
+      icon,
+      highlightImg,
+      iconMaskImg,
+      maskImg,
+      defaultImg,
+      shadowImg,
+    } = images;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     const { width, height } = canvas;
 
-    // Enable smooth scaling
+    setupCanvasRendering(ctx);
+    clearCanvas(ctx, width, height);
+
+    if (shouldDrawBackground()) {
+      drawBackground(
+        ctx,
+        baseImg,
+        highlightImg,
+        maskImg,
+        shadowImg,
+        colors,
+        width,
+        height
+      );
+    } else if (!isIconOnly) {
+      drawDefaultImage(ctx, defaultImg, width, height);
+    }
+
+    if (shouldDrawIcon()) {
+      drawIcon(ctx, icon, iconMaskImg, width, height);
+    }
+  }
+
+  // Set up canvas rendering quality
+  function setupCanvasRendering(ctx) {
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
+  }
 
-    // Clear canvas
+  // Clear the canvas
+  function clearCanvas(ctx, width, height) {
     ctx.clearRect(0, 0, width, height);
+  }
 
-    if (colorType !== "original" && folderType !== "icon-only") {
-      // Draw base image
-      ctx.drawImage(baseImg, 0, 0, width, height);
+  // Determine if we should draw the background
+  function shouldDrawBackground() {
+    return !isIconOnly && colorType !== "original";
+  }
 
-      if (colorType === "solid") {
-        // Draw solid color
-        ctx.globalCompositeOperation = "multiply";
-        ctx.fillStyle = colors[2];
-        ctx.fillRect(0, 0, width, height);
-      } else if (colorType === "linear-gradient") {
-        // Create gradient
-        const gradient = ctx.createLinearGradient(
-          width,
-          height, // Start point (bottom left)
-          0,
-          0 // End point (top right) - creates 45deg angle
-        );
-        gradient.addColorStop(0, colors[1]);
-        gradient.addColorStop(1, colors[0]);
+  // Draw background elements
+  function drawBackground(
+    ctx,
+    baseImg,
+    highlightImg,
+    maskImg,
+    shadowImg,
+    colors,
+    width,
+    height
+  ) {
+    ctx.drawImage(baseImg, 0, 0, width, height);
 
-        // Draw gradient clipped by mask
-        ctx.globalCompositeOperation = "multiply";
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-      }
-      // Apply mask (using alpha channel)
-      ctx.globalCompositeOperation = "destination-in";
-      ctx.drawImage(maskImg, 0, 0, width, height);
-
-      // Draw highlight
-      ctx.globalCompositeOperation = "lighter";
-      ctx.drawImage(highlightImg, 0, 0, width, height);
-
-      // Draw shadow
-      if (
-        (folderType === "win10" && folderSize > 24) ||
-        folderType === "bigsur"
-      ) {
-        ctx.globalCompositeOperation = "darken";
-        ctx.drawImage(shadowImg, 0, 0, width, height);
-      }
-    } else if (folderType !== "icon-only") {
-      // Draw default image
-      ctx.drawImage(defaultImg, 0, 0, width, height);
+    if (colorType === "solid") {
+      applySolidColor(ctx, colors[2], width, height);
+    } else if (colorType === "linear-gradient") {
+      applyGradientColor(ctx, colors, width, height);
     }
 
+    applyMask(ctx, maskImg, width, height);
+    drawHighlight(ctx, highlightImg, width, height);
+    drawShadow(ctx, shadowImg, width, height);
+  }
+
+  // Apply solid color effect
+  function applySolidColor(ctx, color, width, height) {
+    ctx.globalCompositeOperation = "multiply";
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  // Apply gradient color effect
+  function applyGradientColor(ctx, colors, width, height) {
+    const gradient = ctx.createLinearGradient(width, height, 0, 0);
+    gradient.addColorStop(0, colors[1]);
+    gradient.addColorStop(1, colors[0]);
+
+    ctx.globalCompositeOperation = "multiply";
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  // Apply mask to canvas
+  function applyMask(ctx, maskImg, width, height) {
+    ctx.globalCompositeOperation = "destination-in";
+    ctx.drawImage(maskImg, 0, 0, width, height);
+  }
+
+  // Draw highlight effect
+  function drawHighlight(ctx, highlightImg, width, height) {
+    ctx.globalCompositeOperation = "lighter";
+    ctx.drawImage(highlightImg, 0, 0, width, height);
+  }
+
+  // Draw shadow effect
+  function drawShadow(ctx, shadowImg, width, height) {
     if (
-      (iconType !== "none" &&
-        !(folderType === "win10" && folderSize === 16) &&
-        (folderSmallType === "folderAndIcon" ||
-          folderSmallType === "squareAndIcon" ||
-          folderSize > 32)) ||
-      folderType === "icon-only"
+      (folderType === "win10" && folderSize > 24) ||
+      folderType === "bigsur"
     ) {
-      const aspectRatio = icon.width / icon.height || 1; // Default to 1 if aspect ratio is undefined, to avoid NaN on Firefox
-      console.log(aspectRatio);
-      const scaledWidth = width;
-      const scaledHeight = scaledWidth / aspectRatio;
-
-      const iconOffsetX = (iconOffset[0] / 100) * scaledWidth;
-      const iconOffsetY =
-        (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4;
-
-      const iconX = (width - width * iconScale * getIconMultiplier()) / 2;
-      const iconY = (height - height * iconScale * getIconMultiplier()) / 2;
-
-      const iconAnchor =
-        folderSmallType === "squareAndIcon" && folderSize <= 32
-          ? [0, 0]
-          : getIconAnchor(folderType, folderSize);
-
-      if (iconMasked) {
-        // Create temporary canvas for icon and mask
-        const tempCanvas = document.createElement("canvas");
-        tempCanvas.width = width;
-        tempCanvas.height = height;
-        const tempCtx = tempCanvas.getContext("2d");
-
-        // Draw icon onto temp canvas
-        tempCtx.globalAlpha = iconOpacity;
-        if (iconShadow) {
-          tempCtx.shadowColor = "rgba(0, 0, 0, 0.15)";
-          tempCtx.shadowBlur = (10 * folderSize) / 512;
-          tempCtx.shadowOffsetX = 0;
-          tempCtx.shadowOffsetY = 0;
-        }
-
-        tempCtx.drawImage(
-          icon,
-          iconX + iconAnchor[0] + iconOffsetX,
-          iconY + iconAnchor[1] + iconOffsetY,
-          scaledWidth * iconScale * getIconMultiplier(),
-          scaledHeight * iconScale * getIconMultiplier()
-        );
-        tempCtx.globalAlpha = 1;
-        tempCtx.shadowColor = "transparent";
-
-        if (folderType !== "icon-only") {
-          // Apply mask to temp canvas
-          tempCtx.globalCompositeOperation = "destination-in";
-          tempCtx.drawImage(iconMaskImg, 0, 0, width, height);
-        }
-
-        // Draw temp canvas onto main context
-        ctx.globalCompositeOperation = "source-over";
-        ctx.drawImage(tempCanvas, 0, 0);
-      } else {
-        // Draw icon directly without mask
-        ctx.globalCompositeOperation = "source-over";
-        ctx.globalAlpha = iconOpacity;
-        if (iconShadow) {
-          ctx.shadowColor = "rgba(0, 0, 0, 0.15)";
-          ctx.shadowBlur = (10 * folderSize) / 512;
-          ctx.shadowOffsetX = 0;
-          ctx.shadowOffsetY = 0;
-        }
-        ctx.drawImage(
-          icon,
-          iconX + iconAnchor[0] + iconOffsetX,
-          iconY + iconAnchor[1] + iconOffsetY,
-          width * iconScale * getIconMultiplier(),
-          height * iconScale * getIconMultiplier()
-        );
-        ctx.globalAlpha = 1;
-        ctx.shadowColor = "transparent";
-      }
+      ctx.globalCompositeOperation = "darken";
+      ctx.drawImage(shadowImg, 0, 0, width, height);
     }
-  };
+  }
 
-  if (
-    folderType === "bigsur" &&
-    (folderSize === 24 ||
-      folderSize === 48 ||
-      folderSize === 72 ||
-      folderSize === 96)
-  )
+  // Draw default folder image
+  function drawDefaultImage(ctx, defaultImg, width, height) {
+    ctx.drawImage(defaultImg, 0, 0, width, height);
+  }
+
+  // Determine if we should draw the icon
+  function shouldDrawIcon() {
+    return (
+      iconType !== "none" &&
+      !(
+        folderType === "win10" &&
+        folderSize === 16 &&
+        folderSmallType !== "iconOnly"
+      ) &&
+      (folderSmallType === "folderAndIcon" ||
+        folderSmallType === "squareAndIcon" ||
+        folderSize > 32 ||
+        isIconOnly)
+    );
+  }
+
+  // Draw icon on canvas
+  function drawIcon(ctx, icon, iconMaskImg, width, height) {
+    if (!icon) return;
+
+    const aspectRatio = icon.width / icon.height || 1;
+    const scaledWidth = width;
+    const scaledHeight = scaledWidth / aspectRatio;
+
+    const iconOffsetX = (iconOffset[0] / 100) * scaledWidth;
+    const iconOffsetY =
+      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4;
+
+    const iconX = (width - width * iconScale * iconMultiplier) / 2;
+    const iconY = (height - height * iconScale * iconMultiplier) / 2;
+
+    if (iconMasked) {
+      drawMaskedIcon(
+        ctx,
+        icon,
+        iconMaskImg,
+        width,
+        height,
+        iconX,
+        iconY,
+        iconOffsetX,
+        iconOffsetY,
+        aspectRatio
+      );
+    } else {
+      drawUnmaskedIcon(
+        ctx,
+        icon,
+        width,
+        height,
+        iconX,
+        iconY,
+        iconOffsetX,
+        iconOffsetY
+      );
+    }
+  }
+
+  // Draw icon with mask applied
+  function drawMaskedIcon(
+    ctx,
+    icon,
+    iconMaskImg,
+    width,
+    height,
+    iconX,
+    iconY,
+    iconOffsetX,
+    iconOffsetY,
+    aspectRatio
+  ) {
+    const tempCanvas = document.createElement("canvas");
+    tempCanvas.width = width;
+    tempCanvas.height = height;
+    const tempCtx = tempCanvas.getContext("2d");
+
+    const scaledWidth = width;
+    const scaledHeight = scaledWidth / aspectRatio;
+
+    applyIconEffects(tempCtx, iconOpacity, iconShadow, folderSize);
+    drawIconImage(
+      tempCtx,
+      icon,
+      iconX + iconAnchor[0] + iconOffsetX,
+      iconY + iconAnchor[1] + iconOffsetY,
+      scaledWidth * iconScale * iconMultiplier,
+      scaledHeight * iconScale * iconMultiplier
+    );
+
+    resetIconEffects(tempCtx);
+
+    if (shouldApplyIconMask()) {
+      tempCtx.globalCompositeOperation = "destination-in";
+      tempCtx.drawImage(iconMaskImg, 0, 0, width, height);
+    }
+
+    ctx.globalCompositeOperation = "source-over";
+    ctx.drawImage(tempCanvas, 0, 0);
+  }
+
+  // Draw icon without mask
+  function drawUnmaskedIcon(
+    ctx,
+    icon,
+    width,
+    height,
+    iconX,
+    iconY,
+    iconOffsetX,
+    iconOffsetY
+  ) {
+    ctx.globalCompositeOperation = "source-over";
+    applyIconEffects(ctx, iconOpacity, iconShadow, folderSize);
+
+    drawIconImage(
+      ctx,
+      icon,
+      iconX + iconAnchor[0] + iconOffsetX,
+      iconY + iconAnchor[1] + iconOffsetY,
+      width * iconScale * iconMultiplier,
+      height * iconScale * iconMultiplier
+    );
+
+    resetIconEffects(ctx);
+  }
+
+  // Apply visual effects to icon
+  function applyIconEffects(ctx, opacity, shadow, size) {
+    ctx.globalAlpha = opacity;
+    if (shadow) {
+      ctx.shadowColor = "rgba(0, 0, 0, 0.15)";
+      ctx.shadowBlur = (10 * size) / 512;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+    }
+  }
+
+  // Reset icon visual effects
+  function resetIconEffects(ctx) {
+    ctx.globalAlpha = 1;
+    ctx.shadowColor = "transparent";
+  }
+
+  // Draw icon image
+  function drawIconImage(ctx, icon, x, y, width, height) {
+    ctx.drawImage(icon, x, y, width, height);
+  }
+
+  // Determine if we should apply icon mask
+  function shouldApplyIconMask() {
+    return !isIconOnly;
+  }
+
+  // Skip render for unsupported sizes
+  if (shouldSkipRender(folderType, folderSize)) {
     return null;
-  if ((folderType === "win11" || folderType === "win10") && folderSize === 1024)
-    return null;
+  }
 
   return (
     <div
@@ -352,8 +509,8 @@ export default function FolderRender({ folderSize, key, id }) {
       key={key}
       id={id}
       style={{
-        width: "calc(" + folderSize + "px + 2rem)",
-        height: "calc(" + folderSize + "px + 2rem)",
+        width: `calc(${folderSize}px + 2rem)`,
+        height: `calc(${folderSize}px + 2rem)`,
       }}
     >
       {isLoading ? (
@@ -363,7 +520,7 @@ export default function FolderRender({ folderSize, key, id }) {
           ref={canvasRef}
           width={folderSize}
           height={folderSize}
-          id={"folder-" + folderSize}
+          id={`folder-${folderSize}`}
         />
       )}
       <span className="folder-size">
