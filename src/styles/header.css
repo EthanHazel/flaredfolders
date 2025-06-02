@@ -67,7 +67,7 @@
   align-items: center;
   justify-content: center;
   fill: var(--tertiary);
-  color: var(--tertiary);
+  color: var(--tertiary) !important;
 }
 
 #sun {
@@ -84,12 +84,12 @@
 
 .header-button:hover {
   cursor: pointer;
-  color: var(--secondary);
+  color: var(--secondary) !important;
   fill: var(--secondary);
 }
 
 .header-button:active {
-  color: var(--accent);
+  color: var(--accent) !important;
   fill: var(--accent);
 }
 

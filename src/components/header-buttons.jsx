@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { siGithub, siKofi, siDiscord } from "simple-icons";
-import { Info, Moon, Sun } from "lucide-react";
+import { Info, Moon, Sun, Bug, Send } from "lucide-react";
 
 import { swapTheme } from "@/functions/theme-swap";
 import { useTranslations } from "next-intl";
@@ -45,6 +45,20 @@ export default function HeaderButtons() {
         </a>
         <a className="header-button" onClick={() => setIsModalOpen(true)}>
           <Info className="header-button-svg" />
+        </a>
+        <a
+          className="header-button"
+          href="https://github.com/EthanHazel/flaredfolders/issues/new?labels=bug"
+          target="_blank"
+        >
+          <Bug className="header-button-svg" />
+        </a>
+        <a
+          href="https://github.com/EthanHazel/flaredfolders/issues/new?labels=request"
+          target="_blank"
+          className="header-button"
+        >
+          <Send className="header-button-svg" />
         </a>
         <div className="header-button-divider"></div>
         <a
