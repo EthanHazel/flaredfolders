@@ -11,21 +11,33 @@ import OffsetInput from "../inputs/offset-input";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { loadCustom } from "@/functions/fetch-custom";
+import { useEffect } from "react";
 
 export default function FolderIcon() {
-  const iconType = folderConfigStore((state) => state.iconType);
+  const folderType = folderConfigStore((state) => state.folderType);
+  const iconType = folderConfigStore((state) => state.iconType || "none"); // Ensure defined value
   const iconColor = folderConfigStore((state) => state.iconColor);
   const setIconType = folderConfigStore((state) => state.setIconType);
   const setIconColor = folderConfigStore((state) => state.setIconColor);
   const setIconOpacity = folderConfigStore((state) => state.setIconOpacity);
-  const iconShadow = folderConfigStore((state) => state.iconShadow);
+  const iconShadow = folderConfigStore((state) => state.iconShadow || false); // Ensure defined value
   const setIconShadow = folderConfigStore((state) => state.setIconShadow);
-  const iconMasked = folderConfigStore((state) => state.iconMasked);
+  const iconMasked = folderConfigStore((state) => state.iconMasked || false); // Ensure defined value
   const setIconMasked = folderConfigStore((state) => state.setIconMasked);
   const setLucideStrokeWidth = folderConfigStore(
     (state) => state.setLucideStrokeWidth
   );
-  const types = ["lucide", "simple", "custom", "none"];
+
+  useEffect(() => {
+    if (folderType === "icon-only" && iconType === "none") {
+      setIconType("lucide");
+    }
+  }, [folderType, iconType, setIconType]);
+
+  const types =
+    folderType === "icon-only"
+      ? ["lucide", "simple", "custom"]
+      : ["lucide", "simple", "custom", "none"];
 
   const t = useTranslations("panelTitles");
   const tc = useTranslations("iconTypes");
@@ -40,7 +52,7 @@ export default function FolderIcon() {
             name="icon-type"
             id={`icon-type-${type}`}
             onChange={() => setIconType(type)}
-            defaultChecked={type === iconType}
+            checked={type === iconType}
             key={type}
             label={tc(type)}
           />
@@ -103,14 +115,14 @@ export default function FolderIcon() {
               label={tcc("shadow")}
               id="icon-shadow"
               onChange={() => setIconShadow(!iconShadow)}
-              defaultChecked={iconShadow}
+              checked={iconShadow}
             />
             <Checkbox
               name="icon-mask"
               label={tcc("mask")}
               id="icon-mask"
               onChange={() => setIconMasked(!iconMasked)}
-              defaultChecked={iconMasked}
+              checked={iconMasked}
             />
           </Dropdown>
         </>

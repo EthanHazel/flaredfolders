@@ -64,6 +64,13 @@ export default function FolderStyle() {
           img="mint-l"
           onChange={changeType("mint-l")}
         />
+        <ImgRadio
+          name="style-input"
+          id="icon-only-style"
+          checked={folderType === "icon-only"}
+          img="icon-only"
+          onChange={changeType("icon-only")}
+        />
       </div>
       <FolderSmall />
     </Dropdown>

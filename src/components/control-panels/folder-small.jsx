@@ -23,7 +23,7 @@ export default function FolderSmall() {
   const t = useTranslations("panelTitles");
   const tc = useTranslations("smallFolderConfig");
 
-  if (folderType !== "win10")
+  if (folderType !== "icon-only")
     return (
       <Dropdown name={t("smallConfig")}>
         <div id="lod-config" className="radio-list">

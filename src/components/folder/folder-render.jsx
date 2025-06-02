@@ -69,6 +69,8 @@ export default function FolderRender({ folderSize, key, id }) {
   const getIconMultiplier = () => {
     if (folderSmallType === "squareAndIcon" && folderSize <= 32) {
       return 1.5;
+    } else if (folderType == "icon-only") {
+      return 1.75;
     } else {
       return 1;
     }
@@ -114,7 +116,7 @@ export default function FolderRender({ folderSize, key, id }) {
 
     const loadImages = async () => {
       try {
-        const [
+        let [
           baseImg,
           icon,
           highlightImg,
@@ -123,17 +125,33 @@ export default function FolderRender({ folderSize, key, id }) {
           defaultImg,
           shadowImg,
         ] = await Promise.all([
-          loadImage(`/folder-assets/${getType()}/${folderSize}/base.png`),
+          folderType === "icon-only"
+            ? null
+            : loadImage(`/folder-assets/${getType()}/${folderSize}/base.png`),
           loadIcon(),
-          loadImage(`/folder-assets/${getType()}/${folderSize}/highlight.png`),
-          loadImage(
-            `/folder-assets/${getType()}/${folderSize}/${getIconMask()}.png`
-          ),
-          loadImage(`/folder-assets/${getType()}/${folderSize}/mask.png`),
-          loadImage(`/folder-assets/${getType()}/${folderSize}/default.png`),
-          loadImage(
-            `/folder-assets/${getType()}/${folderSize}/${getIconShadow()}.png`
-          ),
+          folderType === "icon-only"
+            ? null
+            : loadImage(
+                `/folder-assets/${getType()}/${folderSize}/highlight.png`
+              ),
+          folderType === "icon-only"
+            ? null
+            : loadImage(
+                `/folder-assets/${getType()}/${folderSize}/${getIconMask()}.png`
+              ),
+          folderType === "icon-only"
+            ? null
+            : loadImage(`/folder-assets/${getType()}/${folderSize}/mask.png`),
+          folderType === "icon-only"
+            ? null
+            : loadImage(
+                `/folder-assets/${getType()}/${folderSize}/default.png`
+              ),
+          folderType === "icon-only"
+            ? null
+            : loadImage(
+                `/folder-assets/${getType()}/${folderSize}/${getIconShadow()}.png`
+              ),
         ]);
 
         drawCanvas(
@@ -188,7 +206,7 @@ export default function FolderRender({ folderSize, key, id }) {
     // Clear canvas
     ctx.clearRect(0, 0, width, height);
 
-    if (colorType !== "original") {
+    if (colorType !== "original" && folderType !== "icon-only") {
       // Draw base image
       ctx.drawImage(baseImg, 0, 0, width, height);
 
@@ -229,17 +247,18 @@ export default function FolderRender({ folderSize, key, id }) {
         ctx.globalCompositeOperation = "darken";
         ctx.drawImage(shadowImg, 0, 0, width, height);
       }
-    } else {
+    } else if (folderType !== "icon-only") {
       // Draw default image
       ctx.drawImage(defaultImg, 0, 0, width, height);
     }
 
     if (
-      iconType !== "none" &&
-      !(folderType === "win10" && folderSize === 16) &&
-      (folderSmallType === "folderAndIcon" ||
-        folderSmallType === "squareAndIcon" ||
-        folderSize > 32)
+      (iconType !== "none" &&
+        !(folderType === "win10" && folderSize === 16) &&
+        (folderSmallType === "folderAndIcon" ||
+          folderSmallType === "squareAndIcon" ||
+          folderSize > 32)) ||
+      folderType === "icon-only"
     ) {
       const aspectRatio = icon.width / icon.height || 1; // Default to 1 if aspect ratio is undefined, to avoid NaN on Firefox
       console.log(aspectRatio);
@@ -284,9 +303,11 @@ export default function FolderRender({ folderSize, key, id }) {
         tempCtx.globalAlpha = 1;
         tempCtx.shadowColor = "transparent";
 
-        // Apply mask to temp canvas
-        tempCtx.globalCompositeOperation = "destination-in";
-        tempCtx.drawImage(iconMaskImg, 0, 0, width, height);
+        if (folderType !== "icon-only") {
+          // Apply mask to temp canvas
+          tempCtx.globalCompositeOperation = "destination-in";
+          tempCtx.drawImage(iconMaskImg, 0, 0, width, height);
+        }
 
         // Draw temp canvas onto main context
         ctx.globalCompositeOperation = "source-over";

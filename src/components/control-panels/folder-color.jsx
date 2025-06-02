@@ -35,6 +35,7 @@ export default function FolderColor() {
   const t = useTranslations("panelTitles");
   const tc = useTranslations("folderConfig");
 
+  if (folderType === "icon-only") return null;
   return (
     <Dropdown name={t("color")}>
       <div id="color-type" className="radio-list">
