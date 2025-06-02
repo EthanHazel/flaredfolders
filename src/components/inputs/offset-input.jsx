@@ -24,7 +24,7 @@ export default function OffsetInput() {
   const tc = useTranslations("iconConfig");
 
   return (
-    <Dropdown name={t("offset")}>
+    <Dropdown name={t("offset")} icon="Move">
       <Range
         label={tc("x")}
         name="offset-x"

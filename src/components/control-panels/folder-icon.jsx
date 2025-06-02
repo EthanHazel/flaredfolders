@@ -44,7 +44,7 @@ export default function FolderIcon() {
   const tcc = useTranslations("iconConfig");
 
   return (
-    <Dropdown name={t("icon")}>
+    <Dropdown name={t("icon")} icon="FolderPlus">
       <div id="icon-type" className="radio-list">
         {types.map((type) => (
           <Radio
@@ -59,7 +59,7 @@ export default function FolderIcon() {
         ))}
       </div>
       {iconType !== "none" && (
-        <Dropdown name={t("image")}>
+        <Dropdown name={t("image")} icon="Image">
           {iconType !== "custom" && <SlugInput />}
           <div className={iconType !== "custom" ? "hidden" : ""}>
             <input
@@ -109,7 +109,7 @@ export default function FolderIcon() {
       {iconType !== "none" && (
         <>
           <OffsetInput />
-          <Dropdown name={t("config")}>
+          <Dropdown name={t("config")} icon="Settings">
             <Checkbox
               name="icon-shadow"
               label={tcc("shadow")}

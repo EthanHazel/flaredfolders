@@ -25,7 +25,7 @@ export default function FolderSmall() {
 
   if (folderType !== "icon-only")
     return (
-      <Dropdown name={t("smallConfig")}>
+      <Dropdown name={t("smallConfig")} icon="FolderTree">
         <div id="lod-config" className="radio-list">
           {folderType === "win11" && (
             <Radio

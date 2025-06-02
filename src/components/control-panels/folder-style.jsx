@@ -33,7 +33,7 @@ export default function FolderStyle() {
   const t = useTranslations("panelTitles");
 
   return (
-    <Dropdown name={t("style")} open>
+    <Dropdown name={t("style")} icon="Folder" open>
       <div id="style-input" className="radio-list">
         <ImgRadio
           name="style-input"

@@ -37,7 +37,7 @@ export default function FolderColor() {
 
   if (folderType === "icon-only") return null;
   return (
-    <Dropdown name={t("color")}>
+    <Dropdown name={t("color")} icon="Palette">
       <div id="color-type" className="radio-list">
         <Radio
           name="color-type"
