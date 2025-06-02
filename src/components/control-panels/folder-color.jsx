@@ -44,19 +44,21 @@ export default function FolderColor() {
           id="color-type-gradient"
           label={tc("gradient")}
           onChange={changeType("linear-gradient")}
-          defaultChecked
+          checked={colorType === "linear-gradient"}
         />
         <Radio
           name="color-type"
           id="color-type-solid"
           label={tc("solid")}
           onChange={changeType("solid")}
+          checked={colorType === "solid"}
         />
         <Radio
           name="color-type"
           id="color-type-original"
           label={tc("original")}
           onChange={changeType("original")}
+          checked={colorType === "original"}
         />
       </div>
       {colorType === "linear-gradient" && (
