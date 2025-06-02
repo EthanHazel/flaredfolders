@@ -12,6 +12,7 @@
   },
   "smallFolderConfig": {
     "squareAndIcon": "Pokaż kwadratową ikonę",
+    "iconOnly": "Pokaż tylko ikonę",
     "folderOnly": "Pokaż tylko folder",
     "folderAndIcon": "Pokaż folder z ikoną"
   },

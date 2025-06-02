@@ -12,6 +12,7 @@
   },
   "smallFolderConfig": {
     "squareAndIcon": "Show icon with box background",
+    "iconOnly": "Show icon only",
     "folderOnly": "Show folder only",
     "folderAndIcon": "Show folder with icon"
   },
