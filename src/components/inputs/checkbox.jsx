@@ -8,6 +8,7 @@ export default function Checkbox({
   id,
   name,
   label,
+  checked,
 }) {
   const handleClick = () => {
     onChange();
@@ -22,6 +23,7 @@ export default function Checkbox({
         className="checkbox-input"
         id={id}
         name={name}
+        checked={checked}
       />
       <span className="checkbox-fake-input">
         <Check size={16} className="checkbox-fake-input-inner" />
