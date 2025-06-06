@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { siGithub, siKofi, siDiscord } from "simple-icons";
-import { Info, Moon, Sun, Bug, Send } from "lucide-react";
+import { siGithub, siProducthunt, siDiscord } from "simple-icons";
+import { Info, Moon, Sun, Bug, HandHeart } from "lucide-react";
 
 import { swapTheme } from "@/functions/theme-swap";
 import { useTranslations } from "next-intl";
@@ -62,24 +62,13 @@ export default function HeaderButtons() {
           icon={<Bug className="header-button-svg" />}
         />
         <HeaderButton
-          label="Request Feature"
-          href="https://github.com/EthanHazel/flaredfolders/issues/new?labels=request"
+          label="Donate"
+          href="https://ko-fi.com/ethanhazel/tip"
           target="_blank"
           className="header-button"
-          icon={<Send className="header-button-svg" />}
+          icon={<HandHeart className="header-button-svg" />}
         />
         <div className="header-button-divider"></div>
-        <HeaderButton
-          label="Ko-fi"
-          href="https://ko-fi.com/ethanhazel"
-          target="_blank"
-          className="header-button"
-          icon={
-            <svg viewBox="0 0 24 24" className="header-button-svg">
-              <path d={siKofi.path} />
-            </svg>
-          }
-        />
         <HeaderButton
           label="Discord"
           href="https://discord.gg/BkxtVZsf4E"
@@ -88,6 +77,17 @@ export default function HeaderButtons() {
           icon={
             <svg viewBox="0 0 24 24" className="header-button-svg">
               <path d={siDiscord.path} />
+            </svg>
+          }
+        />
+        <HeaderButton
+          label="Product Hunt"
+          href="https://www.producthunt.com/products/flared-folders"
+          target="_blank"
+          className="header-button"
+          icon={
+            <svg viewBox="0 0 24 24" className="header-button-svg">
+              <path d={siProducthunt.path} />
             </svg>
           }
         />
