@@ -49,6 +49,29 @@
   #right-container {
     width: 50% !important;
   }
+
+  .img-radio {
+    max-width: 32px !important;
+    max-height: 32px !important;
+  }
+
+  .download-counter {
+    font-size: 0.7rem !important;
+  }
+
+  #donators {
+    font-size: 0.7rem !important;
+  }
+
+  [href="https://www.producthunt.com/products/flared-folders"]
+  {
+    display: none;
+  }
+
+  [href="https://ko-fi.com/ethanhazel/tip"]
+  {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 980px), screen and (max-height: 500px) {
