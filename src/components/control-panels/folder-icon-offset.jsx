@@ -1,10 +1,12 @@
-import Dropdown from "./dropdown";
-import Range from "./range";
+"use client";
+
+import Dropdown from "../inputs/dropdown";
+import Range from "../inputs/range";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 
-export default function OffsetInput() {
+export default function FolderIconOffset() {
   const setOffset = folderConfigStore((state) => state.setIconOffset);
   const setIconScale = folderConfigStore((state) => state.setIconScale);
 

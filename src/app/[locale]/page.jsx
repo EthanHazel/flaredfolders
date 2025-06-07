@@ -4,7 +4,10 @@ import ViewLayout from "@/components/view";
 
 import FolderColor from "@/components/control-panels/folder-color";
 import FolderStyle from "@/components/control-panels/folder-style";
-import FolderIcon from "@/components/control-panels/folder-icon";
+import FolderIconType from "@/components/control-panels/folder-icon-type";
+import FolderIconInput from "@/components/control-panels/folder-icon-input";
+import FolderIconOffset from "@/components/control-panels/folder-icon-offset";
+
 import FolderRender from "@/components/folder/folder-render";
 
 export default function Home() {
@@ -15,7 +18,9 @@ export default function Home() {
         <div id="left-container">
           <FolderStyle />
           <FolderColor />
-          <FolderIcon />
+          <FolderIconType />
+          <FolderIconInput />
+          <FolderIconOffset />
         </div>
         <div id="right-container">
           <FolderRender folderSize={512} key={512} id="big-folder-512" />
