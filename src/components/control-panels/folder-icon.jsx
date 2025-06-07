@@ -44,20 +44,22 @@ export default function FolderIcon() {
   const tcc = useTranslations("iconConfig");
 
   return (
-    <Dropdown name={t("icon")} icon="FolderPlus">
-      <div id="icon-type" className="radio-list">
-        {types.map((type) => (
-          <Radio
-            type="radio"
-            name="icon-type"
-            id={`icon-type-${type}`}
-            onChange={() => setIconType(type)}
-            checked={type === iconType}
-            key={type}
-            label={tc(type)}
-          />
-        ))}
-      </div>
+    <>
+      <Dropdown name={t("icon")} icon="FolderPlus">
+        <div id="icon-type" className="radio-list">
+          {types.map((type) => (
+            <Radio
+              type="radio"
+              name="icon-type"
+              id={`icon-type-${type}`}
+              onChange={() => setIconType(type)}
+              checked={type === iconType}
+              key={type}
+              label={tc(type)}
+            />
+          ))}
+        </div>
+      </Dropdown>
       {iconType !== "none" && (
         <Dropdown name={t("image")} icon="Image">
           {iconType !== "custom" && <SlugInput />}
@@ -127,6 +129,6 @@ export default function FolderIcon() {
           </Dropdown>
         </>
       )}
-    </Dropdown>
+    </>
   );
 }
