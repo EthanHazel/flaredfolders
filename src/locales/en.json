@@ -8,7 +8,8 @@
     "smallConfig": "Small Folder Config",
     "image": "Icon Image",
     "offset": "Icon Offset",
-    "config": "Icon Config"
+    "config": "Icon Config",
+    "shadow": "Icon Shadow"
   },
   "smallFolderConfig": {
     "squareAndIcon": "Show icon with box background",
@@ -41,6 +42,13 @@
     "scale": "Scale",
     "stroke": "Icon stroke width",
     "opacity": "Icon opacity"
+  },
+  "iconShadow": {
+    "color": "Shadow color",
+    "blur": "Shadow blur",
+    "x": "X",
+    "y": "Y",
+    "opacity": "Shadow opacity"
   },
   "credits": {
     "title": "Credits",

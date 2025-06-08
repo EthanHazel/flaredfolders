@@ -26,7 +26,7 @@
   --primary: #3d78f7;
 
   --header-font: "Syne", sans-serif;
-  --body-font: "Inter", "Noto Sans", sans-serif;
+  --body-font: "Inter", sans-serif;
 }
 
 body.dark {
@@ -57,14 +57,6 @@ body.dark {
   font-stretch: normal;
   font-style: normal;
   src: url("/fonts/inter.woff2") format("woff2-variations");
-}
-
-@font-face {
-  font-family: "Noto Sans";
-  font-weight: 100 900;
-  font-stretch: normal;
-  font-style: normal;
-  src: url("/fonts/noto.woff2") format("woff2-variations");
 }
 
 html {
@@ -202,6 +194,7 @@ a:active {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 1rem;
 }
 
 #lod-config {

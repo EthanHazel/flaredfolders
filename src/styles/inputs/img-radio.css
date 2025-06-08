@@ -17,8 +17,6 @@
   border-radius: 0.5rem;
   user-select: none;
   gap: 0.5rem;
-  width: fit-content;
-  height: fit-content;
 }
 
 .img-radio:hover > .img-radio-img {

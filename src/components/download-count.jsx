@@ -1,5 +1,7 @@
 "use client";
 
+import Loading from "./loading";
+
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 
@@ -36,7 +38,7 @@ export default function DownloadCounter() {
     }
   }, []);
 
-  if (loading) return null;
+  if (loading) return <Loading />;
 
   return (
     <div className="download-counter">

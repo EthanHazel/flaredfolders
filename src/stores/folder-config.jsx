@@ -48,6 +48,15 @@ export const folderConfigStore = create((set) => ({
   setIconShadow: (shadow) => set({ iconShadow: shadow }),
   iconMasked: true,
   setIconMasked: (contained) => set({ iconMasked: contained }),
+
+  shadowColor: "#000000",
+  setShadowColor: (color) => set({ shadowColor: color }),
+  shadowOpacity: 15,
+  setShadowOpacity: (opacity) => set({ shadowOpacity: opacity }),
+  shadowBlur: 10,
+  setShadowBlur: (blur) => set({ shadowBlur: blur }),
+  shadowOffset: [0, 0],
+  setShadowOffset: (offset) => set({ shadowOffset: offset }),
 }));
 
 export function getIconAnchor(folderType, folderSize) {
@@ -55,11 +64,11 @@ export function getIconAnchor(folderType, folderSize) {
     const offsets = {
       512: [0, 26],
       256: [0, 13],
-      128: [0, 6.5],
+      128: [0, 7],
       96: [0, 4],
       72: [0, 3],
       64: [0, 3],
-      48: [0, 1.5],
+      48: [0, 2],
       32: [0, 1],
       24: [0, 1],
       16: [0, 1],
@@ -80,29 +89,9 @@ export function getIconAnchor(folderType, folderSize) {
     };
     return offsets[folderSize] || [0, 0];
   } else if (folderType == "bigsur") {
-    const offsets = {
-      1024: [0, 64],
-      512: [0, 32],
-      256: [0, 16],
-      128: [0, 8],
-      64: [0, 4],
-      32: [0, 2],
-      16: [0, 1],
-    };
-    return offsets[folderSize] || [0, 0];
+    return [0, folderSize / 16];
   } else if (folderType == "mint-l") {
-    const offsets = {
-      512: [0, 32],
-      256: [0, 16],
-      128: [0, 8],
-      96: [0, 6],
-      64: [0, 4],
-      48: [0, 3],
-      32: [0, 2],
-      24: [0, 2],
-      16: [0, 1],
-    };
-    return offsets[folderSize] || [0, 0];
+    return [0, Math.floor(folderSize / 16) + (folderSize <= 24 ? 1 : 0)];
   } else {
     return [0, 0];
   }
