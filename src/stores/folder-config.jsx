@@ -49,16 +49,14 @@ export const folderConfigStore = create((set) => ({
   iconMasked: true,
   setIconMasked: (contained) => set({ iconMasked: contained }),
 
-  shadowColor: "rgba(0, 0, 0, 0.15)",
+  shadowColor: "#000000",
   setShadowColor: (color) => set({ shadowColor: color }),
+  shadowOpacity: 15,
+  setShadowOpacity: (opacity) => set({ shadowOpacity: opacity }),
   shadowBlur: 10,
   setShadowBlur: (blur) => set({ shadowBlur: blur }),
-  shadowOffsetX: 0,
-  setShadowOffsetX: (offset) => set({ shadowOffsetX: offset }),
-  shadowOffsetY: 0,
-  setShadowOffsetY: (offset) => set({ shadowOffsetY: offset }),
-  shadowBlendingMode: "normal",
-  setShadowBlendingMode: (mode) => set({ shadowBlendingMode: mode }),
+  shadowOffset: [0, 0],
+  setShadowOffset: (offset) => set({ shadowOffset: offset }),
 }));
 
 export function getIconAnchor(folderType, folderSize) {

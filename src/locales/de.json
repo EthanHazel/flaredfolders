@@ -8,7 +8,8 @@
     "smallConfig": "Konfiguration für kleine Ordner",
     "image": "Symbol-Bild",
     "offset": "Symbol-Versatz",
-    "config": "Symbol-Konfiguration"
+    "config": "Symbol-Konfiguration",
+    "shadow": "Symbol-Schatten"
   },
   "smallFolderConfig": {
     "squareAndIcon": "Symbol mit Box-Hintergrund anzeigen",
@@ -41,6 +42,14 @@
     "scale": "Skala",
     "stroke": "Symbol-Linienbreite",
     "opacity": "Symbol-Opazität"
+  },
+  "iconShadow": {
+    "color": "Schattenfarbe",
+    "blur": "Schatten-Verwischen",
+    "x": "X",
+    "y": "Y",
+    "mode": "Schatten-Überblendmodus",
+    "opacity": "Schatten-Opazität"
   },
   "credits": {
     "title": "Impressum",

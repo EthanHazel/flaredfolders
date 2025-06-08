@@ -8,7 +8,8 @@
     "smallConfig": "Konfiguracja małego folderu",
     "image": "Obraz ikony",
     "offset": "Przesunięcie ikony",
-    "config": "Konfiguracja ikony"
+    "config": "Konfiguracja ikony",
+    "shadow": "Cienie ikony"
   },
   "smallFolderConfig": {
     "squareAndIcon": "Pokaż kwadratową ikonę",
@@ -41,6 +42,14 @@
     "scale": "Skala",
     "stroke": "Grubość obrysu ikony",
     "opacity": "Przezroczystość ikony"
+  },
+  "iconShadow": {
+    "color": "Kolor cienia",
+    "blur": "Rozmycie cienia",
+    "x": "X",
+    "y": "Y",
+    "mode": "Tryb mieszania cienia",
+    "opacity": "Przezroczystość cienia"
   },
   "credits": {
     "title": "Podziękowania",

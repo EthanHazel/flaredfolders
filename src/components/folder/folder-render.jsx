@@ -13,7 +13,6 @@ import { folderConfigStore } from "@/stores/folder-config";
 import "@/styles/folder.css";
 
 export default function FolderRender({ folderSize, key, id }) {
-  // Configuration state from store
   const {
     colorType,
     gradientStartColor,
@@ -27,6 +26,10 @@ export default function FolderRender({ folderSize, key, id }) {
     iconOffset,
     iconOpacity,
     iconShadow,
+    shadowOffset,
+    shadowBlur,
+    shadowColor,
+    shadowOpacity,
     iconMasked,
     lucideSlug,
     lucideStrokeWidth,
@@ -90,6 +93,10 @@ export default function FolderRender({ folderSize, key, id }) {
       iconOffset: folderConfigStore((state) => state.iconOffset),
       iconOpacity: folderConfigStore((state) => state.iconOpacity),
       iconShadow: folderConfigStore((state) => state.iconShadow),
+      shadowOffset: folderConfigStore((state) => state.shadowOffset),
+      shadowBlur: folderConfigStore((state) => state.shadowBlur),
+      shadowColor: folderConfigStore((state) => state.shadowColor),
+      shadowOpacity: folderConfigStore((state) => state.shadowOpacity),
       iconMasked: folderConfigStore((state) => state.iconMasked),
       lucideSlug: folderConfigStore((state) => state.lucideSlug),
       lucideStrokeWidth: folderConfigStore((state) => state.lucideStrokeWidth),
@@ -141,6 +148,15 @@ export default function FolderRender({ folderSize, key, id }) {
       return "shadow";
     }
     return "base";
+  }
+
+  // Convert hex to RGBA with opacity
+  function getIconShadowColor(shadowColor, shadowOpacity) {
+    const hex = shadowColor.replace(/^#/, "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${shadowOpacity / 100})`;
   }
 
   // Check if we should skip rendering for this size
@@ -424,7 +440,17 @@ export default function FolderRender({ folderSize, key, id }) {
     const scaledWidth = width;
     const scaledHeight = scaledWidth / aspectRatio;
 
-    applyIconEffects(tempCtx, iconOpacity, iconShadow, folderSize);
+    // Pass shadowColor and shadowOpacity to applyIconEffects
+    applyIconEffects(
+      tempCtx,
+      iconOpacity,
+      iconShadow,
+      shadowBlur,
+      shadowOffset,
+      shadowColor,
+      shadowOpacity
+    );
+
     drawIconImage(
       tempCtx,
       icon,
@@ -457,7 +483,16 @@ export default function FolderRender({ folderSize, key, id }) {
     iconOffsetY
   ) {
     ctx.globalCompositeOperation = "source-over";
-    applyIconEffects(ctx, iconOpacity, iconShadow, folderSize);
+    // Pass shadowColor and shadowOpacity to applyIconEffects
+    applyIconEffects(
+      ctx,
+      iconOpacity,
+      iconShadow,
+      shadowBlur,
+      shadowOffset,
+      shadowColor,
+      shadowOpacity
+    );
 
     drawIconImage(
       ctx,
@@ -471,14 +506,23 @@ export default function FolderRender({ folderSize, key, id }) {
     resetIconEffects(ctx);
   }
 
-  // Apply visual effects to icon
-  function applyIconEffects(ctx, opacity, shadow, size) {
+  // Updated to handle shadow color and opacity
+  function applyIconEffects(
+    ctx,
+    opacity,
+    shadow,
+    shadowBlur,
+    shadowOffset,
+    shadowColor,
+    shadowOpacity
+  ) {
     ctx.globalAlpha = opacity;
     if (shadow) {
-      ctx.shadowColor = "rgba(0, 0, 0, 0.15)";
-      ctx.shadowBlur = (10 * size) / 512;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
+      // Use RGBA color with opacity
+      ctx.shadowColor = getIconShadowColor(shadowColor, shadowOpacity);
+      ctx.shadowBlur = (shadowBlur * folderSize) / 512;
+      ctx.shadowOffsetX = Math.floor((shadowOffset[0] * folderSize) / 512);
+      ctx.shadowOffsetY = Math.floor((shadowOffset[1] * folderSize) / 512);
     }
   }
 

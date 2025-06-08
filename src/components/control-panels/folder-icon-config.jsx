@@ -3,6 +3,9 @@
 import Dropdown from "../inputs/dropdown";
 import Checkbox from "../inputs/checkbox";
 
+import { folderConfigStore } from "@/stores/folder-config";
+import { useTranslations } from "next-intl";
+
 export default function FolderIconConfig() {
   const iconType = folderConfigStore((state) => state.iconType || "none");
   const iconShadow = folderConfigStore((state) => state.iconShadow || false);

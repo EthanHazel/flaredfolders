@@ -8,7 +8,8 @@
     "smallConfig": "Posicionamiento de carpeta",
     "image": "Imagen de ícono",
     "offset": "Posición de ícono",
-    "config": "Ajustes de ícono"
+    "config": "Ajustes de ícono",
+    "shadow": "Sombreado de ícono"
   },
   "smallFolderConfig": {
     "squareAndIcon": "Mostrar ícono con fondo",
@@ -41,6 +42,14 @@
     "scale": "Escala",
     "stroke": "Ancho de línea del ícono",
     "opacity": "Opacidad del ícono"
+  },
+  "iconShadow": {
+    "color": "Color de sombra",
+    "blur": "Desenfoque de sombra",
+    "x": "X",
+    "y": "Y",
+    "mode": "Modo de mezcla de sombra",
+    "opacity": "Opacidad de sombra"
   },
   "credits": {
     "title": "Créditos",
