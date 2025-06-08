@@ -2,6 +2,7 @@
 
 import Dropdown from "../inputs/dropdown";
 import Range from "../inputs/range";
+import Checkbox from "../inputs/checkbox";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
@@ -9,6 +10,10 @@ import { useTranslations } from "next-intl";
 export default function FolderIconOffset() {
   const setOffset = folderConfigStore((state) => state.setIconOffset);
   const setIconScale = folderConfigStore((state) => state.setIconScale);
+  const iconMasked = folderConfigStore((state) => state.iconMasked);
+  const setIconMasked = folderConfigStore((state) => state.setIconMasked);
+
+  const iconType = folderConfigStore((state) => state.iconType);
 
   const handleXChange = (event) => {
     const offsetX = event.target.value;
@@ -25,8 +30,17 @@ export default function FolderIconOffset() {
   const t = useTranslations("panelTitles");
   const tc = useTranslations("iconConfig");
 
+  if (iconType === "none") return null;
+
   return (
     <Dropdown name={t("offset")} icon="Move">
+      <Checkbox
+        name="icon-mask"
+        label={tc("mask")}
+        id="icon-mask"
+        onChange={() => setIconMasked(!iconMasked)}
+        checked={iconMasked}
+      />
       <Range
         label={tc("x")}
         name="offset-x"

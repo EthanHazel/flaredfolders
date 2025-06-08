@@ -7,7 +7,6 @@ import FolderStyle from "@/components/control-panels/folder-style";
 import FolderIconType from "@/components/control-panels/folder-icon-type";
 import FolderIconInput from "@/components/control-panels/folder-icon-input";
 import FolderIconOffset from "@/components/control-panels/folder-icon-offset";
-import FolderIconConfig from "@/components/control-panels/folder-icon-config";
 import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 
 import FolderRender from "@/components/folder/folder-render";
@@ -24,7 +23,6 @@ export default function Home() {
           <FolderIconInput />
           <FolderIconOffset />
           <FolderIconShadow />
-          <FolderIconConfig />
         </div>
         <div id="right-container">
           <FolderRender folderSize={512} key={512} id="big-folder-512" />
