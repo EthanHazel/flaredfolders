@@ -48,7 +48,6 @@
     "blur": "Shadow blur",
     "x": "X",
     "y": "Y",
-    "mode": "Shadow blending mode",
     "opacity": "Shadow opacity"
   },
   "credits": {
