@@ -1,5 +1,7 @@
 "use client";
 
+import Loading from "../loading";
+
 import { useState, useEffect, useRef } from "react";
 import { getIconAnchor } from "@/stores/folder-config";
 import React from "react";
@@ -558,7 +560,7 @@ export default function FolderRender({ folderSize, key, id }) {
       }}
     >
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading size={folderSize} />
       ) : (
         <canvas
           ref={canvasRef}
