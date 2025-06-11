@@ -29,6 +29,7 @@
     "lucide": "Lucide (General Icons)",
     "simple": "SimpleIcons (Brand Logos)",
     "custom": "Upload (PNG, SVG, or JPEG)",
+    "emoji": "Emoji",
     "none": "None"
   },
   "iconConfig": {

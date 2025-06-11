@@ -19,7 +19,7 @@ export const folderConfigStore = create((set) => ({
   folderType: "win11",
   setFolderType: (folderType) => set({ folderType }),
 
-  // "lucide", "simple", "custom", "none"
+  // "lucide", "simple", "custom", "emoji", "none"
   iconType: "lucide",
   setIconType: (type) => set({ iconType: type }),
 
@@ -30,6 +30,9 @@ export const folderConfigStore = create((set) => ({
 
   simpleSlug: "simpleicons",
   setSimpleSlug: (slug) => set({ simpleSlug: slug }),
+
+  emojiSlug: "📁",
+  setEmojiSlug: (slug) => set({ emojiSlug: slug }),
 
   customData: null,
   setCustomData: (data) => set({ customIconData: data }),

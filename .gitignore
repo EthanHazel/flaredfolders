@@ -28,3 +28,6 @@ desktop.ini
 # Env variables
 .env
 .env.local
+
+# Twemoji
+public/twemoji/
