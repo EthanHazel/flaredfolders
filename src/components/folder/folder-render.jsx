@@ -9,7 +9,7 @@ import React from "react";
 import { loadLucide } from "@/functions/fetch-lucide";
 import { loadSimple } from "@/functions/fetch-simple";
 import { loadCustom } from "@/functions/fetch-custom";
-import { loadTwemoji } from "@/functions/fetch-emoji";
+import { loadEmoji } from "@/functions/fetch-emoji";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
@@ -227,7 +227,7 @@ export default function FolderRender({ folderSize, key, id }) {
       return await loadCustom(customFileName);
     }
     if (iconType === "emoji") {
-      return await loadTwemoji(emojiSlug);
+      return await loadEmoji(emojiSlug);
     }
     return null;
   }

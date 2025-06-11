@@ -29,5 +29,5 @@ desktop.ini
 .env
 .env.local
 
-# Twemoji
-public/twemoji/
+# Emoji
+public/emoji/

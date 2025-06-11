@@ -11,9 +11,8 @@ const emojiToCodePoint = (emoji) => {
   return codePoints.join("-");
 };
 
-export const loadTwemoji = (emoji) => {
+export const loadEmoji = (emoji) => {
   if (typeof window === "undefined") {
-    // Server-side: Return a promise that resolves to an empty image
     return Promise.resolve({
       src: "",
       width: 0,
@@ -23,7 +22,7 @@ export const loadTwemoji = (emoji) => {
   }
 
   const codePoint = emojiToCodePoint(emoji);
-  const url = `/twemoji/${codePoint}.svg`;
+  const url = `/emoji/${codePoint}.svg`;
 
   return new Promise((resolve, reject) => {
     const img = new Image();
