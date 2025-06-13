@@ -266,6 +266,7 @@ export default function FolderRender({ folderSize, key, id }) {
     if (shouldDrawBackground()) {
       drawBackground(
         ctx,
+        folderType,
         baseImg,
         highlightImg,
         maskImg,
@@ -302,6 +303,7 @@ export default function FolderRender({ folderSize, key, id }) {
   // Draw background elements
   function drawBackground(
     ctx,
+    folderType,
     baseImg,
     highlightImg,
     maskImg,
@@ -318,8 +320,13 @@ export default function FolderRender({ folderSize, key, id }) {
       applyGradientColor(ctx, colors, width, height);
     }
 
-    applyMask(ctx, maskImg, width, height);
-    drawHighlight(ctx, highlightImg, width, height);
+    if (folderType === "mint-l") {
+      applyMask(ctx, maskImg, width, height);
+      drawHighlight(ctx, folderType, highlightImg, width, height);
+    } else {
+      drawHighlight(ctx, folderType, highlightImg, width, height);
+      applyMask(ctx, maskImg, width, height);
+    }
     drawShadow(ctx, shadowImg, width, height);
   }
 
@@ -348,8 +355,10 @@ export default function FolderRender({ folderSize, key, id }) {
   }
 
   // Draw highlight effect
-  function drawHighlight(ctx, highlightImg, width, height) {
-    ctx.globalCompositeOperation = "lighter";
+  function drawHighlight(ctx, folderType, highlightImg, width, height) {
+    if (!folderType.startsWith("mint"))
+      ctx.globalCompositeOperation = "lighter";
+    else ctx.globalCompositeOperation = "multiply";
     ctx.drawImage(highlightImg, 0, 0, width, height);
   }
 
