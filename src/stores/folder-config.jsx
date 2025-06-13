@@ -70,7 +70,7 @@ export function getIconAnchor(folderType, folderSize) {
       128: [0, 7],
       96: [0, 4],
       72: [0, 3],
-      64: [0, 3],
+      64: [0, 4],
       48: [0, 2],
       32: [0, 1],
       24: [0, 1],
