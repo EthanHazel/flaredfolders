@@ -402,9 +402,10 @@ export default function FolderRender({ folderSize, key, id }) {
     const scaledWidth = width;
     const scaledHeight = scaledWidth / aspectRatio;
 
-    const iconOffsetX = (iconOffset[0] / 100) * scaledWidth;
-    const iconOffsetY =
-      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4;
+    const iconOffsetX = Math.floor((iconOffset[0] / 100) * scaledWidth);
+    const iconOffsetY = Math.floor(
+      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4
+    );
 
     const iconX = (width - width * iconScale * iconMultiplier) / 2;
     const iconY = (height - height * iconScale * iconMultiplier) / 2;
