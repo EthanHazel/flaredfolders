@@ -15,7 +15,7 @@ export const folderConfigStore = create((set) => ({
   folderSmallType: "sqaureAndIcon",
   setFolderSmallType: (folderSmallType) => set({ folderSmallType }),
 
-  // "win10", "win11"
+  // "win10", "win11", "bigsur", "mint-l", "icon-only"
   folderType: "win11",
   setFolderType: (folderType) => set({ folderType }),
 
