@@ -28,3 +28,6 @@ desktop.ini
 # Env variables
 .env
 .env.local
+
+# Tauri
+1.0.0
