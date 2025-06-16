@@ -29,10 +29,6 @@
   --body-font: "Inter", sans-serif;
 }
 
-body {
-  font-size: 0.85rem;
-}
-
 body.dark {
   --bg: var(--dm-bg);
   --bg-accent: var(--dm-bg-accent);
@@ -70,25 +66,42 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--body-font);
   margin: 0;
   padding: 0;
   background: var(--bg);
+  font-size: 0.85rem;
   color: var(--text);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 #left-container {
   display: flex;
   flex-direction: column;
-  width: 600px;
-  height: calc(100vh - 4rem - 4.5rem - 4.5rem - 1px);
+  min-width: 600px;
+  height: 100%;
   padding: 2rem;
   gap: 2rem;
   overflow-y: auto;
   background-color: var(--bg-accent);
   border-right: 1px solid var(--accent);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-  position: fixed;
   top: 4.5rem;
 }
 
@@ -96,14 +109,12 @@ body {
   background-color: var(--bg);
   display: flex;
   flex-direction: row;
-  width: calc(100% - 600px - 4rem);
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  right: 0;
   gap: 1rem;
+  box-sizing: border-box;
 }
 
 .radio-list {
@@ -137,6 +148,11 @@ input[type="submit"] {
   padding: 0.5rem 1rem;
   font-family: var(--body-font);
   transition: background-color 0.1s, color 0.1s, border 0.1s;
+}
+
+button.secondary {
+  background-color: var(--bg);
+  color: var(--quarternary);
 }
 
 input[type="text"],

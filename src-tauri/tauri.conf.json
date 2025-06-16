@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "flared-folders",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.flaredfolders.dev",
   "build": {
     "frontendDist": "../out",
     "devUrl": "http://localhost:3000",
@@ -14,8 +14,8 @@
       {
         "title": "Flared Folders",
         "decorations": false,
-        "minWidth": 1150,
-        "minHeight": 600,
+        "minWidth": 1600,
+        "minHeight": 780,
         "width": 1280,
         "height": 720,
         "resizable": true,
@@ -26,9 +26,15 @@
       "csp": null,
       "capabilities": [
         {
-          "identifier": "draggable-window",
+          "identifier": "main",
           "windows": ["*"],
-          "permissions": ["core:window:allow-start-dragging"]
+          "permissions": [
+            "core:window:allow-start-dragging",
+            "core:window:allow-toggle-maximize",
+            "core:window:allow-minimize",
+            "core:window:allow-close",
+            "core:window:allow-internal-toggle-maximize"
+          ]
         }
       ]
     }

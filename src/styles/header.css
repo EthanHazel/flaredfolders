@@ -9,7 +9,6 @@
   padding: 1rem 1rem 1rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   border-bottom: 1px solid var(--accent);
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -69,4 +68,48 @@
   fill: var(--secondary);
   width: 1.25rem;
   height: 1.25rem;
+}
+
+#header-desktop {
+  position: fixed;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  height: 2.5rem;
+  width: 100%;
+  z-index: 9999;
+}
+
+.header-desktop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 3rem;
+  user-select: none;
+  transition: background-color 0.01s;
+}
+
+.header-desktop-button:hover {
+  background-color: var(--accent);
+}
+
+.header-desktop-button:hover img,
+.header-desktop-button:active img {
+  filter: brightness(3);
+}
+
+.header-desktop-button.close:hover {
+  background-color: #c42b1c;
+}
+
+.header-desktop-button.close:active {
+  background-color: #af281a;
+  filter: none !important;
+}
+
+.header-desktop-button:active {
+  background-color: var(--secondary);
 }
