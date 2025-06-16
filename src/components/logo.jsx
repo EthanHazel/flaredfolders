@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
+import fetchClient from "@/functions/fetch-client";
 import packageJson from "../../package.json";
 
 export default function Logo() {
@@ -101,6 +102,7 @@ export default function Logo() {
       </span>
       <h1 className="header-title">FlaredFolders</h1>
       <span className="header-version">{version}</span>
+      <span className="header-version">{fetchClient()}</span>
     </div>
   );
 }
