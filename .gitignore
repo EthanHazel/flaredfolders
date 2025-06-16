@@ -25,12 +25,12 @@ desktop.ini
 *.sln
 *.sw?
 
-# Env variables
-.env
-.env.local
-
 # Emoji
 public/emoji
 
 # Tauri
 1.0.0
+
+# Env variables
+.env
+.env.local
