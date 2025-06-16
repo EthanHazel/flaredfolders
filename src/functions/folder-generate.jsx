@@ -1,6 +1,13 @@
 "use client";
 
+// Icor was born here!
+import icor from "icor";
 import JSZip from "jszip";
+import { Buffer } from "buffer";
+
+if (typeof window !== "undefined") {
+  window.Buffer = Buffer;
+}
 
 const downloadIco = async (name = "folder") => {
   try {
@@ -16,58 +23,15 @@ const downloadIco = async (name = "folder") => {
         );
         const buffer = await blob.arrayBuffer();
         return {
-          data: new Uint8Array(buffer),
           width: canvas.width,
           height: canvas.height,
+          data: Buffer.from(buffer),
         };
       })
     );
 
-    const headerSize = 6;
-    const directoryEntrySize = 16;
-    const directoriesSize = images.length * directoryEntrySize;
-    const totalImageSize = images.reduce(
-      (sum, img) => sum + img.data.length,
-      0
-    );
-    const totalSize = headerSize + directoriesSize + totalImageSize;
-
-    const finalBuffer = new Uint8Array(totalSize);
-
-    const header = new DataView(new ArrayBuffer(headerSize));
-    header.setUint16(0, 0, true);
-    header.setUint16(2, 1, true);
-    header.setUint16(4, images.length, true);
-    finalBuffer.set(new Uint8Array(header.buffer), 0);
-
-    let dataOffset = headerSize + directoriesSize;
-    const dataOffsets = [];
-
-    images.forEach((img, index) => {
-      const entry = new DataView(new ArrayBuffer(directoryEntrySize));
-      entry.setUint8(0, img.width === 256 ? 0 : img.width);
-      entry.setUint8(1, img.height === 256 ? 0 : img.height);
-      entry.setUint8(2, 0);
-      entry.setUint8(3, 0);
-      entry.setUint16(4, 1, true);
-      entry.setUint16(6, 32, true);
-      entry.setUint32(8, img.data.length, true);
-      entry.setUint32(12, dataOffset, true);
-
-      finalBuffer.set(
-        new Uint8Array(entry.buffer),
-        headerSize + index * directoryEntrySize
-      );
-
-      dataOffsets.push(dataOffset);
-      dataOffset += img.data.length;
-    });
-
-    images.forEach((img, index) => {
-      finalBuffer.set(img.data, dataOffsets[index]);
-    });
-
-    const blob = new Blob([finalBuffer], { type: "image/x-icon" });
+    const icoBuffer = icor.compileIco(images);
+    const blob = new Blob([icoBuffer], { type: "image/x-icon" });
     const link = document.createElement("a");
     link.download = `${name}.ico`;
     link.href = URL.createObjectURL(blob);
@@ -88,20 +52,10 @@ const downloadIco = async (name = "folder") => {
 
 const downloadIcns = async (name = "folder") => {
   try {
-    const sizeToType = {
-      16: "icp3", // 16x16
-      32: "icp4", // 32x32
-      64: "icp6", // 64x64
-      128: "ic07", // 128x128
-      256: "ic08", // 256x256
-      512: "ic09", // 512x512
-      1024: "ic10", // 1024x1024
-    };
-
     const canvasIds = [1024, 512, 256, 128, 64, 32, 16];
     const canvases = canvasIds
       .map((id) => document.getElementById(`folder-${id}`))
-      .filter((canvas) => !!canvas && sizeToType[canvas.width]);
+      .filter((canvas) => !!canvas);
 
     const images = await Promise.all(
       canvases.map(async (canvas) => {
@@ -110,45 +64,14 @@ const downloadIcns = async (name = "folder") => {
         );
         const buffer = await blob.arrayBuffer();
         return {
-          data: new Uint8Array(buffer),
           size: canvas.width,
-          type: sizeToType[canvas.width],
+          data: Buffer.from(buffer),
         };
       })
     );
 
-    const chunks = images.map((img) => {
-      const typeBytes = new TextEncoder().encode(img.type);
-      const dataLength = img.data.byteLength;
-      const chunkLength = dataLength + 8;
-
-      const chunk = new Uint8Array(chunkLength);
-      const lengthView = new DataView(chunk.buffer, 4, 4);
-
-      chunk.set(typeBytes, 0);
-      lengthView.setUint32(0, chunkLength, false);
-      chunk.set(img.data, 8);
-
-      return chunk;
-    });
-
-    const totalSize = chunks.reduce((sum, chunk) => sum + chunk.length, 8);
-    const header = new Uint8Array(8);
-    const headerView = new DataView(header.buffer);
-
-    header.set(new TextEncoder().encode("icns"), 0);
-    headerView.setUint32(4, totalSize, false);
-
-    const finalBuffer = new Uint8Array(totalSize);
-    finalBuffer.set(header, 0);
-
-    let offset = 8;
-    chunks.forEach((chunk) => {
-      finalBuffer.set(chunk, offset);
-      offset += chunk.length;
-    });
-
-    const blob = new Blob([finalBuffer], { type: "application/octet-stream" });
+    const icnsBuffer = icor.compileIcns(images);
+    const blob = new Blob([icnsBuffer], { type: "application/octet-stream" });
     const link = document.createElement("a");
     link.download = `${name}.icns`;
     link.href = URL.createObjectURL(blob);

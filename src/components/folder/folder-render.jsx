@@ -9,6 +9,7 @@ import React from "react";
 import { loadLucide } from "@/functions/fetch-lucide";
 import { loadSimple } from "@/functions/fetch-simple";
 import { loadCustom } from "@/functions/fetch-custom";
+import { loadEmoji } from "@/functions/fetch-emoji";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
@@ -36,6 +37,7 @@ export default function FolderRender({ folderSize, key, id }) {
     lucideSlug,
     lucideStrokeWidth,
     simpleSlug,
+    emojiSlug,
     customFileName,
   } = useFolderConfigState();
 
@@ -103,6 +105,7 @@ export default function FolderRender({ folderSize, key, id }) {
       lucideSlug: folderConfigStore((state) => state.lucideSlug),
       lucideStrokeWidth: folderConfigStore((state) => state.lucideStrokeWidth),
       simpleSlug: folderConfigStore((state) => state.simpleSlug),
+      emojiSlug: folderConfigStore((state) => state.emojiSlug),
       customFileName: folderConfigStore((state) => state.customFileName),
     };
   }
@@ -223,6 +226,9 @@ export default function FolderRender({ folderSize, key, id }) {
     if (iconType === "custom") {
       return await loadCustom(customFileName);
     }
+    if (iconType === "emoji") {
+      return await loadEmoji(emojiSlug);
+    }
     return null;
   }
 
@@ -260,6 +266,7 @@ export default function FolderRender({ folderSize, key, id }) {
     if (shouldDrawBackground()) {
       drawBackground(
         ctx,
+        folderType,
         baseImg,
         highlightImg,
         maskImg,
@@ -296,6 +303,7 @@ export default function FolderRender({ folderSize, key, id }) {
   // Draw background elements
   function drawBackground(
     ctx,
+    folderType,
     baseImg,
     highlightImg,
     maskImg,
@@ -312,8 +320,13 @@ export default function FolderRender({ folderSize, key, id }) {
       applyGradientColor(ctx, colors, width, height);
     }
 
-    applyMask(ctx, maskImg, width, height);
-    drawHighlight(ctx, highlightImg, width, height);
+    if (folderType === "mint-l") {
+      applyMask(ctx, maskImg, width, height);
+      drawHighlight(ctx, folderType, highlightImg, width, height);
+    } else {
+      drawHighlight(ctx, folderType, highlightImg, width, height);
+      applyMask(ctx, maskImg, width, height);
+    }
     drawShadow(ctx, shadowImg, width, height);
   }
 
@@ -342,8 +355,10 @@ export default function FolderRender({ folderSize, key, id }) {
   }
 
   // Draw highlight effect
-  function drawHighlight(ctx, highlightImg, width, height) {
-    ctx.globalCompositeOperation = "lighter";
+  function drawHighlight(ctx, folderType, highlightImg, width, height) {
+    if (!folderType.startsWith("mint"))
+      ctx.globalCompositeOperation = "lighter";
+    else ctx.globalCompositeOperation = "multiply";
     ctx.drawImage(highlightImg, 0, 0, width, height);
   }
 
@@ -387,9 +402,10 @@ export default function FolderRender({ folderSize, key, id }) {
     const scaledWidth = width;
     const scaledHeight = scaledWidth / aspectRatio;
 
-    const iconOffsetX = (iconOffset[0] / 100) * scaledWidth;
-    const iconOffsetY =
-      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4;
+    const iconOffsetX = Math.floor((iconOffset[0] / 100) * scaledWidth);
+    const iconOffsetY = Math.floor(
+      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4
+    );
 
     const iconX = (width - width * iconScale * iconMultiplier) / 2;
     const iconY = (height - height * iconScale * iconMultiplier) / 2;

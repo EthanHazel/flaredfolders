@@ -20,12 +20,11 @@ export default function FolderIconType() {
 
   const types =
     folderType === "icon-only"
-      ? ["lucide", "simple", "custom"]
-      : ["lucide", "simple", "custom", "none"];
+      ? ["lucide", "simple", "custom", "emoji"]
+      : ["lucide", "simple", "custom", "emoji", "none"];
 
   const t = useTranslations("panelTitles");
   const tc = useTranslations("iconTypes");
-  const tcc = useTranslations("iconConfig");
 
   return (
     <Dropdown name={t("icon")} icon="FolderPlus">

@@ -15,11 +15,11 @@ export const folderConfigStore = create((set) => ({
   folderSmallType: "sqaureAndIcon",
   setFolderSmallType: (folderSmallType) => set({ folderSmallType }),
 
-  // "win10", "win11"
+  // "win10", "win11", "bigsur", "mint-l", "icon-only"
   folderType: "win11",
   setFolderType: (folderType) => set({ folderType }),
 
-  // "lucide", "simple", "custom", "none"
+  // "lucide", "simple", "custom", "emoji", "none"
   iconType: "lucide",
   setIconType: (type) => set({ iconType: type }),
 
@@ -30,6 +30,9 @@ export const folderConfigStore = create((set) => ({
 
   simpleSlug: "simpleicons",
   setSimpleSlug: (slug) => set({ simpleSlug: slug }),
+
+  emojiSlug: "📁",
+  setEmojiSlug: (slug) => set({ emojiSlug: slug }),
 
   customData: null,
   setCustomData: (data) => set({ customIconData: data }),
@@ -67,7 +70,7 @@ export function getIconAnchor(folderType, folderSize) {
       128: [0, 7],
       96: [0, 4],
       72: [0, 3],
-      64: [0, 3],
+      64: [0, 4],
       48: [0, 2],
       32: [0, 1],
       24: [0, 1],

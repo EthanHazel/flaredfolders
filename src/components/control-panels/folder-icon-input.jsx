@@ -20,6 +20,7 @@ export default function FolderIconInput() {
   const setLucideStrokeWidth = folderConfigStore(
     (state) => state.setLucideStrokeWidth
   );
+  const setEmojiSlug = folderConfigStore((state) => state.setEmojiSlug);
 
   useEffect(() => {
     if (folderType === "icon-only" && iconType === "none") {
@@ -39,7 +40,7 @@ export default function FolderIconInput() {
     <>
       {iconType !== "none" && (
         <Dropdown name={t("image")} icon="Image">
-          {iconType !== "custom" && <SlugInput />}
+          {iconType !== "custom" || (iconType === "emoji" && <SlugInput />)}
           <div className={iconType !== "custom" ? "hidden" : ""}>
             <input
               type="file"
@@ -61,6 +62,23 @@ export default function FolderIconInput() {
               step="0.1"
             />
           )}
+          {iconType === "emoji" && (
+            <form onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="text"
+                name="emoji"
+                id="emoji-input"
+                placeholder="🎉"
+              />
+              <button
+                onClick={() =>
+                  setEmojiSlug(document.getElementById("emoji-input").value)
+                }
+              >
+                Set Emoji
+              </button>
+            </form>
+          )}
           {iconType !== "none" && (
             <Range
               label={tcc("opacity")}
@@ -73,16 +91,18 @@ export default function FolderIconInput() {
               step="0.01"
             />
           )}
-          {iconType !== "none" && iconType !== "custom" && (
-            <>
-              <div className="dropdown-break"></div>
-              <Color
-                defaultColor={iconColor}
-                onChange={(e) => setIconColor(e.target.value)}
-                label={tcc("color")}
-              />
-            </>
-          )}
+          {iconType !== "none" &&
+            iconType !== "custom" &&
+            iconType !== "emoji" && (
+              <>
+                <div className="dropdown-break"></div>
+                <Color
+                  defaultColor={iconColor}
+                  onChange={(e) => setIconColor(e.target.value)}
+                  label={tcc("color")}
+                />
+              </>
+            )}
         </Dropdown>
       )}
     </>
