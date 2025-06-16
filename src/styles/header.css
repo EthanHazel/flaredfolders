@@ -110,12 +110,7 @@
 }
 
 .header-desktop-button.close:hover {
-  background-color: #c42b1c;
-}
-
-.header-desktop-button.close:active {
-  background-color: #af281a;
-  filter: none !important;
+  background-color: var(--primary);
 }
 
 .header-desktop-button:active {
