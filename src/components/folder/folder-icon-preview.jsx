@@ -31,6 +31,8 @@ export default function FolderIconPreview({
   }, [iconType, slug, color, strokeWidth, customFileName]);
 
   return (
-    <canvas id="folder-icon-preview" ref={canvasRef} width={48} height={48} />
+    <span id="folder-icon-preview-container">
+      <canvas id="folder-icon-preview" ref={canvasRef} width={48} height={48} />
+    </span>
   );
 }

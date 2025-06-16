@@ -63,6 +63,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-color: var(--tertiary) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
+  overflow: hidden;
 }
 
 body {
@@ -94,14 +95,16 @@ body {
 #left-container {
   display: flex;
   flex-direction: column;
-  min-width: 600px;
+  min-width: 650px;
   height: 100%;
+  max-height: 100%;
   padding: 2rem;
   gap: 2rem;
   overflow-y: auto;
   background-color: var(--bg-accent);
   border-right: 1px solid var(--accent);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  box-sizing: border-box;
   top: 4.5rem;
 }
 

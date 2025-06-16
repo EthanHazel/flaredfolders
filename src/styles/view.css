@@ -31,20 +31,14 @@
   display: none;
 }
 
-@media screen and (max-width: 1400px), screen and (max-height: 720px) {
-  #small-folder-64,
-  #small-folder-48,
-  #big-folder-512 {
-    display: none;
-  }
-
-  #small-folder-256 {
-    display: flex;
-  }
-
+@media screen and (max-width: 1400px) {
   #left-container {
     width: 50% !important;
     min-width: 0px !important;
+  }
+
+  #header-desktop {
+    width: 50% !important;
   }
 
   #right-container {
@@ -54,6 +48,18 @@
   .img-radio {
     max-width: 32px !important;
     max-height: 32px !important;
+  }
+}
+
+@media screen and (max-width: 1400px), screen and (max-height: 720px) {
+  #small-folder-64,
+  #small-folder-48,
+  #big-folder-512 {
+    display: none;
+  }
+
+  #small-folder-256 {
+    display: flex;
   }
 
   .download-counter {

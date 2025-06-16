@@ -41,14 +41,15 @@
 
 #footer-desktop {
   position: fixed;
-  bottom: 1rem;
+  bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   box-sizing: border-box;
   height: fit-content;
-  width: 100%;
-  padding: 0 1rem;
+  width: fit-content;
+  padding: 1rem;
   gap: 1rem;
   z-index: 9999;
 }

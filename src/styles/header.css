@@ -73,12 +73,13 @@
 #header-desktop {
   position: fixed;
   top: 0px;
+  right: 0px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   box-sizing: border-box;
   height: 2.5rem;
-  width: 100%;
+  width: calc(100% - 650px);
   z-index: 9999;
 }
 
@@ -90,6 +91,13 @@
   width: 3rem;
   user-select: none;
   transition: background-color 0.01s;
+}
+
+.header-desktop-button svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1px;
+  color: #707070;
 }
 
 .header-desktop-button:hover {
@@ -112,4 +120,11 @@
 
 .header-desktop-button:active {
   background-color: var(--secondary);
+}
+
+.header-desktop-separator {
+  height: 1rem;
+  width: 1px;
+  background-color: var(--secondary);
+  margin: 0 1rem;
 }
