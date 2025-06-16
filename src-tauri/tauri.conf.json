@@ -13,6 +13,7 @@
     "windows": [
       {
         "title": "Flared Folders",
+        "decorations": false,
         "minWidth": 1150,
         "minHeight": 600,
         "width": 1280,
@@ -22,7 +23,14 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "capabilities": [
+        {
+          "identifier": "draggable-window",
+          "windows": ["*"],
+          "permissions": ["core:window:allow-start-dragging"]
+        }
+      ]
     }
   },
   "bundle": {
