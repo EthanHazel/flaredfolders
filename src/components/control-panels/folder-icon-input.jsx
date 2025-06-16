@@ -40,7 +40,7 @@ export default function FolderIconInput() {
     <>
       {iconType !== "none" && (
         <Dropdown name={t("image")} icon="Image">
-          {iconType !== "custom" || (iconType === "emoji" && <SlugInput />)}
+          {iconType !== "custom" && iconType !== "emoji" && <SlugInput />}
           <div className={iconType !== "custom" ? "hidden" : ""}>
             <input
               type="file"

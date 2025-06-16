@@ -29,6 +29,10 @@
   --body-font: "Inter", sans-serif;
 }
 
+body {
+  font-size: 0.85rem;
+}
+
 body.dark {
   --bg: var(--dm-bg);
   --bg-accent: var(--dm-bg-accent);
