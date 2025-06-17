@@ -4,6 +4,8 @@
 import icor from "icor";
 import JSZip from "jszip";
 import { Buffer } from "buffer";
+import { save } from "@tauri-apps/plugin-dialog";
+import { create } from "@tauri-apps/plugin-fs";
 
 if (typeof window !== "undefined") {
   window.Buffer = Buffer;
@@ -47,6 +49,54 @@ const downloadIco = async (name = "folder") => {
   } catch (error) {
     console.error("ICO creation failed:", error);
     alert("Error generating ICO file - check console for details");
+  }
+};
+
+export const downloadIcoDesktop = async (name = "folder") => {
+  try {
+    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
+    const canvases = canvasIds
+      .map((id) => document.getElementById(`folder-${id}`))
+      .filter(Boolean);
+
+    const images = await Promise.all(
+      canvases.map(async (canvas) => {
+        const blob = await new Promise((resolve) =>
+          canvas.toBlob(resolve, "image/png")
+        );
+        return {
+          width: canvas.width,
+          height: canvas.height,
+          data: Buffer.from(await blob.arrayBuffer()),
+        };
+      })
+    );
+
+    const icoBuffer = icor.compileIco(images);
+
+    const icoData = new Uint8Array(icoBuffer);
+
+    const filePath = await save({
+      filters: [
+        {
+          name: "ICO File",
+          extensions: ["ico"],
+        },
+      ],
+      defaultPath: `${name}.ico`,
+    });
+
+    if (filePath) {
+      const file = await create(filePath, { baseDir: undefined });
+      await file.write(icoData);
+      await file.close();
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error("ICO creation failed:", error);
+    alert("Error saving ICO file - check console for details");
+    throw error;
   }
 };
 
