@@ -1,51 +1,51 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import ViewLayout from "@/components/view";
+"use client";
 
-import FolderColor from "@/components/control-panels/folder-color";
-import FolderStyle from "@/components/control-panels/folder-style";
-import FolderIconType from "@/components/control-panels/folder-icon-type";
-import FolderIconInput from "@/components/control-panels/folder-icon-input";
-import FolderIconOffset from "@/components/control-panels/folder-icon-offset";
-import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
+import useOS from "@/functions/fetch-os";
 
-import FolderRender from "@/components/folder/folder-render";
+import "@/styles/home.css";
 
 export default function Home() {
+  const os = useOS();
+
   return (
-    <>
-      <div id="app">
-        <Header />
-        <div id="content">
-          <div id="left-container">
-            <FolderStyle />
-            <FolderColor />
-            <FolderIconType />
-            <FolderIconInput />
-            <FolderIconOffset />
-            <FolderIconShadow />
-          </div>
-          <div id="right-container">
-            <FolderRender folderSize={512} key={512} id="big-folder-512" />
-            <FolderRender folderSize={256} key={256} id="small-folder-256" />
-            <div className="hidden">
-              <FolderRender folderSize={1024} key={1024} />
-              {[128, 96, 72].map((size) => (
-                <FolderRender folderSize={size} key={size} />
-              ))}
-            </div>
-            <div id="small-folders">
-              <FolderRender folderSize={64} key={64} id="small-folder-64" />
-              <FolderRender folderSize={48} key={48} id="small-folder-48" />
-              {[32, 24, 16].map((size) => (
-                <FolderRender folderSize={size} key={size} />
-              ))}
-            </div>
-          </div>
+    <div id="home">
+      <h1>FlaredFolders</h1>
+      <span>Check out my amazing temporary home page</span>
+      {os === "windows" && (
+        <div className="home-links windows">
+          <span className="home-links-buttons">
+            <a href="https://www.google.com/" className="home-link primary">
+              Download for Windows
+            </a>
+            <a href="/editor" className="home-link secondary">
+              Open Online Editor
+            </a>
+          </span>
+          <a
+            href="https://github.com/EthanHazel/flaredfolders"
+            className="home-link-under"
+            target="_blank"
+          >
+            Source Code
+          </a>
         </div>
-        <Footer />
-      </div>
-      <ViewLayout />
-    </>
+      )}
+      {os !== "windows" && (
+        <div className="home-links other">
+          <span className="home-links-buttons">
+            <a href="/editor" className="home-link primary">
+              Open Editor
+            </a>
+            <a
+              href="https://github.com/EthanHazel/flaredfolders"
+              className="home-link secondary"
+              target="_blank"
+            >
+              Source Code
+            </a>
+          </span>
+        </div>
+      )}
+    </div>
   );
 }

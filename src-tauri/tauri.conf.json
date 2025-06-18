@@ -2,10 +2,10 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "flared-folders",
   "version": "0.1.0",
-  "identifier": "com.flaredfolders.dev",
+  "identifier": "com.flaredfolders.app",
   "build": {
-    "frontendDist": "../out",
-    "devUrl": "http://localhost:3000",
+    "frontendDist": "../out/editor",
+    "devUrl": "http://localhost:3000/editor",
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },

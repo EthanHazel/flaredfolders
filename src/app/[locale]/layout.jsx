@@ -6,6 +6,8 @@ import { hasLocale } from "next-intl";
 import { Analytics } from "@vercel/analytics/react";
 import { redirect } from "next/navigation";
 
+import "@/styles/globals.css";
+
 const description =
   "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
 

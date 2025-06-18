@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
 import packageJson from "../../package.json";
 
+import "@/styles/logo.css";
+
 export default function Logo() {
   const colorType = folderConfigStore((state) => state.colorType);
   const gradientStartColor = folderConfigStore(
@@ -73,7 +75,7 @@ export default function Logo() {
   }, []);
 
   return (
-    <div className="header-container">
+    <div className="header-logo-container">
       <span className="header-logo">
         <svg id="a" viewBox="0 0 149.74 124.78">
           <defs>
