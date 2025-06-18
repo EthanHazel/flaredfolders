@@ -458,6 +458,9 @@ export default function FolderRender({ folderSize, key, id }) {
     const scaledWidth = width;
     const scaledHeight = scaledWidth / aspectRatio;
 
+    // Set up temporary canvas rendering
+    setupCanvasRendering(tempCtx);
+
     // Pass shadowColor and shadowOpacity to applyIconEffects
     applyIconEffects(
       tempCtx,
@@ -501,6 +504,10 @@ export default function FolderRender({ folderSize, key, id }) {
     iconOffsetY
   ) {
     ctx.globalCompositeOperation = "source-over";
+
+    // Set up canvas
+    setupCanvasRendering(ctx);
+
     // Pass shadowColor and shadowOpacity to applyIconEffects
     applyIconEffects(
       ctx,
