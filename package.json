@@ -1,7 +1,15 @@
 {
   "name": "flared-folders",
-  "version": "2.2.0",
-  "private": true,
+  "version": "2.2.0.1",
+  "description": "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.",
+  "author": {
+    "name": "Ethan Hazel",
+    "email": "contact@ehazel.com",
+    "url": "https://www.ehazel.com/"
+  },
+  "license": "GPL-3.0-only",
+  "repository": "https://github.com/EthanHazel/flaredfolders",
+  "homepage": "https://www.flaredfolders.com/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

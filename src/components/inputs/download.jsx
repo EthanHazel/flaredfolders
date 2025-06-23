@@ -53,6 +53,7 @@ export default function Download() {
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ folderType }),
       });
 
       if (!response.ok) {

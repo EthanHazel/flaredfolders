@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase";
 
-export async function POST() {
+export async function POST(request) {
   const supabase = createSupabaseServerClient();
+  const { folderType } = await request.json();
 
   try {
-    const { data, error } = await supabase.rpc("increment_downloads");
+    // Change parameter name to match SQL function expectation
+    const { data, error } = await supabase.rpc("increment_downloads", {
+      folder_type: folderType,
+    });
 
     if (error) {
       console.error("Supabase error:", error);
