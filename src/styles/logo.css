@@ -19,6 +19,19 @@
   overflow: visible;
 }
 
+.header-logo-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none !important;
+  color: var(--quaternary) !important;
+}
+
+.header-logo-link:hover {
+  opacity: 0.75;
+}
+
 .header-title {
   font-family: var(--header-font);
   font-size: 1rem;

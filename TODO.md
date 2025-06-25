@@ -16,7 +16,6 @@
 - Autopick folder style based on detected OS
 - Modify OS detection to detect specific Windows version (10 or 11)
 - Add intro animation to opening editor to hide loading items
-- Make editor logo redirect to home
 - Ask if user is sure about closing when modifications have been made
 - Create a .webignore file for parsing out folders and files for web (src-tauri)
 
