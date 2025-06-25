@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Window } from "@tauri-apps/api/window";
 
+import PanelToggleDesktop from "./inputs/panel-toggle.desktop";
+
 import { swapTheme } from "@/functions/theme-swap";
 
 import "@/styles/header.css";
@@ -16,6 +18,7 @@ export default function HeaderDesktop() {
         >
           <Image src="/nav/settings.png" width={16} height={16} alt="Theme" />
         </a>
+        <PanelToggleDesktop />
       </div>
       <div className="header-desktop-separator" />
       <div id="header-desktop-buttons">

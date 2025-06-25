@@ -1,6 +1,10 @@
+"use client";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ViewLayout from "@/components/view";
+
+import PanelToggle from "@/components/inputs/panel-toggle";
 
 import FolderColor from "@/components/control-panels/folder-color";
 import FolderStyle from "@/components/control-panels/folder-style";
@@ -11,10 +15,12 @@ import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 
 import FolderRender from "@/components/folder/folder-render";
 
+import fetchClient from "@/functions/fetch-client";
+
 export default function Editor() {
   return (
     <>
-      <div id="app">
+      <div id="app" className={fetchClient() === "desktop" ? "desktop" : ""}>
         <Header />
         <div id="content">
           <div id="left-container">
@@ -26,6 +32,7 @@ export default function Editor() {
             <FolderIconShadow />
           </div>
           <div id="right-container">
+            <PanelToggle />
             <FolderRender folderSize={512} key={512} id="big-folder-512" />
             <FolderRender folderSize={256} key={256} id="small-folder-256" />
             <div className="hidden">

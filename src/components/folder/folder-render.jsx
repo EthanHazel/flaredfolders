@@ -15,7 +15,7 @@ import { folderConfigStore } from "@/stores/folder-config";
 
 import "@/styles/folder.css";
 
-export default function FolderRender({ folderSize, key, id }) {
+export default function FolderRender({ folderSize, id }) {
   const {
     colorType,
     gradientStartColor,
@@ -575,7 +575,6 @@ export default function FolderRender({ folderSize, key, id }) {
   return (
     <div
       className="folder-icon-container"
-      key={key}
       id={id}
       style={{
         width: `calc(${folderSize}px + 2rem)`,

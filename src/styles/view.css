@@ -37,12 +37,20 @@
     min-width: 0px !important;
   }
 
+  .panel-closed #left-container {
+    margin-left: -50%;
+  }
+
   #header-desktop {
     width: 50% !important;
   }
 
   #right-container {
     width: 50% !important;
+  }
+
+  .panel-closed #right-container {
+    width: 100% !important;
   }
 
   .img-radio {
