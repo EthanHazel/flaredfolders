@@ -16,14 +16,13 @@
 - Autopick folder style based on detected OS
 - Modify OS detection to detect specific Windows version (10 or 11)
 - Add intro animation to opening editor to hide loading items
-- Option to close left sidebar
 - Make editor logo redirect to home
 - Ask if user is sure about closing when modifications have been made
 - Create a .webignore file for parsing out folders and files for web (src-tauri)
 
 ## 2.3 Launch
 
-- Create updater
+- Create updater for desktop client
 - Create function for applying flairs
 - Allow args --path and --ico for applying flair, and also for opening an ico to apply
 - Success popup for applying or saving
@@ -34,3 +33,7 @@
   - Source
   - Check for update
 - Modify folder style control panel to only feature small folder config and `icon-only` option
+
+## 2.3.1
+
+- Redo panel toggle to show a comparison to the default folder for each size option
