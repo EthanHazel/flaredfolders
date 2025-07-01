@@ -25,9 +25,6 @@ desktop.ini
 *.sln
 *.sw?
 
-# Emoji
-public/emoji
-
 # Tauri
 1.0.0
 

@@ -9,8 +9,6 @@
 
 ## 2.2.1 Launch
 
-- Fetch Emojis on compilation
-- Emoji picker
 - Finish up home page (create WIP notice for download)
 - Move credits, and product hunt to home page exclusively
 - Autopick folder style based on detected OS
@@ -36,3 +34,4 @@
 ## 2.3.1
 
 - Redo panel toggle to show a comparison to the default folder for each size option
+- Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)

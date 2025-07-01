@@ -4,6 +4,7 @@ import Dropdown from "../inputs/dropdown";
 import Color from "../inputs/color";
 import Range from "../inputs/range";
 import SlugInput from "../inputs/slug-input";
+import EmojiPicker from "../inputs/emoji-picker";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
@@ -20,7 +21,6 @@ export default function FolderIconInput() {
   const setLucideStrokeWidth = folderConfigStore(
     (state) => state.setLucideStrokeWidth
   );
-  const setEmojiSlug = folderConfigStore((state) => state.setEmojiSlug);
 
   useEffect(() => {
     if (folderType === "icon-only" && iconType === "none") {
@@ -62,23 +62,7 @@ export default function FolderIconInput() {
               step="0.1"
             />
           )}
-          {iconType === "emoji" && (
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                name="emoji"
-                id="emoji-input"
-                placeholder="🎉"
-              />
-              <button
-                onClick={() =>
-                  setEmojiSlug(document.getElementById("emoji-input").value)
-                }
-              >
-                Set Emoji
-              </button>
-            </form>
-          )}
+          {iconType === "emoji" && <EmojiPicker />}
           {iconType !== "none" && (
             <Range
               label={tcc("opacity")}

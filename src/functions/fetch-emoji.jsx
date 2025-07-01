@@ -1,34 +1,31 @@
-// Helper function to convert emoji to Twemoji code point format
-const emojiToCodePoint = (emoji) => {
-  const codePoints = [];
-  for (let i = 0; i < emoji.length; i++) {
-    const code = emoji.codePointAt(i);
-    if (code > 0xffff) {
-      i++; // Skip next surrogate pair
-    }
-    codePoints.push(code.toString(16));
-  }
-  return codePoints.join("-");
-};
+const emojiCache = {};
 
 export const loadEmoji = (emoji) => {
-  if (typeof window === "undefined") {
-    return Promise.resolve({
-      src: "",
-      width: 0,
-      height: 0,
-      onload: null,
+  if (!emojiCache[emoji]) {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 512;
+    const ctx = canvas.getContext("2d");
+    ctx.font = "480px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    const metrics = ctx.measureText(emoji);
+
+    const x = 256;
+    const y =
+      256 +
+      (metrics.actualBoundingBoxAscent - metrics.actualBoundingBoxDescent) / 2;
+
+    ctx.fillText(emoji, x, y);
+
+    emojiCache[emoji] = new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.crossOrigin = "anonymous";
+      img.src = canvas.toDataURL();
     });
   }
 
-  const codePoint = emojiToCodePoint(emoji);
-  const url = `/emoji/${codePoint}.svg`;
-
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = (err) => reject(err);
-    img.crossOrigin = "anonymous";
-    img.src = url;
-  });
+  return emojiCache[emoji];
 };

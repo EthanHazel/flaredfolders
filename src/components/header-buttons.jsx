@@ -81,17 +81,6 @@ export default function HeaderButtons() {
           }
         />
         <HeaderButton
-          label="Product Hunt"
-          href="https://www.producthunt.com/products/flared-folders"
-          target="_blank"
-          className="header-button"
-          icon={
-            <svg viewBox="0 0 24 24" className="header-button-svg">
-              <path d={siProducthunt.path} />
-            </svg>
-          }
-        />
-        <HeaderButton
           label="GitHub"
           href="https://github.com/EthanHazel/flaredfolders"
           target="_blank"
