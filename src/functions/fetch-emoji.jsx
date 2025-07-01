@@ -6,7 +6,7 @@ export const loadEmoji = (emoji) => {
     canvas.width = 512;
     canvas.height = 512;
     const ctx = canvas.getContext("2d");
-    ctx.font = "480px sans-serif";
+    ctx.font = "420px sans-serif"; // nice
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
