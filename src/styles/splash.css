@@ -1,0 +1,95 @@
+@keyframes fade {
+  0% {
+    opacity: 1;
+    pointer-events: inherit;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: inherit;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes intro {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  75% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: scaleX(0.5) rotate3d(1, 0, 0, 90deg);
+  }
+  to {
+    transform: scaleX(1) rotate3d(1, 0, 0, 0deg);
+  }
+}
+
+@keyframes swapflip {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(-1);
+    color: var(--secondary);
+  }
+  25% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(-1);
+    color: var(--secondary);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(150%) scaleX(-1);
+    color: var(--secondary);
+  }
+  87.5% {
+    opacity: 1;
+    transform: translateX(75%) scaleX(0);
+    color: var(--secondary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+    color: var(--primary);
+  }
+}
+
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background-color: var(--bg);
+  animation: 1.5s fade forwards;
+}
+
+#splash svg {
+  max-width: 10%;
+  animation: 1.25s intro;
+}
+
+#splash-b {
+  animation: 0.75s flip;
+}
+
+#splash-a {
+  transform: scaleX(-1);
+  animation: 1s swapflip forwards ease-in-out;
+}

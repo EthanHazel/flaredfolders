@@ -1,5 +1,6 @@
 "use client";
 
+import Splash from "@/components/splash";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ViewLayout from "@/components/view";
@@ -21,6 +22,7 @@ export default function Editor() {
   return (
     <>
       <div id="app" className={fetchClient() === "desktop" ? "desktop" : ""}>
+        <Splash />
         <Header />
         <div id="content">
           <div id="left-container">
