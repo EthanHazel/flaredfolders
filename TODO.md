@@ -9,6 +9,7 @@
 
 ## 2.2.1 Launch
 
+- Lazily load emojis on the emoji picker to reduce loading
 - Finish up home page (create WIP notice for download)
 - Move credits, and product hunt to home page exclusively
 - Autopick folder style based on detected OS
@@ -27,6 +28,7 @@
   - Source
   - Check for update
 - Modify folder style control panel to only feature small folder config and `icon-only` option
+- Icon picker for Lucide and SimpleIcons based on the emoji picker
 
 ## 2.3.1
 
