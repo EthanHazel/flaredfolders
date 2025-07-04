@@ -1,7 +1,6 @@
 import * as emoji from "node-emoji";
 import { useState } from "react";
 
-import { emojiToCodePoint } from "@/functions/fetch-emoji";
 import { folderConfigStore } from "@/stores/folder-config";
 
 import "@/styles/emoji-picker.css";

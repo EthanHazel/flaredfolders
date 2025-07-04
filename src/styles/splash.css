@@ -90,6 +90,5 @@
 }
 
 #splash-a {
-  transform: scaleX(-1);
   animation: 1s swapflip forwards ease-in-out;
 }

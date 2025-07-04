@@ -4,6 +4,7 @@ import Splash from "@/components/splash";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ViewLayout from "@/components/view";
+import CheatCode from "@/components/cheat-code";
 
 import PanelToggle from "@/components/inputs/panel-toggle";
 
@@ -22,6 +23,7 @@ export default function Editor() {
   return (
     <>
       <div id="app" className={fetchClient() === "desktop" ? "desktop" : ""}>
+        <CheatCode />
         <Splash />
         <Header />
         <div id="content">

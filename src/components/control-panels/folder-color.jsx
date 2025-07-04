@@ -25,7 +25,11 @@ export default function FolderColor() {
         folderConfigStore.getState().solidColor,
       ]);
     } else {
-      if (folderType === "win11" || folderType === "win10")
+      if (
+        folderType === "win11" ||
+        folderType === "win10" ||
+        folderType === "win95"
+      )
         setPrimary(["#fee394", "#dfa52e"]);
       else if (folderType === "bigsur") setPrimary(["#82d0f8", "#0089cf"]);
       else setPrimary(["#8bb158", "#8bb158"]);

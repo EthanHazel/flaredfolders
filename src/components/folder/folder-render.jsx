@@ -173,6 +173,7 @@ export default function FolderRender({ folderSize, id }) {
       (folderType === "bigsur" && bigsurSizes.includes(folderSize)) ||
       ((folderType === "win11" ||
         folderType === "win10" ||
+        folderType === "win95" ||
         folderType === "mint-l") &&
         otherSizes.includes(folderSize))
     );

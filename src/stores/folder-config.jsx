@@ -63,7 +63,7 @@ export const folderConfigStore = create((set) => ({
 }));
 
 export function getIconAnchor(folderType, folderSize) {
-  if (folderType === "win11") {
+  if (folderType === "win11" || folderType === "win95") {
     const offsets = {
       512: [0, 26],
       256: [0, 13],
