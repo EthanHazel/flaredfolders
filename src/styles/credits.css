@@ -1,11 +1,22 @@
+#credits {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .credit {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   margin: 0.5rem 0;
-  gap: 1rem;
+  gap: 0.5rem;
   width: 100%;
+  font-size: 0.8rem;
+  width: fit-content;
 }
 
 .credit-header {
@@ -13,6 +24,7 @@
   width: 50%;
   text-align: right;
   color: var(--tertiary);
+  width: fit-content;
 }
 
 .credit-content {
@@ -20,16 +32,22 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  width: fit-content;
 }
 
 .credit-translation {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
 }
 
 .credit-translation-name {
   font-weight: 600;
   color: var(--tertiary);
+}
+
+#credits a {
+  color: var(--text);
+  text-decoration: underline;
 }

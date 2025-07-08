@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { Sun, Moon, HandHeart } from "lucide-react";
+import { Sun, Moon, HandHeart, FolderOpen } from "lucide-react";
 import { siDiscord, siGithub, siProducthunt } from "simple-icons";
 
 import useOS from "@/functions/fetch-os";
 import DownloadCounter from "@/components/download-count";
 import HeaderButton from "@/components/inputs/header-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
-import Image from "next/image";
+import Credits from "@/components/credits";
 import { swapTheme } from "@/functions/theme-swap";
 
 import "@/styles/home.css";
@@ -61,40 +61,6 @@ export default function Home() {
               icon={<HandHeart className="header-button-svg" />}
             />
             <div className="header-button-divider"></div>
-            <HeaderButton
-              label="Discord"
-              href="https://discord.gg/BkxtVZsf4E"
-              target="_blank"
-              className="header-button"
-              icon={
-                <svg viewBox="0 0 24 24" className="header-button-svg">
-                  <path d={siDiscord.path} />
-                </svg>
-              }
-            />
-            <HeaderButton
-              label="GitHub"
-              href="https://github.com/EthanHazel/flaredfolders"
-              target="_blank"
-              className="header-button"
-              icon={
-                <svg viewBox="0 0 24 24" className="header-button-svg">
-                  <path d={siGithub.path} />
-                </svg>
-              }
-            />
-            <HeaderButton
-              label="Product Hunt"
-              href="https://www.producthunt.com/products/flared-folders"
-              target="_blank"
-              className="header-button"
-              icon={
-                <svg viewBox="0 0 24 24" className="header-button-svg">
-                  <path d={siProducthunt.path} />
-                </svg>
-              }
-            />
-            <div className="header-button-divider"></div>
             <LocaleSwitcher />
           </div>
         </div>
@@ -134,13 +100,41 @@ export default function Home() {
                 Open Online Editor
               </a>
             </span>
-            <a
-              href="https://github.com/EthanHazel/flaredfolders"
-              className="home-link-under"
-              target="_blank"
-            >
-              Source Code
-            </a>
+            <div className="home-links-buttons">
+              <HeaderButton
+                label="Discord"
+                href="https://discord.gg/BkxtVZsf4E"
+                target="_blank"
+                className="header-button"
+                icon={
+                  <svg viewBox="0 0 24 24" className="header-button-svg">
+                    <path d={siDiscord.path} />
+                  </svg>
+                }
+              />
+              <HeaderButton
+                label="GitHub"
+                href="https://github.com/EthanHazel/flaredfolders"
+                target="_blank"
+                className="header-button"
+                icon={
+                  <svg viewBox="0 0 24 24" className="header-button-svg">
+                    <path d={siGithub.path} />
+                  </svg>
+                }
+              />
+              <HeaderButton
+                label="Product Hunt"
+                href="https://www.producthunt.com/products/flared-folders"
+                target="_blank"
+                className="header-button"
+                icon={
+                  <svg viewBox="0 0 24 24" className="header-button-svg">
+                    <path d={siProducthunt.path} />
+                  </svg>
+                }
+              />
+            </div>
           </div>
         )}
         {os !== "windows" && (
@@ -162,28 +156,18 @@ export default function Home() {
       </div>
       <Carousel />
       <div id="home-features">
-        <h2>Features</h2>
+        <h2>
+          <FolderOpen /> Features
+        </h2>
         <ul className="feature-list">
-          <li>
-            Create unique folders with custom backgrounds
-            <ul>
-              <li>Gradient background</li>
-              <li>Solid color background</li>
-              <li>Original background</li>
-            </ul>
-          </li>
-          <li>
-            Choose icons from a curated selection of sources
-            <ul>
-              <li>Lucide (General Icons)</li>
-              <li>SimpleIcons (Brand Icons)</li>
-              <li>Emojis</li>
-              <li>Custom (Upload your own)</li>
-            </ul>
-          </li>
           <li>Compatibility with Windows 10 and Windows 11</li>
           <li>Completely free, open-source, and ad-free</li>
+          <li>Create unique folders with custom backgrounds</li>
+          <li>Choose icons from a curated selection of sources</li>
         </ul>
+      </div>
+      <div id="home-credits">
+        <Credits />
       </div>
     </div>
   );

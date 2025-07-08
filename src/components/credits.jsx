@@ -94,7 +94,7 @@ export default function Credits() {
   const translationEnd = t("help").split("%")[1];
 
   return (
-    <>
+    <div id="credits">
       <div className="credit">
         <div className="credit-header">{t("created")}</div>
         <div className="credit-content">
@@ -214,6 +214,6 @@ export default function Credits() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
