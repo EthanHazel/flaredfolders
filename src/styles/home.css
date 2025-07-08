@@ -136,6 +136,7 @@ html {
   font-size: 4.5rem;
   letter-spacing: 0.45rem;
   color: var(--quaternary);
+  padding: 0 2rem;
 }
 
 #home-subtitle {
@@ -219,11 +220,11 @@ html {
   }
 
   #home {
-    margin-top: calc(4rem + 1px);
+    margin-top: 0;
   }
 
   #home-header {
-    height: calc(100vh - 4rem);
+    height: 100vh;
   }
 
   #home-nav-container {
