@@ -56,12 +56,28 @@ html {
 }
 
 @media screen and (max-width: 680px) {
+  #home-nav {
+    height: 4rem;
+  }
+
+  #home {
+    margin-top: calc(4rem + 1px);
+  }
+
   #home-nav-container {
     justify-content: center;
   }
 
   #home-nav-links {
     display: none;
+  }
+
+  #home-title {
+    font-size: 3rem !important;
+    letter-spacing: 4px !important;
+  }
+  #home-subtitle {
+    font-size: 1.25rem !important;
   }
 }
 

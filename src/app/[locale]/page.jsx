@@ -14,17 +14,6 @@ import { swapTheme } from "@/functions/theme-swap";
 import "@/styles/home.css";
 import Carousel from "@/components/carousel";
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: "no",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
-
 export default function Home() {
   const os = useOS();
   const homeRef = useRef(null);
