@@ -1,3 +1,5 @@
+// I can have fun sometimes
+
 import { useEffect } from "react";
 
 import { folderConfigStore } from "@/stores/folder-config";
@@ -24,7 +26,7 @@ export default function CheatCode() {
     let timer;
 
     const playSound = () => {
-      const audio = new Audio("/cheat-code.mp3");
+      const audio = new Audio("/cheat/cheat-code.mp3");
       audio.play();
     };
 

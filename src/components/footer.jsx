@@ -24,7 +24,7 @@ export default function Footer() {
       <a id="donators" href="https://ko-fi.com/ethanhazel/tip" target="_blank">
         {folderType === "win95" ? (
           <Image
-            src="/netscani.gif"
+            src="/cheat/netscani.gif"
             alt="Netscape NOW"
             width={88}
             height={31}
