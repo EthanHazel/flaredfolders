@@ -34,6 +34,8 @@ html {
   align-items: center;
   width: 1280px;
   height: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 #home-nav-links {
@@ -51,6 +53,16 @@ html {
 #home-nav svg {
   width: 2rem;
   height: 2rem;
+}
+
+@media screen and (max-width: 680px) {
+  #home-nav-container {
+    justify-content: center;
+  }
+
+  #home-nav-links {
+    display: none;
+  }
 }
 
 #home-header {
@@ -124,6 +136,11 @@ html {
 }
 
 #home-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0;
   font-family: var(--header-font);
   font-size: 4.5rem;
@@ -139,6 +156,7 @@ html {
   text-align: center;
   margin: 1rem 0;
   font-weight: 450;
+  padding: 0 2rem;
 }
 
 .download-counter {
@@ -157,6 +175,7 @@ html {
 
 .home-links-buttons {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 1rem;
   justify-content: center;

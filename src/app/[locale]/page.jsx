@@ -100,7 +100,10 @@ export default function Home() {
         </div>
       </div>
       <div id="home-header">
-        <h1 id="home-title">FlaredFolders</h1>
+        <h1 id="home-title">
+          <span>Flared</span>
+          <span>Folders</span>
+        </h1>
         <span id="home-subtitle">
           A Free, Open-Source Folder Customization Tool
           <DownloadCounter />

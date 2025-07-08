@@ -72,8 +72,8 @@ export function getIconAnchor(folderType, folderSize) {
       72: [0, 3],
       64: [0, 4],
       48: [0, 2],
-      32: [0, 1],
-      24: [0, 1],
+      32: [0, 2],
+      24: [0, 2],
       16: [0, 1],
     };
     return offsets[folderSize] || [0, 0];
