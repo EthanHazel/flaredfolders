@@ -9,7 +9,6 @@
 
 ## 2.2.1 Launch
 
-- Lazily load emojis on the emoji picker to reduce loading
 - Finish up home page (create WIP notice for download)
 - Move credits, and product hunt to home page exclusively
 - Autopick folder style based on detected OS
