@@ -8,6 +8,7 @@ import useOS from "@/functions/fetch-os";
 import DownloadCounter from "@/components/download-count";
 import HeaderButton from "@/components/inputs/header-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
+import Image from "next/image";
 import { swapTheme } from "@/functions/theme-swap";
 
 import "@/styles/home.css";
@@ -108,7 +109,23 @@ export default function Home() {
           <div className="home-links windows">
             <span className="home-links-buttons">
               <a href="https://www.google.com/" className="home-link primary">
-                Download for Windows
+                {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
+                <svg
+                  id="a"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  width="17"
+                  height="17"
+                  style={{ marginRight: "1rem" }}
+                >
+                  <path
+                    fill="currentColor"
+                    d="M0,0H7.58V7.58H0V0ZM8.42,0h7.58V7.58h-7.58V0ZM0,8.42H7.58v7.58H0v-7.58Zm8.42,0h7.58v7.58h-7.58"
+                  />
+                </svg>
+                <span style={{ marginRight: "0.5rem" }}>
+                  Download for Windows
+                </span>
               </a>
               <a onClick={gotoEditor} className="home-link secondary">
                 Open Online Editor
@@ -141,6 +158,30 @@ export default function Home() {
         )}
       </div>
       <Carousel />
+      <div id="home-features">
+        <h2>Features</h2>
+        <ul className="feature-list">
+          <li>
+            Create unique folders with custom backgrounds
+            <ul>
+              <li>Gradient background</li>
+              <li>Solid color background</li>
+              <li>Original background</li>
+            </ul>
+          </li>
+          <li>
+            Choose icons from a curated selection of sources
+            <ul>
+              <li>Lucide (General Icons)</li>
+              <li>SimpleIcons (Brand Icons)</li>
+              <li>Emojis</li>
+              <li>Custom (Upload your own)</li>
+            </ul>
+          </li>
+          <li>Compatibility with Windows 10 and Windows 11</li>
+          <li>Completely free, open-source, and ad-free</li>
+        </ul>
+      </div>
     </div>
   );
 }
