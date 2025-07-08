@@ -55,32 +55,6 @@ html {
   height: 2rem;
 }
 
-@media screen and (max-width: 680px) {
-  #home-nav {
-    height: 4rem;
-  }
-
-  #home {
-    margin-top: calc(4rem + 1px);
-  }
-
-  #home-nav-container {
-    justify-content: center;
-  }
-
-  #home-nav-links {
-    display: none;
-  }
-
-  #home-title {
-    font-size: 3rem !important;
-    letter-spacing: 4px !important;
-  }
-  #home-subtitle {
-    font-size: 1.25rem !important;
-  }
-}
-
 #home-header {
   display: flex;
   flex-direction: column;
@@ -237,4 +211,34 @@ html {
 .home-link-under {
   display: flex;
   color: var(--quarternary) !important;
+}
+
+@media screen and (max-width: 680px) {
+  #home-nav {
+    height: 4rem;
+  }
+
+  #home {
+    margin-top: calc(4rem + 1px);
+  }
+
+  #home-header {
+    height: calc(100vh - 4rem);
+  }
+
+  #home-nav-container {
+    justify-content: center;
+  }
+
+  #home-nav-links {
+    display: none;
+  }
+
+  #home-title {
+    font-size: 3rem !important;
+    letter-spacing: 4px !important;
+  }
+  #home-subtitle {
+    font-size: 1.25rem !important;
+  }
 }
