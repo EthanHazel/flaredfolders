@@ -38,7 +38,7 @@ jobs:
             // Create the raw-data JSON object
             const rawData = {
               embeds: [{
-                title: `<:repo:1334986816180322364><:sep:1334987026747097180>${context.repo.repo}`,
+                title: `<:repo:1334986816180322364><:sep:1334987026747097180>${context.repo.repo}<:sep:1334987026747097180>${context.ref.replace('refs/heads/', '')}`,
                 color: 16777215,
                 footer: {
                   text: "Committed by " + context.payload.head_commit.author.username,
