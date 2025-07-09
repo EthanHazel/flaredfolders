@@ -2,7 +2,7 @@ import "@/styles/loading.css";
 
 export default function Loading({ size = 32 }) {
   return (
-    <div className="loader-container" style={{ width: size, height: size }}>
+    <div className="loader-container" style={{ height: size }}>
       <span
         className="loader"
         style={{

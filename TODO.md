@@ -9,16 +9,13 @@
 
 ## 2.2.1 Launch
 
-- Finish up home page (create WIP notice for download)
-- Move credits, and product hunt to home page exclusively
 - Autopick folder style based on detected OS
 - Modify OS detection to detect specific Windows version (10 or 11)
 - Fix bug with `folder-only` small style not correctly applying the right blending
-- Make home mobile responsive and remove the download and online editor button (replace with the source code button maybe)
-- Include translations in header button labels & home page
 
 ## 2.3 Launch
 
+- Include call to action for contributing languages inside the language dropdown
 - Create updater for desktop client
 - Create function for applying flairs
 - Allow args --path and --ico for applying flair, and also for opening an ico to apply

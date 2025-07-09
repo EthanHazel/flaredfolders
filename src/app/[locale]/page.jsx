@@ -10,6 +10,7 @@ import HeaderButton from "@/components/inputs/header-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
 import Credits from "@/components/credits";
 import { swapTheme } from "@/functions/theme-swap";
+import packageJson from "../../../package.json";
 
 import "@/styles/home.css";
 import Carousel from "@/components/carousel";
@@ -17,6 +18,7 @@ import Carousel from "@/components/carousel";
 export default function Home() {
   const os = useOS();
   const homeRef = useRef(null);
+  const version = packageJson.version;
 
   const gotoEditor = () => {
     if (homeRef.current) {
@@ -42,6 +44,7 @@ export default function Home() {
             />
           </svg>
           <div id="home-nav-links">
+            <span id="home-version">{version}</span>
             <HeaderButton
               label="Swap Theme"
               className="header-button"
@@ -77,7 +80,7 @@ export default function Home() {
         {os === "windows" && (
           <div className="home-links windows">
             <span className="home-links-buttons">
-              <a href="https://www.google.com/" className="home-link primary">
+              <a className="home-link primary windows-download">
                 {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
                 <svg
                   id="a"
@@ -93,7 +96,7 @@ export default function Home() {
                   />
                 </svg>
                 <span style={{ marginRight: "0.5rem" }}>
-                  Download for Windows
+                  Windows (Coming Soon)
                 </span>
               </a>
               <a onClick={gotoEditor} className="home-link secondary">

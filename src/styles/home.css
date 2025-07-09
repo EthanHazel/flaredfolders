@@ -38,6 +38,12 @@ html {
   box-sizing: border-box;
 }
 
+#home-version {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  font-family: var(--header-font);
+}
+
 #home-nav-links {
   display: flex;
   flex-direction: row;
@@ -248,6 +254,7 @@ html {
   gap: 2rem;
   justify-content: center;
   width: 100%;
+  border-left: 1px solid var(--accent);
 }
 
 .feature-list li {
@@ -259,6 +266,10 @@ html {
   border: 1px solid var(--secondary);
   width: fit-content;
   border-radius: 0.5rem;
+}
+
+.windows-download {
+  cursor: not-allowed !important;
 }
 
 @media screen and (max-width: 680px) {
