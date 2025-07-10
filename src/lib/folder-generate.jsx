@@ -100,46 +100,6 @@ export const downloadIcoDesktop = async (name = "folder") => {
   }
 };
 
-const downloadIcns = async (name = "folder") => {
-  try {
-    const canvasIds = [1024, 512, 256, 128, 64, 32, 16];
-    const canvases = canvasIds
-      .map((id) => document.getElementById(`folder-${id}`))
-      .filter((canvas) => !!canvas);
-
-    const images = await Promise.all(
-      canvases.map(async (canvas) => {
-        const blob = await new Promise((resolve) =>
-          canvas.toBlob(resolve, "image/png")
-        );
-        const buffer = await blob.arrayBuffer();
-        return {
-          size: canvas.width,
-          data: Buffer.from(buffer),
-        };
-      })
-    );
-
-    const icnsBuffer = icor.compileIcns(images);
-    const blob = new Blob([icnsBuffer], { type: "application/octet-stream" });
-    const link = document.createElement("a");
-    link.download = `${name}.icns`;
-    link.href = URL.createObjectURL(blob);
-    link.style.display = "none";
-
-    document.body.appendChild(link);
-    link.click();
-
-    setTimeout(() => {
-      document.body.removeChild(link);
-      URL.revokeObjectURL(link.href);
-    }, 100);
-  } catch (error) {
-    console.error("ICNS creation failed:", error);
-    alert("Error generating ICNS file - check console for details");
-  }
-};
-
 const downloadIconSize = (size, name = "folder") => {
   const canvas = document.getElementById(`folder-${size}`);
   const link = document.createElement("a");
@@ -176,7 +136,6 @@ const downloadIconsZip = async (name = "folder") => {
 
 export function FolderGenerate(fileType, iconSize, name) {
   if (fileType === "ico") downloadIco(name);
-  if (fileType === "icns") downloadIcns(name);
   if (fileType === "png") {
     if (iconSize === "all") downloadIconsZip(name);
     else downloadIconSize(iconSize, name);

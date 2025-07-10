@@ -22,14 +22,6 @@ export default function Download() {
 
   const t = useTranslations("download");
 
-  useEffect(() => {
-    if (folderType === "bigsur") {
-      setFileType("icns");
-    } else {
-      setFileType("ico");
-    }
-  }, [folderType]);
-
   const getName = () => {
     let name = "";
     if (iconType === "simple") {
@@ -53,7 +45,7 @@ export default function Download() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ folderType }), // This is correct
+        body: JSON.stringify({ folderType }),
       });
 
       if (!response.ok) {
@@ -83,7 +75,6 @@ export default function Download() {
         onChange={(e) => setFileType(e.target.value)}
       >
         {folderType !== "bigsur" && <option value="ico">{t("ico")}</option>}
-        <option value="icns">{t("icns")}</option>
         <option value="png">{t("png")}</option>
       </select>
 
@@ -95,18 +86,15 @@ export default function Download() {
           onChange={(e) => setIconSize(e.target.value)}
         >
           <option value="all">{t("allSizes")}</option>
-          {folderType === "bigsur" && <option value="1024">{t("1024")}</option>}
           <option value="512">{t("512")}</option>
           <option value="256">{t("256")}</option>
           <option value="128">{t("128")}</option>
-          {folderType !== "bigsur" && <option value="96">{t("96")}</option>}
-          {folderType !== "bigsur" && folderType !== "mint-l" && (
-            <option value="72">{t("72")}</option>
-          )}
+          <option value="96">{t("96")}</option>
+          <option value="72">{t("72")}</option>
           <option value="64">{t("64")}</option>
-          {folderType !== "bigsur" && <option value="48">{t("48")}</option>}
+          <option value="48">{t("48")}</option>
           <option value="32">{t("32")}</option>
-          {folderType !== "bigsur" && <option value="24">{t("24")}</option>}
+          <option value="24">{t("24")}</option>
           <option value="16">{t("16")}</option>
         </select>
       )}

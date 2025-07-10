@@ -65,8 +65,6 @@ export default function FolderRender({ folderSize, id }) {
 
   // Main effect for loading and drawing
   useEffect(() => {
-    if (shouldSkipRender(folderType, folderSize)) return;
-
     const loadAndDraw = async () => {
       try {
         const images = await loadRequiredImages();
@@ -146,10 +144,7 @@ export default function FolderRender({ folderSize, id }) {
 
   // Determine icon shadow type
   function getIconShadowType(folderType, folderSize) {
-    if (
-      (folderType === "win10" && folderSize > 24) ||
-      folderType === "bigsur"
-    ) {
+    if (folderType === "win10" && folderSize > 24) {
       return "shadow";
     }
     return "base";
@@ -162,21 +157,6 @@ export default function FolderRender({ folderSize, id }) {
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
     return `rgba(${r}, ${g}, ${b}, ${shadowOpacity / 100})`;
-  }
-
-  // Check if we should skip rendering for this size
-  function shouldSkipRender(folderType, folderSize) {
-    const bigsurSizes = [24, 48, 72, 96];
-    const otherSizes = [1024, 72];
-
-    return (
-      (folderType === "bigsur" && bigsurSizes.includes(folderSize)) ||
-      ((folderType === "win11" ||
-        folderType === "win10" ||
-        folderType === "win95" ||
-        folderType === "mint-l") &&
-        otherSizes.includes(folderSize))
-    );
   }
 
   // Load required images based on configuration
@@ -322,13 +302,8 @@ export default function FolderRender({ folderSize, id }) {
       applyGradientColor(ctx, colors, width, height);
     }
 
-    if (folderType === "mint-l") {
-      applyMask(ctx, maskImg, width, height);
-      drawHighlight(ctx, folderType, highlightImg, width, height);
-    } else {
-      drawHighlight(ctx, folderType, highlightImg, width, height);
-      applyMask(ctx, maskImg, width, height);
-    }
+    drawHighlight(ctx, highlightImg, width, height);
+    applyMask(ctx, maskImg, width, height);
     drawShadow(ctx, shadowImg, width, height);
   }
 
@@ -357,19 +332,14 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   // Draw highlight effect
-  function drawHighlight(ctx, folderType, highlightImg, width, height) {
-    if (!folderType.startsWith("mint"))
-      ctx.globalCompositeOperation = "lighter";
-    else ctx.globalCompositeOperation = "multiply";
+  function drawHighlight(ctx, highlightImg, width, height) {
+    ctx.globalCompositeOperation = "lighter";
     ctx.drawImage(highlightImg, 0, 0, width, height);
   }
 
   // Draw shadow effect
   function drawShadow(ctx, shadowImg, width, height) {
-    if (
-      (folderType === "win10" && folderSize > 24) ||
-      folderType === "bigsur"
-    ) {
+    if (folderType === "win10" && folderSize > 24) {
       ctx.globalCompositeOperation = "darken";
       ctx.drawImage(shadowImg, 0, 0, width, height);
     }
@@ -567,11 +537,6 @@ export default function FolderRender({ folderSize, id }) {
   // Determine if we should apply icon mask
   function shouldApplyIconMask() {
     return !isIconOnly;
-  }
-
-  // Skip render for unsupported sizes
-  if (shouldSkipRender(folderType, folderSize)) {
-    return null;
   }
 
   return (

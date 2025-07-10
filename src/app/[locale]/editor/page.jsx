@@ -40,7 +40,6 @@ export default function Editor() {
             <FolderRender folderSize={512} key={512} id="big-folder-512" />
             <FolderRender folderSize={256} key={256} id="small-folder-256" />
             <div className="hidden">
-              <FolderRender folderSize={1024} key={1024} />
               {[128, 96, 72].map((size) => (
                 <FolderRender folderSize={size} key={size} />
               ))}

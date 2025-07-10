@@ -15,7 +15,7 @@ export const folderConfigStore = create((set) => ({
   folderSmallType: "sqaureAndIcon",
   setFolderSmallType: (folderSmallType) => set({ folderSmallType }),
 
-  // "win10", "win11", "bigsur", "mint-l", "icon-only"
+  // "win10", "win11", "win95", "icon-only"
   folderType: "win11",
   setFolderType: (folderType) => set({ folderType }),
 
@@ -91,10 +91,6 @@ export function getIconAnchor(folderType, folderSize) {
       16: [0, 0],
     };
     return offsets[folderSize] || [0, 0];
-  } else if (folderType == "bigsur") {
-    return [0, folderSize / 16];
-  } else if (folderType == "mint-l") {
-    return [0, Math.floor(folderSize / 16) + (folderSize <= 24 ? 1 : 0)];
   } else {
     return [0, 0];
   }
