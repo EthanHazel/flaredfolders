@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { siGithub, siDiscord } from "simple-icons";
 import { Moon, Sun, Bug, HandHeart } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { swapTheme } from "@/lib/theme-swap";
 import Firefox from "./firefox";
@@ -12,6 +13,8 @@ import HeaderButton from "./inputs/header-button";
 import { isFirefox } from "@/lib/fetch-browser-type";
 
 export default function HeaderButtons() {
+  const t = useTranslations("buttons");
+
   const [isFirefoxOpen, setIsFirefoxOpen] = useState(false);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export default function HeaderButtons() {
   return (
     <div id="header-buttons">
       <HeaderButton
-        label="Swap Theme"
+        label={t("theme")}
         className="header-button"
         onClick={() => swapTheme(document.body.classList.value)}
         icon={
@@ -34,14 +37,14 @@ export default function HeaderButtons() {
         }
       />
       <HeaderButton
-        label="Report Bug"
+        label={t("bug")}
         href="https://github.com/EthanHazel/flaredfolders/issues/new?labels=bug"
         target="_blank"
         className="header-button"
         icon={<Bug className="header-button-svg" />}
       />
       <HeaderButton
-        label="Donate"
+        label={t("donate")}
         href="https://ko-fi.com/ethanhazel/tip"
         target="_blank"
         className="header-button"

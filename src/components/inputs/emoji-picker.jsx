@@ -1,11 +1,13 @@
 import * as emoji from "node-emoji";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
 import "@/styles/emoji-picker.css";
 
 export default function EmojiPicker() {
+  const t = useTranslations("iconConfig");
   const emojiSlug = folderConfigStore((state) => state.emojiSlug);
   const setEmojiSlug = folderConfigStore((state) => state.setEmojiSlug);
   const [search, setSearch] = useState("");
@@ -15,7 +17,7 @@ export default function EmojiPicker() {
         type="search"
         name="emoji-search"
         id="emoji-search"
-        placeholder="Search emoji..."
+        placeholder={t("search")}
         autoComplete="off"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

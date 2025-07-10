@@ -1,6 +1,26 @@
 {
   "language": "Español",
   "translator": "AsRenCL",
+  "home": {
+    "subtitle": "Una herramienta gratuita y de código abierto para personalizar carpetas",
+    "download": "Windows (Próximamente)",
+    "online": "Editor en línea",
+    "source": "Código fuente",
+    "features": {
+      "title": "Características",
+      "list": [
+        "Compatibilidad con Windows 10 y Windows 11",
+        "Completamente gratis, de código abierto y sin anuncios",
+        "Crea carpetas únicas con fondos personalizados",
+        "Elige íconos de una selección curada de fuentes"
+      ]
+    }
+  },
+  "buttons": {
+    "donate": "Donar",
+    "theme": "Cambiar tema",
+    "bug": "Reportar un error"
+  },
   "panelTitles": {
     "style": "Estilo de carpeta",
     "color": "Color de carpeta",
@@ -29,6 +49,7 @@
     "lucide": "Lucide (Íconos en general)",
     "simple": "SimpleIcons (Logotipos de marca)",
     "custom": "Subir (PNG, SVG o JPEG)",
+    "emoji": "Emoji",
     "none": "Ninguno"
   },
   "iconConfig": {
@@ -41,7 +62,8 @@
     "y": "Y",
     "scale": "Escala",
     "stroke": "Ancho de línea del ícono",
-    "opacity": "Opacidad del ícono"
+    "opacity": "Opacidad del ícono",
+    "search": "Buscar..."
   },
   "iconShadow": {
     "color": "Color de sombra",

@@ -1,6 +1,26 @@
 {
   "language": "English",
   "translator": "EthanHazel",
+  "home": {
+    "subtitle": "A Free, Open-Source Folder Customization Tool",
+    "download": "Windows (Coming Soon)",
+    "online": "Online Editor",
+    "source": "Source Code",
+    "features": {
+      "title": "Features",
+      "list": [
+        "Compatibility with Windows 10 and Windows 11",
+        "Completely free, open-source, and ad-free",
+        "Create unique folders with custom backgrounds",
+        "Choose icons from a curated selection of sources"
+      ]
+    }
+  },
+  "buttons": {
+    "donate": "Donate",
+    "theme": "Swap Theme",
+    "bug": "Report Bug"
+  },
   "panelTitles": {
     "style": "Folder Style",
     "color": "Folder Color",
@@ -42,7 +62,8 @@
     "y": "Y",
     "scale": "Scale",
     "stroke": "Icon stroke width",
-    "opacity": "Icon opacity"
+    "opacity": "Icon opacity",
+    "search": "Search..."
   },
   "iconShadow": {
     "color": "Shadow color",

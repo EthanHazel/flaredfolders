@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Sun, Moon, HandHeart, FolderOpen } from "lucide-react";
 import { siDiscord, siGithub, siProducthunt } from "simple-icons";
+import { useTranslations } from "next-intl";
 
 import useOS from "@/lib/fetch-os";
 import DownloadCounter from "@/components/download-count";
@@ -19,6 +20,8 @@ export default function Home() {
   const os = useOS();
   const homeRef = useRef(null);
   const version = packageJson.version;
+
+  const t = useTranslations("home");
 
   const gotoEditor = () => {
     if (homeRef.current) {
@@ -74,7 +77,7 @@ export default function Home() {
           <span>Folders</span>
         </h1>
         <span id="home-subtitle">
-          A Free, Open-Source Folder Customization Tool
+          {t("subtitle")}
           <DownloadCounter />
         </span>
         {os === "windows" && (
@@ -95,12 +98,10 @@ export default function Home() {
                     d="M0,0H7.58V7.58H0V0ZM8.42,0h7.58V7.58h-7.58V0ZM0,8.42H7.58v7.58H0v-7.58Zm8.42,0h7.58v7.58h-7.58"
                   />
                 </svg>
-                <span style={{ marginRight: "0.5rem" }}>
-                  Windows (Coming Soon)
-                </span>
+                <span style={{ marginRight: "0.5rem" }}>{t("download")}</span>
               </a>
               <a onClick={gotoEditor} className="home-link secondary">
-                Open Online Editor
+                {t("online")}
               </a>
             </span>
             <div className="home-links-buttons">
@@ -144,14 +145,14 @@ export default function Home() {
           <div className="home-links other">
             <span className="home-links-buttons">
               <a href="/editor" className="home-link primary">
-                Open Editor
+                {t("online")}
               </a>
               <a
                 href="https://github.com/EthanHazel/flaredfolders"
                 className="home-link secondary"
                 target="_blank"
               >
-                Source Code
+                {t("source")}
               </a>
             </span>
           </div>
@@ -160,13 +161,13 @@ export default function Home() {
       <Carousel />
       <div id="home-features">
         <h2>
-          <FolderOpen /> Features
+          <FolderOpen /> {t("features.title")}
         </h2>
         <ul className="feature-list">
-          <li>Compatibility with Windows 10 and Windows 11</li>
-          <li>Completely free, open-source, and ad-free</li>
-          <li>Create unique folders with custom backgrounds</li>
-          <li>Choose icons from a curated selection of sources</li>
+          <li>{t("features.list.0")}</li>
+          <li>{t("features.list.1")}</li>
+          <li>{t("features.list.2")}</li>
+          <li>{t("features.list.3")}</li>
         </ul>
       </div>
       <div id="home-credits">
