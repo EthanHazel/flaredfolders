@@ -5,7 +5,7 @@ import { folderConfigStore } from "@/stores/folder-config";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 
-import fetchClient from "@/functions/fetch-client";
+import fetchClient from "@/lib/fetch-client";
 import FooterDesktop from "./footer.desktop";
 import Download from "./inputs/download";
 
@@ -25,6 +25,7 @@ export default function Footer() {
         {folderType === "win95" ? (
           <Image
             src="/cheat/netscani.gif"
+            unoptimized
             alt="Netscape NOW"
             width={88}
             height={31}

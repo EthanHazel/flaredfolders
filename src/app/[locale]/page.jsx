@@ -4,12 +4,12 @@ import { useRef } from "react";
 import { Sun, Moon, HandHeart, FolderOpen } from "lucide-react";
 import { siDiscord, siGithub, siProducthunt } from "simple-icons";
 
-import useOS from "@/functions/fetch-os";
+import useOS from "@/lib/fetch-os";
 import DownloadCounter from "@/components/download-count";
 import HeaderButton from "@/components/inputs/header-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
 import Credits from "@/components/credits";
-import { swapTheme } from "@/functions/theme-swap";
+import { swapTheme } from "@/lib/theme-swap";
 import packageJson from "../../../package.json";
 
 import "@/styles/home.css";

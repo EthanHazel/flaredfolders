@@ -3,7 +3,7 @@ import { Window } from "@tauri-apps/api/window";
 
 import PanelToggleDesktop from "./inputs/panel-toggle.desktop";
 
-import { swapTheme } from "@/functions/theme-swap";
+import { swapTheme } from "@/lib/theme-swap";
 
 import "@/styles/header.css";
 

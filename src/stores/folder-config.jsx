@@ -11,7 +11,7 @@ export const folderConfigStore = create((set) => ({
   solidColor: "#eb898b",
   setSolidColor: (color) => set({ solidColor: color }),
 
-  // "sqaureAndIcon", "folderAndIcon", "folderOnly"
+  // "sqaureAndIcon", "folderAndIcon", "folderOnly", "iconOnly"
   folderSmallType: "sqaureAndIcon",
   setFolderSmallType: (folderSmallType) => set({ folderSmallType }),
 

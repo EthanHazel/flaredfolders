@@ -6,10 +6,10 @@ import { useState, useEffect, useRef } from "react";
 import { getIconAnchor } from "@/stores/folder-config";
 import React from "react";
 
-import { loadLucide } from "@/functions/fetch-lucide";
-import { loadSimple } from "@/functions/fetch-simple";
-import { loadCustom } from "@/functions/fetch-custom";
-import { loadEmoji } from "@/functions/fetch-emoji";
+import { loadLucide } from "@/lib/fetch-lucide";
+import { loadSimple } from "@/lib/fetch-simple";
+import { loadCustom } from "@/lib/fetch-custom";
+import { loadEmoji } from "@/lib/fetch-emoji";
 
 import { folderConfigStore } from "@/stores/folder-config";
 

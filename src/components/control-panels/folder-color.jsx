@@ -6,7 +6,7 @@ import FolderColorInput from "@/components/inputs/folder-color-input";
 
 import { useTranslations } from "next-intl";
 import { folderConfigStore } from "@/stores/folder-config";
-import { setPrimary } from "@/functions/set-primary";
+import { setPrimary } from "@/lib/set-primary";
 
 export default function FolderColor() {
   const colorType = folderConfigStore((state) => state.colorType);

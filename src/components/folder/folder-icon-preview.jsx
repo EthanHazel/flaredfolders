@@ -1,6 +1,6 @@
-import { loadLucide } from "@/functions/fetch-lucide";
-import { loadSimple } from "@/functions/fetch-simple";
-import { loadCustom } from "@/functions/fetch-custom";
+import { loadLucide } from "@/lib/fetch-lucide";
+import { loadSimple } from "@/lib/fetch-simple";
+import { loadCustom } from "@/lib/fetch-custom";
 import { useEffect, useRef } from "react";
 
 export default function FolderIconPreview({

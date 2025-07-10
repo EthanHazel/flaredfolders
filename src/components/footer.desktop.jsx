@@ -1,4 +1,4 @@
-import { downloadIcoDesktop } from "@/functions/folder-generate";
+import { downloadIcoDesktop } from "@/lib/folder-generate";
 
 import "@/styles/footer.css";
 

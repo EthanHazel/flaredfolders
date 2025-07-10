@@ -5,7 +5,7 @@ import DownloadCounter from "../download-count";
 import { useState, useEffect } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { FolderGenerate } from "@/functions/folder-generate";
+import { FolderGenerate } from "@/lib/folder-generate";
 
 export default function Download() {
   const folderType = folderConfigStore((state) => state.folderType);

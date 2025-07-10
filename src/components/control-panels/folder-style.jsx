@@ -5,7 +5,7 @@ import Dropdown from "../inputs/dropdown";
 import ImgRadio from "../inputs/img-radio";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { setPrimary } from "@/functions/set-primary";
+import { setPrimary } from "@/lib/set-primary";
 
 export default function FolderStyle() {
   const folderType = folderConfigStore((state) => state.folderType);

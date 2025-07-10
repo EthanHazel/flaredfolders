@@ -17,7 +17,7 @@ import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 
 import FolderRender from "@/components/folder/folder-render";
 
-import fetchClient from "@/functions/fetch-client";
+import fetchClient from "@/lib/fetch-client";
 
 export default function Editor() {
   return (

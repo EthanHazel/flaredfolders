@@ -1,4 +1,4 @@
-import fetchClient from "@/functions/fetch-client";
+import fetchClient from "@/lib/fetch-client";
 
 import "@/styles/splash.css";
 

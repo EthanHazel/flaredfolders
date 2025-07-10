@@ -11,7 +11,6 @@
 
 - Autopick folder style based on detected OS
 - Modify OS detection to detect specific Windows version (10 or 11)
-- Fix bug with `folder-only` small style not correctly applying the right blending
 
 ## 2.3 Launch
 

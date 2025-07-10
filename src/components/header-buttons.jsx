@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { siGithub, siDiscord } from "simple-icons";
 import { Moon, Sun, Bug, HandHeart } from "lucide-react";
 
-import { swapTheme } from "@/functions/theme-swap";
+import { swapTheme } from "@/lib/theme-swap";
 import Firefox from "./firefox";
 import LocaleSwitcher from "./inputs/locale-switcher";
 import HeaderButton from "./inputs/header-button";
 
-import { isFirefox } from "@/functions/fetch-browser-type";
+import { isFirefox } from "@/lib/fetch-browser-type";
 
 export default function HeaderButtons() {
   const [isFirefoxOpen, setIsFirefoxOpen] = useState(false);
