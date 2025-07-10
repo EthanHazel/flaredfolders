@@ -13,6 +13,7 @@
 
 ## 2.4 Launch
 
+- Add privacy policy
 - Remove MacOS and Linux Mint support
 - Update backend to be able to securely accept download increments without env vars bundled
 - Update README image with new designs
