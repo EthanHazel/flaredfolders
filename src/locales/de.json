@@ -14,7 +14,8 @@
         "Erstelle einzigartige Ordner mit benutzerdefinierten Hintergründen",
         "Wähle Symbole aus einer kuratierten Auswahl von Quellen"
       ]
-    }
+    },
+    "copyright": "© #### FlaredFolders-Mitwirkende. Veröffentlicht unter %GPLv3%. Ordneransichten stammen aus den Originalressourcen von %Microsoft%. Symbole mit freundlicher Genehmigung von %Simple Icons% und %Lucide%."
   },
   "buttons": {
     "donate": "Spenden",
@@ -79,7 +80,6 @@
     "translations": "Übersetzungen von:",
     "special": "Danksagungen:",
     "donators": "Spender:",
-    "fonts": "Verwendete Schriftarten:",
     "contributors": "Mitwirkende:",
     "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%"
   },

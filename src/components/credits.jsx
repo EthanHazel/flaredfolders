@@ -127,25 +127,6 @@ export default function Credits() {
         </div>
       </div>
       <div className="credit">
-        <div className="credit-header">{t("fonts")}</div>
-        <div className="credit-content">
-          <a
-            href="https://fonts.google.com/specimen/Syne?query=Syne"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Syne
-          </a>
-          <a
-            href="https://fonts.google.com/specimen/Inter?query=Inter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Inter
-          </a>
-        </div>
-      </div>
-      <div className="credit">
         <div className="credit-header">{t("contributors")}</div>
         <div className="credit-content">
           {loading && <div>Loading contributors...</div>}

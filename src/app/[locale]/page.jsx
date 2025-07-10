@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Sun, Moon, HandHeart, FolderOpen } from "lucide-react";
 import { siDiscord, siGithub, siProducthunt } from "simple-icons";
 import { useTranslations } from "next-intl";
+import { Fragment } from "react";
 
 import useOS from "@/lib/fetch-os";
 import DownloadCounter from "@/components/download-count";
@@ -22,6 +23,9 @@ export default function Home() {
   const version = packageJson.version;
 
   const t = useTranslations("home");
+
+  const copyrightText = t("copyright");
+  const year = new Date().getFullYear();
 
   const gotoEditor = () => {
     if (homeRef.current) {
@@ -174,17 +178,42 @@ export default function Home() {
         <Credits />
       </div>
       <div id="home-copyright">
-        © 2025 FlaredFolders Contributors. Released under the{" "}
-        <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">
-          GNU General Public License v3
-        </a>
-        . Folder visuals are derived from{" "}
-        <a href="https://microsoft.com/" target="_blank">
-          Microsoft's
-        </a>{" "}
-        original assets. Icons courtesy of{" "}
-        <a href="https://simpleicons.org/">Simple Icons</a> and{" "}
-        <a href="https://lucide.dev/">Lucide</a>.
+        {(() => {
+          const parts = copyrightText.replace("####", year).split(/(%.*?%)/g);
+
+          return parts.map((part, i) => {
+            if (!part.includes("%")) return part;
+
+            return (
+              <Fragment key={i}>
+                {i === 1 && (
+                  <a
+                    href="https://www.gnu.org/licenses/gpl-3.0.en.html"
+                    target="_blank"
+                  >
+                    {part.slice(1, -1)}
+                  </a>
+                )}
+                {i === 3 && (
+                  <a href="https://microsoft.com/" target="_blank">
+                    {part.slice(1, -1)}
+                  </a>
+                )}
+                {i === 5 && (
+                  <a href="https://simpleicons.org/" target="_blank">
+                    {part.slice(1, -1)}
+                  </a>
+                )}
+                {i === 7 && (
+                  <a href="https://lucide.dev/" target="_blank">
+                    {part.slice(1, -1)}
+                  </a>
+                )}
+                {i !== 1 && i !== 3 && i !== 5 && i !== 7 && part}
+              </Fragment>
+            );
+          });
+        })()}
       </div>
     </div>
   );

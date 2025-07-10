@@ -14,7 +14,8 @@
         "Stw rz unikatowe foldery z dowolnymi t ami",
         "Wybierz ikony z kuratorium  ek zewn trznych"
       ]
-    }
+    },
+    "copyright": "  #### FlaredFolders Contributors. Udost pnione na licencji %GPLv3%. Wizualizacje folder w pochodz  z oryginalnych zasob w firmy %Microsoft%. Ikony udost pnione przez %Simple Icons% i %Lucide%."
   },
   "buttons": {
     "donate": "Przeka  darowizn ",
@@ -79,7 +80,6 @@
     "translations": "Tłumaczenie:",
     "special": "Szczególne podziękowania:",
     "donators": "Wspierający:",
-    "fonts": "Użyte czcionki:",
     "contributors": "Współtwórcy:",
     "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%"
   },

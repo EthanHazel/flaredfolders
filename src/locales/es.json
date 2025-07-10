@@ -14,7 +14,8 @@
         "Crea carpetas únicas con fondos personalizados",
         "Elige íconos de una selección curada de fuentes"
       ]
-    }
+    },
+    "copyright": "© #### Colaboradores de FlaredFolders. Publicado bajo %GPLv3%. Los visuales de las carpetas se derivan de los activos originales de %Microsoft%. Íconos cortesía de %Simple Icons% y %Lucide%."
   },
   "buttons": {
     "donate": "Donar",
@@ -79,7 +80,6 @@
     "translations": "Traducciones por:",
     "special": "Agradecimientos especiales:",
     "donators": "Donadores:",
-    "fonts": "Tipografías utilizadas:",
     "contributors": "Contribuidores:",
     "help": "¿Quieres ayudar a traducir? %¡Échanos una mano!%"
   },

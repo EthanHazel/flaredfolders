@@ -14,7 +14,8 @@
         "Create unique folders with custom backgrounds",
         "Choose icons from a curated selection of sources"
       ]
-    }
+    },
+    "copyright": "© #### FlaredFolders Contributors. Released under %GPLv3%. Folder visuals are derived from %Microsoft's% original assets. Icons courtesy of %Simple Icons% and %Lucide%."
   },
   "buttons": {
     "donate": "Donate",
@@ -79,7 +80,6 @@
     "translations": "Translations by:",
     "special": "Special thanks:",
     "donators": "Donators:",
-    "fonts": "Fonts used:",
     "contributors": "Contributors:",
     "help": "Want to help translate? %Help us out!%"
   },
