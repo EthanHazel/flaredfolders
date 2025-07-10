@@ -1,7 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { useParams } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTransition } from "react";
 
 export default function LocaleSwitcherSelect({
@@ -11,13 +10,13 @@ export default function LocaleSwitcherSelect({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const params = useParams();
   const [isPending, startTransition] = useTransition();
 
   function onSelectChange(event) {
     const newLocale = event.target.value;
+    const newUrl = pathname.replace(/\/[^/]+/, `/${newLocale}`);
     startTransition(() => {
-      router.push(`/${newLocale}`, undefined, { locale: newLocale });
+      router.push(newUrl, undefined, { locale: newLocale });
     });
   }
 
