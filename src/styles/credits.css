@@ -1,27 +1,25 @@
 #credits {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
-  width: fit-content;
+  gap: 3rem;
+  width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .credit {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 0.5rem 0;
   gap: 0.5rem;
-  width: 100%;
+  height: fit-content;
   font-size: 0.8rem;
   width: fit-content;
 }
 
 .credit-header {
-  margin: 0;
-  width: 50%;
+  margin-bottom: 1rem;
   text-align: right;
   color: var(--tertiary);
   width: fit-content;
@@ -31,7 +29,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 100%;
   width: fit-content;
 }
 
