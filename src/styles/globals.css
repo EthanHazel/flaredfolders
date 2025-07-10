@@ -255,7 +255,7 @@ a:active {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 #lod-config {

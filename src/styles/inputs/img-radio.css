@@ -16,7 +16,8 @@
   padding: 1rem;
   border-radius: 0.5rem;
   user-select: none;
-  gap: 0.5rem;
+  max-width: 32px;
+  max-height: 32px;
 }
 
 .img-radio:hover > .img-radio-img {

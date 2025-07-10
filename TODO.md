@@ -10,14 +10,16 @@
 - Modify OS detection to detect specific Windows version (10 or 11)
 - Add more folders to carousel to work well in 4k
 - Fix custom icon centering
+- Remove MacOS and Linux Mint support
+- Update README image with new designs
+- Update meta to remove MacOS and Linux Mint support
+- Update imgradios to use 32x icons and have text
+- use imgradios for small folders
 
 ## 2.4 Launch
 
 - Add privacy policy
-- Remove MacOS and Linux Mint support
 - Update backend to be able to securely accept download increments without env vars bundled
-- Update README image with new designs
-- Update meta to remove MacOS and Linux Mint support
 - Include call to action for contributing languages inside the language dropdown
 - Create updater for desktop client
 - Create function for applying flairs

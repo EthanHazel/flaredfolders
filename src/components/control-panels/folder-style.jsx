@@ -52,20 +52,6 @@ export default function FolderStyle() {
         />
         <ImgRadio
           name="style-input"
-          id="bigsur-style"
-          checked={folderType === "bigsur"}
-          img="bigsur"
-          onChange={changeType("bigsur")}
-        />
-        <ImgRadio
-          name="style-input"
-          id="mint-l-style"
-          checked={folderType === "mint-l"}
-          img="mint-l"
-          onChange={changeType("mint-l")}
-        />
-        <ImgRadio
-          name="style-input"
           id="icon-only-style"
           checked={folderType === "icon-only"}
           img="icon-only"
