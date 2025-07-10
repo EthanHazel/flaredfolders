@@ -173,6 +173,10 @@ export default function Home() {
       <div id="home-credits">
         <Credits />
       </div>
+      <div id="home-copyright">
+        Released under the GNU General Public License v3 | Copyright &copy;{" "}
+        {new Date().getFullYear()} FlaredFolders Contributors
+      </div>
     </div>
   );
 }
