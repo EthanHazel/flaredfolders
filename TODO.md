@@ -8,7 +8,6 @@
 
 - Autopick folder style based on detected OS
 - Modify OS detection to detect specific Windows version (10 or 11)
-- Update sitemap
 - Add more folders to carousel to work well in 4k
 - Fix custom icon centering
 
