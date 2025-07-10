@@ -1,4 +1,4 @@
-<p align="center"><img src="/.github/images/logo.png" align="center" /></p>
+<p align="center"><img src="/.github/images/logo.png" /></p>
 
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
 <p align="center">Currently live at <b><a href="https://www.flaredfolders.com/">www.flaredfolders.com</b></a></p>
@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
 
-<img src="/.github/images/showcase.png" align="center" />
+<p align="center"><img src="/.github/images/showcase.png" /></p>
 
 ## ✨ Features
 
