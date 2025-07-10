@@ -13,6 +13,10 @@
 
 ## 2.4 Launch
 
+- Remove MacOS and Linux Mint support
+- Update backend to be able to securely accept download increments without env vars bundled
+- Update README image with new designs
+- Update meta to remove MacOS and Linux Mint support
 - Include call to action for contributing languages inside the language dropdown
 - Create updater for desktop client
 - Create function for applying flairs
