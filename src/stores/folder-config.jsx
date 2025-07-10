@@ -4,9 +4,9 @@ export const folderConfigStore = create((set) => ({
   // "linear-gradient", "solid", "original"
   colorType: "linear-gradient",
   setColorType: (colorType) => set({ colorType }),
-  gradientStartColor: "#6acbff",
+  gradientStartColor: "#ffb66c",
   setGradientStartColor: (color) => set({ gradientStartColor: color }),
-  gradientEndColor: "#1026ef",
+  gradientEndColor: "#ff3773",
   setGradientEndColor: (color) => set({ gradientEndColor: color }),
   solidColor: "#eb898b",
   setSolidColor: (color) => set({ solidColor: color }),

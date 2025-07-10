@@ -79,7 +79,7 @@ function mixColors(color1, color2) {
   return finalMixedColor === "#000000" ? "#555555" : finalMixedColor;
 }
 
-export function setPrimary(colors = ["#6aff81", "#4788b8"]) {
+export function setPrimary(colors = ["#ffb66c", "#ff3773"]) {
   const mixedColor = mixColors(colors[0], colors[1]);
   const root = document.documentElement;
   root.style.setProperty("--primary", mixedColor);
