@@ -265,6 +265,7 @@ export default function FolderRender({ folderSize, id }) {
     clearCanvas(ctx, width, height);
 
     if (shouldDrawBackground()) {
+      ctx.globalCompositeOperation = "source-over";
       drawBackground(
         ctx,
         folderType,
