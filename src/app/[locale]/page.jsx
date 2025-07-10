@@ -174,8 +174,17 @@ export default function Home() {
         <Credits />
       </div>
       <div id="home-copyright">
-        Released under the GNU General Public License v3 | Copyright &copy;{" "}
-        {new Date().getFullYear()} FlaredFolders Contributors
+        © 2025 FlaredFolders Contributors. Released under the{" "}
+        <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">
+          GNU General Public License v3
+        </a>
+        . Folder visuals are derived from{" "}
+        <a href="https://microsoft.com/" target="_blank">
+          Microsoft's
+        </a>{" "}
+        original assets. Icons courtesy of{" "}
+        <a href="https://simpleicons.org/">Simple Icons</a> and{" "}
+        <a href="https://lucide.dev/">Lucide</a>.
       </div>
     </div>
   );
