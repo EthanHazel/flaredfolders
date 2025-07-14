@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { folderConfigStore } from "@/stores/folder-config";
-import { Heart } from "lucide-react";
+import { siKofi } from "simple-icons";
 import Image from "next/image";
 
 import fetchClient from "@/lib/fetch-client";
@@ -32,7 +32,13 @@ export default function Footer() {
             style={{ marginRight: "2rem" }}
           />
         ) : (
-          <Heart size={16} />
+          <svg
+            viewBox="0 0 24 24"
+            className="header-button-svg"
+            style={{ fill: "var(--primary)" }}
+          >
+            <path d={siKofi.path} />
+          </svg>
         )}
         {t("front")}
         <span id="donator">{user}</span>
