@@ -251,13 +251,6 @@ a:active {
   color: var(--quarternary);
 }
 
-#style-input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-}
-
 #lod-config {
   display: flex;
   flex-direction: column;

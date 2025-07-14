@@ -3,11 +3,12 @@ import "@/styles/inputs/img-radio.css";
 
 export default function ImgRadio({
   onChange,
-  defaultChecked,
   id,
   name,
   img,
-  size = 48,
+  size = 32,
+  label,
+  checked = false,
 }) {
   const handleClick = () => {
     onChange();
@@ -18,20 +19,22 @@ export default function ImgRadio({
     <label className="img-radio" onClick={handleClick}>
       <input
         type="radio"
-        defaultChecked={defaultChecked}
         onChange={onChange}
         className="img-radio-input"
         id={id}
         name={name}
+        checked={checked}
       />
       <span className="img-radio-img">
         <Image
           src={"/folder-assets/previews/" + img + ".png"}
           width={size}
           height={size}
-          alt={img || "image"}
+          alt={label || img || "image"}
+          quality={100}
         />
       </span>
+      <span className="img-radio-label">{label || img || name}</span>
     </label>
   );
 }

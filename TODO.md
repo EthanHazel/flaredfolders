@@ -6,12 +6,8 @@
 
 ## 2.3 Launch
 
-- Autopick folder style based on detected OS
-- Modify OS detection to detect specific Windows version (10 or 11)
 - Add more folders to carousel to work well in 4k
 - Fix custom icon centering
-- Update imgradios to use 32x icons and have text
-- use imgradios for small folders
 
 ## 2.4 Launch
 

@@ -25,6 +25,7 @@ export default function FolderStyle() {
   };
 
   const t = useTranslations("panelTitles");
+  const tc = useTranslations("smallFolderConfig");
 
   return (
     <Dropdown name={t("style")} icon="Folder" open>
@@ -34,21 +35,24 @@ export default function FolderStyle() {
           id="win11-style"
           checked={folderType === "win11"}
           defaultChecked
-          img="win11"
+          img="normal/win11"
+          label="Windows 11"
           onChange={changeType("win11")}
         />
         <ImgRadio
           name="style-input"
           id="win10-style"
           checked={folderType === "win10"}
-          img="win10"
+          img="normal/win10"
+          label="Windows 10"
           onChange={changeType("win10")}
         />
         <ImgRadio
           name="style-input"
           id="icon-only-style"
           checked={folderType === "icon-only"}
-          img="icon-only"
+          img="normal/icon-only"
+          label={tc("iconOnly")}
           onChange={changeType("icon-only")}
         />
       </div>

@@ -11,13 +11,11 @@
   flex: 1;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   cursor: pointer;
-  padding: 1rem;
   border-radius: 0.5rem;
   user-select: none;
-  max-width: 32px;
-  max-height: 32px;
+  gap: 0.8rem;
+  margin: 0.3rem 0;
 }
 
 .img-radio:hover > .img-radio-img {
@@ -26,6 +24,6 @@
 
 .img-radio-img {
   display: flex;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 0.5rem;
 }
