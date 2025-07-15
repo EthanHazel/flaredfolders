@@ -2,7 +2,6 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  gap: 1rem;
   border: 1px solid var(--secondary);
   border-radius: 0.5rem;
   background-color: var(--bg-accent);
@@ -29,6 +28,17 @@
   background-color: var(--accent);
 }
 
+#emoji-current {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 1px;
+  border-color: var(--secondary);
+  border-style: solid none none none;
+}
+
 #emoji-list {
   display: flex;
   flex-direction: row;
@@ -41,7 +51,6 @@
   min-height: 3rem;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-top: -1rem; /* ????? */
 }
 
 #emoji-no-results {

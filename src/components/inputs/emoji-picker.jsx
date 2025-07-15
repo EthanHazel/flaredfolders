@@ -37,6 +37,10 @@ export default function EmojiPicker() {
           <span id="emoji-no-results">No results :/</span>
         )}
       </div>
+      <div id="emoji-current">
+        <span className="emoji">{emojiSlug}</span>
+        <span className="emoji-name">{emoji.which(emojiSlug)}</span>
+      </div>
     </div>
   );
 }
