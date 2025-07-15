@@ -8,7 +8,7 @@ export const folderConfigStore = create((set) => ({
   setGradientStartColor: (color) => set({ gradientStartColor: color }),
   gradientEndColor: "#ff3773",
   setGradientEndColor: (color) => set({ gradientEndColor: color }),
-  solidColor: "#eb898b",
+  solidColor: "#ac82f2",
   setSolidColor: (color) => set({ solidColor: color }),
 
   // "sqaureAndIcon", "folderAndIcon", "folderOnly", "iconOnly"
@@ -71,7 +71,7 @@ export function getIconAnchor(folderType, folderSize) {
       96: [0, 4],
       72: [0, 3],
       64: [0, 4],
-      48: [0, 2],
+      48: folderType === "win95" ? [0, 3] : [0, 2],
       32: [0, 2],
       24: [0, 2],
       16: [0, 1],
