@@ -1,6 +1,27 @@
 {
   "language": "English",
   "translator": "EthanHazel",
+  "home": {
+    "subtitle": "A Free, Open-Source Folder Customization Tool",
+    "download": "Windows (Coming Soon)",
+    "online": "Online Editor",
+    "source": "Source Code",
+    "features": {
+      "title": "Features",
+      "list": [
+        "Compatibility with Windows 10 and Windows 11",
+        "Completely free, open-source, and ad-free",
+        "Create unique folders with custom backgrounds",
+        "Choose icons from a curated selection of sources"
+      ]
+    },
+    "copyright": "© #### FlaredFolders Contributors. Released under %GPLv3%. Folder visuals are derived from %Microsoft's% original assets. Icons courtesy of %Simple Icons% and %Lucide%."
+  },
+  "buttons": {
+    "donate": "Donate",
+    "theme": "Swap Theme",
+    "bug": "Report Bug"
+  },
   "panelTitles": {
     "style": "Folder Style",
     "color": "Folder Color",
@@ -29,6 +50,7 @@
     "lucide": "Lucide (General Icons)",
     "simple": "SimpleIcons (Brand Logos)",
     "custom": "Upload (PNG, SVG, or JPEG)",
+    "emoji": "Emoji",
     "none": "None"
   },
   "iconConfig": {
@@ -41,7 +63,8 @@
     "y": "Y",
     "scale": "Scale",
     "stroke": "Icon stroke width",
-    "opacity": "Icon opacity"
+    "opacity": "Icon opacity",
+    "search": "Search..."
   },
   "iconShadow": {
     "color": "Shadow color",
@@ -57,7 +80,6 @@
     "translations": "Translations by:",
     "special": "Special thanks:",
     "donators": "Donators:",
-    "fonts": "Fonts used:",
     "contributors": "Contributors:",
     "help": "Want to help translate? %Help us out!%"
   },
@@ -65,10 +87,8 @@
     "counter": "folders downloaded wordwide!",
     "download": "Download",
     "allSizes": "All Sizes (Packaged ZIP)",
-    "ico": ".ICO (Windows & Linux)",
-    "icns": ".ICNS (macOS)",
+    "ico": ".ICO",
     "png": ".PNG",
-    "1024": "1024x1024",
     "512": "512x512",
     "256": "256x256",
     "128": "128x128",

@@ -1,4 +1,4 @@
-<p align="center"><img src="/.github/images/logo.png" align="center" /></p>
+<p align="center"><img src="/.github/images/logo.png" /></p>
 
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
 <p align="center">Currently live at <b><a href="https://www.flaredfolders.com/">www.flaredfolders.com</b></a></p>
@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/github/stars/EthanHazel%2Fflaredfolders" />
 </p>
 
-<img src="/.github/images/showcase.png" align="center" />
+<p align="center"><img src="/.github/images/showcase.png" /></p>
 
 ## ✨ Features
 
@@ -22,8 +22,7 @@
 
 - Windows 11
 - Windows 10
-- macOS Big Sur
-- Linux Mint L
+- Icon Only
 
 ### 🎚️ Customization Options
 
@@ -36,15 +35,14 @@
   - Brand icons via [Simple Icons](https://simpleicons.org/)
   - Custom icon upload
 - **Resolution Support**:
-  `16x16 → 1024x1024` (Native scaling for all platforms)
+  `16x16 → 512x512` (Native scaling for all platforms)
 
 ### 📤 Export Formats
 
-| Format  | Platform Support |
-| ------- | ---------------- |
-| `.ico`  | Windows & Linux  |
-| `.icns` | macOS            |
-| `.png`  | Cross-platform   |
+| Format | Support            |
+| ------ | ------------------ |
+| `.ico` | Native Windows Use |
+| `.png` | General Use        |
 
 <br />
 
@@ -114,11 +112,3 @@ This project is licensed under the **GNU General Public License v3.0** - see the
 - Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
 - Built with [Next.js](https://nextjs.org/)
 - Community-driven translations
-
----
-
-<p align="center">
-  <a href="#">
-    <img src="/.github/images/back-to-top.svg" align="center" width="30" />
-  </a>
-</p>

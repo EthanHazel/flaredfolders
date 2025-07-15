@@ -3,11 +3,13 @@ import "@/styles/inputs/img-radio.css";
 
 export default function ImgRadio({
   onChange,
-  defaultChecked,
   id,
   name,
   img,
-  size = 48,
+  size = 32,
+  visible = true,
+  label,
+  checked = false,
 }) {
   const handleClick = () => {
     onChange();
@@ -15,22 +17,33 @@ export default function ImgRadio({
   };
 
   return (
-    <label className="img-radio" onClick={handleClick}>
+    <label
+      className="img-radio"
+      onClick={handleClick}
+      style={{ display: visible ? "flex" : "none" }}
+    >
       <input
         type="radio"
-        defaultChecked={defaultChecked}
         onChange={onChange}
         className="img-radio-input"
         id={id}
         name={name}
+        checked={checked}
       />
       <span className="img-radio-img">
         <Image
           src={"/folder-assets/previews/" + img + ".png"}
           width={size}
           height={size}
-          alt={img || "image"}
+          alt={label || img || "image"}
+          quality={100}
         />
+      </span>
+      <span
+        className="img-radio-label"
+        style={{ fontFamily: label == "Windows 95" ? "Comic Sans MS" : "" }}
+      >
+        {label || img || name}
       </span>
     </label>
   );

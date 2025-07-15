@@ -31,6 +31,29 @@
   display: none;
 }
 
+@media screen and (max-width: 1400px) {
+  #left-container {
+    width: 50% !important;
+    min-width: 0px !important;
+  }
+
+  .panel-closed #left-container {
+    margin-left: -50%;
+  }
+
+  #header-desktop {
+    width: 50% !important;
+  }
+
+  #right-container {
+    width: 50% !important;
+  }
+
+  .panel-closed #right-container {
+    width: 100% !important;
+  }
+}
+
 @media screen and (max-width: 1400px), screen and (max-height: 720px) {
   #small-folder-64,
   #small-folder-48,
@@ -40,19 +63,6 @@
 
   #small-folder-256 {
     display: flex;
-  }
-
-  #left-container {
-    width: calc(50% - 4rem - 1px) !important;
-  }
-
-  #right-container {
-    width: 50% !important;
-  }
-
-  .img-radio {
-    max-width: 32px !important;
-    max-height: 32px !important;
   }
 
   .download-counter {
@@ -76,7 +86,7 @@
 
 @media screen and (max-width: 980px), screen and (max-height: 500px) {
   #app {
-    display: none;
+    display: none !important;
   }
 
   #mobile {

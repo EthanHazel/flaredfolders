@@ -94,7 +94,7 @@ export default function Credits() {
   const translationEnd = t("help").split("%")[1];
 
   return (
-    <>
+    <div id="credits">
       <div className="credit">
         <div className="credit-header">{t("created")}</div>
         <div className="credit-content">
@@ -123,25 +123,6 @@ export default function Credits() {
             rel="noopener noreferrer"
           >
             {Credit.iconsFrom.lucide[0]}
-          </a>
-        </div>
-      </div>
-      <div className="credit">
-        <div className="credit-header">{t("fonts")}</div>
-        <div className="credit-content">
-          <a
-            href="https://fonts.google.com/specimen/Syne?query=Syne"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Syne
-          </a>
-          <a
-            href="https://fonts.google.com/specimen/Inter?query=Inter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Inter
           </a>
         </div>
       </div>
@@ -214,6 +195,6 @@ export default function Credits() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

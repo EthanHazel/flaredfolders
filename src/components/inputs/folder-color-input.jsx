@@ -2,7 +2,7 @@
 
 import Color from "./color";
 
-import { setPrimary } from "@/functions/set-primary";
+import { setPrimary } from "@/lib/set-primary";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { useState } from "react";

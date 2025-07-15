@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Dropdown from "../inputs/dropdown";
 import Radio from "../inputs/radio";
+import ImgRadio from "../inputs/img-radio";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 
@@ -28,34 +29,38 @@ export default function FolderSmall() {
       <Dropdown name={t("smallConfig")} icon="FolderTree">
         <div id="lod-config" className="radio-list">
           {folderType === "win11" && (
-            <Radio
+            <ImgRadio
               name="lod-config"
               id="lod-square"
               onChange={() => setFolderSmallType("squareAndIcon")}
+              img="small/win11-box"
               label={tc("squareAndIcon")}
-              defaultChecked
+              checked={folderSmallType === "squareAndIcon"}
             />
           )}
-          <Radio
+          <ImgRadio
             name="lod-config"
             id="lod-show"
             onChange={() => setFolderSmallType("folderAndIcon")}
+            img={`small/${folderType}-icon`}
             label={tc("folderAndIcon")}
             checked={folderSmallType === "folderAndIcon"}
           />
-          <Radio
-            name="lod-config"
-            id="lod-icon"
-            onChange={() => setFolderSmallType("iconOnly")}
-            label={tc("iconOnly")}
-            checked={folderSmallType === "iconOnly"}
-          />
-          <Radio
+          <ImgRadio
             name="lod-config"
             id="lod-hide"
             onChange={() => setFolderSmallType("folderOnly")}
+            img={`normal/${folderType}`}
             label={tc("folderOnly")}
             checked={folderSmallType === "folderOnly"}
+          />
+          <ImgRadio
+            name="lod-config"
+            id="lod-icon"
+            onChange={() => setFolderSmallType("iconOnly")}
+            img="small/icon-only"
+            label={tc("iconOnly")}
+            checked={folderSmallType === "iconOnly"}
           />
         </div>
       </Dropdown>

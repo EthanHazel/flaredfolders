@@ -9,41 +9,11 @@
   padding: 1rem 1rem 1rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   border-bottom: 1px solid var(--accent);
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   height: 2.5rem;
   background-color: var(--bg-accent);
-}
-
-.header-logo {
-  display: flex;
-  width: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  margin-left: 0.5rem;
-}
-
-.header-logo svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.header-title {
-  font-family: var(--header-font);
-  font-size: 1rem;
-  letter-spacing: 0.15rem;
-  color: var(--quaternary);
-  margin-left: 0.25rem;
-}
-
-.header-version {
-  font-family: var(--header-font);
-  font-size: 0.75rem;
-  color: var(--secondary);
-  margin-left: 0.25rem;
 }
 
 .header-container {
@@ -69,4 +39,69 @@
   fill: var(--secondary);
   width: 1.25rem;
   height: 1.25rem;
+}
+
+#header-desktop {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  height: 2.5rem;
+  width: calc(100% - 650px);
+  z-index: 9999;
+}
+
+.panel-closed #header-desktop {
+  width: 100%;
+}
+
+#header-desktop-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-desktop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 3rem;
+  user-select: none;
+  transition: background-color 0.01s;
+}
+
+.header-desktop-button svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1px;
+  color: #707070;
+}
+
+.header-desktop-button:hover {
+  background-color: var(--accent);
+}
+
+.header-desktop-button:hover img,
+.header-desktop-button:active img {
+  filter: brightness(3);
+}
+
+.header-desktop-button.close:hover {
+  background-color: var(--primary);
+}
+
+.header-desktop-button:active {
+  background-color: var(--secondary);
+}
+
+.header-desktop-separator {
+  height: 1rem;
+  width: 1px;
+  background-color: var(--secondary);
+  margin: 0.75rem 1rem;
 }

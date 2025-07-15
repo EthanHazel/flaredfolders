@@ -4,10 +4,11 @@ import Dropdown from "../inputs/dropdown";
 import Color from "../inputs/color";
 import Range from "../inputs/range";
 import SlugInput from "../inputs/slug-input";
+import EmojiPicker from "../inputs/emoji-picker";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { loadCustom } from "@/functions/fetch-custom";
+import { loadCustom } from "@/lib/fetch-custom";
 import { useEffect } from "react";
 
 export default function FolderIconInput() {
@@ -39,7 +40,7 @@ export default function FolderIconInput() {
     <>
       {iconType !== "none" && (
         <Dropdown name={t("image")} icon="Image">
-          {iconType !== "custom" && <SlugInput />}
+          {iconType !== "custom" && iconType !== "emoji" && <SlugInput />}
           <div className={iconType !== "custom" ? "hidden" : ""}>
             <input
               type="file"
@@ -61,6 +62,7 @@ export default function FolderIconInput() {
               step="0.1"
             />
           )}
+          {iconType === "emoji" && <EmojiPicker />}
           {iconType !== "none" && (
             <Range
               label={tcc("opacity")}
@@ -73,16 +75,18 @@ export default function FolderIconInput() {
               step="0.01"
             />
           )}
-          {iconType !== "none" && iconType !== "custom" && (
-            <>
-              <div className="dropdown-break"></div>
-              <Color
-                defaultColor={iconColor}
-                onChange={(e) => setIconColor(e.target.value)}
-                label={tcc("color")}
-              />
-            </>
-          )}
+          {iconType !== "none" &&
+            iconType !== "custom" &&
+            iconType !== "emoji" && (
+              <>
+                <div className="dropdown-break"></div>
+                <Color
+                  defaultColor={iconColor}
+                  onChange={(e) => setIconColor(e.target.value)}
+                  label={tcc("color")}
+                />
+              </>
+            )}
         </Dropdown>
       )}
     </>

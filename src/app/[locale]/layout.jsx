@@ -6,8 +6,10 @@ import { hasLocale } from "next-intl";
 import { Analytics } from "@vercel/analytics/react";
 import { redirect } from "next/navigation";
 
+import "@/styles/globals.css";
+
 const description =
-  "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.";
+  "Generate custom folder designs for Windows 10 and Windows 11. Free, open source, and no ads. Import your own icons, use emoji, use Simple Icons, or Lucide icons.";
 
 const title = "Flared Folders";
 const url = "https://www.flaredfolders.com/";

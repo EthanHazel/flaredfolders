@@ -5,7 +5,7 @@ import Dropdown from "../inputs/dropdown";
 import ImgRadio from "../inputs/img-radio";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { setPrimary } from "@/functions/set-primary";
+import { setPrimary } from "@/lib/set-primary";
 
 export default function FolderStyle() {
   const folderType = folderConfigStore((state) => state.folderType);
@@ -16,13 +16,7 @@ export default function FolderStyle() {
 
   const changeType = (newType) => () => {
     if (colorType === "original") {
-      if (folderType === "win11" || folderType === "win10") {
-        setPrimary(["#fee394", "#dfa52e"]);
-      } else if (folderType === "bigsur") {
-        setPrimary(["#82d0f8", "#0089cf"]);
-      } else {
-        setPrimary(["#8bb158", "#8bb158"]);
-      }
+      setPrimary(["#fee394", "#dfa52e"]);
     }
     if (folderType === newType) return;
     folderConfigStore.getState().setFolderType(newType);
@@ -31,44 +25,43 @@ export default function FolderStyle() {
   };
 
   const t = useTranslations("panelTitles");
+  const tc = useTranslations("smallFolderConfig");
 
   return (
     <Dropdown name={t("style")} icon="Folder" open>
       <div id="style-input" className="radio-list">
         <ImgRadio
           name="style-input"
+          id="win95-style"
+          checked={folderType === "win95"}
+          img="normal/win95"
+          label="Windows 95"
+          visible={folderType === "win95"}
+          onChange={changeType("win95")}
+        />
+        <ImgRadio
+          name="style-input"
           id="win11-style"
           checked={folderType === "win11"}
           defaultChecked
-          img="win11"
+          img="normal/win11"
+          label="Windows 11"
           onChange={changeType("win11")}
         />
         <ImgRadio
           name="style-input"
           id="win10-style"
           checked={folderType === "win10"}
-          img="win10"
+          img="normal/win10"
+          label="Windows 10"
           onChange={changeType("win10")}
-        />
-        <ImgRadio
-          name="style-input"
-          id="bigsur-style"
-          checked={folderType === "bigsur"}
-          img="bigsur"
-          onChange={changeType("bigsur")}
-        />
-        <ImgRadio
-          name="style-input"
-          id="mint-l-style"
-          checked={folderType === "mint-l"}
-          img="mint-l"
-          onChange={changeType("mint-l")}
         />
         <ImgRadio
           name="style-input"
           id="icon-only-style"
           checked={folderType === "icon-only"}
-          img="icon-only"
+          img="normal/icon-only"
+          label={tc("iconOnly")}
           onChange={changeType("icon-only")}
         />
       </div>

@@ -7,12 +7,12 @@ import {
   setLucideSlug,
   checkLucide,
   convertLucideSlug,
-} from "@/functions/fetch-lucide";
+} from "@/lib/fetch-lucide";
 import {
   setSimpleSlug,
   checkSimple,
   convertSimpleSlug,
-} from "@/functions/fetch-simple";
+} from "@/lib/fetch-simple";
 
 import { Download } from "lucide-react";
 

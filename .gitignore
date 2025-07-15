@@ -25,6 +25,9 @@ desktop.ini
 *.sln
 *.sw?
 
+# Tauri
+1.0.0
+
 # Env variables
 .env
 .env.local

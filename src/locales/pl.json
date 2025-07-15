@@ -1,6 +1,27 @@
 {
   "language": "Polski",
   "translator": "FadeMind",
+  "home": {
+    "subtitle": "Bezp atna, otwarta aplikacja do personalizacji folder w",
+    "download": "Windows (wkr tce)",
+    "online": "Edytor online",
+    "source": "Kod  ur ce",
+    "features": {
+      "title": "Mo liwo ci",
+      "list": [
+        "Kompatybilno  z systemami Windows 10 i Windows 11",
+        "Ca kowicie bezp atna, otwarta i bez reklam",
+        "Stw rz unikatowe foldery z dowolnymi t ami",
+        "Wybierz ikony z kuratorium  ek zewn trznych"
+      ]
+    },
+    "copyright": "  #### FlaredFolders Contributors. Udost pnione na licencji %GPLv3%. Wizualizacje folder w pochodz  z oryginalnych zasob w firmy %Microsoft%. Ikony udost pnione przez %Simple Icons% i %Lucide%."
+  },
+  "buttons": {
+    "donate": "Przeka  darowizn ",
+    "theme": "Zmie  motyw",
+    "bug": "Zg o  b d"
+  },
   "panelTitles": {
     "style": "Styl folderu",
     "color": "Kolor folderu",
@@ -29,6 +50,7 @@
     "lucide": "Lucide (Ogólne ikony)",
     "simple": "SimpleIcons (Logotypy marek)",
     "custom": "Prześlij (PNG, SVG lub JPEG)",
+    "emoji": "Emotki",
     "none": "Brak"
   },
   "iconConfig": {
@@ -41,7 +63,8 @@
     "y": "Y",
     "scale": "Skala",
     "stroke": "Grubość obrysu ikony",
-    "opacity": "Przezroczystość ikony"
+    "opacity": "Przezroczystość ikony",
+    "search": "Szukaj..."
   },
   "iconShadow": {
     "color": "Kolor cienia",
@@ -57,7 +80,6 @@
     "translations": "Tłumaczenie:",
     "special": "Szczególne podziękowania:",
     "donators": "Wspierający:",
-    "fonts": "Użyte czcionki:",
     "contributors": "Współtwórcy:",
     "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%"
   },
@@ -65,10 +87,8 @@
     "counter": "pobranych folderów na całym świecie!",
     "download": "Pobierz",
     "allSizes": "Wszystkie rozmiary (ZIP)",
-    "ico": ".ICO (Windows i Linux)",
-    "icns": ".ICNS (macOS)",
+    "ico": ".ICO",
     "png": ".PNG",
-    "1024": "1024x1024",
     "512": "512x512",
     "256": "256x256",
     "128": "128x128",

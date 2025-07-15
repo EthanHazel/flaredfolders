@@ -1,6 +1,27 @@
 {
   "language": "Deutsch",
   "translator": "Anonymous translator",
+  "home": {
+    "subtitle": "Ein kostenloses, quelloffenes Werkzeug zur Ordneranpassung",
+    "download": "Windows (Bald verfügbar)",
+    "online": "Online-Editor",
+    "source": "Quellcode",
+    "features": {
+      "title": "Eigenschaften",
+      "list": [
+        "Kompatibilität mit Windows 10 und Windows 11",
+        "Vollständig kostenlos, quelloffen und werbefrei",
+        "Erstelle einzigartige Ordner mit benutzerdefinierten Hintergründen",
+        "Wähle Symbole aus einer kuratierten Auswahl von Quellen"
+      ]
+    },
+    "copyright": "© #### FlaredFolders-Mitwirkende. Veröffentlicht unter %GPLv3%. Ordneransichten stammen aus den Originalressourcen von %Microsoft%. Symbole mit freundlicher Genehmigung von %Simple Icons% und %Lucide%."
+  },
+  "buttons": {
+    "donate": "Spenden",
+    "theme": "Thema wechseln",
+    "bug": "Fehler melden"
+  },
   "panelTitles": {
     "style": "Ordnerstil",
     "color": "Ordnerfarbe",
@@ -29,6 +50,7 @@
     "lucide": "Lucide (gewöhnliche Symbole)",
     "simple": "SimpleIcons (Logos)",
     "custom": "Hochladen (PNG, SVG oder JPEG)",
+    "emoji": "Emojis",
     "none": "Keins"
   },
   "iconConfig": {
@@ -41,7 +63,8 @@
     "y": "Y",
     "scale": "Skala",
     "stroke": "Symbol-Linienbreite",
-    "opacity": "Symbol-Opazität"
+    "opacity": "Symbol-Opazität",
+    "search": "Suche..."
   },
   "iconShadow": {
     "color": "Schattenfarbe",
@@ -57,7 +80,6 @@
     "translations": "Übersetzungen von:",
     "special": "Danksagungen:",
     "donators": "Spender:",
-    "fonts": "Verwendete Schriftarten:",
     "contributors": "Mitwirkende:",
     "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%"
   },
@@ -65,10 +87,8 @@
     "counter": "ordner weltweit heruntergeladen!",
     "download": "Herunterladen",
     "allSizes": "Alle Größen (ZIP-Datei)",
-    "ico": ".ICO (Windows & Linux)",
-    "icns": ".ICNS (macOS)",
+    "ico": ".ICO",
     "png": ".PNG",
-    "1024": "1024x1024",
     "512": "512x512",
     "256": "256x256",
     "128": "128x128",
