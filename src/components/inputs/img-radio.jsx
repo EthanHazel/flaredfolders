@@ -7,6 +7,7 @@ export default function ImgRadio({
   name,
   img,
   size = 32,
+  visible = true,
   label,
   checked = false,
 }) {
@@ -16,7 +17,11 @@ export default function ImgRadio({
   };
 
   return (
-    <label className="img-radio" onClick={handleClick}>
+    <label
+      className="img-radio"
+      onClick={handleClick}
+      style={{ display: visible ? "flex" : "none" }}
+    >
       <input
         type="radio"
         onChange={onChange}
@@ -34,7 +39,12 @@ export default function ImgRadio({
           quality={100}
         />
       </span>
-      <span className="img-radio-label">{label || img || name}</span>
+      <span
+        className="img-radio-label"
+        style={{ fontFamily: label == "Windows 95" ? "Comic Sans MS" : "" }}
+      >
+        {label || img || name}
+      </span>
     </label>
   );
 }

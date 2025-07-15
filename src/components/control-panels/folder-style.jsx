@@ -32,6 +32,15 @@ export default function FolderStyle() {
       <div id="style-input" className="radio-list">
         <ImgRadio
           name="style-input"
+          id="win95-style"
+          checked={folderType === "win95"}
+          img="normal/win95"
+          label="Windows 95"
+          visible={folderType === "win95"}
+          onChange={changeType("win95")}
+        />
+        <ImgRadio
+          name="style-input"
           id="win11-style"
           checked={folderType === "win11"}
           defaultChecked
