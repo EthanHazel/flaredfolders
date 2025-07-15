@@ -6,8 +6,7 @@
 
 ## 2.3 Launch
 
-- Add more folders to carousel to work well in 4k
-- Fix custom icon centering
+- Bug fixes and QA
 
 ## 2.4 Launch
 

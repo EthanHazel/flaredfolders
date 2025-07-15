@@ -18,7 +18,7 @@ export default function Carousel() {
     "tor",
   ];
 
-  const extendedImages = [...images, ...images];
+  const extendedImages = [...images, ...images, ...images];
   const containerRef = useRef(null);
 
   return (
