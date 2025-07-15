@@ -370,17 +370,26 @@ export default function FolderRender({ folderSize, id }) {
   function drawIcon(ctx, icon, iconMaskImg, width, height) {
     if (!icon) return;
 
+    // Calculate aspect ratio and actual drawn dimensions
     const aspectRatio = icon.width / icon.height || 1;
     const scaledWidth = width;
     const scaledHeight = scaledWidth / aspectRatio;
 
-    const iconOffsetX = Math.floor((iconOffset[0] / 100) * scaledWidth);
-    const iconOffsetY = Math.floor(
-      (iconOffset[1] / 100) * scaledHeight + (height - scaledHeight) / 4
-    );
+    // Actual dimensions after scaling
+    const actualIconWidth = scaledWidth * iconScale * iconMultiplier;
+    const actualIconHeight = scaledHeight * iconScale * iconMultiplier;
 
-    const iconX = (width - width * iconScale * iconMultiplier) / 2;
-    const iconY = (height - height * iconScale * iconMultiplier) / 2;
+    // Calculate offsets relative to canvas size
+    const iconOffsetX = Math.floor((iconOffset[0] / 100) * width);
+    const iconOffsetY = Math.floor((iconOffset[1] / 100) * height);
+
+    // Center icon vertically and horizontally
+    const iconX = (width - actualIconWidth) / 2;
+    const iconY = (height - actualIconHeight) / 2;
+
+    // Apply anchor and offset
+    const drawX = iconX + iconAnchor[0] + iconOffsetX;
+    const drawY = iconY + iconAnchor[1] + iconOffsetY;
 
     if (iconMasked) {
       drawMaskedIcon(
@@ -389,51 +398,40 @@ export default function FolderRender({ folderSize, id }) {
         iconMaskImg,
         width,
         height,
-        iconX,
-        iconY,
-        iconOffsetX,
-        iconOffsetY,
-        aspectRatio
+        drawX,
+        drawY,
+        actualIconWidth,
+        actualIconHeight
       );
     } else {
       drawUnmaskedIcon(
         ctx,
         icon,
-        width,
-        height,
-        iconX,
-        iconY,
-        iconOffsetX,
-        iconOffsetY
+        drawX,
+        drawY,
+        actualIconWidth,
+        actualIconHeight
       );
     }
   }
 
-  // Draw icon with mask applied
   function drawMaskedIcon(
     ctx,
     icon,
     iconMaskImg,
     width,
     height,
-    iconX,
-    iconY,
-    iconOffsetX,
-    iconOffsetY,
-    aspectRatio
+    x,
+    y,
+    iconWidth,
+    iconHeight
   ) {
     const tempCanvas = document.createElement("canvas");
     tempCanvas.width = width;
     tempCanvas.height = height;
     const tempCtx = tempCanvas.getContext("2d");
 
-    const scaledWidth = width;
-    const scaledHeight = scaledWidth / aspectRatio;
-
-    // Set up temporary canvas rendering
     setupCanvasRendering(tempCtx);
-
-    // Pass shadowColor and shadowOpacity to applyIconEffects
     applyIconEffects(
       tempCtx,
       iconOpacity,
@@ -444,15 +442,7 @@ export default function FolderRender({ folderSize, id }) {
       shadowOpacity
     );
 
-    drawIconImage(
-      tempCtx,
-      icon,
-      iconX + iconAnchor[0] + iconOffsetX,
-      iconY + iconAnchor[1] + iconOffsetY,
-      scaledWidth * iconScale * iconMultiplier,
-      scaledHeight * iconScale * iconMultiplier
-    );
-
+    drawIconImage(tempCtx, icon, x, y, iconWidth, iconHeight);
     resetIconEffects(tempCtx);
 
     if (shouldApplyIconMask()) {
@@ -464,23 +454,9 @@ export default function FolderRender({ folderSize, id }) {
     ctx.drawImage(tempCanvas, 0, 0);
   }
 
-  // Draw icon without mask
-  function drawUnmaskedIcon(
-    ctx,
-    icon,
-    width,
-    height,
-    iconX,
-    iconY,
-    iconOffsetX,
-    iconOffsetY
-  ) {
+  function drawUnmaskedIcon(ctx, icon, x, y, iconWidth, iconHeight) {
     ctx.globalCompositeOperation = "source-over";
-
-    // Set up canvas
     setupCanvasRendering(ctx);
-
-    // Pass shadowColor and shadowOpacity to applyIconEffects
     applyIconEffects(
       ctx,
       iconOpacity,
@@ -491,19 +467,10 @@ export default function FolderRender({ folderSize, id }) {
       shadowOpacity
     );
 
-    drawIconImage(
-      ctx,
-      icon,
-      iconX + iconAnchor[0] + iconOffsetX,
-      iconY + iconAnchor[1] + iconOffsetY,
-      width * iconScale * iconMultiplier,
-      height * iconScale * iconMultiplier
-    );
-
+    drawIconImage(ctx, icon, x, y, iconWidth, iconHeight);
     resetIconEffects(ctx);
   }
 
-  // Updated to handle shadow color and opacity
   function applyIconEffects(
     ctx,
     opacity,
@@ -515,7 +482,6 @@ export default function FolderRender({ folderSize, id }) {
   ) {
     ctx.globalAlpha = opacity;
     if (shadow) {
-      // Use RGBA color with opacity
       ctx.shadowColor = getIconShadowColor(shadowColor, shadowOpacity);
       ctx.shadowBlur = (shadowBlur * folderSize) / 512;
       ctx.shadowOffsetX = Math.floor((shadowOffset[0] * folderSize) / 512);
@@ -523,18 +489,15 @@ export default function FolderRender({ folderSize, id }) {
     }
   }
 
-  // Reset icon visual effects
   function resetIconEffects(ctx) {
     ctx.globalAlpha = 1;
     ctx.shadowColor = "transparent";
   }
 
-  // Draw icon image
   function drawIconImage(ctx, icon, x, y, width, height) {
     ctx.drawImage(icon, x, y, width, height);
   }
 
-  // Determine if we should apply icon mask
   function shouldApplyIconMask() {
     return !isIconOnly;
   }
