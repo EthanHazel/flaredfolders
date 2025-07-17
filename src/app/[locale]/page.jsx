@@ -23,6 +23,7 @@ export default function Home() {
   const version = packageJson.version;
 
   const t = useTranslations("home");
+  const tb = useTranslations("buttons");
 
   const copyrightText = t("copyright");
   const year = new Date().getFullYear();
@@ -53,7 +54,7 @@ export default function Home() {
           <div id="home-nav-links">
             <span id="home-version">{version}</span>
             <HeaderButton
-              label="Swap Theme"
+              label={tb("theme")}
               className="header-button"
               onClick={() => swapTheme(document.body.classList.value)}
               icon={
@@ -64,7 +65,7 @@ export default function Home() {
               }
             />
             <HeaderButton
-              label="Donate"
+              label={tb("bug")}
               href="https://ko-fi.com/ethanhazel/tip"
               target="_blank"
               className="header-button"
