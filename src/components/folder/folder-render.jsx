@@ -431,7 +431,9 @@ export default function FolderRender({ folderSize, id }) {
     tempCanvas.height = height;
     const tempCtx = tempCanvas.getContext("2d");
 
+
     setupCanvasRendering(tempCtx);
+
     applyIconEffects(
       tempCtx,
       iconOpacity,
@@ -456,7 +458,9 @@ export default function FolderRender({ folderSize, id }) {
 
   function drawUnmaskedIcon(ctx, icon, x, y, iconWidth, iconHeight) {
     ctx.globalCompositeOperation = "source-over";
+
     setupCanvasRendering(ctx);
+
     applyIconEffects(
       ctx,
       iconOpacity,
