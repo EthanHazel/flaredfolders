@@ -2,25 +2,25 @@
   "language": "Polski",
   "translator": "FadeMind",
   "home": {
-    "subtitle": "Bezp atna, otwarta aplikacja do personalizacji folder w",
-    "download": "Windows (wkr tce)",
+    "subtitle": "Bezpłatna, otwarta aplikacja do personalizacji folderów",
+    "download": "Windows (wkrótce)",
     "online": "Edytor online",
-    "source": "Kod  ur ce",
+    "source": "Kod źródłowy",
     "features": {
-      "title": "Mo liwo ci",
+      "title": "Funkcje",
       "list": [
-        "Kompatybilno  z systemami Windows 10 i Windows 11",
-        "Ca kowicie bezp atna, otwarta i bez reklam",
-        "Stw rz unikatowe foldery z dowolnymi t ami",
-        "Wybierz ikony z kuratorium  ek zewn trznych"
+        "Kompatybilność z systemami Windows 10 i Windows 11",
+        "Całkowicie darmowe, otwartoźródłowe i bez reklam",
+        "Twórz unikalne foldery z własnymi tłem",
+        "Wybieraj ikony z wyselekcjonowanych źródeł"
       ]
     },
-    "copyright": "  #### FlaredFolders Contributors. Udost pnione na licencji %GPLv3%. Wizualizacje folder w pochodz  z oryginalnych zasob w firmy %Microsoft%. Ikony udost pnione przez %Simple Icons% i %Lucide%."
+    "copyright": "© #### FlaredFolders Contributors. Wydano na licencji %GPLv3%. Elementy wizualne folderów pochodzą od oryginalnych zasobów %Microsoft%. Ikony dzięki uprzejmości %Simple Icons% i %Lucide%."
   },
   "buttons": {
-    "donate": "Przeka  darowizn ",
-    "theme": "Zmie  motyw",
-    "bug": "Zg o  b d"
+    "donate": "Wesprzyj",
+    "theme": "Zmień motyw",
+    "bug": "Zgłoś błąd"
   },
   "panelTitles": {
     "style": "Styl folderu",
