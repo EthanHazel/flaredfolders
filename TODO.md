@@ -4,10 +4,6 @@
 
 ## Bugs
 
-## 2.3 Launch
-
-- Bug fixes and QA
-
 ## 2.4 Launch
 
 - Add privacy policy
@@ -23,7 +19,6 @@
   - Credits
   - Source
   - Check for update
-- Modify folder style control panel to only feature small folder config and `icon-only` option
 - Icon picker for Lucide and SimpleIcons based on the emoji picker
 - Fix primary color freaking out from saturated Blues to Greens
 - Custom color picker window

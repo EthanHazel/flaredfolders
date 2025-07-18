@@ -27,6 +27,7 @@ desktop.ini
 
 # Tauri
 1.0.0
+src-tauri/Cargo.lock
 
 # Env variables
 .env

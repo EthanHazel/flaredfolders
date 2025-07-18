@@ -1,10 +1,10 @@
 [package]
-name = "app"
-version = "0.1.0"
+name = "FlaredFolders"
+version = "2.4.0"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+authors = ["Ethan Hazel"]
+license = "GPLv3"
+repository = "https://github.com/EthanHazel/flaredfolders"
 edition = "2021"
 rust-version = "1.77.2"
 
@@ -15,6 +15,7 @@ name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
+tauri-plugin-dialog = "2.3.0"
 tauri-build = { version = "2.2.0", features = [] }
 
 [dependencies]
