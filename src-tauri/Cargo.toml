@@ -1,7 +1,7 @@
 [package]
 name = "FlaredFolders"
 version = "2.4.0"
-description = "A Tauri App"
+description = "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons."
 authors = ["Ethan Hazel"]
 license = "GPLv3"
 repository = "https://github.com/EthanHazel/flaredfolders"
@@ -26,3 +26,4 @@ tauri = { version = "2.5.0", features = [] }
 tauri-plugin-log = "2.0.0-rc"
 tauri-plugin-dialog = "2.2.2"
 tauri-plugin-fs = "2.3.0"
+dirs = "6.0.0"

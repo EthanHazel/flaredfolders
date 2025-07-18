@@ -3,7 +3,7 @@ mod commands;
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![commands::is_desktop])
+    .invoke_handler(tauri::generate_handler![commands::save_icon, commands::is_desktop, commands::pick_folder_and_save])
     .plugin(tauri_plugin_dialog::init())
     .plugin(tauri_plugin_fs::init())
     .setup(|app| {
