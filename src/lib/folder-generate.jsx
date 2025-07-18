@@ -124,26 +124,12 @@ export const desktopIcoPassthru = async (name = "folder") => {
     const icoBuffer = icor.compileIco(images);
     const icoData = new Uint8Array(icoBuffer);
 
-    console.log(icoData);
-
     // Call Rust command with snake_case argument name
-    await invoke("save_icon", {
+    await invoke("pick_folder_and_save_icon", {
       name: name,
-      data: Array.from(icoData), // Changed to snake_case
+      data: Array.from(icoData),
     });
 
-    return true;
-  } catch (error) {
-    console.error("ICO creation failed:", error);
-    alert("Error saving ICO file - check console for details");
-    throw error;
-  }
-};
-
-export const testSaveFile = async () => {
-  try {
-    // Call Rust command with snake_case argument name
-    await invoke("pick_folder_and_save", {});
     return true;
   } catch (error) {
     console.error("ICO creation failed:", error);
