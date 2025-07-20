@@ -65,7 +65,7 @@ export default function Home() {
               }
             />
             <HeaderButton
-              label={tb("bug")}
+              label={tb("donate")}
               href="https://ko-fi.com/ethanhazel/tip"
               target="_blank"
               className="header-button"
