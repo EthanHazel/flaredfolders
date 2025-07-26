@@ -39,8 +39,9 @@
 }
 
 .header-button-svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.5px;
 }
 
 .header-button-divider {
@@ -53,7 +54,7 @@
 
 .header-button-label {
   position: absolute;
-  transform: translateY(125%);
+  transform: translateY(-125%);
   font-size: 0.75rem;
   display: flex;
   flex-direction: row;

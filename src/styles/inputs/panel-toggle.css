@@ -1,17 +1,12 @@
 #panel-toggle {
   display: flex;
-  position: absolute;
-  top: 73px; /* Manually measured from the top, this is stupid */
-  right: 0;
   cursor: pointer;
-  z-index: 2;
   box-sizing: border-box;
-  border-radius: 100%;
+  border-radius: 0.5rem;
   width: 2rem;
   height: 2rem;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
 }
 
 #panel-toggle:hover {
@@ -23,8 +18,9 @@
 }
 
 #panel-toggle svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.5px;
   color: var(--secondary);
 }
 

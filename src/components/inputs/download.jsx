@@ -1,11 +1,10 @@
 "use client";
 
-import DownloadCounter from "../download-count";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { FolderGenerate } from "@/lib/folder-generate";
+import { Download as DownloadIcon } from "lucide-react";
 
 export default function Download() {
   const folderType = folderConfigStore((state) => state.folderType);
@@ -67,7 +66,6 @@ export default function Download() {
 
   return (
     <div id="download-container">
-      <DownloadCounter />
       <select
         name="file-type"
         id="file-type"
@@ -99,12 +97,9 @@ export default function Download() {
         </select>
       )}
 
-      <input
-        type="button"
-        value={t("download")}
-        id="download-button"
-        onClick={handleDownload}
-      />
+      <button type="button" id="download-button" onClick={handleDownload}>
+        <DownloadIcon />
+      </button>
     </div>
   );
 }

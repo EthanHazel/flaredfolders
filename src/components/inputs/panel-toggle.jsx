@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Maximize, Minimize } from "lucide-react";
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 import "@/styles/inputs/panel-toggle.css";
 
@@ -14,7 +14,7 @@ export default function PanelToggle() {
 
   return (
     <div id="panel-toggle" onClick={handleClick}>
-      {isOpen ? <Maximize /> : <Minimize />}
+      {isOpen ? <PanelLeftClose /> : <PanelLeftOpen />}
     </div>
   );
 }

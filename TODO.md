@@ -6,11 +6,17 @@
 
 ## 2.4 Launch
 
+- UI Changes
+  - Reimplement language selector as a button with call to action
+  - Add panel open button when closed
+  - Desktop compatability
+  - Remove remnants from older styling
+  - Rename components to better fit use case (header-button to icon-button or something)
+  - Find something to fill the space in the footer
 - Add privacy policy
 - Update backend to be able to securely accept download increments without env vars bundled
 - Include call to action for contributing languages inside the language dropdown
 - Create updater for desktop client
-- Create function for applying flairs
 - Allow args --path and --ico for applying flair, and also for opening an ico to apply
 - Success popup for applying or saving
 - Settings popup
@@ -23,7 +29,7 @@
 - Fix primary color freaking out from saturated Blues to Greens
 - Custom color picker window
 
-## 2.3.1
+## 2.4.1
 
 - Redo panel toggle to show a comparison to the default folder for each size option
 - Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)

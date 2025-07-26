@@ -75,12 +75,6 @@ export default function HeaderButtons() {
       />
       <div className="header-button-divider"></div>
       <LocaleSwitcher />
-      {isFirefoxOpen && (
-        <>
-          <div className="header-button-divider"></div>
-          <Firefox />
-        </>
-      )}
     </div>
   );
 }

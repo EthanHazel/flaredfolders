@@ -65,7 +65,7 @@ export default function Home() {
               }
             />
             <HeaderButton
-              label={tb("bug")}
+              label={tb("donate")}
               href="https://ko-fi.com/ethanhazel/tip"
               target="_blank"
               className="header-button"
@@ -76,145 +76,147 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="home-header">
-        <h1 id="home-title">
-          <span>Flared</span>
-          <span>Folders</span>
-        </h1>
-        <span id="home-subtitle">
-          {t("subtitle")}
-          <DownloadCounter />
-        </span>
-        {os === "windows" && (
-          <div className="home-links windows">
-            <span className="home-links-buttons">
-              <a className="home-link primary windows-download">
-                {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
-                <svg
-                  id="a"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  width="17"
-                  height="17"
-                  style={{ marginRight: "1rem" }}
-                >
-                  <path
-                    fill="currentColor"
-                    d="M0,0H7.58V7.58H0V0ZM8.42,0h7.58V7.58h-7.58V0ZM0,8.42H7.58v7.58H0v-7.58Zm8.42,0h7.58v7.58h-7.58"
-                  />
-                </svg>
-                <span style={{ marginRight: "0.5rem" }}>{t("download")}</span>
-              </a>
-              <a onClick={gotoEditor} className="home-link secondary">
-                {t("online")}
-              </a>
-            </span>
-            <div className="home-links-buttons">
-              <HeaderButton
-                label="Discord"
-                href="https://discord.gg/BkxtVZsf4E"
-                target="_blank"
-                className="header-button"
-                icon={
-                  <svg viewBox="0 0 24 24" className="header-button-svg">
-                    <path d={siDiscord.path} />
-                  </svg>
-                }
-              />
-              <HeaderButton
-                label="GitHub"
-                href="https://github.com/EthanHazel/flaredfolders"
-                target="_blank"
-                className="header-button"
-                icon={
-                  <svg viewBox="0 0 24 24" className="header-button-svg">
-                    <path d={siGithub.path} />
-                  </svg>
-                }
-              />
-              <HeaderButton
-                label="Product Hunt"
-                href="https://www.producthunt.com/products/flared-folders"
-                target="_blank"
-                className="header-button"
-                icon={
-                  <svg viewBox="0 0 24 24" className="header-button-svg">
-                    <path d={siProducthunt.path} />
-                  </svg>
-                }
-              />
-            </div>
-          </div>
-        )}
-        {os !== "windows" && (
-          <div className="home-links other">
-            <span className="home-links-buttons">
-              <a href="/editor" className="home-link primary">
-                {t("online")}
-              </a>
-              <a
-                href="https://github.com/EthanHazel/flaredfolders"
-                className="home-link secondary"
-                target="_blank"
-              >
-                {t("source")}
-              </a>
-            </span>
-          </div>
-        )}
-      </div>
-      <Carousel />
-      <div id="home-features">
-        <h2>
-          <FolderOpen /> {t("features.title")}
-        </h2>
-        <ul className="feature-list">
-          <li>{t("features.list.0")}</li>
-          <li>{t("features.list.1")}</li>
-          <li>{t("features.list.2")}</li>
-          <li>{t("features.list.3")}</li>
-        </ul>
-      </div>
-      <div id="home-credits">
-        <Credits />
-      </div>
-      <div id="home-copyright">
-        {(() => {
-          const parts = copyrightText.replace("####", year).split(/(%.*?%)/g);
-
-          return parts.map((part, i) => {
-            if (!part.includes("%")) return part;
-
-            return (
-              <Fragment key={i}>
-                {i === 1 && (
-                  <a
-                    href="https://www.gnu.org/licenses/gpl-3.0.en.html"
-                    target="_blank"
+      <div id="home-content">
+        <div id="home-header">
+          <h1 id="home-title">
+            <span>Flared</span>
+            <span>Folders</span>
+          </h1>
+          <span id="home-subtitle">
+            {t("subtitle")}
+            <DownloadCounter />
+          </span>
+          {os === "windows" && (
+            <div className="home-links windows">
+              <span className="home-links-buttons">
+                <a className="home-link primary windows-download">
+                  {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
+                  <svg
+                    id="a"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    width="17"
+                    height="17"
+                    style={{ marginRight: "1rem" }}
                   >
-                    {part.slice(1, -1)}
-                  </a>
-                )}
-                {i === 3 && (
-                  <a href="https://microsoft.com/" target="_blank">
-                    {part.slice(1, -1)}
-                  </a>
-                )}
-                {i === 5 && (
-                  <a href="https://simpleicons.org/" target="_blank">
-                    {part.slice(1, -1)}
-                  </a>
-                )}
-                {i === 7 && (
-                  <a href="https://lucide.dev/" target="_blank">
-                    {part.slice(1, -1)}
-                  </a>
-                )}
-                {i !== 1 && i !== 3 && i !== 5 && i !== 7 && part}
-              </Fragment>
-            );
-          });
-        })()}
+                    <path
+                      fill="currentColor"
+                      d="M0,0H7.58V7.58H0V0ZM8.42,0h7.58V7.58h-7.58V0ZM0,8.42H7.58v7.58H0v-7.58Zm8.42,0h7.58v7.58h-7.58"
+                    />
+                  </svg>
+                  <span style={{ marginRight: "0.5rem" }}>{t("download")}</span>
+                </a>
+                <a onClick={gotoEditor} className="home-link secondary">
+                  {t("online")}
+                </a>
+              </span>
+              <div className="home-links-buttons">
+                <HeaderButton
+                  label="Discord"
+                  href="https://discord.gg/BkxtVZsf4E"
+                  target="_blank"
+                  className="header-button"
+                  icon={
+                    <svg viewBox="0 0 24 24" className="header-button-svg">
+                      <path d={siDiscord.path} />
+                    </svg>
+                  }
+                />
+                <HeaderButton
+                  label="GitHub"
+                  href="https://github.com/EthanHazel/flaredfolders"
+                  target="_blank"
+                  className="header-button"
+                  icon={
+                    <svg viewBox="0 0 24 24" className="header-button-svg">
+                      <path d={siGithub.path} />
+                    </svg>
+                  }
+                />
+                <HeaderButton
+                  label="Product Hunt"
+                  href="https://www.producthunt.com/products/flared-folders"
+                  target="_blank"
+                  className="header-button"
+                  icon={
+                    <svg viewBox="0 0 24 24" className="header-button-svg">
+                      <path d={siProducthunt.path} />
+                    </svg>
+                  }
+                />
+              </div>
+            </div>
+          )}
+          {os !== "windows" && (
+            <div className="home-links other">
+              <span className="home-links-buttons">
+                <a href="/editor" className="home-link primary">
+                  {t("online")}
+                </a>
+                <a
+                  href="https://github.com/EthanHazel/flaredfolders"
+                  className="home-link secondary"
+                  target="_blank"
+                >
+                  {t("source")}
+                </a>
+              </span>
+            </div>
+          )}
+        </div>
+        <Carousel />
+        <div id="home-features">
+          <h2>
+            <FolderOpen /> {t("features.title")}
+          </h2>
+          <ul className="feature-list">
+            <li>{t("features.list.0")}</li>
+            <li>{t("features.list.1")}</li>
+            <li>{t("features.list.2")}</li>
+            <li>{t("features.list.3")}</li>
+          </ul>
+        </div>
+        <div id="home-credits">
+          <Credits />
+        </div>
+        <div id="home-copyright">
+          {(() => {
+            const parts = copyrightText.replace("####", year).split(/(%.*?%)/g);
+
+            return parts.map((part, i) => {
+              if (!part.includes("%")) return part;
+
+              return (
+                <Fragment key={i}>
+                  {i === 1 && (
+                    <a
+                      href="https://www.gnu.org/licenses/gpl-3.0.en.html"
+                      target="_blank"
+                    >
+                      {part.slice(1, -1)}
+                    </a>
+                  )}
+                  {i === 3 && (
+                    <a href="https://microsoft.com/" target="_blank">
+                      {part.slice(1, -1)}
+                    </a>
+                  )}
+                  {i === 5 && (
+                    <a href="https://simpleicons.org/" target="_blank">
+                      {part.slice(1, -1)}
+                    </a>
+                  )}
+                  {i === 7 && (
+                    <a href="https://lucide.dev/" target="_blank">
+                      {part.slice(1, -1)}
+                    </a>
+                  )}
+                  {i !== 1 && i !== 3 && i !== 5 && i !== 7 && part}
+                </Fragment>
+              );
+            });
+          })()}
+        </div>
       </div>
     </div>
   );

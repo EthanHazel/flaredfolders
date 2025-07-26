@@ -1,55 +1,52 @@
 #footer {
   display: flex;
   flex-direction: row;
-  bottom: 0;
-  left: 0;
-  width: calc(100% - 2rem);
-  padding: 1rem;
   justify-content: space-between;
   align-items: center;
-  height: 2.5rem;
-  border-top: 1px solid var(--accent);
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-  background-color: var(--bg);
+}
+
+#footer-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  background-color: var(--bg-accent);
+}
+
+#footer select {
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  background-color: var(--bg-accent);
+  padding: 0;
 }
 
 #download-container {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  background-color: var(--bg-accent);
+  padding: 0 1.5rem;
 }
 
-#donators {
-  font-size: 0.8rem;
-  color: var(--tertiary);
-  margin-left: 1.25rem;
+#download-button {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-#donators svg {
-  margin-right: 1.5rem;
-  color: var(--text);
-}
-
-#donator {
-  margin-left: 0.25rem;
-  color: var(--text);
-}
-
-#footer-desktop {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  box-sizing: border-box;
-  height: fit-content;
-  width: fit-content;
-  padding: 1rem;
-  gap: 1rem;
-  z-index: 9999;
+  justify-content: center;
+  background-color: var(--bg-accent);
+  color: var(--primary);
+  margin: 0;
+  padding: 0;
 }

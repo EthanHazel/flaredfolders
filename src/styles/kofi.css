@@ -1,0 +1,23 @@
+#kofi {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  padding: 1.5rem;
+  background-color: var(--bg-accent);
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--tertiary);
+}
+
+#kofi svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1.5rem;
+  color: var(--primary);
+}
+
+#kofi #donator {
+  color: var(--text);
+  display: contents;
+}

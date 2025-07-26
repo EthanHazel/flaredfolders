@@ -35,7 +35,6 @@
 .header-title {
   font-family: var(--header-font);
   font-size: 1rem;
-  letter-spacing: 0.15rem;
   color: var(--quaternary);
   margin-left: 0.25rem;
 }
