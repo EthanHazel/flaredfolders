@@ -7,12 +7,9 @@
 ## 2.4 Launch
 
 - UI Changes
-  - Reimplement language selector as a button with call to action
-  - Add panel open button when closed
   - Desktop compatability
   - Remove remnants from older styling
   - Rename components to better fit use case (header-button to icon-button or something)
-  - Find something to fill the space in the footer
 - Add privacy policy
 - Update backend to be able to securely accept download increments without env vars bundled
 - Include call to action for contributing languages inside the language dropdown

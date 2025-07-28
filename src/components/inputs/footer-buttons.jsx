@@ -2,7 +2,7 @@ import HeaderButton from "./header-button";
 import LocaleSwitcher from "./locale-switcher";
 import { useTranslations } from "next-intl";
 import { swapTheme } from "@/lib/theme-swap";
-import { Sun, Moon, Bug, HandHeart } from "lucide-react";
+import { Sun, Moon, Bug } from "lucide-react";
 
 import "@/styles/footer.css";
 
@@ -28,13 +28,6 @@ export default function FooterButtons() {
         target="_blank"
         className="header-button"
         icon={<Bug className="header-button-svg" />}
-      />
-      <HeaderButton
-        label={t("donate")}
-        href="https://ko-fi.com/ethanhazel/tip"
-        target="_blank"
-        className="header-button"
-        icon={<HandHeart className="header-button-svg" />}
       />
     </div>
   );

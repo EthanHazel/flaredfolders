@@ -8,3 +8,48 @@
   justify-content: space-between;
   align-items: center;
 }
+
+#header-desktop-spacer {
+  height: 1rem;
+}
+
+#header-desktop {
+  position: fixed;
+  z-index: 5;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header-desktop-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 3rem;
+}
+
+.header-desktop-button:hover {
+  background-color: var(--accent);
+}
+
+.header-desktop-button:active {
+  background-color: var(--secondary);
+}
+
+.header-desktop-button.close:hover {
+  background-color: var(--primary);
+}
+
+.header-desktop-button.close:hover img {
+  filter: brightness(100);
+}
+
+.header-desktop-button.close:active {
+  background-color: var(--text);
+}

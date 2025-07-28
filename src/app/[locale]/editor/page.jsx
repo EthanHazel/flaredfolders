@@ -17,6 +17,7 @@ import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 import FolderRender from "@/components/folder/folder-render";
 
 import fetchClient from "@/lib/fetch-client";
+import HeaderDesktop from "@/components/header.desktop";
 
 export default function Editor() {
   return (
@@ -38,6 +39,7 @@ export default function Editor() {
             <Kofi />
           </div>
           <div id="right-container">
+            {fetchClient() === "desktop" && <HeaderDesktop />}
             <div id="folders">
               <FolderRender folderSize={512} key={512} id="big-folder-512" />
               <FolderRender folderSize={256} key={256} id="small-folder-256" />

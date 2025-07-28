@@ -99,6 +99,7 @@ export default function Download() {
 
       <button type="button" id="download-button" onClick={handleDownload}>
         <DownloadIcon />
+        {t("download")}
       </button>
     </div>
   );

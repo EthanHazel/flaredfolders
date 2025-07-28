@@ -49,4 +49,9 @@
   color: var(--primary);
   margin: 0;
   padding: 0;
+  gap: 1rem;
+}
+
+#download-button svg {
+  stroke-width: 1.5px;
 }

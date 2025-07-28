@@ -1,18 +1,11 @@
-#header-buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.5rem;
-  margin-right: 0.5rem;
-}
-
-.header-button {
+.header-button,
+.lang-select {
   display: flex;
   align-items: center;
   justify-content: center;
   fill: var(--tertiary);
   color: var(--tertiary) !important;
+  gap: 1rem;
 }
 
 #sun {
@@ -53,28 +46,10 @@
 }
 
 .header-button-label {
-  position: absolute;
-  transform: translateY(-125%);
-  font-size: 0.75rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  color: var(--tertiary);
-  background-color: var(--bg-accent);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid var(--accent);
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-  transition: opacity 0.1s ease-in-out, background-color 0.1s, color 0.1s,
-    border 0.1s;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
+  font-size: 0.85rem;
+  color: var(--text);
 }
 
-.header-button:hover .header-button-label {
-  opacity: 1;
-  pointer-events: all;
+#lang-icon {
+  color: var(--tertiary);
 }

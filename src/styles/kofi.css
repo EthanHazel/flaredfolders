@@ -5,19 +5,42 @@
   border: 1px solid var(--accent);
   padding: 1.5rem;
   background-color: var(--bg-accent);
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  color: var(--tertiary);
 }
 
-#kofi svg {
+.kofi-contents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--tertiary) !important;
+}
+
+.kofi-contents svg {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1.5rem;
   color: var(--primary);
 }
 
-#kofi #donator {
+.kofi-contents #donator {
   color: var(--text);
   display: contents;
+}
+
+.kofi-close {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  color: var(--tertiary);
+}
+
+.kofi-close:hover {
+  color: var(--secondary);
+}
+
+#kofi.closed,
+.desktop #kofi {
+  display: none;
 }

@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { useTransition } from "react";
+import { Languages } from "lucide-react";
 
 export default function LocaleSwitcherSelect({
   children,
@@ -21,8 +22,8 @@ export default function LocaleSwitcherSelect({
   }
 
   return (
-    <label className={isPending ? "pending" : ""}>
-      <span className="lang-label">{label}</span>
+    <label className={isPending ? "pending lang-select" : "lang-select"}>
+      <Languages className="header-button-svg lang-icon" id="lang-icon" />
       <select
         defaultValue={defaultValue}
         onChange={onSelectChange}
