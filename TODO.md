@@ -6,6 +6,10 @@
 
 ## 2.4 Launch
 
+- Redo home
+- Fix Firefox scaling
+- Improve file directory structure
+- Desktop text fits locales
 - UI Changes
   - Remove remnants from older styling
   - Rename components to better fit use case (header-button to icon-button or something)

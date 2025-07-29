@@ -3,6 +3,8 @@ import ReactDOMServer from "react-dom/server";
 
 import { folderConfigStore } from "../stores/folder-config";
 
+const lucideIconCache = {};
+
 export const convertLucideSlug = (slug) => {
   if (slug.includes("-")) {
     // Convert kebab-case to PascalCase
@@ -37,8 +39,12 @@ export const setLucideSlug = (slug) => {
 };
 
 export const loadLucide = async (slug, color, strokeWidth) => {
+  const cacheKey = `${slug}_${color}_${strokeWidth}`;
+  if (lucideIconCache[cacheKey]) {
+    return lucideIconCache[cacheKey];
+  }
+
   try {
-    // Dynamically import the Lucide icon component
     const module = await import(`lucide-react`);
     const IconComponent = module[slug];
 
@@ -49,14 +55,14 @@ export const loadLucide = async (slug, color, strokeWidth) => {
       })
     );
 
-    // Create an image from the SVG string
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-        svgString
-      )}`;
-    });
+    const img = new Image();
+    img.onload = () => {
+      lucideIconCache[cacheKey] = img;
+    };
+    img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+      svgString
+    )}`;
+    return img;
   } catch (error) {
     console.error("Error loading Lucide icon:", error);
     throw error;

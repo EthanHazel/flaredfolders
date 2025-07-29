@@ -4,6 +4,8 @@ import * as icons from "simple-icons";
 
 import { folderConfigStore } from "../stores/folder-config";
 
+const simpleIconCache = {};
+
 export const convertSimpleSlug = (slug) => {
   return slug
     .replace(/-/g, "")
@@ -31,6 +33,11 @@ export const setSimpleSlug = (slug) => {
 };
 
 export const loadSimple = async (slug, color) => {
+  const cacheKey = `${slug}_${color}`;
+  if (simpleIconCache[cacheKey]) {
+    return simpleIconCache[cacheKey];
+  }
+
   try {
     const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
     const iconData = icons[iconKey];
@@ -46,13 +53,16 @@ export const loadSimple = async (slug, color) => {
     );
 
     // Create an image from the SVG string
-    return new Promise((resolve) => {
+    const img = await new Promise((resolve) => {
       const img = new Image();
       img.onload = () => resolve(img);
       img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
         svgString
       )}`;
     });
+
+    simpleIconCache[cacheKey] = img;
+    return img;
   } catch (error) {
     console.error("Error loading Simple icon:", error);
     throw error;
