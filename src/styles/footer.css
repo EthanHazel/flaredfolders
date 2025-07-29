@@ -5,53 +5,24 @@
   align-items: center;
 }
 
-#footer-buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  height: 4.5rem;
-  border: 1px solid var(--accent);
-  border-radius: 0.5rem;
-  padding: 0 1.5rem;
-  background-color: var(--bg-accent);
-}
-
-#footer select {
-  height: 3rem;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0 1.5rem;
-  background-color: var(--bg-accent);
-  padding: 0;
-}
-
+#footer-buttons,
+#footer-desktop,
 #download-container {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  height: 4.5rem;
-  border: 1px solid var(--accent);
-  border-radius: 0.5rem;
-  background-color: var(--bg-accent);
-  padding: 0 1.5rem;
-}
-
-#download-button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-accent);
-  color: var(--primary);
-  margin: 0;
-  padding: 0;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  align-self: flex-end;
 }
 
-#download-button svg {
-  stroke-width: 1.5px;
+#footer select {
+  border: none;
+  padding: 0;
+  background-color: var(--bg);
+}
+
+.lang-select select {
+  background-color: var(--bg-accent) !important;
 }

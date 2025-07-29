@@ -8,7 +8,7 @@ import { Fragment } from "react";
 
 import useOS from "@/lib/fetch-os";
 import DownloadCounter from "@/components/download-count";
-import HeaderButton from "@/components/inputs/header-button";
+import IconButton from "@/components/inputs/icon-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
 import Credits from "@/components/credits";
 import { swapTheme } from "@/lib/theme-swap";
@@ -53,7 +53,7 @@ export default function Home() {
           </svg>
           <div id="home-nav-links">
             <span id="home-version">{version}</span>
-            <HeaderButton
+            <IconButton
               label={tb("theme")}
               className="header-button"
               onClick={() => swapTheme(document.body.classList.value)}
@@ -64,7 +64,7 @@ export default function Home() {
                 </>
               }
             />
-            <HeaderButton
+            <IconButton
               label={tb("donate")}
               href="https://ko-fi.com/ethanhazel/tip"
               target="_blank"
@@ -111,7 +111,7 @@ export default function Home() {
                 </a>
               </span>
               <div className="home-links-buttons">
-                <HeaderButton
+                <IconButton
                   label="Discord"
                   href="https://discord.gg/BkxtVZsf4E"
                   target="_blank"
@@ -122,7 +122,7 @@ export default function Home() {
                     </svg>
                   }
                 />
-                <HeaderButton
+                <IconButton
                   label="GitHub"
                   href="https://github.com/EthanHazel/flaredfolders"
                   target="_blank"
@@ -133,7 +133,7 @@ export default function Home() {
                     </svg>
                   }
                 />
-                <HeaderButton
+                <IconButton
                   label="Product Hunt"
                   href="https://www.producthunt.com/products/flared-folders"
                   target="_blank"

@@ -26,6 +26,7 @@ export default function Editor() {
         <CheatCode />
         <Splash />
         <div id="content">
+          {fetchClient() === "desktop" && <HeaderDesktop />}
           <div id="left-container">
             <Header />
             <div id="control-panels">
@@ -39,7 +40,6 @@ export default function Editor() {
             <Kofi />
           </div>
           <div id="right-container">
-            {fetchClient() === "desktop" && <HeaderDesktop />}
             <div id="folders">
               <FolderRender folderSize={512} key={512} id="big-folder-512" />
               <FolderRender folderSize={256} key={256} id="small-folder-256" />

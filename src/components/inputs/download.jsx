@@ -72,7 +72,7 @@ export default function Download() {
         value={fileType}
         onChange={(e) => setFileType(e.target.value)}
       >
-        {folderType !== "bigsur" && <option value="ico">{t("ico")}</option>}
+        <option value="ico">{t("ico")}</option>
         <option value="png">{t("png")}</option>
       </select>
 
@@ -97,7 +97,12 @@ export default function Download() {
         </select>
       )}
 
-      <button type="button" id="download-button" onClick={handleDownload}>
+      <button
+        type="button"
+        className="icon-button"
+        id="download-button"
+        onClick={handleDownload}
+      >
         <DownloadIcon />
         {t("download")}
       </button>

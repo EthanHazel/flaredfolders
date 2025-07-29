@@ -117,6 +117,10 @@ body {
   box-sizing: border-box;
 }
 
+.desktop #content {
+  margin-top: 2rem;
+}
+
 #left-container {
   height: 100%;
   display: flex;

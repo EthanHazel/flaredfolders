@@ -7,7 +7,6 @@
 ## 2.4 Launch
 
 - UI Changes
-  - Desktop compatability
   - Remove remnants from older styling
   - Rename components to better fit use case (header-button to icon-button or something)
 - Add privacy policy

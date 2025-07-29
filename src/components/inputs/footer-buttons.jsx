@@ -1,4 +1,4 @@
-import HeaderButton from "./header-button";
+import IconButton from "./icon-button";
 import LocaleSwitcher from "./locale-switcher";
 import { useTranslations } from "next-intl";
 import { swapTheme } from "@/lib/theme-swap";
@@ -11,18 +11,18 @@ export default function FooterButtons() {
   return (
     <div id="footer-buttons">
       <LocaleSwitcher />
-      <HeaderButton
+      <IconButton
         label={t("theme")}
         className="header-button"
         onClick={() => swapTheme(document.body.classList.value)}
         icon={
           <>
-            <Sun className="header-button-svg" id="sun" />
-            <Moon className="header-button-svg" id="moon" />
+            <Sun className="header-button-svg sun" />
+            <Moon className="header-button-svg moon" />
           </>
         }
       />
-      <HeaderButton
+      <IconButton
         label={t("bug")}
         href="https://github.com/EthanHazel/flaredfolders/issues/new?labels=bug"
         target="_blank"

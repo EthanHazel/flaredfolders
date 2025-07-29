@@ -1,0 +1,104 @@
+.sun {
+  display: none;
+}
+
+.dark .moon {
+  display: none;
+}
+
+.dark .sun {
+  display: block;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+  color: var(--secondary) !important;
+  fill: var(--secondary);
+}
+
+.icon-button:active {
+  color: var(--accent) !important;
+  fill: var(--accent);
+}
+
+.icon-button-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.5px;
+}
+
+.icon-button-label {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.icon-button,
+.lang-select {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: var(--bg-accent);
+  width: fit-content;
+  text-decoration: none !important;
+}
+
+.icon-button svg,
+#lang-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.5px;
+  color: var(--tertiary);
+}
+
+.icon-button:hover svg {
+  color: var(--text);
+}
+
+.icon-button:hover {
+  border: 1px solid var(--secondary);
+  background-color: var(--accent);
+  color: var(--text) !important;
+}
+
+.header-button {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--tertiary);
+  color: var(--tertiary) !important;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+
+.header-button:hover {
+  color: var(--secondary) !important;
+}
+
+.header-button:active {
+  color: var(--accent) !important;
+}
+
+#download-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  gap: 1rem;
+}
+
+#download-button:hover {
+  color: var(--primary) !important;
+}
+
+#download-button svg {
+  stroke-width: 1.5px;
+  color: var(--primary) !important;
+}
