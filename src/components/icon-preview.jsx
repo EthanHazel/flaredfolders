@@ -1,9 +1,9 @@
-import { loadLucide } from "@/lib/fetch-lucide";
-import { loadSimple } from "@/lib/fetch-simple";
-import { loadCustom } from "@/lib/fetch-custom";
+import { loadLucide } from "@/lib/icons/fetch-lucide";
+import { loadSimple } from "@/lib/icons/fetch-simple";
+import { loadCustom } from "@/lib/icons/fetch-custom";
 import { useEffect, useRef } from "react";
 
-export default function FolderIconPreview({
+export default function IconPreview({
   iconType,
   slug,
   color = "#000000",

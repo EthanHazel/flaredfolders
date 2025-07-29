@@ -1,10 +1,10 @@
-import IconButton from "./inputs/icon-button";
+import IconButton from "../inputs/icon-button";
 
 import { downloadIcoDesktop, desktopIcoPassthru } from "@/lib/folder-generate";
 
 import { FolderInput, Save } from "lucide-react";
 
-import "@/styles/footer.css";
+import "@/styles/layout/footer.css";
 
 export default function FooterDesktop() {
   return (

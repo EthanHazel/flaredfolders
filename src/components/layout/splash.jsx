@@ -1,6 +1,6 @@
-import fetchClient from "@/lib/fetch-client";
+import { fetchClient } from "@/lib/client";
 
-import "@/styles/splash.css";
+import "@/styles/layout/splash.css";
 
 export default function Splash() {
   const client = fetchClient();

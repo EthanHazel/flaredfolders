@@ -6,16 +6,16 @@ import { siDiscord, siGithub, siProducthunt } from "simple-icons";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
-import useOS from "@/lib/fetch-os";
-import DownloadCounter from "@/components/download-count";
+import { useOS } from "@/lib/client";
+import DownloadCounter from "@/components/home/download-count";
 import IconButton from "@/components/inputs/icon-button";
 import LocaleSwitcher from "@/components/inputs/locale-switcher";
-import Credits from "@/components/credits";
-import { swapTheme } from "@/lib/theme-swap";
+import Credits from "@/components/home/credits";
+import { swapTheme } from "@/lib/theme/theme-swap";
 import packageJson from "../../../package.json";
 
-import "@/styles/home.css";
-import Carousel from "@/components/carousel";
+import "@/styles/home/home.css";
+import Carousel from "@/components/home/carousel";
 
 export default function Home() {
   const os = useOS();

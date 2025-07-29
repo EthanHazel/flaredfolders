@@ -1,10 +1,11 @@
 "use client";
 
-import Splash from "@/components/splash";
-import Header from "@/components/header";
-import Kofi from "@/components/kofi";
-import Footer from "@/components/footer";
-import ViewLayout from "@/components/view";
+import Splash from "@/components/layout/splash";
+import Header from "@/components/layout/header";
+import HeaderDesktop from "@/components/desktop/header.desktop";
+import Kofi from "@/components/layout/kofi";
+import Footer from "@/components/layout/footer";
+import ViewLayout from "@/components/layout/view";
 import CheatCode from "@/components/cheat-code";
 
 import FolderColor from "@/components/control-panels/folder-color";
@@ -16,8 +17,7 @@ import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 
 import FolderRender from "@/components/folder/folder-render";
 
-import fetchClient from "@/lib/fetch-client";
-import HeaderDesktop from "@/components/header.desktop";
+import { fetchClient } from "@/lib/client";
 
 export default function Editor() {
   return (

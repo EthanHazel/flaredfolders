@@ -6,10 +6,10 @@ import { useState, useEffect, useRef } from "react";
 import { getIconAnchor } from "@/stores/folder-config";
 import React from "react";
 
-import { loadLucide } from "@/lib/fetch-lucide";
-import { loadSimple } from "@/lib/fetch-simple";
-import { loadCustom } from "@/lib/fetch-custom";
-import { loadEmoji } from "@/lib/fetch-emoji";
+import { loadLucide } from "@/lib/icons/fetch-lucide";
+import { loadSimple } from "@/lib/icons/fetch-simple";
+import { loadCustom } from "@/lib/icons/fetch-custom";
+import { loadEmoji } from "@/lib/icons/fetch-emoji";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
@@ -162,20 +162,24 @@ export default function FolderRender({ folderSize, id }) {
   // Load required images based on configuration
   async function loadRequiredImages() {
     const imagePaths = {
-      base: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/base.png`,
+      base: isIconOnly
+        ? null
+        : `/images/folder-assets/${type}/${folderSize}/base.png`,
       highlight: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/highlight.png`,
+        : `/images/folder-assets/${type}/${folderSize}/highlight.png`,
       iconMask: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/${iconMask}.png`,
-      mask: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/mask.png`,
+        : `/images/folder-assets/${type}/${folderSize}/${iconMask}.png`,
+      mask: isIconOnly
+        ? null
+        : `/images/folder-assets/${type}/${folderSize}/mask.png`,
       default: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/default.png`,
+        : `/images/folder-assets/${type}/${folderSize}/default.png`,
       shadow: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
+        : `/images/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
       icon: await loadIcon(),
     };
 
@@ -430,7 +434,6 @@ export default function FolderRender({ folderSize, id }) {
     tempCanvas.width = width;
     tempCanvas.height = height;
     const tempCtx = tempCanvas.getContext("2d");
-
 
     setupCanvasRendering(tempCtx);
 

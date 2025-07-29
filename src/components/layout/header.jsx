@@ -1,6 +1,6 @@
-import Logo from "./logo";
+import Logo from "../logo";
 
-import "@/styles/header.css";
+import "@/styles/layout/header.css";
 
 export default function Header() {
   return (

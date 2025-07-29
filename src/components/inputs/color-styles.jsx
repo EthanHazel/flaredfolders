@@ -7,7 +7,7 @@ import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-export default function FolderColorInput({ colorId = 0 }) {
+export default function ColorStyles({ colorId = 0 }) {
   const colors = [
     folderConfigStore((state) => state.gradientStartColor),
     folderConfigStore((state) => state.gradientEndColor),

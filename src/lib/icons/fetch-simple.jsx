@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import * as icons from "simple-icons";
 
-import { folderConfigStore } from "../stores/folder-config";
+import { folderConfigStore } from "@/stores/folder-config";
 
 const simpleIconCache = {};
 

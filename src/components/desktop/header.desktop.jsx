@@ -1,11 +1,12 @@
 import Image from "next/image";
-import HeaderButton from "./inputs/header-button";
 import { Window } from "@tauri-apps/api/window";
-import { swapTheme } from "@/lib/theme-swap";
+import { swapTheme } from "@/lib/theme/theme-swap";
 
 import { Sun, Moon, Bug, Languages } from "lucide-react";
 
-import "@/styles/header.css";
+import HeaderButton from "../inputs/header-button";
+
+import "@/styles/layout/header.css";
 
 export default function HeaderDesktop() {
   const appWindow = new Window("main");

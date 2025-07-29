@@ -1,10 +1,10 @@
 import IconButton from "./icon-button";
 import LocaleSwitcher from "./locale-switcher";
 import { useTranslations } from "next-intl";
-import { swapTheme } from "@/lib/theme-swap";
+import { swapTheme } from "@/lib/theme/theme-swap";
 import { Sun, Moon, Bug } from "lucide-react";
 
-import "@/styles/footer.css";
+import "@/styles/layout/footer.css";
 
 export default function FooterButtons() {
   const t = useTranslations("buttons");

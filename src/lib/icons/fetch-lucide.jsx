@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
-import { folderConfigStore } from "../stores/folder-config";
+import { folderConfigStore } from "@/stores/folder-config";
 
 const lucideIconCache = {};
 

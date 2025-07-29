@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import Credit from "@/credits.json";
-import "@/styles/credits.css";
+import Credit from "@/stores/credits.json";
+import "@/styles/home/credits.css";
 
 const getLocales = () => {
-  const context = require.context("../locales", false, /\.json$/);
+  const context = require.context("../../locales", false, /\.json$/);
   return context
     .keys()
     .map((key) => key.replace("./", "").replace(".json", ""));
@@ -65,7 +65,7 @@ export default function Credits() {
         const translationsData = await Promise.all(
           locales.map((lang) => {
             try {
-              const data = require(`../locales/${lang}.json`);
+              const data = require(`../../locales/${lang}.json`);
               return {
                 code: lang,
                 language: data.language,

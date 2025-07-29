@@ -28,7 +28,7 @@ export default function Carousel() {
         {extendedImages.map((image, index) => (
           <Image
             key={`${image}-${index}`}
-            src={`/home/carousel/${image}.png`}
+            src={`/images/home/carousel/${image}.png`}
             alt={image}
             width={64}
             height={64}

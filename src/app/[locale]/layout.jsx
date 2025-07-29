@@ -46,18 +46,18 @@ export const metadata = {
   },
   title,
   description,
-  links: [{ rel: "manifest", href: "../favicon/site.webmanifest" }],
+  links: [{ rel: "manifest", href: "/site.webmanifest" }],
   icons: {
-    icon: "/favicon/favicon.svg",
-    apple: "/favicon/apple.png",
-    shortcut: "/favicon/favicon.ico",
+    icon: "/images/meta/favicon/favicon.svg",
+    apple: "/images/meta/favicon/apple.png",
+    shortcut: "/images/meta/favicon/favicon.ico",
   },
   openGraph: {
     title,
     description,
     images: [
       {
-        url: "/meta/banner.png",
+        url: "/images/meta/banner.png",
         alt: "Flared Folders Banner",
         width: 1200,
         height: 628,
@@ -73,7 +73,7 @@ export const metadata = {
     description,
     images: [
       {
-        url: "/meta/banner.png",
+        url: "/images/meta/banner.png",
         alt: "Flared Folders Banner",
         width: 1200,
         height: 628,

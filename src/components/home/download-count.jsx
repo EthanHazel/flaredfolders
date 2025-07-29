@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "./loading";
+import Loading from "../loading";
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";

@@ -2,7 +2,7 @@
 
 import Dropdown from "@/components/inputs/dropdown";
 import Radio from "@/components/inputs/radio";
-import FolderColorInput from "@/components/inputs/folder-color-input";
+import ColorStyles from "@/components/inputs/color-styles";
 
 import { useTranslations } from "next-intl";
 import { folderConfigStore } from "@/stores/folder-config";
@@ -60,13 +60,13 @@ export default function FolderColor() {
       </div>
       {colorType === "linear-gradient" && (
         <>
-          <FolderColorInput colorId={0} />
-          <FolderColorInput colorId={1} />
+          <ColorStyles colorId={0} />
+          <ColorStyles colorId={1} />
         </>
       )}
       {colorType === "solid" && (
         <div id="color-solid">
-          <FolderColorInput colorId={2} />
+          <ColorStyles colorId={2} />
         </div>
       )}
     </Dropdown>

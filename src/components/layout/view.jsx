@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import "@/styles/view.css";
+import "@/styles/layout/view.css";
 
 export default function ViewLayout() {
   return (

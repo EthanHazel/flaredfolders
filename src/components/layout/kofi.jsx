@@ -7,7 +7,7 @@ import { folderConfigStore } from "@/stores/folder-config";
 import { siKofi } from "simple-icons";
 import { X } from "lucide-react";
 
-import "@/styles/kofi.css";
+import "@/styles/layout/kofi.css";
 
 export default function Kofi() {
   const [open, setOpen] = useState(true);
