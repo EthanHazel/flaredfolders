@@ -252,6 +252,18 @@ select {
   user-select: none;
 }
 
+.sun {
+  display: none;
+}
+
+.dark .moon {
+  display: none;
+}
+
+.dark .sun {
+  display: block;
+}
+
 a {
   color: var(--primary);
   text-decoration: none;

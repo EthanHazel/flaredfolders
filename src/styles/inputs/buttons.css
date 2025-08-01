@@ -1,15 +1,3 @@
-.sun {
-  display: none;
-}
-
-.dark .moon {
-  display: none;
-}
-
-.dark .sun {
-  display: block;
-}
-
 .icon-button:hover {
   cursor: pointer;
   color: var(--secondary) !important;

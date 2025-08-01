@@ -32,19 +32,34 @@ export default function HeaderDesktop() {
           className="header-desktop-button"
           onClick={() => appWindow.minimize()}
         >
-          <Image src="/nav/min.png" width={10} height={10} alt="Minimize" />
+          <Image
+            src="/images/nav/min.png"
+            width={10}
+            height={10}
+            alt="Minimize"
+          />
         </a>
         <a
           className="header-desktop-button"
           onClick={() => appWindow.toggleMaximize()}
         >
-          <Image src="/nav/max.png" width={10} height={10} alt="Maximize" />
+          <Image
+            src="/images/nav/max.png"
+            width={10}
+            height={10}
+            alt="Maximize"
+          />
         </a>
         <a
           className="header-desktop-button close"
           onClick={() => appWindow.close()}
         >
-          <Image src="/nav/close.png" width={10} height={10} alt="Close" />
+          <Image
+            src="/images/nav/close.png"
+            width={10}
+            height={10}
+            alt="Close"
+          />
         </a>
       </div>
     </div>
