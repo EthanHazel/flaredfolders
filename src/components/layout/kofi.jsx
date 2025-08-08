@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { folderConfigStore } from "@/stores/folder-config";
+import credits from "@/stores/credits.json";
 
 import { siKofi } from "simple-icons";
 import { X } from "lucide-react";
@@ -30,7 +31,9 @@ export default function Kofi() {
           <path d={siKofi.path} />
         </svg>
         {t("front")}
-        <span id="donator">{user}</span>
+        <span id="donator">
+          @{credits.kofi[Math.floor(Math.random() * credits.kofi.length)]}
+        </span>
         {t("back")}
       </a>
       <a className="kofi-close">

@@ -6,13 +6,10 @@
 
 ## 2.4 Launch
 
-- Redo home
 - Fix Firefox scaling
-- Improve file directory structure
 - Desktop text fits locales
 - UI Changes
   - Remove remnants from older styling
-  - Rename components to better fit use case (header-button to icon-button or something)
 - Add privacy policy
 - Update backend to be able to securely accept download increments without env vars bundled
 - Include call to action for contributing languages inside the language dropdown
@@ -22,6 +19,8 @@
 - Icon picker for Lucide and SimpleIcons based on the emoji picker
 - Fix primary color freaking out from saturated Blues to Greens
 - Custom color picker window
+- Home page mobile compatability
+- Fix broken favicon color changing
 
 ## 2.4.1
 

@@ -62,7 +62,7 @@ body.dark {
 html {
   scroll-behavior: smooth;
   scrollbar-color: var(--tertiary) rgba(0, 0, 0, 0);
-  scrollbar-width: thin;
+  scrollbar-width: none;
   overflow: hidden;
 }
 
