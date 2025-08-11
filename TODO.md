@@ -26,7 +26,7 @@
 - Custom color picker window
 - Icon picker for Lucide and SimpleIcons based on the emoji picker
 
-## 2.4.1
+## 2.5.1
 
 - Redo panel toggle to show a comparison to the default folder for each size option
 - Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)
