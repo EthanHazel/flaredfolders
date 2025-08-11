@@ -20,8 +20,9 @@ html {
   align-items: center;
   top: 1rem;
   left: 0px;
-  width: 100%;
+  width: calc(100% - 2rem);
   height: 4rem;
+  margin: 0 1rem;
 }
 
 #home-nav-container {
@@ -112,7 +113,6 @@ html {
   align-items: center;
   width: 100%;
   height: 35rem;
-  padding: 0 10rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: 1px solid var(--accent);
@@ -142,6 +142,12 @@ html {
   height: 8rem;
   position: absolute;
   z-index: 1;
+}
+
+@media screen and (max-width: 1500px) {
+  #home-carousel .gradient {
+    width: 100%;
+  }
 }
 
 @keyframes marquee {
@@ -180,7 +186,9 @@ html {
   color: var(--tertiary);
   text-align: center;
   font-size: 1.5rem;
-  height: 2rem;
+  min-height: 2rem;
+  height: fit-content;
+  width: 100%;
 }
 
 .home-links {
@@ -212,7 +220,7 @@ html {
   background-color: var(--bg-accent);
   width: fit-content;
   text-decoration: none !important;
-  color: var(--text);
+  color: var(--text) !important;
   width: 15rem;
   cursor: pointer;
 }
@@ -265,6 +273,7 @@ html {
   padding-right: 1rem;
   border-right: 1px solid var(--secondary);
   color: var(--text);
+  min-width: 1rem;
 }
 
 #home-credits {
@@ -291,30 +300,6 @@ html {
 }
 
 @media screen and (max-width: 1280px) {
-  #home-features {
-    height: auto;
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-
-  #home-features ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 0;
-    border: none;
-  }
-
-  #home-features li {
-    margin-left: 0;
-  }
-
-  #home-features h2 svg {
-    display: none;
-  }
-
   #home-features h2 {
     width: 100%;
     text-align: center;
@@ -329,8 +314,8 @@ html {
     justify-content: center;
   }
 
-  #home-nav {
-    height: 4rem;
+  .download-counter {
+    font-size: 1rem;
   }
 
   #home {
@@ -341,19 +326,22 @@ html {
     height: 100vh;
   }
 
-  #home-nav-container {
-    justify-content: center;
-  }
-
-  #home-nav-links {
-    display: none;
-  }
-
   #home-title {
     font-size: 3rem !important;
-    letter-spacing: 4px !important;
   }
-  #home-subtitle {
-    font-size: 1.25rem !important;
+
+  .feature-list li {
+    font-size: 1rem !important;
+    margin: 0 2rem;
+    width: calc(100% - 4rem);
+  }
+
+  #credits {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .home-nav-button {
+    display: none;
   }
 }
