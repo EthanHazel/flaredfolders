@@ -2,20 +2,6 @@
   display: none;
 }
 
-#mobile h1 {
-  margin: 0;
-  padding: 0;
-  font-size: 2.5rem;
-  font-family: var(--header-font);
-}
-
-#mobile h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.2rem;
-  font-family: var(--body-font);
-}
-
 #mobile p {
   margin: 0;
   padding: 0;
@@ -23,8 +9,10 @@
   font-family: var(--body-font);
 }
 
-.dark #mobile img {
-  filter: invert();
+#mobile svg {
+  width: 5rem;
+  height: 5rem;
+  stroke-width: 1px;
 }
 
 #small-folder-256 {
@@ -74,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 980px), screen and (max-height: 500px) {
+@media screen and (max-width: 979px), screen and (max-height: 499px) {
   #app {
     display: none !important;
   }
@@ -84,8 +72,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 2rem);
-    gap: 2rem;
+    height: 100vh;
+    box-sizing: border-box;
+    gap: 1rem;
     text-align: center;
     padding: 1rem;
   }
