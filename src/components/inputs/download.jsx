@@ -84,16 +84,11 @@ export default function Download() {
           onChange={(e) => setIconSize(e.target.value)}
         >
           <option value="all">{t("allSizes")}</option>
-          <option value="512">{t("512")}</option>
-          <option value="256">{t("256")}</option>
-          <option value="128">{t("128")}</option>
-          <option value="96">{t("96")}</option>
-          <option value="72">{t("72")}</option>
-          <option value="64">{t("64")}</option>
-          <option value="48">{t("48")}</option>
-          <option value="32">{t("32")}</option>
-          <option value="24">{t("24")}</option>
-          <option value="16">{t("16")}</option>
+          {[512, 256, 128, 96, 72, 64, 48, 32, 24, 16].map((size) => (
+            <option key={size} value={size}>
+              {t(size.toString())}
+            </option>
+          ))}
         </select>
       )}
 
@@ -104,7 +99,7 @@ export default function Download() {
         onClick={handleDownload}
       >
         <DownloadIcon />
-        {t("download")}
+        <span>{t("download")}</span>
       </button>
     </div>
   );

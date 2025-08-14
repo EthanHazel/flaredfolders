@@ -29,6 +29,7 @@
 ## Foreseeable Future
 
 - Better UI for uploading an icon (drag and drop UI maybe)
+- Folder image background instead of color
 - Redo panel toggle to show a comparison to the default folder for each size option
 - Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)
 - Rework folder-render to be less bloated by splitting functions into other files and include documentation on how it works

@@ -65,17 +65,11 @@
     font-size: 0.7rem !important;
   }
 
-  #donators {
-    font-size: 0.7rem !important;
-  }
-
-  [href="https://www.producthunt.com/products/flared-folders"]
-  {
+  .icon-button-label {
     display: none;
   }
 
-  [href="https://ko-fi.com/ethanhazel/tip"]
-  {
+  #download-button span {
     display: none;
   }
 }
