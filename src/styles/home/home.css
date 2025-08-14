@@ -90,7 +90,7 @@ html {
 .home-nav-icon-button svg {
   width: 1rem;
   height: 1rem;
-  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 .home-nav-icon-button select {
