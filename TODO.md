@@ -10,7 +10,6 @@
   - Remove remnants from older styling
 - Fix Firefox scaling
 - Fix broken favicon color changing
-- Include call to action for contributing languages inside the language dropdown
 - Add privacy policy
 - Fix primary color bug
 - Fix custom icon centering (again)

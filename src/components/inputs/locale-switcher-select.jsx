@@ -44,10 +44,9 @@ export default function LocaleSwitcherSelect({
     );
   }
 
-  // Default variant
   return (
     <label className={isPending ? "pending lang-select" : "lang-select"}>
-      <Languages className="lang-icon" />
+      <Languages id="lang-icon" />
       <select
         defaultValue={defaultValue}
         onChange={onSelectChange}

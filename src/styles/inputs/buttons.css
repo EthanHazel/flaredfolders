@@ -12,7 +12,7 @@
 .icon-button-svg {
   width: 1.5rem;
   height: 1.5rem;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
 }
 
 .icon-button-label {
@@ -39,7 +39,7 @@
 #lang-icon {
   width: 1.5rem;
   height: 1.5rem;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
   color: var(--tertiary);
 }
 
