@@ -25,9 +25,11 @@
 - Fix primary color freaking out from saturated Blues to Greens
 - Custom color picker window
 - Icon picker for Lucide and SimpleIcons based on the emoji picker
+- propper 404 page
 
-## 2.5.1
+## Foreseeable Future
 
+- Better UI for uploading an icon (drag and drop UI maybe)
 - Redo panel toggle to show a comparison to the default folder for each size option
 - Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)
 - Rework folder-render to be less bloated by splitting functions into other files and include documentation on how it works

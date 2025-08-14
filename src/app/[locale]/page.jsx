@@ -17,6 +17,7 @@ import { useOS } from "@/lib/client";
 import DownloadCounter from "@/components/home/download-count";
 import Credits from "@/components/home/credits";
 import { swapTheme } from "@/lib/theme/theme-swap";
+import LocaleSwitcher from "@/components/inputs/locale-switcher";
 
 import "@/styles/home/home.css";
 import Carousel from "@/components/home/carousel";
@@ -87,9 +88,7 @@ export default function Home() {
             <a className="home-nav-button" href="https://discord.gg/BkxtVZsf4E">
               Discord
             </a>
-            <a className="home-nav-icon-button">
-              <Languages />
-            </a>
+            <LocaleSwitcher variant="icon" />
             <a
               className="home-nav-icon-button"
               onClick={() => swapTheme(document.body.classList.value)}

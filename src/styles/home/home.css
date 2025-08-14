@@ -78,16 +78,29 @@ html {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem;
+  min-width: 2rem;
+  height: 2rem;
   border-radius: 0.5rem;
   border: 1px solid var(--accent);
   cursor: pointer;
   color: var(--text);
+  background-color: var(--bg);
 }
 
 .home-nav-icon-button svg {
   width: 1rem;
   height: 1rem;
+  margin: 0.5rem;
+}
+
+.home-nav-icon-button select {
+  padding: 0.5rem;
+  border: none;
+  background: var(--bg);
+  cursor: pointer;
+  color: var(--text);
+  margin-left: -0.5rem;
+  margin-right: 0.25rem;
 }
 
 .home-nav-button {
