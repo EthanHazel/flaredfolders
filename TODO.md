@@ -11,8 +11,8 @@
 - Fix Firefox scaling
 - Fix broken favicon color changing
 - Add privacy policy
-- Fix primary color bug
 - Fix custom icon centering (again)
+- New README image (removed syne font)
 
 ## 2.5 Launch
 
@@ -28,6 +28,7 @@
 
 ## Foreseeable Future
 
+- Changelog with maybe it showing this exact md file for planned stuff
 - Better UI for uploading an icon (drag and drop UI maybe)
 - Folder image background instead of color
 - Redo panel toggle to show a comparison to the default folder for each size option
