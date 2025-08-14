@@ -25,7 +25,7 @@ export function loadCustom(customFileName) {
       }
 
       // Load temp-icon
-      const tempIconPath = "/folder-assets/temp-icon.svg";
+      const tempIconPath = "/images/folder-assets/temp-icon.svg";
       fetch(tempIconPath)
         .then((response) => response.blob())
         .then((blob) => {
