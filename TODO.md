@@ -11,8 +11,6 @@
 - Fix Firefox scaling
 - Fix broken favicon color changing
 - Add privacy policy
-- Fix custom icon centering (again)
-- New README image (removed syne font)
 
 ## 2.5 Launch
 
