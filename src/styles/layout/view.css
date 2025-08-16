@@ -25,16 +25,8 @@
     min-width: 0px !important;
   }
 
-  .panel-closed #left-container {
-    margin-left: -50%;
-  }
-
   #right-container {
     width: 50% !important;
-  }
-
-  .panel-closed #right-container {
-    width: 100% !important;
   }
 }
 
@@ -47,10 +39,6 @@
 
   #small-folder-256 {
     display: flex;
-  }
-
-  .download-counter {
-    font-size: 0.7rem !important;
   }
 
   .icon-button-label {

@@ -1,10 +1,10 @@
 "use client";
 
-import Loading from "../loading";
-
-import { useState, useEffect, useRef } from "react";
-import { getIconAnchor } from "@/stores/folder-config";
 import React from "react";
+import { useState, useEffect, useRef } from "react";
+
+import Loading from "../loading";
+import { getIconAnchor } from "@/stores/folder-config";
 
 import { loadLucide } from "@/lib/icons/fetch-lucide";
 import { loadSimple } from "@/lib/icons/fetch-simple";
@@ -556,7 +556,7 @@ export default function FolderRender({ folderSize, id }) {
     ctx.shadowColor = "transparent";
   }
 
-  function drawIconImage(ctx, icon, x, y, width, height) {
+  async function drawIconImage(ctx, icon, x, y, width, height) {
     ctx.drawImage(icon, x, y, width, height);
   }
 

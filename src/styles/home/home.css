@@ -212,14 +212,6 @@ html {
   width: 100%;
 }
 
-.home-links {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-}
-
 .home-links-buttons {
   display: flex;
   flex-wrap: wrap;

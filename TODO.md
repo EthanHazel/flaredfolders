@@ -2,15 +2,18 @@
 
 > Stuff I gotta do, or you can too if you want (prob not, there's no contributors rn lmao)
 
-## Bugs
-
 ## 2.4 Launch
 
-- UI Changes
-  - Remove remnants from older styling
 - Fix Firefox scaling
 - Fix broken favicon color changing
 - Add privacy policy
+
+## 2.4.0.1
+
+- Optimize components
+  - Fix the god awful folder render component
+- Add comments to code
+  - Functions actually have params for inputs and other stuff
 
 ## 2.5 Launch
 
