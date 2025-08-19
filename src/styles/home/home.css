@@ -237,12 +237,36 @@ html {
   color: var(--text) !important;
   width: 15rem;
   cursor: pointer;
+  user-select: none;
+}
+
+.home-link.windows-download {
+  background-color: var(--text);
+  border: 1px solid transparent;
+  color: var(--bg) !important;
+  cursor: not-allowed;
 }
 
 .home-link:hover {
   border: 1px solid var(--secondary);
   background-color: var(--accent);
   color: var(--text);
+}
+
+.home-link:active {
+  border: 1px solid var(--accent);
+  background-color: var(--bg-accent);
+  color: var(--text);
+}
+
+.home-link.windows-download:hover {
+  border: 1px solid transparent;
+  background-color: var(--quarternary);
+}
+
+.home-link.windows-download:active {
+  border: 1px solid transparent;
+  background-color: var(--text);
 }
 
 #home-features {
