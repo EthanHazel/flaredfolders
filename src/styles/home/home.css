@@ -148,8 +148,9 @@ html {
   height: fit-content;
 }
 
-#home-carousel img {
+.home-carousel-image {
   padding: 2rem;
+  filter: drop-shadow(0px 0px 0.25rem var(--secondary));
 }
 
 #home-carousel .gradient {

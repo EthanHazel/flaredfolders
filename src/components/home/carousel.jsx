@@ -32,6 +32,7 @@ export default function Carousel() {
             alt={image}
             width={64}
             height={64}
+            className="home-carousel-image"
           />
         ))}
       </div>
