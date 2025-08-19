@@ -31,7 +31,7 @@ export const folderConfigStore = create((set) => ({
   simpleSlug: "simpleicons",
   setSimpleSlug: (slug) => set({ simpleSlug: slug }),
 
-  emojiSlug: "🧨",
+  emojiSlug: "📁",
   setEmojiSlug: (slug) => set({ emojiSlug: slug }),
 
   customData: null,
