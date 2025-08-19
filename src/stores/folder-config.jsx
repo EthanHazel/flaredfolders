@@ -23,7 +23,7 @@ export const folderConfigStore = create((set) => ({
   iconType: "lucide",
   setIconType: (type) => set({ iconType: type }),
 
-  lucideSlug: "ImageUp",
+  lucideSlug: "Import",
   setLucideSlug: (slug) => set({ lucideSlug: slug }),
   lucideStrokeWidth: 1.5,
   setLucideStrokeWidth: (width) => set({ lucideStrokeWidth: width }),
