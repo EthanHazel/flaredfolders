@@ -48,7 +48,7 @@ export const metadata = {
   description,
   links: [{ rel: "manifest", href: "/site.webmanifest" }],
   icons: {
-    icon: "/images/meta/favicon/favicon.svg",
+    icon: "/images/meta/favicon/favicon.ico",
     apple: "/images/meta/favicon/apple.png",
     shortcut: "/images/meta/favicon/favicon.ico",
   },

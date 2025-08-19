@@ -5,7 +5,6 @@
 ## 2.4 Launch
 
 - Fix Firefox scaling
-- Fix broken favicon color changing
 - Add privacy policy
 
 ## 2.4.0.1
