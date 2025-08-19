@@ -382,4 +382,8 @@ html {
   .home-nav-button {
     display: none;
   }
+
+  #home-nav-logo-text {
+    display: none;
+  }
 }
