@@ -5,7 +5,6 @@
 ## 2.4 Launch
 
 - Fix Firefox scaling
-- Add privacy policy
 
 ## 2.4.0.1
 
@@ -29,6 +28,7 @@
 
 ## Foreseeable Future
 
+- Add privacy policy (remember language varients)
 - Changelog with maybe it showing this exact md file for planned stuff
 - Better UI for uploading an icon (drag and drop UI maybe)
 - Folder image background instead of color
