@@ -92,15 +92,10 @@ export default function Download() {
         </select>
       )}
 
-      <button
-        type="button"
-        className="icon-button"
-        id="download-button"
-        onClick={handleDownload}
-      >
+      <a type="button" className="icon-button" onClick={handleDownload}>
         <DownloadIcon />
-        <span>{t("download")}</span>
-      </button>
+        <span className="icon-button-label">{t("download")}</span>
+      </a>
     </div>
   );
 }

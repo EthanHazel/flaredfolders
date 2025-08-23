@@ -10,7 +10,6 @@ export default function FooterButtons() {
   const t = useTranslations("buttons");
   return (
     <div id="footer-buttons">
-      <LocaleSwitcher />
       <IconButton
         label={t("theme")}
         className="header-button"
@@ -29,6 +28,7 @@ export default function FooterButtons() {
         className="header-button"
         icon={<Bug className="header-button-svg" />}
       />
+      <LocaleSwitcher />
     </div>
   );
 }

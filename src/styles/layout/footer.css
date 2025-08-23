@@ -3,6 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+}
+
+#footer select,
+#footer .icon-button,
+.lang-select {
+  background-color: var(--bg);
+  padding: 0.75rem;
 }
 
 #footer-buttons,
@@ -24,5 +32,5 @@
 }
 
 .lang-select select {
-  background-color: var(--bg-accent) !important;
+  background-color: var(--bg) !important;
 }
