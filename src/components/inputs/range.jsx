@@ -29,7 +29,6 @@ export default function Range({
       <label htmlFor={id} className="range-label">
         {label}
       </label>
-      <span className="range-value">{value}</span>
       <div className="range-input-container">
         <span
           className="range-background"
@@ -50,6 +49,7 @@ export default function Range({
           className="range-input"
         />
       </div>
+      <span className="range-value">{value}</span>
       <button type="button" className="range-reset" onClick={handleReset}>
         <RotateCcw />
       </button>

@@ -145,6 +145,7 @@ body {
   border: 1px solid var(--accent);
   box-sizing: border-box;
   border-radius: 0.5rem;
+  scrollbar-width: none;
 }
 
 #right-container {
