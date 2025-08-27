@@ -2,12 +2,9 @@
 
 > Stuff I gotta do, or you can too if you want (prob not, there's no contributors rn lmao)
 
-## 2.4 Launch
-
-- Fix Firefox scaling
-
 ## 2.4.0.1
 
+- Fix Firefox scaling
 - Optimize components
   - Fix the god awful folder render component
 - Add comments to code
@@ -17,14 +14,14 @@
 ## 2.5 Launch
 
 - Desktop text fits locales
-- Update backend to be able to securely accept download increments without env vars bundled
+- Update back end to be able to securely accept download increments without env vars bundled
 - Create updater for desktop client
-- Allow args --path and --ico for applying flair, and also for opening an ico to apply
-- Success popup for applying or saving
+- Allow arguments like --path and --ico for applying flair, and also for opening an ico to apply
+- Success pop up for applying or saving
 - Fix primary color freaking out from saturated Blues to Greens
 - Custom color picker window
 - Icon picker for Lucide and SimpleIcons based on the emoji picker
-- propper 404 page
+- proper 404 page
 
 ## Foreseeable Future
 
