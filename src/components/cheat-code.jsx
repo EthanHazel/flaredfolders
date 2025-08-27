@@ -26,7 +26,7 @@ export default function CheatCode() {
     let timer;
 
     const playSound = () => {
-      const audio = new Audio("/cheat/cheat-code.mp3");
+      const audio = new Audio("/audio/cheat-code.mp3");
       audio.play();
     };
 

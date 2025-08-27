@@ -13,11 +13,11 @@ const getLocaleName = (locale) => {
   return context(`./${locale}.json`).language;
 };
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher({ variant }) {
   const locale = useLocale();
 
   return (
-    <LocaleSwitcherSelect defaultValue={locale}>
+    <LocaleSwitcherSelect defaultValue={locale} variant={variant}>
       {[
         { locale: "en", name: getLocaleName("en") },
         ...getLocales()

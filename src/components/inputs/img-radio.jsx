@@ -32,7 +32,7 @@ export default function ImgRadio({
       />
       <span className="img-radio-img">
         <Image
-          src={"/folder-assets/previews/" + img + ".png"}
+          src={"/images/folder-assets/previews/" + img + ".png"}
           width={size}
           height={size}
           alt={label || img || "image"}

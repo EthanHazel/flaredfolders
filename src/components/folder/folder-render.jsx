@@ -1,15 +1,15 @@
 "use client";
 
-import Loading from "../loading";
-
-import { useState, useEffect, useRef } from "react";
-import { getIconAnchor } from "@/stores/folder-config";
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 
-import { loadLucide } from "@/lib/fetch-lucide";
-import { loadSimple } from "@/lib/fetch-simple";
-import { loadCustom } from "@/lib/fetch-custom";
-import { loadEmoji } from "@/lib/fetch-emoji";
+import Loading from "../loading";
+import { getIconAnchor } from "@/stores/folder-config";
+
+import { loadLucide } from "@/lib/icons/fetch-lucide";
+import { loadSimple } from "@/lib/icons/fetch-simple";
+import { loadCustom } from "@/lib/icons/fetch-custom";
+import { loadEmoji } from "@/lib/icons/fetch-emoji";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
@@ -162,20 +162,24 @@ export default function FolderRender({ folderSize, id }) {
   // Load required images based on configuration
   async function loadRequiredImages() {
     const imagePaths = {
-      base: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/base.png`,
+      base: isIconOnly
+        ? null
+        : `/images/folder-assets/${type}/${folderSize}/base.png`,
       highlight: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/highlight.png`,
+        : `/images/folder-assets/${type}/${folderSize}/highlight.png`,
       iconMask: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/${iconMask}.png`,
-      mask: isIconOnly ? null : `/folder-assets/${type}/${folderSize}/mask.png`,
+        : `/images/folder-assets/${type}/${folderSize}/${iconMask}.png`,
+      mask: isIconOnly
+        ? null
+        : `/images/folder-assets/${type}/${folderSize}/mask.png`,
       default: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/default.png`,
+        : `/images/folder-assets/${type}/${folderSize}/default.png`,
       shadow: isIconOnly
         ? null
-        : `/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
+        : `/images/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
       icon: await loadIcon(),
     };
 
@@ -213,15 +217,24 @@ export default function FolderRender({ folderSize, id }) {
     return null;
   }
 
-  // Generic image loader
+  // Generic image loader with cache
+  const imageCache = {};
   async function loadImage(src) {
-    return new Promise((resolve, reject) => {
+    if (imageCache[src]) {
+      return imageCache[src];
+    }
+    const imgPromise = new Promise((resolve, reject) => {
       const img = new Image();
       img.crossOrigin = "anonymous";
       img.src = src;
-      img.onload = () => resolve(img);
+      img.onload = () => {
+        imageCache[src] = img;
+        resolve(img);
+      };
       img.onerror = reject;
     });
+    imageCache[src] = imgPromise;
+    return imgPromise;
   }
 
   // Main canvas drawing function
@@ -282,6 +295,9 @@ export default function FolderRender({ folderSize, id }) {
     return !isIconOnly && colorType !== "original";
   }
 
+  // Cache for background elements
+  const backgroundCache = new Map();
+
   // Draw background elements
   function drawBackground(
     ctx,
@@ -294,17 +310,31 @@ export default function FolderRender({ folderSize, id }) {
     width,
     height
   ) {
-    ctx.drawImage(baseImg, 0, 0, width, height);
+    const cacheKey = `${colors[0]}-${colors[1]}-${width}-${height}`;
 
-    if (colorType === "solid") {
-      applySolidColor(ctx, colors[2], width, height);
-    } else if (colorType === "linear-gradient") {
-      applyGradientColor(ctx, colors, width, height);
+    if (backgroundCache.has(cacheKey)) {
+      const cachedBackground = backgroundCache.get(cacheKey);
+      ctx.drawImage(cachedBackground, 0, 0);
+    } else {
+      const backgroundCanvas = document.createElement("canvas");
+      backgroundCanvas.width = width;
+      backgroundCanvas.height = height;
+      const backgroundCtx = backgroundCanvas.getContext("2d");
+      backgroundCtx.drawImage(baseImg, 0, 0, width, height);
+
+      if (colorType === "solid") {
+        applySolidColor(backgroundCtx, colors[2], width, height);
+      } else if (colorType === "linear-gradient") {
+        applyGradientColor(backgroundCtx, colors, width, height);
+      }
+
+      drawHighlight(backgroundCtx, highlightImg, width, height);
+      applyMask(backgroundCtx, maskImg, width, height);
+      drawShadow(backgroundCtx, shadowImg, width, height);
+
+      ctx.drawImage(backgroundCanvas, 0, 0);
+      backgroundCache.set(cacheKey, backgroundCanvas);
     }
-
-    drawHighlight(ctx, highlightImg, width, height);
-    applyMask(ctx, maskImg, width, height);
-    drawShadow(ctx, shadowImg, width, height);
   }
 
   // Apply solid color effect
@@ -315,13 +345,23 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   // Apply gradient color effect
+  const gradientColorCache = new Map();
   function applyGradientColor(ctx, colors, width, height) {
-    const gradient = ctx.createLinearGradient(width, height, 0, 0);
-    gradient.addColorStop(0, colors[1]);
-    gradient.addColorStop(1, colors[0]);
+    const gradientKey = `${colors[0]}-${colors[1]}`;
 
-    ctx.globalCompositeOperation = "multiply";
-    ctx.fillStyle = gradient;
+    if (gradientColorCache.has(gradientKey)) {
+      const gradient = gradientColorCache.get(gradientKey);
+      ctx.fillStyle = gradient;
+    } else {
+      const gradient = ctx.createLinearGradient(width, height, 0, 0);
+      gradient.addColorStop(0, colors[1]);
+      gradient.addColorStop(1, colors[0]);
+
+      ctx.globalCompositeOperation = "multiply";
+      ctx.fillStyle = gradient;
+      gradientColorCache.set(gradientKey, gradient);
+    }
+
     ctx.fillRect(0, 0, width, height);
   }
 
@@ -367,51 +407,70 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   // Draw icon on canvas
+  const iconCache = new Map();
   function drawIcon(ctx, icon, iconMaskImg, width, height) {
     if (!icon) return;
 
-    // Calculate aspect ratio and actual drawn dimensions
-    const aspectRatio = icon.width / icon.height || 1;
-    const scaledWidth = width;
-    const scaledHeight = scaledWidth / aspectRatio;
+    const iconKey = `${icon.src}-${iconScale}-${iconMultiplier}-${iconMasked}-${iconOpacity}-${iconShadow}-${shadowBlur}-${shadowOffset}-${shadowColor}-${shadowOpacity}-${iconAnchor[0]}-${iconAnchor[1]}-${iconOffset[0]}-${iconOffset[1]}`;
 
-    // Actual dimensions after scaling
-    const actualIconWidth = scaledWidth * iconScale * iconMultiplier;
-    const actualIconHeight = scaledHeight * iconScale * iconMultiplier;
-
-    // Calculate offsets relative to canvas size
-    const iconOffsetX = Math.floor((iconOffset[0] / 100) * width);
-    const iconOffsetY = Math.floor((iconOffset[1] / 100) * height);
-
-    // Center icon vertically and horizontally
-    const iconX = (width - actualIconWidth) / 2;
-    const iconY = (height - actualIconHeight) / 2;
-
-    // Apply anchor and offset
-    const drawX = iconX + iconAnchor[0] + iconOffsetX;
-    const drawY = iconY + iconAnchor[1] + iconOffsetY;
-
-    if (iconMasked) {
-      drawMaskedIcon(
-        ctx,
-        icon,
-        iconMaskImg,
-        width,
-        height,
-        drawX,
-        drawY,
-        actualIconWidth,
-        actualIconHeight
-      );
-    } else {
+    if (iconCache.has(iconKey)) {
+      const cachedIcon = iconCache.get(iconKey);
       drawUnmaskedIcon(
         ctx,
-        icon,
+        cachedIcon,
+        cachedIcon.drawX,
+        cachedIcon.drawY,
+        cachedIcon.actualIconWidth,
+        cachedIcon.actualIconHeight
+      );
+    } else {
+      const aspectRatio = icon.width / icon.height || 1;
+      const scaledWidth = width;
+      const scaledHeight = scaledWidth / aspectRatio;
+
+      const actualIconWidth = scaledWidth * iconScale * iconMultiplier;
+      const actualIconHeight = scaledHeight * iconScale * iconMultiplier;
+
+      const iconOffsetX = Math.floor((iconOffset[0] / 100) * width);
+      const iconOffsetY = Math.floor((iconOffset[1] / 100) * height);
+
+      const iconX = (width - actualIconWidth) / 2;
+      const iconY = (height - actualIconHeight) / 2;
+
+      const drawX = iconX + iconAnchor[0] + iconOffsetX;
+      const drawY = iconY + iconAnchor[1] + iconOffsetY;
+
+      if (iconMasked) {
+        drawMaskedIcon(
+          ctx,
+          icon,
+          iconMaskImg,
+          width,
+          height,
+          drawX,
+          drawY,
+          actualIconWidth,
+          actualIconHeight
+        );
+      } else {
+        drawUnmaskedIcon(
+          ctx,
+          icon,
+          drawX,
+          drawY,
+          actualIconWidth,
+          actualIconHeight
+        );
+      }
+
+      // Cache the icon for future use
+      iconCache.set(iconKey, {
+        src: icon.src,
         drawX,
         drawY,
         actualIconWidth,
-        actualIconHeight
-      );
+        actualIconHeight,
+      });
     }
   }
 
@@ -430,7 +489,6 @@ export default function FolderRender({ folderSize, id }) {
     tempCanvas.width = width;
     tempCanvas.height = height;
     const tempCtx = tempCanvas.getContext("2d");
-
 
     setupCanvasRendering(tempCtx);
 
@@ -498,7 +556,7 @@ export default function FolderRender({ folderSize, id }) {
     ctx.shadowColor = "transparent";
   }
 
-  function drawIconImage(ctx, icon, x, y, width, height) {
+  async function drawIconImage(ctx, icon, x, y, width, height) {
     ctx.drawImage(icon, x, y, width, height);
   }
 

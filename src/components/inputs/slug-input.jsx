@@ -1,18 +1,18 @@
 import { createRef } from "react";
 
-import FolderIconPreview from "@/components/folder/folder-icon-preview";
+import IconPreview from "@/components/icon-preview";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import {
   setLucideSlug,
   checkLucide,
   convertLucideSlug,
-} from "@/lib/fetch-lucide";
+} from "@/lib/icons/fetch-lucide";
 import {
   setSimpleSlug,
   checkSimple,
   convertSimpleSlug,
-} from "@/lib/fetch-simple";
+} from "@/lib/icons/fetch-simple";
 
 import { Download } from "lucide-react";
 
@@ -62,7 +62,7 @@ export default function SlugInput() {
   return (
     <div id="slug-input">
       <span id="slug-input-container">
-        <FolderIconPreview
+        <IconPreview
           iconType={iconType}
           slug={
             iconType === "lucide"

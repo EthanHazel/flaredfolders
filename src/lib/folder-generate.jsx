@@ -6,6 +6,7 @@ import JSZip from "jszip";
 import { Buffer } from "buffer";
 import { save } from "@tauri-apps/plugin-dialog";
 import { create } from "@tauri-apps/plugin-fs";
+import { invoke } from "@tauri-apps/api/core";
 
 if (typeof window !== "undefined") {
   window.Buffer = Buffer;
@@ -93,6 +94,43 @@ export const downloadIcoDesktop = async (name = "folder") => {
       return true;
     }
     return false;
+  } catch (error) {
+    console.error("ICO creation failed:", error);
+    alert("Error saving ICO file - check console for details");
+    throw error;
+  }
+};
+
+export const desktopIcoPassthru = async (name = "folder") => {
+  try {
+    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
+    const canvases = canvasIds
+      .map((id) => document.getElementById(`folder-${id}`))
+      .filter(Boolean);
+
+    const images = await Promise.all(
+      canvases.map(async (canvas) => {
+        const blob = await new Promise((resolve) =>
+          canvas.toBlob(resolve, "image/png")
+        );
+        return {
+          width: canvas.width,
+          height: canvas.height,
+          data: Buffer.from(await blob.arrayBuffer()),
+        };
+      })
+    );
+
+    const icoBuffer = icor.compileIco(images);
+    const icoData = new Uint8Array(icoBuffer);
+
+    // Call Rust command with snake_case argument name
+    await invoke("pick_folder_and_save_icon", {
+      name: name,
+      data: Array.from(icoData),
+    });
+
+    return true;
   } catch (error) {
     console.error("ICO creation failed:", error);
     alert("Error saving ICO file - check console for details");

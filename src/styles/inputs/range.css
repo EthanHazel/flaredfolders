@@ -4,8 +4,7 @@
   align-items: center;
   gap: 0.5rem;
   width: calc(100% - 1rem - 2px);
-  border: 1px solid var(--secondary);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   padding: 0 0.5rem;
 }
 
@@ -14,19 +13,20 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding: 0.25rem;
+  border: 1px solid var(--secondary);
   margin: 0px;
   position: relative;
+  border-radius: 0.5rem;
 }
 
 .range-input {
   width: 100%;
   appearance: none;
   background-color: var(--bg-accent);
-  height: calc(2rem + 4px);
+  height: 1rem;
   margin: 0;
-  border: 1px solid var(--secondary);
-  border-style: none solid none solid;
+  border-radius: 0.25rem;
 }
 
 .range-input::-moz-range-thumb {
@@ -37,24 +37,27 @@
   background-color: var(--primary);
   border: none;
   cursor: pointer;
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .range-input::-webkit-slider-thumb {
   appearance: none;
   width: 1rem;
-  height: calc(2rem + 4px);
+  height: 1rem;
   border-radius: 0;
   border: none;
   cursor: pointer;
   background-color: var(--primary);
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .range-background {
-  height: calc(2rem + 4px);
+  height: 1rem;
   background-color: var(--primary);
   position: absolute;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.75;
+  border-radius: 0.25rem 0 0 0.25rem;
 }
 
 .range-label {
@@ -63,16 +66,31 @@
 }
 
 .range-value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  max-width: 2rem;
+  height: 1.5rem;
   color: var(--tertiary);
-  border-left: 1px solid var(--accent);
-  padding: 0 1rem;
+  padding: 0em;
   text-align: center;
   width: 4rem;
 }
 
 .range-reset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
   background: none;
   color: var(--tertiary);
+}
+
+.range-reset:hover {
+  color: var(--text);
 }
 
 .range-reset svg {

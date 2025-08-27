@@ -16,10 +16,10 @@
   flex-direction: row;
   align-items: center;
   gap: 1.75rem;
-  width: calc(100% - 1.75rem);
+  width: calc(100% - 1.25rem);
   margin-top: 1rem;
   padding: 0.75rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .dropdown-header:hover {
@@ -28,7 +28,7 @@
 
 .dropdown-divider {
   border: none;
-  border-top: 1px solid var(--secondary);
+  border-top: 1px solid var(--accent);
   width: 100%;
 }
 

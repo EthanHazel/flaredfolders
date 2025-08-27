@@ -4,11 +4,11 @@ export const folderConfigStore = create((set) => ({
   // "linear-gradient", "solid", "original"
   colorType: "linear-gradient",
   setColorType: (colorType) => set({ colorType }),
-  gradientStartColor: "#ffb66c",
+  gradientStartColor: "#a46dfe",
   setGradientStartColor: (color) => set({ gradientStartColor: color }),
-  gradientEndColor: "#ff3773",
+  gradientEndColor: "#5a37ff",
   setGradientEndColor: (color) => set({ gradientEndColor: color }),
-  solidColor: "#ac82f2",
+  solidColor: "#ff7575",
   setSolidColor: (color) => set({ solidColor: color }),
 
   // "sqaureAndIcon", "folderAndIcon", "folderOnly", "iconOnly"
@@ -23,7 +23,7 @@ export const folderConfigStore = create((set) => ({
   iconType: "lucide",
   setIconType: (type) => set({ iconType: type }),
 
-  lucideSlug: "ImageUp",
+  lucideSlug: "Import",
   setLucideSlug: (slug) => set({ lucideSlug: slug }),
   lucideStrokeWidth: 1.5,
   setLucideStrokeWidth: (width) => set({ lucideStrokeWidth: width }),
@@ -31,7 +31,7 @@ export const folderConfigStore = create((set) => ({
   simpleSlug: "simpleicons",
   setSimpleSlug: (slug) => set({ simpleSlug: slug }),
 
-  emojiSlug: "🧨",
+  emojiSlug: "📁",
   setEmojiSlug: (slug) => set({ emojiSlug: slug }),
 
   customData: null,

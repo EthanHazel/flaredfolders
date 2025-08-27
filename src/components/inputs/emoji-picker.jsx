@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
-import "@/styles/emoji-picker.css";
+import "@/styles/inputs/emoji-picker.css";
 
 export default function EmojiPicker() {
   const t = useTranslations("iconConfig");

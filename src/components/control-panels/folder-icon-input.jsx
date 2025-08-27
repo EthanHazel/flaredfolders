@@ -8,7 +8,7 @@ import EmojiPicker from "../inputs/emoji-picker";
 
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
-import { loadCustom } from "@/lib/fetch-custom";
+import { loadCustom } from "@/lib/icons/fetch-custom";
 import { useEffect } from "react";
 
 export default function FolderIconInput() {

@@ -33,7 +33,8 @@
 - **Icon Libraries**:
   - Generic icons via [Lucide](https://lucide.dev)
   - Brand icons via [Simple Icons](https://simpleicons.org/)
-  - Custom icon upload
+  - Emoji
+  - Custom upload
 - **Resolution Support**:
   `16x16 → 512x512` (Native scaling for all platforms)
 
@@ -112,3 +113,4 @@ This project is licensed under the **GNU General Public License v3.0** - see the
 - Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
 - Built with [Next.js](https://nextjs.org/)
 - Community-driven translations
+- Folder visuals are derived from Microsoft's original assets
