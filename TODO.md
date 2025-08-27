@@ -2,7 +2,7 @@
 
 > Stuff I gotta do, or you can too if you want (prob not, there's no contributors rn lmao)
 
-## 2.4.0.1
+## 2.4.1
 
 - Fix Firefox scaling
 - Optimize components
