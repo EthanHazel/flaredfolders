@@ -81,7 +81,7 @@ export default function Home() {
             </a>
             <a
               className="home-nav-button"
-              href="https://github.com/FlaredFolders"
+              href="https://github.com/EthanHazel/FlaredFolders"
             >
               Github
             </a>
