@@ -241,10 +241,13 @@ html {
   user-select: none;
 }
 
-.home-link.windows-download {
+.home-link.primary {
   background-color: var(--text);
   border: 1px solid transparent;
   color: var(--bg) !important;
+}
+
+.home-link.disabled {
   cursor: not-allowed;
 }
 
@@ -260,12 +263,12 @@ html {
   color: var(--text);
 }
 
-.home-link.windows-download:hover {
+.home-link.primary:hover {
   border: 1px solid transparent;
   background-color: var(--quarternary);
 }
 
-.home-link.windows-download:active {
+.home-link.primary:active {
   border: 1px solid transparent;
   background-color: var(--text);
 }
@@ -366,7 +369,7 @@ html {
   }
 
   #home-title {
-    font-size: 3rem !important;
+    font-size: 2rem !important;
   }
 
   .feature-list li {

@@ -3,9 +3,8 @@
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  width: calc(100% - 1rem - 2px);
+  width: 100%;
   border-radius: 0.25rem;
-  padding: 0 0.5rem;
 }
 
 .range-input-container {
