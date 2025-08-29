@@ -263,12 +263,12 @@ html {
   color: var(--text);
 }
 
-.home-link.windows-download:hover {
+.home-link.primary:hover {
   border: 1px solid transparent;
   background-color: var(--quarternary);
 }
 
-.home-link.windows-download:active {
+.home-link.primary:active {
   border: 1px solid transparent;
   background-color: var(--text);
 }
