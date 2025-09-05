@@ -10,6 +10,7 @@ import { loadLucide } from "@/lib/icons/fetch-lucide";
 import { loadSimple } from "@/lib/icons/fetch-simple";
 import { loadCustom } from "@/lib/icons/fetch-custom";
 import { loadEmoji } from "@/lib/icons/fetch-emoji";
+import downscaleIcon from "@/lib/icons/downscale-icon";
 
 import { folderConfigStore } from "@/stores/folder-config";
 
@@ -474,7 +475,7 @@ export default function FolderRender({ folderSize, id }) {
     }
   }
 
-  function drawMaskedIcon(
+  async function drawMaskedIcon(
     ctx,
     icon,
     iconMaskImg,
@@ -502,7 +503,7 @@ export default function FolderRender({ folderSize, id }) {
       shadowOpacity
     );
 
-    drawIconImage(tempCtx, icon, x, y, iconWidth, iconHeight);
+    await drawIconImage(tempCtx, icon, x, y, iconWidth, iconHeight);
     resetIconEffects(tempCtx);
 
     if (shouldApplyIconMask()) {
@@ -557,7 +558,8 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   async function drawIconImage(ctx, icon, x, y, width, height) {
-    ctx.drawImage(icon, x, y, width, height);
+    const scaledIcon = await downscaleIcon(icon, width, height);
+    ctx.drawImage(scaledIcon, x, y, width, height);
   }
 
   function shouldApplyIconMask() {
