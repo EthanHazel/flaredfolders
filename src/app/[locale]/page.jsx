@@ -106,7 +106,7 @@ export default function Home() {
           {os === "windows" && (
             <div className="home-links windows">
               <span className="home-links-buttons">
-                <a className="home-link primary windows-download">
+                <a className="home-link primary disabled">
                   {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
                   <svg
                     id="a"
