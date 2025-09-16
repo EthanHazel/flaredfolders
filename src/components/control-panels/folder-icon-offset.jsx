@@ -64,7 +64,7 @@ export default function FolderIconOffset() {
         name="icon-scale"
         id="icon-scale"
         onChange={(e) => setIconScale(e.target.value)}
-        defaultValue="0.5"
+        defaultValue="0.45"
         min="0.1"
         max="1"
         step="0.01"
