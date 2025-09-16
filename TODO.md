@@ -4,7 +4,7 @@
 
 ## 2.4.1
 
-- Fix Firefox scaling
+- New color picker
 - Optimize components
   - Fix the god awful folder render component
 - Add comments to code
