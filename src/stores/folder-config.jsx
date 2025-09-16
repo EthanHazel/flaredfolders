@@ -41,7 +41,7 @@ export const folderConfigStore = create((set) => ({
 
   iconOffset: [0, 0],
   setIconOffset: (offset) => set({ iconOffset: offset }),
-  iconScale: 0.45,
+  iconScale: 0.5,
   setIconScale: (scale) => set({ iconScale: scale }),
   iconColor: "#ffffff",
   setIconColor: (color) => set({ iconColor: color }),
