@@ -1,5 +1,4 @@
-#footer,
-#footer-desktop {
+#footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,15 +7,12 @@
 }
 
 #footer select,
-#footer .icon-button,
-#footer-desktop select,
-#footer-desktop .icon-button {
+#footer .icon-button {
   background-color: var(--bg) !important;
   padding: 0.75rem;
 }
 
 #footer-buttons,
-#footer-desktop,
 #download-container {
   display: flex;
   flex-direction: row;
@@ -27,8 +23,7 @@
   align-self: flex-end;
 }
 
-#footer select,
-#footer-desktop select {
+#footer select {
   border: none;
   padding: 0;
   background-color: var(--bg);

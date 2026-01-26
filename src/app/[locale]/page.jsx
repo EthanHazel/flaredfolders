@@ -13,7 +13,6 @@ import {
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
-import { useOS } from "@/lib/client";
 import DownloadCounter from "@/components/home/download-count";
 import Credits from "@/components/home/credits";
 import { swapTheme } from "@/lib/theme/theme-swap";
@@ -38,7 +37,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", scroll, false);
   }, []);
 
-  const os = useOS();
   const homeRef = useRef(null);
 
   const t = useTranslations("home");
@@ -103,48 +101,20 @@ export default function Home() {
         <div id="home-header">
           <h2 id="home-title">{t("subtitle")}</h2>
           <DownloadCounter />
-          {os === "windows" && (
-            <div className="home-links windows">
-              <span className="home-links-buttons">
-                <a className="home-link primary disabled">
-                  {/* microsoft are a group of dickheads and they don't allow their picture of four squares to be hosted on simpleicons so I gotta manually add it 💔 */}
-                  <svg
-                    id="a"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    width="17"
-                    height="17"
-                    style={{ marginRight: "1rem" }}
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M0,0H7.58V7.58H0V0ZM8.42,0h7.58V7.58h-7.58V0ZM0,8.42H7.58v7.58H0v-7.58Zm8.42,0h7.58v7.58h-7.58"
-                    />
-                  </svg>
-                  <span style={{ marginRight: "0.5rem" }}>{t("download")}</span>
-                </a>
-                <a onClick={gotoEditor} className="home-link secondary">
-                  {t("online")}
-                </a>
-              </span>
-            </div>
-          )}
-          {os !== "windows" && (
-            <div className="home-links other">
-              <span className="home-links-buttons">
-                <a href="/editor" className="home-link primary">
-                  {t("online")}
-                </a>
-                <a
-                  href="https://github.com/EthanHazel/flaredfolders"
-                  className="home-link secondary"
-                  target="_blank"
-                >
-                  {t("source")}
-                </a>
-              </span>
-            </div>
-          )}
+          <div className="home-links other">
+            <span className="home-links-buttons">
+              <a onClick={gotoEditor} className="home-link primary">
+                {t("online")}
+              </a>
+              <a
+                href="https://github.com/EthanHazel/flaredfolders"
+                className="home-link secondary"
+                target="_blank"
+              >
+                {t("source")}
+              </a>
+            </span>
+          </div>
         </div>
         <Carousel />
         <div id="home-features">

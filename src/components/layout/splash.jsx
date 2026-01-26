@@ -1,10 +1,6 @@
-import { fetchClient } from "@/lib/client";
-
 import "@/styles/layout/splash.css";
 
 export default function Splash() {
-  const client = fetchClient();
-
   return (
     <div id="splash">
       <svg id="a" viewBox="0 0 149.74 124.78">

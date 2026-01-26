@@ -2,7 +2,6 @@
 
 import Splash from "@/components/layout/splash";
 import Header from "@/components/layout/header";
-import HeaderDesktop from "@/components/desktop/header.desktop";
 import Kofi from "@/components/layout/kofi";
 import Footer from "@/components/layout/footer";
 import ViewLayout from "@/components/layout/view";
@@ -17,16 +16,13 @@ import FolderIconShadow from "@/components/control-panels/folder-icon-shadow";
 
 import FolderRender from "@/components/folder/folder-render";
 
-import { fetchClient } from "@/lib/client";
-
 export default function Editor() {
   return (
     <>
-      <div id="app" className={fetchClient() === "desktop" ? "desktop" : ""}>
+      <div id="app">
         <CheatCode />
         <Splash />
         <div id="content">
-          {fetchClient() === "desktop" && <HeaderDesktop />}
           <div id="left-container">
             <Header />
             <div id="control-panels">

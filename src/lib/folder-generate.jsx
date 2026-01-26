@@ -4,9 +4,6 @@
 import icor from "icor";
 import JSZip from "jszip";
 import { Buffer } from "buffer";
-import { save } from "@tauri-apps/plugin-dialog";
-import { create } from "@tauri-apps/plugin-fs";
-import { invoke } from "@tauri-apps/api/core";
 
 if (typeof window !== "undefined") {
   window.Buffer = Buffer;
@@ -22,7 +19,7 @@ const downloadIco = async (name = "folder") => {
     const images = await Promise.all(
       canvases.map(async (canvas) => {
         const blob = await new Promise((resolve) =>
-          canvas.toBlob(resolve, "image/png")
+          canvas.toBlob(resolve, "image/png"),
         );
         const buffer = await blob.arrayBuffer();
         return {
@@ -30,7 +27,7 @@ const downloadIco = async (name = "folder") => {
           height: canvas.height,
           data: Buffer.from(buffer),
         };
-      })
+      }),
     );
 
     const icoBuffer = icor.compileIco(images);
@@ -53,91 +50,6 @@ const downloadIco = async (name = "folder") => {
   }
 };
 
-export const downloadIcoDesktop = async (name = "folder") => {
-  try {
-    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
-    const canvases = canvasIds
-      .map((id) => document.getElementById(`folder-${id}`))
-      .filter(Boolean);
-
-    const images = await Promise.all(
-      canvases.map(async (canvas) => {
-        const blob = await new Promise((resolve) =>
-          canvas.toBlob(resolve, "image/png")
-        );
-        return {
-          width: canvas.width,
-          height: canvas.height,
-          data: Buffer.from(await blob.arrayBuffer()),
-        };
-      })
-    );
-
-    const icoBuffer = icor.compileIco(images);
-
-    const icoData = new Uint8Array(icoBuffer);
-
-    const filePath = await save({
-      filters: [
-        {
-          name: "ICO File",
-          extensions: ["ico"],
-        },
-      ],
-      defaultPath: `${name}.ico`,
-    });
-
-    if (filePath) {
-      const file = await create(filePath, { baseDir: undefined });
-      await file.write(icoData);
-      await file.close();
-      return true;
-    }
-    return false;
-  } catch (error) {
-    console.error("ICO creation failed:", error);
-    alert("Error saving ICO file - check console for details");
-    throw error;
-  }
-};
-
-export const desktopIcoPassthru = async (name = "folder") => {
-  try {
-    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
-    const canvases = canvasIds
-      .map((id) => document.getElementById(`folder-${id}`))
-      .filter(Boolean);
-
-    const images = await Promise.all(
-      canvases.map(async (canvas) => {
-        const blob = await new Promise((resolve) =>
-          canvas.toBlob(resolve, "image/png")
-        );
-        return {
-          width: canvas.width,
-          height: canvas.height,
-          data: Buffer.from(await blob.arrayBuffer()),
-        };
-      })
-    );
-
-    const icoBuffer = icor.compileIco(images);
-    const icoData = new Uint8Array(icoBuffer);
-
-    // Call Rust command with snake_case argument name
-    await invoke("pick_folder_and_save_icon", {
-      name: name,
-      data: Array.from(icoData),
-    });
-
-    return true;
-  } catch (error) {
-    console.error("ICO creation failed:", error);
-    alert("Error saving ICO file - check console for details");
-    throw error;
-  }
-};
-
 const downloadIconSize = (size, name = "folder") => {
   const canvas = document.getElementById(`folder-${size}`);
   const link = document.createElement("a");
@@ -156,11 +68,11 @@ const downloadIconsZip = async (name = "folder") => {
       if (!canvas) return;
 
       const blob = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/png")
+        canvas.toBlob(resolve, "image/png"),
       );
 
       zip.file(`${name}-${size}.png`, blob, { compression: "STORE" });
-    })
+    }),
   );
 
   zip.generateAsync({ type: "blob" }).then((blob) => {

@@ -1,6 +1,6 @@
 {
   "name": "flared-folders",
-  "version": "2.4.0.4",
+  "version": "2.4.0.5",
   "description": "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.",
   "author": {
     "name": "Ethan Hazel",
@@ -18,20 +18,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.6.1",
+    "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.49.8",
-    "@tauri-apps/api": "^2.5.0",
-    "@tauri-apps/plugin-dialog": "^2.2.2",
-    "@tauri-apps/plugin-fs": "^2.3.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "dotenv": "^16.5.0",
+    "dotenv": "^17.2.3",
     "downscale": "^1.0.6",
     "fs": "^0.0.1-security",
     "icor": "^1.0.2",
     "jszip": "^3.10.1",
-    "lucide-react": "^0.556.0",
-    "next": "^15.3.5",
+    "lucide-react": "^0.563.0",
+    "next": "^16.1.5",
     "next-intl": "^4.1.0",
     "node-emoji": "^2.2.0",
     "path": "^0.12.7",
@@ -42,8 +39,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tauri-apps/cli": "^2.5.0",
     "eslint": "^9",
-    "eslint-config-next": "15.3.1"
+    "eslint-config-next": "^16.1.5"
   }
 }
