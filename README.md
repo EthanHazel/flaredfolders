@@ -84,6 +84,8 @@ Before proceeding make sure your `.ICO` file is saved somewhere that is safe. Th
 6. Navigate and select your `.ICO` file
 7. Click `Ok` to both windows to save and close
 
+<br />
+
 ## Quick Start
 
 1. Clone the repository:
