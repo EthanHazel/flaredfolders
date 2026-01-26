@@ -1,13 +1,6 @@
 import "@/styles/inputs/buttons.css";
 
-export default function IconButton({
-  onClick,
-  icon,
-  href,
-  target,
-  label,
-  className,
-}) {
+export default function IconButton({ onClick, icon, href, target, label }) {
   return (
     <a className="icon-button" href={href} target={target} onClick={onClick}>
       {icon}

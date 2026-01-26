@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { folderConfigStore } from "@/stores/folder-config";
 import credits from "@/stores/credits.json";
 
 import { siKofi } from "simple-icons";
@@ -12,9 +11,7 @@ import "@/styles/layout/kofi.css";
 
 export default function Kofi() {
   const [open, setOpen] = useState(true);
-  const folderType = folderConfigStore((state) => state.folderType);
   const t = useTranslations("donation");
-  const user = "@unclecomrade";
 
   return (
     <div id="kofi" className={open ? "" : "closed"}>
