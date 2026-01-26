@@ -54,11 +54,11 @@ export const folderConfigStore = create((set) => ({
 
   shadowColor: "#000000",
   setShadowColor: (color) => set({ shadowColor: color }),
-  shadowOpacity: 15,
+  shadowOpacity: 10,
   setShadowOpacity: (opacity) => set({ shadowOpacity: opacity }),
   shadowBlur: 10,
   setShadowBlur: (blur) => set({ shadowBlur: blur }),
-  shadowOffset: [0, 0],
+  shadowOffset: [0, 10],
   setShadowOffset: (offset) => set({ shadowOffset: offset }),
 }));
 
