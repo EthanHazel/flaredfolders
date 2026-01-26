@@ -1,19 +1,19 @@
 :root {
-  --lm-bg: #fff;
-  --lm-bg-accent: #f9fafc;
-  --lm-text: #1f2937;
-  --lm-accent: #e5e7eb;
-  --lm-secondary: #bec3cf;
-  --lm-tertiary: #767681;
-  --lm-quaternary: #5e5e6c;
+  --lm-bg: #faf8f8;
+  --lm-bg-accent: #ececef;
+  --lm-accent: #cbcdd2;
+  --lm-secondary: #969ba8;
+  --lm-tertiary: #525260;
+  --lm-quaternary: #2f2f3d;
+  --lm-text: #11171f;
 
   --dm-bg: #000000;
-  --dm-bg-accent: #060606;
-  --dm-text: #d2d2d2;
-  --dm-accent: #111111;
-  --dm-secondary: #3a3a3a;
-  --dm-tertiary: #6d6d6d;
-  --dm-quaternary: #9d9d9d;
+  --dm-bg-accent: #111111;
+  --dm-accent: #292929;
+  --dm-secondary: #4a4a4a;
+  --dm-tertiary: #9d9d9d;
+  --dm-quaternary: #d2d2d2;
+  --dm-text: #ffffff;
 
   --bg: var(--lm-bg);
   --bg-accent: var(--lm-bg-accent);
