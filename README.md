@@ -1,4 +1,4 @@
-<p align="center"><img src="/public/images/meta/favicon/favicon.ico" /></p>
+<p align="center"><img src="/public/images/meta/favicon/favicon.ico" style="width:128px;height:128px;"  /></p>
 <h1 align="center">FlaredFolders</h1>
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
 <p align="center">Currently live at <b><a href="https://www.flaredfolders.com/">www.flaredfolders.com</b></a></p>
@@ -38,18 +38,6 @@
 - **Resolution Support**:
   `16x16 → 512x512` (Native scaling for all platforms)
 
-### Exports For Each Size
-
-> Sizes greater than 64x64 not shown due to sizing
-
-| Size    | Windows 11 Box                                                        | Windows 11                                                        | Windows 11 Folder Only                                                   | Windows 10                                                        | Windows 10 Folder Only                                                   | Icon Only                                                        |
-| ------- | --------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| `64x64` | <img src="/.github/images/formats/win11-box/64.png" align="center" /> | <img src="/.github/images/formats/win11/64.png" align="center" /> | <img src="/.github/images/formats/win11-folder/64.png" align="center" /> | <img src="/.github/images/formats/win10/64.png" align="center" /> | <img src="/.github/images/formats/win10-folder/64.png" align="center" /> | <img src="/.github/images/formats/icon/64.png" align="center" /> |
-| `48x48` | <img src="/.github/images/formats/win11-box/48.png" align="center" /> | <img src="/.github/images/formats/win11/48.png" align="center" /> | <img src="/.github/images/formats/win11-folder/48.png" align="center" /> | <img src="/.github/images/formats/win10/48.png" align="center" /> | <img src="/.github/images/formats/win10-folder/48.png" align="center" /> | <img src="/.github/images/formats/icon/48.png" align="center" /> |
-| `32x32` | <img src="/.github/images/formats/win11-box/32.png" align="center" /> | <img src="/.github/images/formats/win11/32.png" align="center" /> | <img src="/.github/images/formats/win11-folder/32.png" align="center" /> | <img src="/.github/images/formats/win10/32.png" align="center" /> | <img src="/.github/images/formats/win10-folder/32.png" align="center" /> | <img src="/.github/images/formats/icon/32.png" align="center" /> |
-| `24x24` | <img src="/.github/images/formats/win11-box/24.png" align="center" /> | <img src="/.github/images/formats/win11/24.png" align="center" /> | <img src="/.github/images/formats/win11-folder/24.png" align="center" /> | <img src="/.github/images/formats/win10/24.png" align="center" /> | <img src="/.github/images/formats/win10-folder/24.png" align="center" /> | <img src="/.github/images/formats/icon/24.png" align="center" /> |
-| `16x16` | <img src="/.github/images/formats/win11-box/16.png" align="center" /> | <img src="/.github/images/formats/win11/16.png" align="center" /> | <img src="/.github/images/formats/win11-folder/16.png" align="center" /> | <img src="/.github/images/formats/win10/16.png" align="center" /> | <img src="/.github/images/formats/win10-folder/16.png" align="center" /> | <img src="/.github/images/formats/icon/16.png" align="center" /> |
-
 ### Export Formats
 
 | Format | Support                                |
@@ -57,6 +45,20 @@
 | `.ico` | Native Windows Use                     |
 | `.png` | Specific sized icon                    |
 | `.zip` | Package containing all sizes as `.png` |
+
+### Exports For Each Size
+
+When exporting as an `.ico` it will render the design for each size. There are option for which style you would like your folder to be rendered in when at smaller sizes.
+
+> Sizes greater than 64x64 not shown on table due to sizing.
+
+| Size    | Win11Box                                                                     | Win11                                                                | Win11Folder                                                                        | Win10                                                                | Win10Folder                                                                        | Icon                                                               |
+| ------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `64x64` | <p align="center">![win11-box](/.github/images/formats/win11-box/64.png)</p> | <p align="center">![win11](/.github/images/formats/win11/64.png)</p> | <p align="center">![win11-folder](/.github/images/formats/win11-folder/64.png)</p> | <p align="center">![win10](/.github/images/formats/win10/64.png)</p> | <p align="center">![win10-folder](/.github/images/formats/win10-folder/64.png)</p> | <p align="center">![icon](/.github/images/formats/icon/64.png)</p> |
+| `48x48` | <p align="center">![win11-box](/.github/images/formats/win11-box/48.png)</p> | <p align="center">![win11](/.github/images/formats/win11/48.png)</p> | <p align="center">![win11-folder](/.github/images/formats/win11-folder/48.png)</p> | <p align="center">![win10](/.github/images/formats/win10/48.png)</p> | <p align="center">![win10-folder](/.github/images/formats/win10-folder/48.png)</p> | <p align="center">![icon](/.github/images/formats/icon/48.png)</p> |
+| `32x32` | <p align="center">![win11-box](/.github/images/formats/win11-box/32.png)</p> | <p align="center">![win11](/.github/images/formats/win11/32.png)</p> | <p align="center">![win11-folder](/.github/images/formats/win11-folder/32.png)</p> | <p align="center">![win10](/.github/images/formats/win10/32.png)</p> | <p align="center">![win10-folder](/.github/images/formats/win10-folder/32.png)</p> | <p align="center">![icon](/.github/images/formats/icon/32.png)</p> |
+| `24x24` | <p align="center">![win11-box](/.github/images/formats/win11-box/24.png)</p> | <p align="center">![win11](/.github/images/formats/win11/24.png)</p> | <p align="center">![win11-folder](/.github/images/formats/win11-folder/24.png)</p> | <p align="center">![win10](/.github/images/formats/win10/24.png)</p> | <p align="center">![win10-folder](/.github/images/formats/win10-folder/24.png)</p> | <p align="center">![icon](/.github/images/formats/icon/24.png)</p> |
+| `16x16` | <p align="center">![win11-box](/.github/images/formats/win11-box/16.png)</p> | <p align="center">![win11](/.github/images/formats/win11/16.png)</p> | <p align="center">![win11-folder](/.github/images/formats/win11-folder/16.png)</p> | <p align="center">![win10](/.github/images/formats/win10/16.png)</p> | <p align="center">![win10-folder](/.github/images/formats/win10-folder/16.png)</p> | <p align="center">![icon](/.github/images/formats/icon/16.png)</p> |
 
 <br />
 
