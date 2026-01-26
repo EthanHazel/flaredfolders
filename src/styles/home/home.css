@@ -36,12 +36,17 @@ html {
   box-sizing: border-box;
   backdrop-filter: blur(1rem);
   border-radius: 0.5rem;
-  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  transition:
+    outline 0.125s ease-in-out,
+    background-color 0.125s ease-in-out,
+    box-shadow 0.125s ease-in-out;
+  background-color: var(--bg-trans);
 }
 
 #home-nav-container.scrolled {
-  box-shadow: var(--accent) 0 0 1rem 0;
-  border: 1px solid var(--accent);
+  box-shadow: rgba(128, 128, 128, 0.125) 0 0 1rem 0;
+  outline: 1px solid rgba(128, 128, 128, 0.25);
 }
 
 #home-nav-logo {
@@ -81,10 +86,9 @@ html {
   min-width: 2rem;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--accent);
+  outline: 1px solid rgba(128, 128, 128, 0.25);
   cursor: pointer;
   color: var(--text);
-  background-color: var(--bg);
 }
 
 .home-nav-icon-button svg {
@@ -96,11 +100,16 @@ html {
 .home-nav-icon-button select {
   padding: 0.5rem;
   border: none;
-  background: var(--bg);
+  background: none;
   cursor: pointer;
   color: var(--text);
   margin-left: -0.5rem;
   margin-right: 0.25rem;
+}
+
+.home-nav-icon-button select option {
+  background: var(--bg);
+  color: var(--text);
 }
 
 .home-nav-button {
@@ -130,11 +139,8 @@ html {
   border-radius: 0.5rem;
   border: 1px solid var(--accent);
   background-size: 2rem 2rem;
-  background-image: linear-gradient(
-      to right,
-      var(--bg-accent) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, var(--bg-accent) 1px, transparent 1px),
     linear-gradient(to bottom, var(--bg-accent) 1px, transparent 1px);
   background-position: center center;
   box-shadow: var(--bg-accent) 0 0 4rem 0;

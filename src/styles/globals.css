@@ -1,5 +1,6 @@
 :root {
   --lm-bg: #faf8f8;
+  --lm-bg-trans: rgb(250, 248, 248, 0.5);
   --lm-bg-accent: #ececef;
   --lm-accent: #cbcdd2;
   --lm-secondary: #969ba8;
@@ -8,6 +9,7 @@
   --lm-text: #11171f;
 
   --dm-bg: #000000;
+  --dm-bg-trans: rgba(0, 0, 0, 0.5);
   --dm-bg-accent: #111111;
   --dm-accent: #292929;
   --dm-secondary: #4a4a4a;
@@ -16,6 +18,7 @@
   --dm-text: #ffffff;
 
   --bg: var(--lm-bg);
+  --bg-trans: var(--lm-bg-trans);
   --bg-accent: var(--lm-bg-accent);
   --text: var(--lm-text);
   --accent: var(--lm-accent);
@@ -31,6 +34,7 @@
 
 body.dark {
   --bg: var(--dm-bg);
+  --bg-trans: var(--dm-bg-trans);
   --bg-accent: var(--dm-bg-accent);
   --text: var(--dm-text);
   --accent: var(--dm-accent);
