@@ -103,15 +103,15 @@ export default function Home() {
           <DownloadCounter />
           <div className="home-links other">
             <span className="home-links-buttons">
-              <a onClick={gotoEditor} className="home-link primary">
-                {t("online")}
-              </a>
               <a
                 href="https://github.com/EthanHazel/flaredfolders"
                 className="home-link secondary"
                 target="_blank"
               >
                 {t("source")}
+              </a>
+              <a onClick={gotoEditor} className="home-link primary">
+                {t("online")}
               </a>
             </span>
           </div>

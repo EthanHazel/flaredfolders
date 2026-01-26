@@ -2,12 +2,12 @@ import { NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-const intlMiddleware = createIntlMiddleware({
+const intlProxy = createIntlMiddleware({
   ...routing,
   localeDetection: true,
 });
 
-export default function middleware(request) {
+export default function proxy(request) {
   // Extract user agent string
   const userAgent = request.headers.get("user-agent") || "";
 
@@ -38,7 +38,7 @@ export default function middleware(request) {
     headers: headers,
   });
 
-  return intlMiddleware(newRequest);
+  return intlProxy(newRequest);
 }
 
 export const config = {
