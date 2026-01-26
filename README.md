@@ -69,10 +69,8 @@ When exporting as an `.ico` it will render the design for each size. There are o
 [**QuickFlair**](https://github.com/EthanHazel/quickflair) is a sister project designed for windows that makes it much easier to apply `.ico` files to any folder. It also comes preinstalled with basic colors that you can use quickly.
 
 <a href="https://github.com/EthanHazel/quickflair/releases/">
-  <button style="background-color:#4CAF50;border-radius:5px;padding:10px 20px;color:white;">
     <img src="/.github/images/quickflair.ico" style="width:48px;height:48px;"  />
-    Download QuickFlair
-  </button>
+    <h2 style="display:inline;margin:0px 0px 24px 24px;">Download QuickFlair</h2>
 </a>
 
 ## Quick Start
