@@ -1,5 +1,5 @@
-<p align="center"><img src="/.github/images/logo.png" /></p>
-
+<p align="center"><img src="/public/images/meta/favicon/favicon.ico" /></p>
+<h1 align="center">FlaredFolders</h1>
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
 <p align="center">Currently live at <b><a href="https://www.flaredfolders.com/">www.flaredfolders.com</b></a></p>
 
@@ -16,15 +16,15 @@
 
 <p align="center"><img src="/.github/images/showcase.png" /></p>
 
-## ✨ Features
+## Features
 
-### 🌍 Supported Styles
+### Supported Styles
 
 - Windows 11
 - Windows 10
 - Icon Only
 
-### 🎚️ Customization Options
+### Customization Options
 
 - **Backgrounds**:
   - Gradient blends
@@ -33,21 +33,34 @@
 - **Icon Libraries**:
   - Generic icons via [Lucide](https://lucide.dev)
   - Brand icons via [Simple Icons](https://simpleicons.org/)
-  - Emoji
+  - Emojis
   - Custom upload
 - **Resolution Support**:
   `16x16 → 512x512` (Native scaling for all platforms)
 
-### 📤 Export Formats
+### Exports For Each Size
 
-| Format | Support            |
-| ------ | ------------------ |
-| `.ico` | Native Windows Use |
-| `.png` | General Use        |
+> Sizes greater than 64x64 not shown due to sizing
+
+| Size    | Windows 11 Box                                                        | Windows 11                                                        | Windows 11 Folder Only                                                   | Windows 10                                                        | Windows 10 Folder Only                                                   | Icon Only                                                        |
+| ------- | --------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `64x64` | <img src="/.github/images/formats/win11-box/64.png" align="center" /> | <img src="/.github/images/formats/win11/64.png" align="center" /> | <img src="/.github/images/formats/win11-folder/64.png" align="center" /> | <img src="/.github/images/formats/win10/64.png" align="center" /> | <img src="/.github/images/formats/win10-folder/64.png" align="center" /> | <img src="/.github/images/formats/icon/64.png" align="center" /> |
+| `48x48` | <img src="/.github/images/formats/win11-box/48.png" align="center" /> | <img src="/.github/images/formats/win11/48.png" align="center" /> | <img src="/.github/images/formats/win11-folder/48.png" align="center" /> | <img src="/.github/images/formats/win10/48.png" align="center" /> | <img src="/.github/images/formats/win10-folder/48.png" align="center" /> | <img src="/.github/images/formats/icon/48.png" align="center" /> |
+| `32x32` | <img src="/.github/images/formats/win11-box/32.png" align="center" /> | <img src="/.github/images/formats/win11/32.png" align="center" /> | <img src="/.github/images/formats/win11-folder/32.png" align="center" /> | <img src="/.github/images/formats/win10/32.png" align="center" /> | <img src="/.github/images/formats/win10-folder/32.png" align="center" /> | <img src="/.github/images/formats/icon/32.png" align="center" /> |
+| `24x24` | <img src="/.github/images/formats/win11-box/24.png" align="center" /> | <img src="/.github/images/formats/win11/24.png" align="center" /> | <img src="/.github/images/formats/win11-folder/24.png" align="center" /> | <img src="/.github/images/formats/win10/24.png" align="center" /> | <img src="/.github/images/formats/win10-folder/24.png" align="center" /> | <img src="/.github/images/formats/icon/24.png" align="center" /> |
+| `16x16` | <img src="/.github/images/formats/win11-box/16.png" align="center" /> | <img src="/.github/images/formats/win11/16.png" align="center" /> | <img src="/.github/images/formats/win11-folder/16.png" align="center" /> | <img src="/.github/images/formats/win10/16.png" align="center" /> | <img src="/.github/images/formats/win10-folder/16.png" align="center" /> | <img src="/.github/images/formats/icon/16.png" align="center" /> |
+
+### Export Formats
+
+| Format | Support                                |
+| ------ | -------------------------------------- |
+| `.ico` | Native Windows Use                     |
+| `.png` | Specific sized icon                    |
+| `.zip` | Package containing all sizes as `.png` |
 
 <br />
 
-## 🚀 Quick Start
+## Quick Start
 
 1. Clone the repository:
 
@@ -69,21 +82,21 @@ npm run dev
 
 <br />
 
-## 🌐 Community Translations
+## Community Translations
 
-Help us make Flared Folders more accessible! Here's how to contribute translations:
+Help us make FlaredFolders more accessible. Here's how to contribute translations:
 
 1. Navigate to `src/locales`
 2. Duplicate `en.json`
 3. Rename to your [locale code](https://www.localeplanet.com/icu/)
 4. Translate all string values
-5. Submit a PR!
+5. Submit a PR
 
 <br />
 
-## 🤝 Contributing
+## Contributing
 
-We welcome all contributions! Please:
+We welcome all contributions. To contribute, please do the following:
 
 1. Fork the repository
 2. Create your feature branch
@@ -102,13 +115,13 @@ We welcome all contributions! Please:
 
 <br />
 
-## 📄 License
+## License
 
-This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html) file for details.
+This project is licensed under the **GNU General Public License v3.0** - see the LICENSE file for details.
 
 <br />
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Icon sets provided by [Lucide](https://lucide.dev) and [Simple Icons](https://simpleicons.org/)
 - Built with [Next.js](https://nextjs.org/)
