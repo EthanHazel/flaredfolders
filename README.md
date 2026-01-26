@@ -42,9 +42,9 @@
 
 | Format | Support                                |
 | ------ | -------------------------------------- |
-| `.ico` | Native Windows Use                     |
-| `.png` | Specific sized icon                    |
-| `.zip` | Package containing all sizes as `.png` |
+| `.ICO` | Native Windows Use                     |
+| `.PNG` | Specific sized icon                    |
+| `.ZIP` | Package containing all sizes as `.png` |
 
 ### Exports For Each Size
 
@@ -62,15 +62,27 @@ When exporting as an `.ico` it will render the design for each size. There are o
 
 <br />
 
-## Applying `.ico` files
+## Applying `.ICO` files
 
-1. Using QuickFlair
+### With QuickFlair
 
 [**QuickFlair**](https://github.com/EthanHazel/quickflair) is a sister project designed for windows that makes it much easier to apply `.ico` files to any folder. It also comes preinstalled with basic colors that you can use quickly.
 
 <a href="https://github.com/EthanHazel/quickflair/releases/">
     <img src="/.github/images/download-qf.png" />
 </a>
+
+### Without QuickFlair
+
+Before proceeding make sure your `.ICO` file is saved somewhere that is safe. The folder will link itself to that file location and won't update when moved or deleted.
+
+1. Right click your folder of choice
+2. Click `Properties`
+3. Go to the `Customize` tab
+4. Click `Change Icon...`
+5. Click the `Browse...` button
+6. Navigate and select your `.ICO` file
+7. Click `Ok` to both windows to save and close
 
 ## Quick Start
 
