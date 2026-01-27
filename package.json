@@ -12,6 +12,7 @@
   "homepage": "https://www.flaredfolders.com/",
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "node scripts/generate-licenses.js",
     "build": "next build",
     "start": "next start",
     "tauri": "tauri",
