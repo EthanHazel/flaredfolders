@@ -14,9 +14,11 @@ export default async function LicensesPage() {
 
       <div id="licenses-list">
         {Object.entries(licenses).map(([name, info]) => {
+          /*
           if (info.licenseFile) {
             info.licenseText = fs.readFileSync(info.licenseFile, "utf8");
           }
+            */
           return (
             <section key={name}>
               <h2>{name}</h2>
