@@ -4,11 +4,11 @@ export const folderConfigStore = create((set) => ({
   // "linear-gradient", "solid", "original"
   colorType: "linear-gradient",
   setColorType: (colorType) => set({ colorType }),
-  gradientStartColor: "#a46dfe",
+  gradientStartColor: "#AEECFB",
   setGradientStartColor: (color) => set({ gradientStartColor: color }),
-  gradientEndColor: "#5a37ff",
+  gradientEndColor: "#081AA1",
   setGradientEndColor: (color) => set({ gradientEndColor: color }),
-  solidColor: "#ff7575",
+  solidColor: "#CA4E0B",
   setSolidColor: (color) => set({ solidColor: color }),
 
   // "sqaureAndIcon", "folderAndIcon", "folderOnly", "iconOnly"
@@ -23,7 +23,7 @@ export const folderConfigStore = create((set) => ({
   iconType: "lucide",
   setIconType: (type) => set({ iconType: type }),
 
-  lucideSlug: "Import",
+  lucideSlug: "Squirrel",
   setLucideSlug: (slug) => set({ lucideSlug: slug }),
   lucideStrokeWidth: 1.5,
   setLucideStrokeWidth: (width) => set({ lucideStrokeWidth: width }),
@@ -54,11 +54,11 @@ export const folderConfigStore = create((set) => ({
 
   shadowColor: "#000000",
   setShadowColor: (color) => set({ shadowColor: color }),
-  shadowOpacity: 15,
+  shadowOpacity: 10,
   setShadowOpacity: (opacity) => set({ shadowOpacity: opacity }),
   shadowBlur: 10,
   setShadowBlur: (blur) => set({ shadowBlur: blur }),
-  shadowOffset: [0, 0],
+  shadowOffset: [0, 10],
   setShadowOffset: (offset) => set({ shadowOffset: offset }),
 }));
 

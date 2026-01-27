@@ -13,7 +13,8 @@ out/
 .DS_Store
 __MACOSX/
 
-# Windows
+# QuickFlair
+flair.ico
 desktop.ini
 
 # IDEs and Editors
@@ -25,9 +26,9 @@ desktop.ini
 *.sln
 *.sw?
 
-# Tauri
-1.0.0
-
 # Env variables
 .env
 .env.local
+
+# Licenses
+src/stores/licenses.json

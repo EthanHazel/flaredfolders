@@ -34,7 +34,7 @@ export default function Credits() {
                 Accept: "application/vnd.github+json",
                 "X-GitHub-Api-Version": "2022-11-28",
               },
-            }
+            },
           );
 
           if (!response.ok)
@@ -43,7 +43,7 @@ export default function Credits() {
           const data = await response.json();
           allContributors = [...allContributors, ...data];
           allContributors = allContributors.filter(
-            (contributor) => contributor.login !== "EthanHazelSchool"
+            (contributor) => contributor.login !== "EthanHazelSchool",
           );
           hasMore = data.length === 100;
           page++;
@@ -75,7 +75,7 @@ export default function Credits() {
               console.error(`Error loading ${lang} locale:`, err);
               return null;
             }
-          })
+          }),
         );
 
         const validTranslations = translationsData.filter(Boolean);
@@ -193,6 +193,12 @@ export default function Credits() {
           {Credit.specialThanks.map((item, index) => (
             <div key={index}>{item}</div>
           ))}
+        </div>
+      </div>
+      <div className="credit">
+        <div className="credit-header">{t("legal")}</div>
+        <div className="credit-content">
+          <a href="/licenses">{t("licenses")}</a>
         </div>
       </div>
     </div>

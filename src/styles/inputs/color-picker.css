@@ -1,0 +1,33 @@
+.color-picker {
+  display: none;
+  width: 75%;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  border: 1px solid var(--secondary);
+  background-color: var(--bg-accent);
+  overflow: hidden;
+}
+
+.color-picker.visible {
+  display: grid;
+}
+
+.color-picker-color {
+  aspect-ratio: 1;
+  cursor: pointer;
+  outline: 0px solid var(--bg-accent);
+  outline-offset: 0px;
+  transition: outline-offset 0.05s;
+}
+
+.color-picker-color:hover {
+  outline: 2px solid var(--bg-accent);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.color-picker-color.selected {
+  outline: 2px solid white;
+  border: 2px solid black;
+  z-index: 1;
+}
