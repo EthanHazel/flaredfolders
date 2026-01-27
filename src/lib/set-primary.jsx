@@ -45,15 +45,15 @@ function mixColors(color1, color2) {
     const totalWeight = 299 + 587 + 114;
     finalR = Math.min(
       255,
-      finalR + Math.ceil(((299 / totalWeight) * needed) / 299)
+      finalR + Math.ceil(((299 / totalWeight) * needed) / 299),
     );
     finalG = Math.min(
       255,
-      finalG + Math.ceil(((587 / totalWeight) * needed) / 587)
+      finalG + Math.ceil(((587 / totalWeight) * needed) / 587),
     );
     finalB = Math.min(
       255,
-      finalB + Math.ceil(((114 / totalWeight) * needed) / 114)
+      finalB + Math.ceil(((114 / totalWeight) * needed) / 114),
     );
   } else if (
     actualBrightness > clampedBrightness &&
@@ -63,15 +63,15 @@ function mixColors(color1, color2) {
     const totalWeight = 299 + 587 + 114;
     finalR = Math.max(
       0,
-      finalR - Math.ceil(((299 / totalWeight) * excess) / 299)
+      finalR - Math.ceil(((299 / totalWeight) * excess) / 299),
     );
     finalG = Math.max(
       0,
-      finalG - Math.ceil(((587 / totalWeight) * excess) / 587)
+      finalG - Math.ceil(((587 / totalWeight) * excess) / 587),
     );
     finalB = Math.max(
       0,
-      finalB - Math.ceil(((114 / totalWeight) * excess) / 114)
+      finalB - Math.ceil(((114 / totalWeight) * excess) / 114),
     );
   }
 

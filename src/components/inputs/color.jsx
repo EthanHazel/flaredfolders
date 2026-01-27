@@ -1,43 +1,43 @@
-import { useEffect, useState } from "react";
-
-import ColorPicker from "./color-picker";
+import { useRef, useEffect, useState } from "react";
 
 import "@/styles/inputs/color.css";
 
-export default function Color({ defaultColor, onChange, label }) {
+export default function Color({ defaultColor, onChange, id, name, label }) {
+  const colorInput = useRef(null);
   const [fakeColor, setFakeColor] = useState(defaultColor);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setFakeColor(defaultColor);
   }, [defaultColor]);
 
-  function handleChange(color) {
-    setFakeColor(color);
-    onChange(color);
-  }
+  const handleChange = (event) => {
+    setFakeColor(event.target.value);
+    onChange(event);
+  };
 
   const handleClick = () => {
-    setVisible(!visible);
+    colorInput.current.click();
   };
 
   return (
-    <>
-      <div className="color" onClick={handleClick}>
-        <span className="color-left">
-          <span
-            className="color-fake-input"
-            style={{ backgroundColor: fakeColor }}
-          ></span>
-          <span className="color-label">{label}</span>
-        </span>
-        <span className="color-value">{fakeColor}</span>
-      </div>
-      <ColorPicker
-        change={handleChange}
-        defaultColor={defaultColor}
-        visible={visible}
-      />
-    </>
+    <div className="color" onClick={handleClick}>
+      <span className="color-left">
+        <input
+          type="color"
+          value={fakeColor}
+          onChange={handleChange}
+          className="color-input"
+          id={id}
+          name={name}
+          ref={colorInput}
+        />
+        <span
+          className="color-fake-input"
+          style={{ backgroundColor: fakeColor }}
+        ></span>
+        <span className="color-label">{label}</span>
+      </span>
+      <span className="color-value">{fakeColor}</span>
+    </div>
   );
 }

@@ -20,7 +20,8 @@ export default function ColorStyles({ colorId = 0 }) {
 
   const [color, setColor] = useState(colors[colorId]);
 
-  function updateColor(newColor) {
+  const updateColor = (event) => {
+    const newColor = event.target.value;
     setColor(newColor);
     switch (colorId) {
       case 0:
@@ -47,7 +48,7 @@ export default function ColorStyles({ colorId = 0 }) {
       default:
         break;
     }
-  }
+  };
 
   return (
     <Color
