@@ -2,6 +2,9 @@
 
 > Stuff I gotta do, or you can too if you want (prob not, there's no contributors rn lmao)
 
+2.4.0.6
+
+- QuickFlair page
 - Optimize styling
   - Fix components using styling from other style sheets
 - Rename and create components
