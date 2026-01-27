@@ -81,7 +81,9 @@
     "special": "Special thanks:",
     "donators": "Donators:",
     "contributors": "Contributors:",
-    "help": "Want to help translate? %Help us out!%"
+    "help": "Want to help translate? %Help us out!%",
+    "legal": "Legal:",
+    "licenses": "Licenses"
   },
   "download": {
     "counter": "folders downloaded wordwide!",
@@ -103,12 +105,6 @@
   "donation": {
     "front": "Presented by Ko-fi donators like ",
     "back": ". Thank you!"
-  },
-  "firefox": {
-    "title": "Attention Firefox user!",
-    "content1": "Icon scaling in Firefox is currently bugged, and scaled down icons will be rendered with a more pixelated look to them. This is an issue with Firefox not currently supporting the imageSmoothing property on Canvas.",
-    "content2": "Until Firefox implements this, or there's a work around found, I recommend using a Chromium based browser.",
-    "content3": "Sorry for the inconvenience :("
   },
   "modal": {
     "close": "Close"

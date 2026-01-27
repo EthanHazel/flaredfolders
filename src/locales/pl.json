@@ -81,7 +81,9 @@
     "special": "Szczególne podziękowania:",
     "donators": "Wspierający:",
     "contributors": "Współtwórcy:",
-    "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%"
+    "help": "Chcesz pomóc w tłumaczeniu? %Pomóż nam!%",
+    "legal": "Prawne:",
+    "licenses": "Licencje"
   },
   "download": {
     "counter": "pobranych folderów na całym świecie!",
@@ -103,12 +105,6 @@
   "donation": {
     "front": "Prezentowane dzięki darczyńcom Ko-fi, takim jak ",
     "back": ". Dziękujemy!"
-  },
-  "firefox": {
-    "title": "Uwaga użytkowniku Firefoxa!",
-    "content1": "Skalowanie ikon w Firefoxie jest obecnie błędne, a pomniejszone ikony wyglądają bardziej pikselowo. Jest to problem z brakiem obsługi właściwości imageSmoothing na Canvas przez Firefox.",
-    "content2": "Dopóki Firefox tego nie naprawi lub nie znajdzie się obejście, zalecam korzystanie z przeglądarki opartej na Chromium.",
-    "content3": "Przepraszamy za niedogodności :("
   },
   "modal": {
     "close": "Zamknij"

@@ -81,7 +81,9 @@
     "special": "Danksagungen:",
     "donators": "Spender:",
     "contributors": "Mitwirkende:",
-    "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%"
+    "help": "Du möchtest beim Übersetzen helfen? %Steig mit ein!%",
+    "legal": "Rechtliches:",
+    "licenses": "Lizenzen"
   },
   "download": {
     "counter": "ordner weltweit heruntergeladen!",
@@ -103,12 +105,6 @@
   "donation": {
     "front": "Präsentiert von Ko-fi-Spendern wie ",
     "back": ". Danke!"
-  },
-  "firefox": {
-    "title": "Firefox-Nutzer aufgepasst!",
-    "content1": "Symbol-Skalierung in Firefox ist zurzeit fehlerhaft, und kleiner skalierte Symbole werden mit einer pixeligen Auflösung gerendert. Das ist ein Fehler seitens FIrefox, da die imageSmoothing-Eigenschaft in canvas aktuell nicht unterstützt wird.",
-    "content2": "Bis der Fehler von Firefox behoben oder ein Umweg gefunden wird, empfehle ich Chromium-basierte Browser.",
-    "content3": "Sorry für die Mühen :("
   },
   "modal": {
     "close": "Schließen"
