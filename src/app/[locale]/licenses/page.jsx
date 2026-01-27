@@ -7,7 +7,19 @@ import Navbar from "@/components/home/navbar";
 import "@/styles/licenses.css";
 import "@/styles/home/home.css";
 
+async function getPackageJsonDeps() {
+  const pkgPath = path.join(process.cwd(), "package.json");
+  const pkg = JSON.parse(await fs.readFile(pkgPath, "utf8"));
+
+  return new Set([
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.optionalDependencies || {}),
+  ]);
+}
+
 async function getLicensesWithText() {
+  const allowedDeps = await getPackageJsonDeps();
+
   return new Promise((resolve, reject) => {
     checker.init(
       {
@@ -20,12 +32,16 @@ async function getLicensesWithText() {
 
         const result = {};
 
-        for (const [name, info] of Object.entries(packages)) {
+        for (const [fullName, info] of Object.entries(packages)) {
+          const pkgName = fullName.split("@")[0];
+
+          if (!allowedDeps.has(pkgName)) continue;
+
           let licenseText = null;
 
           if (
             info.licenseFile &&
-            path.basename(info.licenseFile) !== "README.md"
+            path.basename(info.licenseFile).toLowerCase() !== "readme.md"
           ) {
             try {
               licenseText = await fs.readFile(
@@ -37,7 +53,7 @@ async function getLicensesWithText() {
             }
           }
 
-          result[name] = {
+          result[fullName] = {
             ...info,
             licenseText,
           };
