@@ -1,10 +1,10 @@
 import licenses from "@/stores/licenses.json";
 import Navbar from "@/components/home/navbar";
-import fs from "fs";
+import ReactMarkdown from "react-markdown"; // import
 import "@/styles/licenses.css";
 import "@/styles/home/home.css";
 
-export default async function LicensesPage() {
+export default function LicensesPage() {
   return (
     <div id="licenses">
       <Navbar />
@@ -14,26 +14,15 @@ export default async function LicensesPage() {
 
       <div id="licenses-list">
         {Object.entries(licenses).map(([name, info]) => {
-          /*
-          if (info.licenseFile) {
-            info.licenseText = fs.readFileSync(info.licenseFile, "utf8");
-          }
-            */
           return (
-            <section key={name}>
+            <section key={name} className="license-section">
               <h2>{name}</h2>
-              <div>License: {info.licenses || "Unknown"}</div>
-
-              {info.repository && (
-                <div>
-                  <a href={info.repository} target="_blank" rel="noreferrer">
-                    Repository
-                  </a>
-                </div>
-              )}
+              <div>License: {info.license || "Unknown"}</div>
 
               {info.licenseText ? (
-                <pre className="license-text">{info.licenseText}</pre>
+                <div className="license-text">
+                  <ReactMarkdown>{info.licenseText}</ReactMarkdown>
+                </div>
               ) : (
                 <p className="license-unavailable">
                   License text not available.

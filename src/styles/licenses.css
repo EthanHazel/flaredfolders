@@ -68,6 +68,7 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .license-text {
@@ -80,8 +81,13 @@ html {
   background-color: var(--bg-accent);
   color: var(--text);
   width: 100%;
-  text-wrap: wrap;
-  word-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
+  font-family: monospace;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+}
+
+.license-text hr {
+  border: none;
+  border-top: 1px solid var(--accent);
+  margin: 0.5rem 0;
 }

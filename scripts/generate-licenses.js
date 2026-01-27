@@ -11,9 +11,11 @@ const OUT_PATH = path.join(ROOT, "src/stores/licenses.json");
 const LICENSE_FILES = [
   "LICENSE",
   "LICENSE.md",
+  "LICENSE.markdown",
   "LICENSE.txt",
   "LICENCE",
   "LICENCE.md",
+  "LICENCE.markdown",
   "LICENCE.txt",
 ];
 
@@ -27,9 +29,20 @@ function findLicenseFile(pkgDir) {
 
 function resolvePackageDir(pkgName) {
   try {
-    const pkgJsonPath = require.resolve(`${pkgName}/package.json`);
-    return path.dirname(pkgJsonPath);
-  } catch {
+    // Resolve the main entry of the package
+    let mainPath = require.resolve(pkgName);
+    let dir = path.dirname(mainPath);
+
+    // Walk up until we find package.json
+    while (!fs.existsSync(path.join(dir, "package.json"))) {
+      const parent = path.dirname(dir);
+      if (parent === dir) throw new Error("package.json not found");
+      dir = parent;
+    }
+
+    return dir;
+  } catch (e) {
+    console.error(`Failed to resolve ${pkgName}`, e);
     return null;
   }
 }
@@ -39,8 +52,6 @@ const pkg = JSON.parse(fs.readFileSync(PKG_PATH, "utf8"));
 const deps = {
   ...pkg.dependencies,
   ...pkg.optionalDependencies,
-  // include this if you want
-  // ...pkg.devDependencies,
 };
 
 const result = {};
@@ -50,6 +61,11 @@ for (const [name, versionRange] of Object.entries(deps)) {
 
   if (!dir) {
     console.warn(`Skipping ${name} (not resolvable)`);
+    continue;
+  }
+
+  if (name === "fs") {
+    console.warn(`Skipping ${name} (Security holding package)`);
     continue;
   }
 
@@ -63,10 +79,6 @@ for (const [name, versionRange] of Object.entries(deps)) {
   result[name] = {
     version: pkgJson.version,
     license: pkgJson.license || "Unknown",
-    repository:
-      typeof pkgJson.repository === "string"
-        ? pkgJson.repository
-        : pkgJson.repository?.url || null,
     licenseText,
   };
 }
