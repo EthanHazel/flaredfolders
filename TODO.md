@@ -2,9 +2,6 @@
 
 > Stuff I gotta do, or you can too if you want (prob not, there's no contributors rn lmao)
 
-## 2.4.1
-
-- New color picker
 - Optimize components
   - Fix the god awful folder render component
 - Add comments to code
@@ -12,25 +9,6 @@
 - Fix color bug
 - Write tests
   - Checking if locales all contain the correct amount of translations
-
-## 2.5 Launch
-
-- Desktop text fits locales
-- Update back end to be able to securely accept download increments without env vars bundled
-- Create updater for desktop client
-- Allow arguments like --path and --ico for applying flair, and also for opening an ico to apply
-- Success pop up for applying or saving
-- Fix primary color freaking out from saturated Blues to Greens
-- Custom color picker window
-- Icon picker for Lucide and SimpleIcons based on the emoji picker
-- proper 404 page
-
-## Foreseeable Future
-
-- Add privacy policy (remember language varients)
-- Changelog with maybe it showing this exact md file for planned stuff
-- Better UI for uploading an icon (drag and drop UI maybe)
-- Folder image background instead of color
-- Redo panel toggle to show a comparison to the default folder for each size option
-- Allow desktop version to apply .ICO files by opening them with the icon (doesn't have to be a FF one)
-- Rework folder-render to be less bloated by splitting functions into other files and include documentation on how it works
+- Have an update script
+  - Update lucide and simpleicons
+  - Fetch their licenses

@@ -1,12 +1,10 @@
 import { folderConfigStore } from "@/stores/folder-config";
 import packageJson from "../../package.json";
 
-import "@/styles/logo.css";
-
 export default function Logo() {
   const colorType = folderConfigStore((state) => state.colorType);
   const gradientStartColor = folderConfigStore(
-    (state) => state.gradientStartColor
+    (state) => state.gradientStartColor,
   );
   const gradientEndColor = folderConfigStore((state) => state.gradientEndColor);
   const solidColor = folderConfigStore((state) => state.solidColor);
@@ -59,9 +57,9 @@ export default function Logo() {
             />
           </svg>
         </span>
-        <h1 className="header-title">FlaredFolders</h1>
+        <h1 className="header-logo-title">FlaredFolders</h1>
       </a>
-      <span className="header-version">{version}</span>
+      <span className="header-logo-version">{version}</span>
     </div>
   );
 }
