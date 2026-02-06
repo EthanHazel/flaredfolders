@@ -1,7 +1,6 @@
 "use client";
 
-// Icor was born here!
-import icor from "icor";
+import icoEndec from "ico-endec";
 import JSZip from "jszip";
 import { Buffer } from "buffer";
 
@@ -11,7 +10,7 @@ if (typeof window !== "undefined") {
 
 const downloadIco = async (name = "folder") => {
   try {
-    const canvasIds = [512, 256, 128, 96, 72, 64, 48, 32, 24, 16];
+    const canvasIds = [256, 128, 96, 72, 64, 48, 32, 24, 16];
     const canvases = canvasIds
       .map((id) => document.getElementById(`folder-${id}`))
       .filter((canvas) => !!canvas);
@@ -22,15 +21,11 @@ const downloadIco = async (name = "folder") => {
           canvas.toBlob(resolve, "image/png"),
         );
         const buffer = await blob.arrayBuffer();
-        return {
-          width: canvas.width,
-          height: canvas.height,
-          data: Buffer.from(buffer),
-        };
+        return buffer;
       }),
     );
 
-    const icoBuffer = icor.compileIco(images);
+    const icoBuffer = icoEndec.encode(images);
     const blob = new Blob([icoBuffer], { type: "image/x-icon" });
     const link = document.createElement("a");
     link.download = `${name}.ico`;

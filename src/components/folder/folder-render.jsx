@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { default as NextImage } from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 import Loading from "../loading";
@@ -54,7 +55,7 @@ export default function FolderRender({ folderSize, id }) {
   const iconMultiplier = getIconMultiplier(
     folderType,
     folderSmallType,
-    folderSize
+    folderSize,
   );
   const iconMask = getIconMaskType(folderType, folderSize);
   const iconShadowType = getIconShadowType(folderType, folderSize);
@@ -84,7 +85,7 @@ export default function FolderRender({ folderSize, id }) {
     return {
       colorType: folderConfigStore((state) => state.colorType),
       gradientStartColor: folderConfigStore(
-        (state) => state.gradientStartColor
+        (state) => state.gradientStartColor,
       ),
       gradientEndColor: folderConfigStore((state) => state.gradientEndColor),
       solidColor: folderConfigStore((state) => state.solidColor),
@@ -163,59 +164,56 @@ export default function FolderRender({ folderSize, id }) {
   // Load required images based on configuration
   async function loadRequiredImages() {
     const imagePaths = {
-      base: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/base.png`,
-      highlight: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/highlight.png`,
-      iconMask: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/${iconMask}.png`,
-      mask: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/mask.png`,
-      default: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/default.png`,
-      shadow: isIconOnly
-        ? null
-        : `/images/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
+      base:
+        !isIconOnly && `/images/folder-assets/${type}/${folderSize}/base.png`,
+      highlight:
+        !isIconOnly &&
+        `/images/folder-assets/${type}/${folderSize}/highlight.png`,
+      iconMask:
+        !isIconOnly &&
+        `/images/folder-assets/${type}/${folderSize}/${iconMask}.png`,
+      satMask:
+        !isIconOnly &&
+        `/images/folder-assets/${type}/${folderSize}/saturation-mask.png`,
+      mask:
+        !isIconOnly && `/images/folder-assets/${type}/${folderSize}/mask.png`,
+      default:
+        !isIconOnly &&
+        `/images/folder-assets/${type}/${folderSize}/default.png`,
+      shadow:
+        !isIconOnly &&
+        `/images/folder-assets/${type}/${folderSize}/${iconShadowType}.png`,
       icon: await loadIcon(),
     };
 
     return {
-      baseImg: imagePaths.base ? await loadImage(imagePaths.base) : null,
+      baseImg: imagePaths.base && (await loadImage(imagePaths.base)),
       icon: imagePaths.icon,
-      highlightImg: imagePaths.highlight
-        ? await loadImage(imagePaths.highlight)
-        : null,
-      iconMaskImg: imagePaths.iconMask
-        ? await loadImage(imagePaths.iconMask)
-        : null,
-      maskImg: imagePaths.mask ? await loadImage(imagePaths.mask) : null,
-      defaultImg: imagePaths.default
-        ? await loadImage(imagePaths.default)
-        : null,
-      shadowImg: imagePaths.shadow ? await loadImage(imagePaths.shadow) : null,
+      highlightImg:
+        imagePaths.highlight && (await loadImage(imagePaths.highlight)),
+      iconMaskImg:
+        imagePaths.iconMask && (await loadImage(imagePaths.iconMask)),
+      satMaskImg: imagePaths.satMask && (await loadImage(imagePaths.satMask)),
+      maskImg: imagePaths.mask && (await loadImage(imagePaths.mask)),
+      defaultImg: imagePaths.default && (await loadImage(imagePaths.default)),
+      shadowImg: imagePaths.shadow && (await loadImage(imagePaths.shadow)),
     };
   }
 
   // Load icon based on type
   async function loadIcon() {
-    if (iconType === "simple") {
-      return await loadSimple(simpleSlug, iconColor);
+    switch (iconType) {
+      case "simple":
+        return await loadSimple(simpleSlug, iconColor);
+      case "lucide":
+        return await loadLucide(lucideSlug, iconColor, lucideStrokeWidth);
+      case "custom":
+        return await loadCustom(customFileName);
+      case "emoji":
+        return await loadEmoji(emojiSlug);
+      default:
+        return null;
     }
-    if (iconType === "lucide") {
-      return await loadLucide(lucideSlug, iconColor, lucideStrokeWidth);
-    }
-    if (iconType === "custom") {
-      return await loadCustom(customFileName);
-    }
-    if (iconType === "emoji") {
-      return await loadEmoji(emojiSlug);
-    }
-    return null;
   }
 
   // Generic image loader with cache
@@ -245,6 +243,7 @@ export default function FolderRender({ folderSize, id }) {
       icon,
       highlightImg,
       iconMaskImg,
+      satMaskImg,
       maskImg,
       defaultImg,
       shadowImg,
@@ -265,11 +264,12 @@ export default function FolderRender({ folderSize, id }) {
         folderType,
         baseImg,
         highlightImg,
+        satMaskImg,
         maskImg,
         shadowImg,
         colors,
         width,
-        height
+        height,
       );
     } else if (!isIconOnly) {
       drawDefaultImage(ctx, defaultImg, width, height);
@@ -305,13 +305,14 @@ export default function FolderRender({ folderSize, id }) {
     folderType,
     baseImg,
     highlightImg,
+    satMaskImg,
     maskImg,
     shadowImg,
     colors,
     width,
-    height
+    height,
   ) {
-    const cacheKey = `${colors[0]}-${colors[1]}-${width}-${height}`;
+    const cacheKey = `${colors[0]}-${colors[1]}-${width}-${height}-${folderType}`;
 
     if (backgroundCache.has(cacheKey)) {
       const cachedBackground = backgroundCache.get(cacheKey);
@@ -324,9 +325,9 @@ export default function FolderRender({ folderSize, id }) {
       backgroundCtx.drawImage(baseImg, 0, 0, width, height);
 
       if (colorType === "solid") {
-        applySolidColor(backgroundCtx, colors[2], width, height);
+        applySolidColor(backgroundCtx, colors[2], width, height, satMaskImg);
       } else if (colorType === "linear-gradient") {
-        applyGradientColor(backgroundCtx, colors, width, height);
+        applyGradientColor(backgroundCtx, colors, width, height, satMaskImg);
       }
 
       drawHighlight(backgroundCtx, highlightImg, width, height);
@@ -339,31 +340,60 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   // Apply solid color effect
-  function applySolidColor(ctx, color, width, height) {
-    ctx.globalCompositeOperation = "multiply";
-    ctx.fillStyle = color;
-    ctx.fillRect(0, 0, width, height);
+  const solidColorCache = new Map();
+  function applySolidColor(ctx, color, width, height, satMaskImg) {
+    const solidKey = `${color}-${width}-${height}`;
+    if (solidColorCache.has(solidKey)) {
+      const solid = solidColorCache.get(solidKey);
+      ctx.fillStyle = solid;
+    } else {
+      ctx.globalCompositeOperation = "multiply";
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, width, height);
+      solidColorCache.set(solidKey, color);
+    }
   }
 
   // Apply gradient color effect
   const gradientColorCache = new Map();
-  function applyGradientColor(ctx, colors, width, height) {
-    const gradientKey = `${colors[0]}-${colors[1]}`;
-
+  function applyGradientColor(ctx, colors, width, height, satMaskImg) {
+    const gradientKey = `${colors[0]}-${colors[1]}-${width}-${height}`;
     if (gradientColorCache.has(gradientKey)) {
-      const gradient = gradientColorCache.get(gradientKey);
-      ctx.fillStyle = gradient;
-    } else {
-      const gradient = ctx.createLinearGradient(width, height, 0, 0);
-      gradient.addColorStop(0, colors[1]);
-      gradient.addColorStop(1, colors[0]);
-
+      const cachedCanvas = gradientColorCache.get(gradientKey);
       ctx.globalCompositeOperation = "multiply";
-      ctx.fillStyle = gradient;
-      gradientColorCache.set(gradientKey, gradient);
-    }
+      ctx.drawImage(cachedCanvas, 0, 0);
+    } else {
+      // Create canvas for color 0
+      const colorZeroCanvas = document.createElement("canvas");
+      colorZeroCanvas.width = width;
+      colorZeroCanvas.height = height;
+      const zctx = colorZeroCanvas.getContext("2d");
 
-    ctx.fillRect(0, 0, width, height);
+      zctx.drawImage(satMaskImg, 0, 0, width, height);
+      zctx.globalCompositeOperation = "source-in";
+
+      // Draw color 0 and 1 gradient
+      const gradient = zctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, colors[0]);
+      gradient.addColorStop(1, colors[1]);
+      zctx.fillStyle = gradient;
+      zctx.fillRect(0, 0, width, height);
+
+      // Draw color 1 to color 0
+      zctx.globalCompositeOperation = "destination-atop";
+      const gradient2 = zctx.createLinearGradient(0, 0, width, height);
+      gradient2.addColorStop(0, colors[1]);
+      gradient2.addColorStop(0.75, colors[0]);
+      zctx.fillStyle = gradient2;
+      zctx.fillRect(0, 0, width, height);
+
+      // Draw the result to the main context
+      ctx.globalCompositeOperation = "multiply";
+      ctx.drawImage(colorZeroCanvas, 0, 0);
+
+      // Cache the canvas, not the gradient
+      gradientColorCache.set(gradientKey, colorZeroCanvas);
+    }
   }
 
   // Apply mask to canvas
@@ -422,7 +452,7 @@ export default function FolderRender({ folderSize, id }) {
         cachedIcon.drawX,
         cachedIcon.drawY,
         cachedIcon.actualIconWidth,
-        cachedIcon.actualIconHeight
+        cachedIcon.actualIconHeight,
       );
     } else {
       const aspectRatio = icon.width / icon.height || 1;
@@ -451,7 +481,7 @@ export default function FolderRender({ folderSize, id }) {
           drawX,
           drawY,
           actualIconWidth,
-          actualIconHeight
+          actualIconHeight,
         );
       } else {
         drawUnmaskedIcon(
@@ -460,7 +490,7 @@ export default function FolderRender({ folderSize, id }) {
           drawX,
           drawY,
           actualIconWidth,
-          actualIconHeight
+          actualIconHeight,
         );
       }
 
@@ -484,7 +514,7 @@ export default function FolderRender({ folderSize, id }) {
     x,
     y,
     iconWidth,
-    iconHeight
+    iconHeight,
   ) {
     const tempCanvas = document.createElement("canvas");
     tempCanvas.width = width;
@@ -500,7 +530,7 @@ export default function FolderRender({ folderSize, id }) {
       shadowBlur,
       shadowOffset,
       shadowColor,
-      shadowOpacity
+      shadowOpacity,
     );
 
     await drawIconImage(tempCtx, icon, x, y, iconWidth, iconHeight);
@@ -527,7 +557,7 @@ export default function FolderRender({ folderSize, id }) {
       shadowBlur,
       shadowOffset,
       shadowColor,
-      shadowOpacity
+      shadowOpacity,
     );
 
     drawIconImage(ctx, icon, x, y, iconWidth, iconHeight);
@@ -541,7 +571,7 @@ export default function FolderRender({ folderSize, id }) {
     shadowBlur,
     shadowOffset,
     shadowColor,
-    shadowOpacity
+    shadowOpacity,
   ) {
     ctx.globalAlpha = opacity;
     if (shadow) {
@@ -567,14 +597,7 @@ export default function FolderRender({ folderSize, id }) {
   }
 
   return (
-    <div
-      className="folder-icon-container"
-      id={id}
-      style={{
-        width: `calc(${folderSize}px + 2rem)`,
-        height: `calc(${folderSize}px + 2rem)`,
-      }}
-    >
+    <div className="folder-icon-container" id={id}>
       {isLoading ? (
         <Loading size={folderSize} />
       ) : (
@@ -585,9 +608,20 @@ export default function FolderRender({ folderSize, id }) {
           id={`folder-${folderSize}`}
         />
       )}
-      <span className="folder-size">
-        {folderSize} x {folderSize}
-      </span>
+      <NextImage
+        src={
+          "/images/folder-assets/" +
+          type.replace("-box", "") +
+          "/" +
+          folderSize +
+          "/default.png"
+        }
+        draggable={false}
+        alt="folder"
+        className="folder-default"
+        width={folderSize}
+        height={folderSize}
+      />
     </div>
   );
 }

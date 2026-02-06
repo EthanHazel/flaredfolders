@@ -31,16 +31,6 @@
 }
 
 @media screen and (max-width: 1400px), screen and (max-height: 720px) {
-  #small-folder-64,
-  #small-folder-48,
-  #big-folder-512 {
-    display: none;
-  }
-
-  #small-folder-256 {
-    display: flex;
-  }
-
   .icon-button-label {
     display: none;
   }

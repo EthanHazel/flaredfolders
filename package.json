@@ -25,7 +25,7 @@
     "dotenv": "^17.2.3",
     "downscale": "^1.0.6",
     "fs": "^0.0.1-security",
-    "icor": "^1.0.2",
+    "ico-endec": "^0.1.6",
     "jszip": "^3.10.1",
     "license-checker": "^25.0.1",
     "lucide-react": "^0.563.0",

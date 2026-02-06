@@ -36,7 +36,7 @@
   - Emojis
   - Custom upload
 - **Resolution Support**:
-  `16x16 → 512x512` (Native scaling for all platforms)
+  `16x16 → 256x256` (Native scaling for all platforms)
 
 ### Export Formats
 
