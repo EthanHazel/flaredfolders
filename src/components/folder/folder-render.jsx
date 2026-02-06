@@ -341,7 +341,7 @@ export default function FolderRender({ folderSize, id }) {
 
   // Apply solid color effect
   const solidColorCache = new Map();
-  function applySolidColor(ctx, color, width, height, satMaskImg) {
+  function applySolidColor(ctx, color, width, height) {
     const solidKey = `${color}-${width}-${height}`;
     if (solidColorCache.has(solidKey)) {
       const solid = solidColorCache.get(solidKey);
@@ -373,7 +373,12 @@ export default function FolderRender({ folderSize, id }) {
       zctx.globalCompositeOperation = "source-in";
 
       // Draw color 0 and 1 gradient
-      const gradient = zctx.createLinearGradient(0, 0, width, height);
+      const gradient = zctx.createLinearGradient(
+        0,
+        height / 2,
+        width / 5,
+        height,
+      );
       gradient.addColorStop(0, colors[0]);
       gradient.addColorStop(1, colors[1]);
       zctx.fillStyle = gradient;
@@ -381,9 +386,14 @@ export default function FolderRender({ folderSize, id }) {
 
       // Draw color 1 to color 0
       zctx.globalCompositeOperation = "destination-atop";
-      const gradient2 = zctx.createLinearGradient(0, 0, width, height);
-      gradient2.addColorStop(0, colors[1]);
-      gradient2.addColorStop(0.75, colors[0]);
+      const gradient2 = zctx.createLinearGradient(
+        0,
+        height / 4,
+        width / 4,
+        height,
+      );
+      gradient2.addColorStop(0, colors[0]);
+      gradient2.addColorStop(0.3, colors[1]);
       zctx.fillStyle = gradient2;
       zctx.fillRect(0, 0, width, height);
 
