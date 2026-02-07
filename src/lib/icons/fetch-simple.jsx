@@ -1,10 +1,12 @@
+// fetch-simple
+
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import * as icons from "simple-icons";
-
 import { folderConfigStore } from "@/stores/folder-config";
 
 const simpleIconCache = {};
+const simpleLoadingPromises = {};
 
 export const convertSimpleSlug = (slug) => {
   return slug
@@ -19,7 +21,7 @@ export const convertSimpleSlug = (slug) => {
 
 export const checkSimple = (slug) => {
   const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
-  return icons[iconKey] ? true : false;
+  return !!icons[iconKey];
 };
 
 export const setSimpleSlug = (slug) => {
@@ -34,37 +36,56 @@ export const setSimpleSlug = (slug) => {
 
 export const loadSimple = async (slug, color) => {
   const cacheKey = `${slug}_${color}`;
+
+  // Return cached image if available
   if (simpleIconCache[cacheKey]) {
     return simpleIconCache[cacheKey];
   }
 
-  try {
-    const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
-    const iconData = icons[iconKey];
-
-    const svgString = ReactDOMServer.renderToString(
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill={color}
-        viewBox="-2 -2 28 28"
-      >
-        <path d={iconData.path} />
-      </svg>
-    );
-
-    // Create an image from the SVG string
-    const img = await new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-        svgString
-      )}`;
-    });
-
-    simpleIconCache[cacheKey] = img;
-    return img;
-  } catch (error) {
-    console.error("Error loading Simple icon:", error);
-    throw error;
+  // Return existing promise if already loading
+  if (simpleLoadingPromises[cacheKey]) {
+    return simpleLoadingPromises[cacheKey];
   }
+
+  // Create new loading promise
+  simpleLoadingPromises[cacheKey] = (async () => {
+    try {
+      const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+      const iconData = icons[iconKey];
+
+      if (!iconData) {
+        throw new Error(`Simple icon "${slug}" not found`);
+      }
+
+      const svgString = ReactDOMServer.renderToString(
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill={color}
+          viewBox="-2 -2 28 28"
+        >
+          <path d={iconData.path} />
+        </svg>,
+      );
+
+      const img = await new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () =>
+          reject(new Error(`Failed to load Simple icon SVG for ${slug}`));
+        image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+          svgString,
+        )}`;
+      });
+
+      simpleIconCache[cacheKey] = img;
+      return img;
+    } catch (error) {
+      console.error("Error loading Simple icon:", error);
+      throw error;
+    } finally {
+      delete simpleLoadingPromises[cacheKey];
+    }
+  })();
+
+  return simpleLoadingPromises[cacheKey];
 };

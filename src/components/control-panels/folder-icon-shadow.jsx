@@ -85,7 +85,7 @@ export default function FolderIconOffset() {
             label={tc("y")}
             name="shadow-offset-y"
             id="shadow-offset-y"
-            defaultValue={0}
+            defaultValue={10}
             min={-100}
             max={100}
             onChange={handleYChange}

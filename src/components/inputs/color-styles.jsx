@@ -9,14 +9,13 @@ import { useState } from "react";
 
 export default function ColorStyles({ colorId = 0 }) {
   const colors = [
-    folderConfigStore((state) => state.gradientStartColor),
-    folderConfigStore((state) => state.gradientEndColor),
-    folderConfigStore((state) => state.solidColor),
+    folderConfigStore((state) => state.colorOne),
+    folderConfigStore((state) => state.colorTwo),
   ];
 
   const t = useTranslations("folderConfig");
 
-  const colorNames = [t("gradientStart"), t("gradientEnd"), t("solidColor")];
+  const colorNames = [t("colorOne"), t("colorTwo"), t("color")];
 
   const [color, setColor] = useState(colors[colorId]);
 
@@ -25,24 +24,24 @@ export default function ColorStyles({ colorId = 0 }) {
     setColor(newColor);
     switch (colorId) {
       case 0:
-        folderConfigStore.getState().setGradientStartColor(newColor);
+        folderConfigStore.getState().setColorOne(newColor);
         setPrimary([
-          folderConfigStore.getState().gradientStartColor,
-          folderConfigStore.getState().gradientEndColor,
+          folderConfigStore.getState().colorOne,
+          folderConfigStore.getState().colorTwo,
         ]);
         break;
       case 1:
-        folderConfigStore.getState().setGradientEndColor(newColor);
+        folderConfigStore.getState().setColorTwo(newColor);
         setPrimary([
-          folderConfigStore.getState().gradientStartColor,
-          folderConfigStore.getState().gradientEndColor,
+          folderConfigStore.getState().colorOne,
+          folderConfigStore.getState().colorTwo,
         ]);
         break;
       case 2:
-        folderConfigStore.getState().setSolidColor(newColor);
+        folderConfigStore.getState().setColorOne(newColor);
         setPrimary([
-          folderConfigStore.getState().solidColor,
-          folderConfigStore.getState().solidColor,
+          folderConfigStore.getState().colorOne,
+          folderConfigStore.getState().colorOne,
         ]);
         break;
       default:

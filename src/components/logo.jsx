@@ -3,18 +3,15 @@ import packageJson from "../../package.json";
 
 export default function Logo() {
   const colorType = folderConfigStore((state) => state.colorType);
-  const gradientStartColor = folderConfigStore(
-    (state) => state.gradientStartColor,
-  );
-  const gradientEndColor = folderConfigStore((state) => state.gradientEndColor);
-  const solidColor = folderConfigStore((state) => state.solidColor);
+  const colorOne = folderConfigStore((state) => state.colorOne);
+  const colorTwo = folderConfigStore((state) => state.colorTwo);
   const folderType = folderConfigStore((state) => state.folderType);
 
   const getFill = () => {
-    if (colorType === "linear-gradient") {
-      return [gradientStartColor, gradientEndColor];
+    if (colorType === "gradient" || colorType === "duo") {
+      return [colorOne, colorTwo];
     } else if (colorType === "solid") {
-      return [solidColor, solidColor];
+      return [colorOne, colorOne];
     } else {
       if (
         folderType === "win11" ||
@@ -22,8 +19,6 @@ export default function Logo() {
         folderType === "win95"
       )
         return ["#fee394", "#dfa52e"];
-      else if (folderType === "bigsur") return ["#82d0f8", "#0089cf"];
-      else return ["#8bb158", "#8bb158"];
     }
   };
 

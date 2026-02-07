@@ -1,15 +1,17 @@
 import { create } from "zustand";
 
 export const folderConfigStore = create((set) => ({
-  // "linear-gradient", "solid", "original"
-  colorType: "linear-gradient",
+  // "gradient", "solid", "duo", "original"
+  colorType: "gradient",
   setColorType: (colorType) => set({ colorType }),
-  gradientStartColor: "#C8AAFF",
-  setGradientStartColor: (color) => set({ gradientStartColor: color }),
-  gradientEndColor: "#081AA1",
-  setGradientEndColor: (color) => set({ gradientEndColor: color }),
-  solidColor: "#ffcb53",
-  setSolidColor: (color) => set({ solidColor: color }),
+  colorOne: "#c23936",
+  setColorOne: (color) => set({ colorOne: color }),
+  colorTwo: "#a400ea",
+  setColorTwo: (color) => set({ colorTwo: color }),
+
+  // 0 - 10
+  colorContrast: 1,
+  setColorContrast: (contrast) => set({ colorContrast: contrast }),
 
   // "sqaureAndIcon", "folderAndIcon", "folderOnly", "iconOnly"
   folderSmallType: "sqaureAndIcon",
@@ -54,7 +56,7 @@ export const folderConfigStore = create((set) => ({
 
   shadowColor: "#000000",
   setShadowColor: (color) => set({ shadowColor: color }),
-  shadowOpacity: 10,
+  shadowOpacity: 15,
   setShadowOpacity: (opacity) => set({ shadowOpacity: opacity }),
   shadowBlur: 10,
   setShadowBlur: (blur) => set({ shadowBlur: blur }),
@@ -62,36 +64,30 @@ export const folderConfigStore = create((set) => ({
   setShadowOffset: (offset) => set({ shadowOffset: offset }),
 }));
 
-export function getIconAnchor(folderType, folderSize) {
-  if (folderType === "win11" || folderType === "win95") {
-    const offsets = {
-      512: [0, 26],
-      256: [0, 13],
-      128: [0, 7],
-      96: [0, 4],
-      72: [0, 3],
-      64: [0, 4],
-      48: folderType === "win95" ? [0, 3] : [0, 2],
-      32: [0, 2],
-      24: [0, 2],
-      16: [0, 1],
-    };
-    return offsets[folderSize] || [0, 0];
-  } else if (folderType === "win10") {
-    const offsets = {
-      512: [96, 72],
-      256: [48, 36],
-      128: [24, 18],
-      96: [18, 12],
-      72: [14, 12],
-      64: [12, 9],
-      48: [9, 6],
-      32: [6, 6],
-      24: [5, 4],
-      16: [0, 0],
-    };
-    return offsets[folderSize] || [0, 0];
-  } else {
-    return [0, 0];
-  }
+// Helper function to get all configuration state
+export function useFolderConfigState() {
+  return {
+    colorType: folderConfigStore((state) => state.colorType),
+    colorOne: folderConfigStore((state) => state.colorOne),
+    colorTwo: folderConfigStore((state) => state.colorTwo),
+    colorContrast: folderConfigStore((state) => state.colorContrast),
+    folderType: folderConfigStore((state) => state.folderType),
+    folderSmallType: folderConfigStore((state) => state.folderSmallType),
+    iconType: folderConfigStore((state) => state.iconType),
+    iconScale: folderConfigStore((state) => state.iconScale),
+    iconColor: folderConfigStore((state) => state.iconColor),
+    iconOffset: folderConfigStore((state) => state.iconOffset),
+    iconOpacity: folderConfigStore((state) => state.iconOpacity),
+    iconShadow: folderConfigStore((state) => state.iconShadow),
+    shadowOffset: folderConfigStore((state) => state.shadowOffset),
+    shadowBlur: folderConfigStore((state) => state.shadowBlur),
+    shadowColor: folderConfigStore((state) => state.shadowColor),
+    shadowOpacity: folderConfigStore((state) => state.shadowOpacity),
+    iconMasked: folderConfigStore((state) => state.iconMasked),
+    lucideSlug: folderConfigStore((state) => state.lucideSlug),
+    lucideStrokeWidth: folderConfigStore((state) => state.lucideStrokeWidth),
+    simpleSlug: folderConfigStore((state) => state.simpleSlug),
+    emojiSlug: folderConfigStore((state) => state.emojiSlug),
+    customFileName: folderConfigStore((state) => state.customFileName),
+  };
 }

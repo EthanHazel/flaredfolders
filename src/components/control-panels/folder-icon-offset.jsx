@@ -67,7 +67,7 @@ export default function FolderIconOffset() {
         defaultValue="0.5"
         min="0.1"
         max="1"
-        step="0.01"
+        step="0.05"
       />
     </Dropdown>
   );

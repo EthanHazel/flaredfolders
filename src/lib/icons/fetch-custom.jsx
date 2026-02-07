@@ -1,68 +1,90 @@
+// fetch-custom
+
 import { folderConfigStore } from "@/stores/folder-config";
 
+const customLoadingPromises = {};
+
 export function loadCustom(customFileName) {
-  return new Promise((resolve) => {
-    const currentState = folderConfigStore.getState();
-    const customIconInput = document.getElementById("custom-icon");
+  // Return existing promise if already loading this file
+  if (customLoadingPromises[customFileName]) {
+    return customLoadingPromises[customFileName];
+  }
 
-    const loadImageFromData = (data) => {
-      return new Promise((resolveImage) => {
-        const img = new Image();
-        img.onload = () => resolveImage(img);
-        img.onerror = () => {
-          console.error("Failed to load image");
-          resolveImage(null);
-        };
-        img.src = data;
-      });
-    };
+  customLoadingPromises[customFileName] = (async () => {
+    try {
+      const currentState = folderConfigStore.getState();
+      const customIconInput = document.getElementById("custom-icon");
 
-    // Handle case when no file is selected
-    if (!customIconInput?.files?.[0]) {
-      if (customFileName === "placeholder") {
-        resolve(currentState.customData);
-        return;
+      const loadImageFromData = (data) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.onerror = () => reject(new Error("Failed to load image"));
+          img.src = data;
+        });
+      };
+
+      // Handle case when no file is selected
+      if (!customIconInput?.files?.[0]) {
+        if (customFileName === "placeholder" && currentState.customData) {
+          return currentState.customData;
+        }
+
+        // Load temp-icon
+        const tempIconPath = "/images/folder-assets/temp-icon.svg";
+        const response = await fetch(tempIconPath);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch temp icon: ${response.statusText}`);
+        }
+
+        const blob = await response.blob();
+        const data = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = () => reject(new Error("Failed to read blob"));
+          reader.readAsDataURL(blob);
+        });
+
+        const img = await loadImageFromData(data);
+
+        folderConfigStore.setState({
+          customData: img,
+          customFileName: "placeholder",
+        });
+
+        return img;
       }
 
-      // Load temp-icon
-      const tempIconPath = "/images/folder-assets/temp-icon.svg";
-      fetch(tempIconPath)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const reader = new FileReader();
-          reader.onload = async () => {
-            const data = reader.result;
-            const img = await loadImageFromData(data);
-            folderConfigStore.setState({
-              customData: img, // Store the Image object
-              customFileName: "placeholder",
-            });
-            resolve(img);
-          };
-          reader.readAsDataURL(blob);
-        })
-        .catch((error) => {
-          console.error("Failed to load temp icon:", error);
-          resolve(null);
-        });
-      return;
-    }
+      // Handle case when file is selected
+      if (
+        customIconInput.files[0].name === customFileName &&
+        currentState.customData
+      ) {
+        return currentState.customData;
+      }
 
-    // Handle case when file is selected
-    if (customIconInput.files[0].name === customFileName) {
-      resolve(currentState.customData);
-    } else {
-      const reader = new FileReader();
-      reader.onload = async () => {
-        const data = reader.result;
-        const img = await loadImageFromData(data);
-        folderConfigStore.setState({
-          customData: img, // Store the Image object
-          customFileName: customIconInput.files[0].name,
-        });
-        resolve(img);
-      };
-      reader.readAsDataURL(customIconInput.files[0]);
+      const data = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error("Failed to read file"));
+        reader.readAsDataURL(customIconInput.files[0]);
+      });
+
+      const img = await loadImageFromData(data);
+
+      folderConfigStore.setState({
+        customData: img,
+        customFileName: customIconInput.files[0].name,
+      });
+
+      return img;
+    } catch (error) {
+      console.error("Error loading custom icon:", error);
+      throw error;
+    } finally {
+      delete customLoadingPromises[customFileName];
     }
-  });
+  })();
+
+  return customLoadingPromises[customFileName];
 }

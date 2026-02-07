@@ -16,5 +16,5 @@
 - Add comments to code
   - Functions actually have params for inputs and other stuff
 - Fix color bug
-- Write tests
-  - Checking if locales all contain the correct amount of translations
+- Make lucide icon stroke width scale with the scale of the icon (absolute width)
+- Letter for icon
