@@ -71,6 +71,7 @@
   padding: 0.25rem;
   justify-content: center;
   align-items: center;
+  content-visibility: auto;
 }
 
 .emoji.selected {

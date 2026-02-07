@@ -9,18 +9,25 @@ import EmojiPicker from "../inputs/emoji-picker";
 import { folderConfigStore } from "@/stores/folder-config";
 import { useTranslations } from "next-intl";
 import { loadCustom } from "@/lib/icons/fetch-custom";
-import { useEffect } from "react";
+import { loadSimpleColor } from "@/lib/icons/fetch-simple";
+import { useEffect, useState } from "react";
 
 export default function FolderIconInput() {
   const folderType = folderConfigStore((state) => state.folderType);
+  const colorType = folderConfigStore((state) => state.colorType);
   const iconType = folderConfigStore((state) => state.iconType || "none");
   const iconColor = folderConfigStore((state) => state.iconColor);
   const setIconType = folderConfigStore((state) => state.setIconType);
   const setIconColor = folderConfigStore((state) => state.setIconColor);
   const setIconOpacity = folderConfigStore((state) => state.setIconOpacity);
   const setLucideStrokeWidth = folderConfigStore(
-    (state) => state.setLucideStrokeWidth
+    (state) => state.setLucideStrokeWidth,
   );
+  const setColorOne = folderConfigStore((state) => state.setColorOne);
+  const setColorTwo = folderConfigStore((state) => state.setColorTwo);
+  const simpleSlug = folderConfigStore((state) => state.simpleSlug);
+
+  const [brandColor, setBrandColor] = useState("");
 
   useEffect(() => {
     if (folderType === "icon-only" && iconType === "none") {
@@ -28,10 +35,11 @@ export default function FolderIconInput() {
     }
   }, [folderType, iconType, setIconType]);
 
-  const types =
-    folderType === "icon-only"
-      ? ["lucide", "simple", "custom"]
-      : ["lucide", "simple", "custom", "none"];
+  useEffect(() => {
+    if (iconType === "simple") {
+      loadSimpleColor(simpleSlug).then((color) => setBrandColor(color));
+    }
+  }, [iconType, simpleSlug, setBrandColor]);
 
   const t = useTranslations("panelTitles");
   const tcc = useTranslations("iconConfig");
@@ -61,6 +69,30 @@ export default function FolderIconInput() {
               max="3"
               step="0.1"
             />
+          )}
+          {iconType === "simple" && (
+            <div>
+              <p>Brand color: {brandColor}</p>
+              <button onClick={() => setIconColor(brandColor)}>
+                Set to icon color
+              </button>
+              {folderType !== "icon-only" &&
+              colorType !== "original" &&
+              (colorType === "gradient" || colorType === "duo") ? (
+                <>
+                  <button onClick={() => setColorOne(brandColor)}>
+                    Set to folder color 1
+                  </button>
+                  <button onClick={() => setColorTwo(brandColor)}>
+                    Set to folder color 2
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => setColorOne(brandColor)}>
+                  Set to folder color
+                </button>
+              )}
+            </div>
           )}
           {iconType === "emoji" && <EmojiPicker />}
           {iconType !== "none" && (

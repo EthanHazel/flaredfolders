@@ -13,6 +13,8 @@ export default function FolderColor() {
   const colorType = folderConfigStore((state) => state.colorType);
   const folderType = folderConfigStore((state) => state.folderType);
   const setColorContrast = folderConfigStore((state) => state.setColorContrast);
+  const setSolidHueShift = folderConfigStore((state) => state.setSolidHueShift);
+  const swapColors = folderConfigStore((state) => state.swapColors);
 
   const changeType = (newType) => () => {
     folderConfigStore.getState().setColorType(newType);
@@ -71,12 +73,32 @@ export default function FolderColor() {
         <>
           <ColorStyles colorId={0} />
           <ColorStyles colorId={1} />
+          <button
+            className="button"
+            onClick={() => {
+              swapColors();
+              setPrimary([
+                folderConfigStore.getState().colorOne,
+                folderConfigStore.getState().colorTwo,
+              ]);
+            }}
+          >
+            {tc("swapColors")}
+          </button>
         </>
       )}
       {colorType === "solid" && (
-        <div id="color-solid">
+        <>
           <ColorStyles colorId={0} />
-        </div>
+          <Range
+            label={tc("solidHueShift")}
+            min="-180"
+            max="180"
+            step="1"
+            onChange={(e) => setSolidHueShift(e.target.value)}
+            defaultValue="10"
+          />
+        </>
       )}
       {colorType !== "original" && (
         <Range

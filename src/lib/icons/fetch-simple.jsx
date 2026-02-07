@@ -20,7 +20,10 @@ export const convertSimpleSlug = (slug) => {
 };
 
 export const checkSimple = (slug) => {
-  const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+  const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`.replace(
+    ".",
+    "dot",
+  );
   return !!icons[iconKey];
 };
 
@@ -50,7 +53,8 @@ export const loadSimple = async (slug, color) => {
   // Create new loading promise
   simpleLoadingPromises[cacheKey] = (async () => {
     try {
-      const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+      const iconKey =
+        `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`.replace(".", "dot");
       const iconData = icons[iconKey];
 
       if (!iconData) {
@@ -88,4 +92,15 @@ export const loadSimple = async (slug, color) => {
   })();
 
   return simpleLoadingPromises[cacheKey];
+};
+
+export const loadSimpleColor = async (slug) => {
+  try {
+    const iconKey = `si${slug.charAt(0).toUpperCase() + slug.slice(1)}`;
+    const color = "#" + icons[iconKey].hex;
+    return color;
+  } catch (error) {
+    console.error("Error loading Simple icon color:", error);
+    throw error;
+  }
 };

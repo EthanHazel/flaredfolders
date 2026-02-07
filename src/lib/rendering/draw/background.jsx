@@ -1,5 +1,6 @@
+import { hueShiftHex } from "../utils";
+
 const backgroundCache = new Map();
-const solidColorCache = new Map();
 const gradientColorCache = new Map();
 const duoColorCache = new Map();
 
@@ -21,9 +22,10 @@ export default function drawBackground(
     colorTwo,
     colorContrast,
     folderSmallType,
+    solidHueShift,
   } = configState;
 
-  const cacheKey = `${colorOne}-${colorTwo}-${size}-${folderType}-${colorContrast}-${folderSmallType}-${colorType}`;
+  const cacheKey = `${colorOne}-${colorTwo}-${size}-${folderType}-${colorContrast}-${folderSmallType}-${colorType}-${solidHueShift}`;
 
   // Return early if cached
   if (backgroundCache.has(cacheKey)) {
@@ -55,12 +57,14 @@ export default function drawBackground(
 
   // Apply color based on type
   const colors = [colorOne, colorTwo];
+
   switch (colorType) {
     case "solid":
-      applySolidColor(
+      applyGradientColor(
         backgroundCtx,
-        colors[0],
+        [hueShiftHex(colorOne, solidHueShift), colorOne],
         size,
+        colorMaskImg,
         folderType,
         folderSmallType,
       );
@@ -95,19 +99,6 @@ export default function drawBackground(
   // Draw and cache
   ctx.drawImage(backgroundCanvas, 0, 0);
   backgroundCache.set(cacheKey, backgroundCanvas);
-}
-
-function applySolidColor(ctx, color, size, folderType, folderSmallType) {
-  const solidKey = `${color}-${size}-${folderType}-${folderSmallType}`;
-
-  if (!solidColorCache.has(solidKey)) {
-    solidColorCache.set(solidKey, color);
-  }
-
-  ctx.globalCompositeOperation = "multiply";
-  ctx.fillStyle = color;
-  ctx.fillRect(0, 0, size, size);
-  ctx.globalCompositeOperation = "source-over";
 }
 
 function applyGradientColor(

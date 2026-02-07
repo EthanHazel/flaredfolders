@@ -8,6 +8,12 @@ export const folderConfigStore = create((set) => ({
   setColorOne: (color) => set({ colorOne: color }),
   colorTwo: "#a400ea",
   setColorTwo: (color) => set({ colorTwo: color }),
+  swapColors: () =>
+    set((state) => ({ colorOne: state.colorTwo, colorTwo: state.colorOne })),
+
+  // 0 - 360
+  solidHueShift: 10,
+  setSolidHueShift: (shift) => set({ solidHueShift: shift }),
 
   // 0 - 10
   colorContrast: 1,
@@ -71,6 +77,7 @@ export function useFolderConfigState() {
     colorOne: folderConfigStore((state) => state.colorOne),
     colorTwo: folderConfigStore((state) => state.colorTwo),
     colorContrast: folderConfigStore((state) => state.colorContrast),
+    solidHueShift: folderConfigStore((state) => state.solidHueShift),
     folderType: folderConfigStore((state) => state.folderType),
     folderSmallType: folderConfigStore((state) => state.folderSmallType),
     iconType: folderConfigStore((state) => state.iconType),
