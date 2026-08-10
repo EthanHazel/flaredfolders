@@ -1,3 +1,6 @@
+> [!IMPORTANT]\
+> There is a major rework in progress (v3) that will be converting the project to Svelte and completely reworking the rendering system. Stay tuned for more info before making any contributions.
+
 <p align="center"><img src="/public/images/meta/favicon/favicon.ico" style="width:128px;height:128px;"  /></p>
 <h1 align="center">FlaredFolders</h1>
 <h3 align="center">A Free, Open-Source Folder Customization Tool</h3>
