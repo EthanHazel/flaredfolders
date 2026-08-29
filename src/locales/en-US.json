@@ -119,6 +119,10 @@
     }
   },
 
+  "editor": {
+    "tip": "Tip: Click on a folder to toggle edit mode on it. This will help make adjustments on a per-size basis."
+  },
+
   "presets": {
     "win11SmallSquare": {
       "title": "Windows 11 Small Square",
