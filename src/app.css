@@ -1,0 +1,344 @@
+:root {
+    --black-color: #0d0d0d;
+    --white-color: #f1f1f1;
+
+    --background-color: var(--black-color);
+    --text-color: var(--white-color);
+
+    --primary-color: #808080;
+
+    --interface-gap: 1rem;
+
+    --rooty-width: 240px;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/space-grotesk.ttf") format("truetype-variations");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    font-optical-sizing: auto;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        top: 2rem;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes fadeInScreen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+* {
+    font-family: "Space Grotesk", sans-serif;
+    box-sizing: border-box;
+    scrollbar-color: rgba(from var(--text-color) r g b / 0.25)
+        var(--background-color);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.screen {
+    animation: fadeInScreen 0.2s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--primary-color);
+}
+
+hr {
+    width: 100%;
+    border: 1px solid rgba(from var(--text-color) r g b / 0.25);
+    border-style: solid none none none;
+}
+
+.rooty {
+    width: var(--rooty-width);
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -159px); /* Number pulled fresh from my ass */
+}
+
+dialog {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: rgba(from var(--background-color) r g b / 0.75);
+    color: var(--text-color);
+    border: 1px solid rgba(from var(--text-color) r g b / 0.25);
+    min-width: 720px;
+    overflow: visible;
+    z-index: 2;
+    border-radius: 1rem;
+    corner-shape: squircle;
+    animation: fadeInModal 0.2s ease-in-out;
+
+    &.contains-rooty {
+        transform: translateY(64px);
+    }
+}
+
+dialog::backdrop {
+    background: rgba(from var(--black-color) r g b / 0.75);
+    backdrop-filter: blur(0.5rem);
+}
+
+dialog .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: var(--interface-gap);
+    padding: calc(var(--interface-gap) * 2);
+    min-height: 240px;
+}
+
+dialog .modal-header {
+    display: flex;
+    flex-direction: row;
+    gap: var(--interface-gap);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(from var(--text-color) r g b / 0.125);
+    padding: var(--interface-gap);
+    background-color: rgba(from var(--text-color) r g b / 0.05);
+    border-radius: 1rem 1rem 0 0;
+    corner-shape: squircle;
+
+    & .modal-title {
+        font-size: 1.25rem;
+        margin-left: 0.25rem;
+    }
+
+    & .modal-buttons {
+        display: flex;
+        gap: var(--interface-gap);
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    & .modal-disclaimer {
+        font-size: 0.875rem;
+        color: rgba(from var(--text-color) r g b / 0.5);
+    }
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.nav-bar {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(50% - var(--interface-gap) * 2);
+    min-height: 4rem;
+
+    &.home {
+        --background-color: var(--black-color);
+        --text-color: var(--white-color);
+    }
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--interface-gap);
+    padding: var(--interface-gap);
+    width: 25%;
+    min-width: 240px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    outline: 1px solid rgba(from var(--text-color) r g b / 0.1);
+    corner-shape: squircle;
+    border-radius: 1rem;
+}
+
+.nav-button-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active,
+    &:disabled {
+        opacity: 0.25;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+button:not(.nav-button-icon, #logo, .reset-button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    color: var(--text-color);
+    border: 1px solid rgba(from var(--text-color) r g b / 0.25);
+    cursor: pointer;
+    background-color: rgba(from var(--text-color) r g b / 0.1);
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+
+    &:hover {
+        background-color: rgba(from var(--text-color) r g b / 0.2);
+    }
+
+    &:active {
+        background-color: rgba(from var(--text-color) r g b / 0.1);
+    }
+
+    &.primary {
+        background-color: rgba(from var(--primary-color) r g b / 0.5);
+        color: var(--text-color);
+
+        &:hover {
+            background-color: rgba(from var(--primary-color) r g b / 0.75);
+        }
+
+        &:active {
+            background-color: rgba(from var(--primary-color) r g b / 0.5);
+        }
+    }
+}
+
+input[type="text"],
+input[type="number"] {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    border: 1px solid rgba(from var(--text-color) r g b / 0.25);
+
+    &:hover {
+        background-color: rgba(from var(--text-color) r g b / 0.1);
+    }
+
+    &:focus {
+        outline: 2px solid rgba(from var(--primary-color) r g b / 0.75);
+        background-color: rgba(from var(--text-color) r g b / 0.1);
+    }
+}
+
+#gradient-overlay {
+    background-image: linear-gradient(
+        0deg,
+        var(--background-color) 0%,
+        rgba(from var(--background-color) r g b / 0) 10%,
+        rgba(from var(--background-color) r g b / 0) 90%,
+        var(--background-color) 100%
+    );
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.no-display {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Folder sizing */
+
+#folder-256 {
+    width: 256px;
+    height: 256px;
+}
+
+#folder-64 {
+    width: 64px;
+    height: 64px;
+}
+
+#folder-48 {
+    width: 48px;
+    height: 48px;
+}
+
+#folder-40 {
+    width: 40px;
+    height: 40px;
+}
+
+#folder-32 {
+    width: 32px;
+    height: 32px;
+}
+
+#folder-24 {
+    width: 24px;
+    height: 24px;
+}
+
+#folder-20 {
+    width: 20px;
+    height: 20px;
+}
+
+#folder-16 {
+    width: 16px;
+    height: 16px;
+}

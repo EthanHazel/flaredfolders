@@ -1,0 +1,221 @@
+{
+  "localeAuthor": "Ethan Hazel",
+
+  "actions": {
+    "dismiss": "Dismiss",
+    "close": "Close",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "save": "Save",
+    "next": "Next",
+    "export": "Export",
+    "new": "New",
+    "open": "Open",
+    "done": "Done"
+  },
+
+  "groups": {
+    "folder": {
+      "type": "Folder Type",
+      "color": "Folder Colors"
+    },
+    "icon": {
+      "color": "Icon Colors",
+      "transform": "Icon Transform",
+      "shadow": "Icon Shadow",
+      "image": "Icon Image"
+    }
+  },
+
+  "inputs": {
+    "placeholders": {
+      "folderName": "Folder Name"
+    },
+
+    "win11": "Windows 11 Folder",
+    "win11-file": "Windows 11 File",
+    "win11-square": "Windows 11 Square",
+
+    "win10": "Windows 10 Folder",
+    "win10-file": "Windows 10 File",
+
+    "icon-only": "Icon Only",
+
+    "original": "Original",
+    "advanced": "Advanced",
+    "gradient": "Gradient",
+    "solid": "Solid",
+
+    "colorFrontOne": "Front Color Primary",
+    "colorFrontTwo": "Front Color Secondary",
+    "colorBackOne": "Back Color Primary",
+    "colorBackTwo": "Back Color Secondary",
+
+    "colorHueShift": "Hue Shift",
+    "colorContrast": "Contrast",
+
+    "colorIcon": "Icon Color Primary",
+    "colorIconTwo": "Icon Color Secondary",
+    "iconShadowColor": "Shadow Color",
+    "iconOffsetX": "Offset X",
+    "iconOffsetY": "Offset Y",
+    "iconOpacity": "Opacity",
+    "iconScale": "Scale",
+
+    "iconShadowEnabled": "Enable Icon Shadow",
+    "iconShadowOpacity": "Opacity",
+    "iconShadowOffsetX": "Offset X",
+    "iconShadowOffsetY": "Offset Y",
+    "iconShadowBlur": "Blur",
+
+    "none": "None",
+    "lucide": "Lucide",
+    "simple": "Simple",
+    "custom": "Custom",
+
+    "iconLucideSlug": "Lucide Slug",
+    "iconLucideStroke": "Stroke Width",
+    "iconSimpleSlug": "Simple Slug",
+
+    "color": {
+      "rgb": {
+        "title": "RGB",
+        "red": "R",
+        "green": "G",
+        "blue": "B"
+      },
+      "hsl": {
+        "title": "HSL",
+        "hue": "H",
+        "saturation": "S",
+        "lightness": "L"
+      },
+      "hex": "Hex",
+      "useBrandColor": "Use Brand Color"
+    }
+  },
+
+  "tooltips": {
+    "iconLucideSlug": "The slug is the icon's name in the Lucide icon library. You can find the full list of icons on their website. (Icon picker coming soon)",
+    "iconSimpleSlug": "The slug is the icon's name in the Simple icon library. You can find the full list of icons on their website. (Icon picker coming soon)",
+    "iconTypeLucide": "Library of free, open-source icons. Has a lot of icons for various use cases.",
+    "iconTypeSimple": "Library of free brand icons.",
+    "colorContrast": "Increases the contrast of the shadows and highlights of the folder.",
+    "colorHueShift": "Shifts the color (hue) of the folder gradually to give a natural, vibrant look.",
+    "debugMode": "Replaces the changelog button with the debug menu. Useful for troubleshooting and hacking around. Not recommended for regular use.",
+    "unsavedWarning": "Will give a warning if you try to close the window or navigate away from the folder without saving changes. Can get annoying if you don't save frequently."
+  },
+
+  "home": {
+    "subTitle": "The Open-Source Folder Customizer :)",
+    "version": "Version: ",
+    "copyright": "   © %YEAR% Phosphorus Dev & Flared Folders Contributors.",
+    "license": "Licensed under GPLv3. Folder visuals are derived from Microsoft's original assets.",
+    "buttons": {
+      "howToApply": "How to Apply Icons",
+      "editorTutorial": "Editor Tutorial",
+      "privacyPolicy": "Privacy Policy",
+      "licensesAndAttributions": "Licenses and Attributions"
+    }
+  },
+
+  "presets": {
+    "win11SmallSquare": {
+      "title": "Windows 11 Small Square",
+      "description": "Windows 11 Folder with square icons for smaller sizes. Defaults to advanced colors."
+    },
+    "iconOnly": {
+      "title": "Icon Only",
+      "description": "Design with only the icon, no folder background."
+    },
+    "win11Solid": {
+      "title": "Windows 11 Solid Color",
+      "description": "Windows 11 Folder with solid background and no icon."
+    }
+  },
+
+  "modals": {
+    "settings": {
+      "title": "Settings",
+      "debugMode": "Enable debug tools",
+      "unsavedWarning": "Enable \"unsaved changes\" popup",
+      "saveBind": {
+        "label": "Bind Ctrl+S to",
+        "save": "Save Project",
+        "export": "Export Project"
+      },
+      "theme": {
+        "label": "Theme",
+        "dark": "Dark",
+        "light": "Light"
+      },
+      "locale": {
+        "label": "Language"
+      }
+    },
+
+    "debug": {
+      "title": "Debug Settings",
+      "disclaimer": "Debug mode is only available in English (en-US)."
+    },
+
+    "changelog": {
+      "title": "Changelog",
+      "disclaimer": "Changelog is only available in English (en-US).",
+      "notFound": "No changelog found for this version."
+    },
+
+    "credits": {
+      "title": "Credits",
+      "leadDev": "Lead Developer: ",
+      "donations": "Donations: ",
+      "specialThanks": "Special Thanks: ",
+      "version": "Version: ",
+      "artwork": "Mascot & Background Artwork: "
+    },
+
+    "welcome": {
+      "title": "Flared Folders v3 Pre-Alpha Test",
+      "description": "Welcome to the Flared Folders v3 Pre-Alpha Test! Please be aware that there's multiple things still under development.",
+      "discord": "Join our Discord server to stay updated on the latest developments, along with the new features being working on.",
+      "discordLink": "Join the Discord by clicking here!"
+    },
+
+    "exportAs": {
+      "title": "Export As"
+    },
+
+    "fileTooBig": {
+      "title": "Image Uploaded Is Too Big",
+      "description": "The image you are trying to upload is too large. Please upload a smaller file.",
+      "maxSize": "Maximum size: 10MB"
+    },
+
+    "newProject": {
+      "title": "Choose a Preset"
+    },
+
+    "unknownFileType": {
+      "title": "File Type Is Not Supported",
+      "description": "The file you are trying to upload is not supported image type. Please upload a different file.",
+      "fileTypes": "Supported types: .avif .gif .png .svg .jpeg .webp"
+    },
+
+    "unknownFileTypeProject": {
+      "title": "Invalid File Type",
+      "description": "Was expecting a valid Flared Folders project file (.ffproj). Make sure you are uploading the correct file type.",
+      "disclaimer": "Note: If you are trying to upload a picture, you would need to create a Flared Folders project first, and upload it in the editor."
+    },
+
+    "setIcon": {
+      "title": "Select Icon",
+      "iconTypes": {
+        "lucide": "Lucide",
+        "simple": "SimpleIcons",
+        "emoji": "Emoji",
+        "custom": "Upload"
+      },
+      "search": "Search"
+    }
+  }
+}

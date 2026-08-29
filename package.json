@@ -1,50 +1,36 @@
 {
   "name": "flared-folders",
-  "version": "3.0.0",
-  "description": "Generate custom folder designs for your favorite operating system. Free, open source, and no ads. Import your own icons, use Simple Icons, or use Lucide icons.",
+  "version": "alpha-3.0.0-v1",
+  "description": "The Open-Source Folder Customizer :)",
   "author": {
-    "name": "Ethan Hazel",
-    "email": "contact@ehazel.com",
-    "url": "https://www.ehazel.com/"
+    "name": "Phosphorus",
+    "email": "ethanyvonhazel@gmail.com",
+    "url": "https://www.phosphorus.dev/"
   },
+  "type": "module",
   "license": "GPL-3.0-only",
-  "repository": "https://github.com/EthanHazel/flaredfolders",
+  "repository": "https://github.com/phosphorus-dev/flaredfolders",
   "homepage": "https://www.flaredfolders.com/",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "prebuild": "node scripts/generate-licenses.js",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@ns0m/hermite-resize": "^2.2.10",
-    "@supabase/ssr": "^0.8.0",
-    "@supabase/supabase-js": "^2.49.8",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "color-convert": "^3.1.3",
-    "dotenv": "^17.2.3",
-    "downscale": "^1.0.6",
-    "fs": "^0.0.1-security",
-    "ico-endec": "^0.1.6",
-    "jszip": "^3.10.1",
-    "license-checker": "^25.0.1",
-    "lucide-react": "^0.563.0",
-    "next": "^16.1.5",
-    "next-intl": "^4.8.3",
-    "node-emoji": "^2.2.0",
-    "path": "^0.12.7",
-    "pica": "^9.0.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-markdown": "^10.1.0",
-    "simple-icons": "^16.1.0",
-    "zustand": "^5.0.3"
+    "dev": "vite",
+    "build": "vite build",
+    "prebuild": "npm run build:licenses",
+    "build:licenses": "license-checker --production --json --out src/lib/data/licenses.json",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "eslint": "^9",
-    "eslint-config-next": "^16.1.5"
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "license-checker": "^25.0.1",
+    "svelte": "^5.56.10",
+    "svg-inline-loader": "^0.8.2",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "@humanspeak/svelte-markdown": "^1.8.7",
+    "@icons-pack/svelte-simple-icons": "^7.2.0",
+    "@lucide/svelte": "^1.33.0",
+    "jszip": "^3.10.1",
+    "svelte-i18n": "^3.7.1",
+    "three": "^0.185.1"
   }
 }
