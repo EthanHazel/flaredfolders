@@ -232,6 +232,7 @@ export function loadDataToStore(data) {
     s.dirty = false;
     return s;
   });
+  clear();
 }
 
 /**
