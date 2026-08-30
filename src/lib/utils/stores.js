@@ -344,7 +344,7 @@ export function getColors(folderSize, folderType) {
     frontTwo: currentStore.colorFrontTwo,
     backOne: currentStore.colorBackOne,
     backTwo: currentStore.colorBackTwo,
-    icon: currentStore.colorIconOne,
+    icon: currentStore.colorIcon,
     shadow: currentStore.iconShadowColor,
   };
 
@@ -376,6 +376,13 @@ export function getColors(folderSize, folderType) {
     colors.frontTwo = FOLDER_CONFIG[folderType].originalColors.frontTwo;
     colors.backOne = FOLDER_CONFIG[folderType].originalColors.backOne;
     colors.backTwo = FOLDER_CONFIG[folderType].originalColors.backTwo;
+  }
+
+  if (folderType === "icon-only") {
+    colors.frontOne = colors.icon;
+    colors.frontTwo = colors.icon;
+    colors.backOne = colors.icon;
+    colors.backTwo = colors.icon;
   }
 
   return colors;
