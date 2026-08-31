@@ -55,6 +55,40 @@
       "backTwo": "#dfa32d"
     }
   },
+  "win10": {
+    "iconSizes": {
+      "256": 128,
+      "64": 32,
+      "48": 24,
+      "40": 20,
+      "32": 16,
+      "24": 12,
+      "20": 10,
+      "16": 10
+    },
+    "iconOffsets": {
+      "256": [111, 97],
+      "64": [27, 25],
+      "48": [20, 19],
+      "40": [17, 16],
+      "32": [13, 13],
+      "24": [10, 10],
+      "20": [8, 8],
+      "16": [3, 3]
+    },
+    "originalColors": {
+      "frontOne": "#FFEAA5",
+      "frontTwo": "#FFE189",
+      "backOne": "#FEE286",
+      "backTwo": "#EAC562",
+      "16": {
+        "frontOne": "#ffeba3",
+        "frontTwo": "#ffe483",
+        "backOne": "#f1d04b",
+        "backTwo": "#e5c144"
+      }
+    }
+  },
   "icon-only": {
     "iconSizes": {
       "256": 256,

@@ -372,10 +372,21 @@ export function getColors(folderSize, folderType) {
   }
 
   if (colorType === "original") {
-    colors.frontOne = FOLDER_CONFIG[folderType].originalColors.frontOne;
-    colors.frontTwo = FOLDER_CONFIG[folderType].originalColors.frontTwo;
-    colors.backOne = FOLDER_CONFIG[folderType].originalColors.backOne;
-    colors.backTwo = FOLDER_CONFIG[folderType].originalColors.backTwo;
+    if (folderSize == "16" && folderType === "win10") {
+      colors.frontOne =
+        FOLDER_CONFIG[folderType].originalColors[folderSize].frontOne;
+      colors.frontTwo =
+        FOLDER_CONFIG[folderType].originalColors[folderSize].frontTwo;
+      colors.backOne =
+        FOLDER_CONFIG[folderType].originalColors[folderSize].backOne;
+      colors.backTwo =
+        FOLDER_CONFIG[folderType].originalColors[folderSize].backTwo;
+    } else {
+      colors.frontOne = FOLDER_CONFIG[folderType].originalColors.frontOne;
+      colors.frontTwo = FOLDER_CONFIG[folderType].originalColors.frontTwo;
+      colors.backOne = FOLDER_CONFIG[folderType].originalColors.backOne;
+      colors.backTwo = FOLDER_CONFIG[folderType].originalColors.backTwo;
+    }
   }
 
   if (folderType === "icon-only") {
