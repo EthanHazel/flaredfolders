@@ -61,6 +61,7 @@
                     max="0.5"
                     key="colorContrast"
                     step="0.01"
+                    defaultValue="0.1.5"
                     tooltip
                 />
                 {#if isIncludedInSelected("colorType", "solid") == true}

@@ -135,6 +135,14 @@
     "win11Solid": {
       "title": "Windows 11 Solid Color",
       "description": "Windows 11 Folder with solid background and no icon."
+    },
+    "win10Solid": {
+      "title": "Windows 10 Solid Color",
+      "description": "Windows 10 Folder with solid background and no icon."
+    },
+    "win10SmallIcon": {
+      "title": "Windows 10 Small Icon",
+      "description": "Windows 10 Folder with no background for smaller sizes. Defaults to advanced colors."
     }
   },
 

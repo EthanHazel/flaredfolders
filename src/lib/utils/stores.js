@@ -354,9 +354,9 @@ export function getColors(folderSize, folderType) {
     colors.backTwo = colors.frontOne;
 
     colors.backOne = adjustLightness(colors.backOne, -contrast);
-    colors.backTwo = adjustLightness(colors.backTwo, -contrast);
+    colors.backTwo = adjustLightness(colors.backTwo, -contrast * 1.5);
 
-    colors.frontOne = adjustLightness(colors.frontOne, contrast);
+    colors.frontOne = adjustLightness(colors.frontOne, contrast * 0.5);
     colors.frontTwo = adjustLightness(colors.frontTwo, -contrast);
 
     colors.frontTwo = shiftHue(colors.frontTwo, hueShift);
