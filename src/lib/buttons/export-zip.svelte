@@ -137,10 +137,6 @@
 {/if}
 
 <style>
-    button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
     .error {
         color: #c0392b;
     }

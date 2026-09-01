@@ -253,6 +253,11 @@ button:not(.nav-button-icon, #logo, .reset-button) {
             background-color: rgba(from var(--primary-color) r g b / 0.5);
         }
     }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 input[type="text"],

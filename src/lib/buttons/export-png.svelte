@@ -101,19 +101,7 @@
 {/if}
 
 <style>
-    button {
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        cursor: pointer;
-    }
-    button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
     .error {
         color: #c0392b;
-        font-size: 0.875rem;
-        margin-top: 0.5rem;
     }
 </style>
