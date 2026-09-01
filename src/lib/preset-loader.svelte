@@ -100,6 +100,7 @@
         corner-shape: squircle;
         border: 1px solid rgba(from var(--text-color) r g b / 0.25);
         background-color: rgba(from var(--text-color) r g b / 0.1);
+        aspect-ratio: 4/3;
     }
 
     .preset-title {
