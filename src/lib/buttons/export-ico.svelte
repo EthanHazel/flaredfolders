@@ -1,9 +1,12 @@
 <script>
+    import { mainStore } from "../utils/stores";
+    import { _ } from "svelte-i18n";
+
     let {
         idPrefix = "folder",
         sizes = [256, 64, 48, 40, 32, 24, 20, 16],
-        filename = "icon.ico",
-        label = "Export as ICO",
+        filename = $mainStore.folderName + ".ico",
+        label = $_("modals.exportAs.ico"),
     } = $props();
 
     let isExporting = $state(false);
@@ -143,7 +146,7 @@
 </script>
 
 <button onclick={exportIco} disabled={isExporting} class="primary">
-    {isExporting ? "Exporting…" : label}
+    {isExporting ? $_("modals.exportAs.exporting") : label}
 </button>
 {#if error}
     <p class="error">{error}</p>

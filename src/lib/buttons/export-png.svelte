@@ -1,8 +1,14 @@
 <script>
+    import { mainStore } from "../utils/stores";
+    import { _ } from "svelte-i18n";
+
     let {
         svgId,
-        filename = `${svgId}.png`,
-        label = `Export ${svgId} as PNG`,
+        filename = `${$mainStore.folderName} ${svgId.replace("folder-", "")}x.png`,
+        label = $_("modals.exportAs.png").replace(
+            "%SIZE%",
+            svgId.replace("folder-", ""),
+        ),
     } = $props();
 
     let isExporting = $state(false);
@@ -87,7 +93,7 @@
 </script>
 
 <button onclick={exportPng} disabled={isExporting}>
-    {isExporting ? "Exporting…" : label}
+    {isExporting ? $_("modals.exportAs.exporting") : label}
 </button>
 
 {#if error}

@@ -1,14 +1,17 @@
 <script>
     import JSZip from "jszip";
 
+    import { mainStore } from "../utils/stores";
+    import { _ } from "svelte-i18n";
+
     let {
         sizes = [256, 64, 48, 40, 32, 24, 20, 16],
         // svgId for a given size, e.g. "folder-256"
         idForSize = (size) => `folder-${size}`,
         // filename inside the zip for a given size, e.g. "folder-256.png"
-        filenameForSize = (size) => `folder-${size}.png`,
-        zipFilename = "folder-icons.zip",
-        label = "Export all sizes as ZIP",
+        filenameForSize = (size) => `${size}x.png`,
+        zipFilename = $mainStore.folderName + ".zip",
+        label = $_("modals.exportAs.zip"),
     } = $props();
 
     let isExporting = $state(false);
@@ -97,12 +100,15 @@
 
             for (const size of sizes) {
                 const svgId = idForSize(size);
-                progress = `Rendering ${svgId}…`;
+                progress = $_("modals.exportAs.rendering").replace(
+                    "%SIZE%",
+                    size,
+                );
                 const pngBlob = await svgToPngBlob(svgId);
                 zip.file(filenameForSize(size), pngBlob);
             }
 
-            progress = "Zipping…";
+            progress = $_("modals.exportAs.zipping");
             const zipBlob = await zip.generateAsync({ type: "blob" });
 
             const url = URL.createObjectURL(zipBlob);
@@ -124,26 +130,18 @@
 </script>
 
 <button onclick={exportAllAsZip} disabled={isExporting} class="primary">
-    {isExporting ? progress || "Exporting…" : label}
+    {isExporting ? progress || $_("modals.exportAs.exporting") : label}
 </button>
 {#if error}
     <p class="error">{error}</p>
 {/if}
 
 <style>
-    button {
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        cursor: pointer;
-    }
     button:disabled {
-        opacity: 0.6;
+        opacity: 0.5;
         cursor: not-allowed;
     }
     .error {
         color: #c0392b;
-        font-size: 0.875rem;
-        margin-top: 0.5rem;
     }
 </style>

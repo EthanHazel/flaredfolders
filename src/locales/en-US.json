@@ -194,7 +194,15 @@
     },
 
     "exportAs": {
-      "title": "Export As"
+      "title": "Export As",
+      "ico": "Export as .ICO",
+      "png": "Export size %SIZE%x as .PNG",
+      "svg": "Export size %SIZE%x as .SVG",
+      "zip": "Export all .PNGs in .ZIP",
+      "folder11": "Export for Folder11",
+      "exporting": "Exporting...",
+      "rendering": "Rendering %SIZE%x...",
+      "zipping": "Zipping..."
     },
 
     "fileTooBig": {
