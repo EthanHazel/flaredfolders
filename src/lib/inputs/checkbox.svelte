@@ -1,9 +1,11 @@
 <script>
     import { mainStore, updateStores } from "../utils/stores.js";
     import Tooltip from "./tooltip.svelte";
-    let { key, tooltip = false } = $props();
 
+    import { Check } from "@lucide/svelte";
     import { _ } from "svelte-i18n";
+
+    let { key, tooltip = false } = $props();
 </script>
 
 <label>
@@ -16,6 +18,15 @@
             updateStores(key, e.target.checked ? true : false);
         }}
     />
+
+    <div
+        class="fake-checkbox"
+        class:checked={$mainStore[$mainStore.selectedSizes[0]][key]}
+    >
+        <div class="fake-checkbox-inner">
+            <Check size={16} />
+        </div>
+    </div>
 
     {$_(`inputs.${key}`)}
     {#if tooltip}
@@ -30,9 +41,47 @@
         align-items: center;
         justify-content: flex-start;
         gap: var(--interface-gap);
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: rgba(from var(--text-color) r g b / 0.1);
+        }
 
         & input {
-            margin: 0;
+            display: none;
+        }
+
+        & .fake-checkbox {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 5px;
+            outline: 1px solid rgba(from var(--text-color) r g b / 0.5);
+            outline-offset: -1px;
+            cursor: pointer;
+
+            & .fake-checkbox-inner {
+                color: var(--text-color);
+                opacity: 0;
+
+                :global(& svg) {
+                    margin-top: 5px;
+                    stroke-width: 4px;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+            &.checked {
+                background-color: var(--primary-color);
+                & .fake-checkbox-inner {
+                    opacity: 1;
+                }
+            }
         }
     }
 </style>
