@@ -29,8 +29,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
-        corner-shape: squircle;
+        outline: 1px solid rgba(from var(--text-color) r g b / 0.1);
         border-radius: 1rem;
         overflow: hidden;
         gap: var(--interface-gap);
@@ -41,6 +40,7 @@
             rgba(from var(--background-color) r g b / 0) 75%,
             rgba(from var(--background-color) r g b / 1) 100%
         );
+        background-color: rgba(from var(--text-color) r g b / 0.025);
     }
 
     .gallery-small {

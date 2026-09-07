@@ -23,7 +23,7 @@
         display: flex;
         flex-direction: column;
         user-select: none;
-        outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
+        outline: 1px solid rgba(from var(--text-color) r g b / 0.1);
         border-radius: 0.25rem;
 
         &[open] summary {
@@ -43,6 +43,7 @@
         list-style: none;
         cursor: pointer;
         padding: var(--interface-gap);
+        color: rgba(from var(--text-color) r g b / 0.75);
         border-radius: 0.25rem 0.25rem 0 0;
 
         &:hover {
@@ -59,5 +60,6 @@
         flex-direction: column;
         gap: var(--interface-gap);
         padding: var(--interface-gap);
+        background-color: rgba(from var(--text-color) r g b / 0.025);
     }
 </style>

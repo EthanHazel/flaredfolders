@@ -63,7 +63,7 @@
             width: 1.25rem;
             height: 1.25rem;
             border-radius: 50%;
-            outline: 1px solid rgba(from var(--text-color) r g b / 0.5);
+            outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
             outline-offset: -1px;
             cursor: pointer;
 
@@ -71,12 +71,13 @@
                 width: 0.5rem;
                 height: 0.5rem;
                 border-radius: 50%;
-                background-color: var(--text-color);
+                background-color: var(--white-color);
                 opacity: 0;
             }
 
             &.checked {
                 background-color: var(--primary-color);
+                outline: 1px solid rgba(from var(--white-color) r g b / 0.25);
                 & .fake-radio-inner {
                     opacity: 1;
                 }

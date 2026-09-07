@@ -46,6 +46,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         text-align: center;
+        border-radius: 1rem;
     }
     #licenses-list {
         list-style: none;

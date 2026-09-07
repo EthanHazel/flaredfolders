@@ -83,8 +83,7 @@
         width: 860px;
         height: 360px;
         outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
-        corner-shape: squircle;
-        border-radius: 2rem;
+        border-radius: 1rem;
         background-color: rgba(from var(--background-color) r g b / 0.75);
         backdrop-filter: blur(1rem);
 
@@ -151,8 +150,7 @@
         justify-content: center;
         align-items: center;
         outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
-        corner-shape: squircle;
-        border-radius: 2rem;
+        border-radius: 1rem;
         width: 100%;
         height: 100%;
         background-size: cover;

@@ -60,12 +60,12 @@
             width: 1.25rem;
             height: 1.25rem;
             border-radius: 5px;
-            outline: 1px solid rgba(from var(--text-color) r g b / 0.5);
+            outline: 1px solid rgba(from var(--text-color) r g b / 0.25);
             outline-offset: -1px;
             cursor: pointer;
 
             & .fake-checkbox-inner {
-                color: var(--text-color);
+                color: var(--white-color);
                 opacity: 0;
 
                 :global(& svg) {
@@ -77,6 +77,7 @@
             }
 
             &.checked {
+                outline: 1px solid rgba(from var(--white-color) r g b / 0.25);
                 background-color: var(--primary-color);
                 & .fake-checkbox-inner {
                     opacity: 1;

@@ -1,6 +1,6 @@
 :root {
-    --black-color: #0d0d0d;
-    --white-color: #f1f1f1;
+    --black-color: #0d0d0f;
+    --white-color: #f1f2f9;
 
     --background-color: var(--black-color);
     --text-color: var(--white-color);
@@ -99,14 +99,14 @@ dialog {
     display: flex;
     flex-direction: column;
     padding: 0;
-    background-color: rgba(from var(--background-color) r g b / 0.75);
+    background-color: var(--background-color);
     color: var(--text-color);
     border: 1px solid rgba(from var(--text-color) r g b / 0.25);
+    outline: 3px solid rgba(from var(--primary-color) r g b / 0.25);
     min-width: 720px;
     overflow: visible;
     z-index: 2;
-    border-radius: 1rem;
-    corner-shape: squircle;
+    border-radius: 0.5rem;
     animation: fadeInModal 0.2s ease-in-out;
 
     &.contains-rooty {
@@ -138,8 +138,7 @@ dialog .modal-header {
     border-bottom: 1px solid rgba(from var(--text-color) r g b / 0.125);
     padding: var(--interface-gap);
     background-color: rgba(from var(--text-color) r g b / 0.05);
-    border-radius: 1rem 1rem 0 0;
-    corner-shape: squircle;
+    border-radius: 0.5rem 0.5rem 0 0;
 
     & .modal-title {
         font-size: 1.25rem;
@@ -189,7 +188,7 @@ dialog .modal-header {
     box-sizing: border-box;
     overflow-y: scroll;
     outline: 1px solid rgba(from var(--text-color) r g b / 0.1);
-    corner-shape: squircle;
+    background-color: rgba(from var(--text-color) r g b / 0.025);
     border-radius: 1rem;
 }
 
@@ -223,7 +222,6 @@ button:not(.nav-button-icon, #logo, .reset-button) {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
     border-radius: 0.25rem;
     padding: 0.5rem 1.5rem;
     color: var(--text-color);
@@ -242,8 +240,9 @@ button:not(.nav-button-icon, #logo, .reset-button) {
     }
 
     &.primary {
-        background-color: rgba(from var(--primary-color) r g b / 0.5);
-        color: var(--text-color);
+        background-color: var(--primary-color);
+        font-weight: bold;
+        color: var(--white-color);
 
         &:hover {
             background-color: rgba(from var(--primary-color) r g b / 0.75);

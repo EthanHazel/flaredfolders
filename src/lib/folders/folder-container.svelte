@@ -79,8 +79,7 @@
         padding: 6px;
         min-width: 64px;
         min-height: 64px;
-        border-radius: 1rem;
-        corner-shape: squircle;
+        border-radius: 0.5rem;
         backdrop-filter: blur(1rem);
         cursor: pointer;
         aspect-ratio: 1;
